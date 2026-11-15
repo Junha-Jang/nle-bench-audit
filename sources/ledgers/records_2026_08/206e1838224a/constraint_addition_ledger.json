@@ -1,0 +1,154 @@
+{
+ "_meta": {
+  "base": "64668e0",
+  "caveat": "delta counts constraint-list LENGTH changes; in-place edits that keep the count are corpus changes but not additions — they appear in the 265-scenario constraints-changed set (corpus_defect_audit.json), not here",
+  "corpus": "src/nlebench/dataset/scenarios_v3_1",
+  "derivation": "git-only; counts required+specified per scenario per commit",
+  "wave2_reconciliation": "commit 8d0ca7e length-delta is +182; cluster_hardening.json's summary line ('요약.보강한 제약 수': 180) is STALE. Parsing the per-item 'hardening' fields yields 182 (154 single-constraint entries + 26 list entries), matching a per-scenario git recount of the commit exactly (154 scenarios, zero per-scenario mismatches; machine-joined 2026-08-19). Item-level records and git agree; only the summary integer lags",
+  "what": "per-commit constraint-count ledger backing the manuscript's '+257 constraints (zero deletions)' hardening claim"
+ },
+ "base_constraint_total": 2148,
+ "lineage_total": {
+  "added": 310,
+  "removed": 0
+ },
+ "paper_claim": {
+  "matches": true,
+  "outside_waves_added": 53,
+  "scope": "the two constraint-hardening waves",
+  "value": 257,
+  "wave_sum": 257,
+  "waves": [
+   "c8be3e8",
+   "8d0ca7e"
+  ]
+ },
+ "per_commit": [
+  {
+   "added": 0,
+   "commit": "637c8cb",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "959664b",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "185bfa2",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "d29f270",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "558c4eb",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "bb0162c",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "4533ffc",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "bfc5690",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "87bb388",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 1,
+   "commit": "8ab30f9",
+   "delta": 1,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "6b4db68",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "0b3a4ad",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 75,
+   "commit": "c8be3e8",
+   "delta": 75,
+   "hardening_wave": true,
+   "removed": 0
+  },
+  {
+   "added": 43,
+   "commit": "28a5f11",
+   "delta": 43,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 9,
+   "commit": "942b45a",
+   "delta": 9,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 182,
+   "commit": "8d0ca7e",
+   "delta": 182,
+   "hardening_wave": true,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "fac19af",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  },
+  {
+   "added": 0,
+   "commit": "ea3326f",
+   "delta": 0,
+   "hardening_wave": false,
+   "removed": 0
+  }
+ ]
+}

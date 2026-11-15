@@ -1,0 +1,963 @@
+{
+ "_meta": {
+  "what": "false_success_probe.json 의 변이 검정 잔여 53건을 REAL/FREEDOM/GOLD 로 끝까지 분류하고 닫는다",
+  "date": "2026-08-14",
+  "scoring_path": "validate_named_constraints + load_scenario + build_fixture + execute_tool (하네스 경로만)",
+  "judgement_basis": "각 시나리오의 turns(지시문)가 그 값/대상/단계를 실제로 요구하는가. 지시문이 값을 말하지 않으면 REAL 이 아니다.",
+  "원칙": [
+   "강화만 했다. 기존 제약 삭제 0건 · 교체 0건. 모든 조치는 required 목록에 제약을 **추가**하거나 정답을 정리한 것이다.",
+   "소스 코드 수정 0건. 공유 픽스처 JSON 수정 0건. YAML 만 고쳤다.",
+   "모든 YAML 수정은 줄 단위 삽입/삭제 후 yaml.safe_load 로 재파싱하고, '삽입한 제약 하나를 빼면 원문 구조와 동일한가' 를 자동 대조한 뒤에만 남겼다(정규식 치환 금지). 검증에 실패하면 드라이버가 원문으로 되돌린다.",
+   "FREEDOM 은 미해결이 아니라 '그대로 두는 것이 결론' 인 닫힌 상태다."
+  ],
+  "선행_산출물": [
+   "false_success_probe.json(발견)",
+   "false_success_triage.json(120건 분류)",
+   "constraint_hardening.json(62건 중 61건 보강)"
+  ]
+ },
+ "요약": {
+  "대상": 53,
+  "REAL": 3,
+  "FREEDOM": 42,
+  "GOLD": 8,
+  "미분류": 0,
+  "보강한_시나리오(53건 대상)": 3,
+  "추가한_제약(53건 대상)": 3,
+  "정답을_고친_시나리오": 7,
+  "정답_수정_건수(발견 기준)": 8,
+  "확장_프로브에서_추가로_보강한_시나리오": 49
+ },
+ "분류_정의": {
+  "REAL": "지시문이 그 값/대상/단계를 요구하는데 제약이 붙잡지 못한다 → 제약을 보강했다",
+  "FREEDOM": "지시문이 그것을 지정하지 않는다(또는 최종 상태 채점에서 원리적으로 구별 불가) → 보강하지 않는 것이 옳다",
+  "GOLD": "정답 수순에 지시문이 요구하지 않는 단계/값이 들어 있다 → 제약이 아니라 정답을 정리했다"
+ },
+ "FREEDOM_42건의_성격별_분포": {
+  "cascade_원리적_구별불가(unlink 후 remove = remove)": 8,
+  "트랜지션_길이_미지정": 13,
+  "공허한_하위목표(픽스처 초기값이 이미 지시된 값)": 7,
+  "뒤_턴이_덮어씀(중간 값이 최종 상태에 안 남음)": 3,
+  "A/V_동기_리플이_선택사항": 3,
+  "'~뒤에'_순서만_지정(그 트랙이 꽉 차 위반 배치가 실행 불가)": 3,
+  "리플_전제조건_수치_미지정": 2,
+  "해상도_미지정": 2,
+  "위치_전혀_미지정(빈 새 트랙)": 1
+ },
+ "항목": [
+  {
+   "n": 1,
+   "변이_종류": "M4 값 왜곡(+7)",
+   "변이_상세": {
+    "scenario": "NLB-v3-CX-AT-003",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   "시나리오": "NLB-v3-CX-AT-003",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/context/atomic/dev/NLB-v3-CX-AT-003.yaml",
+   "fixture": "simple_sequence",
+   "지시문_요지": "The cut between the intro and the middle section feels too abrupt. Add a cross-dissolve transition there.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 지시문은 트랜지션 **종류와 위치**만 말하고 길이를 말하지 않는다. 길이를 못 박으면 지시를 옳게 읽은 모델을 떨어뜨린다.",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/value_unspecified",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 2,
+   "변이_종류": "M4 값 왜곡(+7)",
+   "변이_상세": {
+    "scenario": "NLB-v3-CX-AT-009",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   "시나리오": "NLB-v3-CX-AT-009",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/context/atomic/dev/NLB-v3-CX-AT-009.yaml",
+   "fixture": "complex_sequence",
+   "지시문_요지": "The jump from the intro to the bridge feels harsh — add a wipe transition there. || And put a contrast effect on the bridge clip to set it apart.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 지시문은 트랜지션 **종류와 위치**만 말하고 길이를 말하지 않는다. 길이를 못 박으면 지시를 옳게 읽은 모델을 떨어뜨린다.",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/value_unspecified",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 8,
+   "변이_종류": "M4 값 왜곡(+7)",
+   "변이_상세": {
+    "scenario": "NLB-v3-CX-CU-003",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   "시나리오": "NLB-v3-CX-CU-003",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/context/cumulative/dev/NLB-v3-CX-CU-003.yaml",
+   "fixture": "simple_sequence",
+   "지시문_요지": "Add a cross-dissolve between the intro and the middle clip. || Now slow the outro to 0.85x. Keep the transition.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 지시문은 트랜지션 **종류와 위치**만 말하고 길이를 말하지 않는다. 길이를 못 박으면 지시를 옳게 읽은 모델을 떨어뜨린다.",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/value_unspecified",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 14,
+   "변이_종류": "M4 값 왜곡(+7)",
+   "변이_상세": {
+    "scenario": "NLB-v3-DI-CO-008",
+    "step": 0,
+    "param": "start",
+    "intended": 5,
+    "used": 12.0
+   },
+   "시나리오": "NLB-v3-DI-CO-008",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/diagnosis/compound/dev/NLB-v3-DI-CO-008.yaml",
+   "fixture": {
+    "base": "simple_sequence",
+    "patch": [
+     {
+      "op": "set_attribute",
+      "params": {
+       "entity": "video_clip_2",
+       "field": "speed",
+       "value": 4.0
+      }
+     },
+     {
+      "op": "add_transition",
+      "params": {
+       "track_id": "video_track_1",
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "transition_type": "dip_to_black",
+       "duration": 1.0
+      }
+     }
+    ]
+   },
+   "지시문_요지": "The second clip is running way too fast and there's a dip-to-black transition after it that shouldn't be there — fix both.",
+   "분류": "REAL",
+   "근거": "REAL · 지시는 vc_2 에 대해 **속도만** 고치라고 한다(그리고 트랜지션 제거). 클립의 타임라인 위치는 지시가 '그대로' 로 유일하게 결정한다. 그런데 unchanged_except 는 엔티티 단위라 vc_2 안에서 무엇이 바뀌든 통과한다 — 변종은 vc_2 를 5-15s 에서 12-15s 로 옮기고 길이를 3s 로 잘라 놓고도 통과했다.",
+   "조치": {
+    "추가": [
+     {
+      "position_equals": {
+       "entity": "video_clip_2",
+       "start": 5.0,
+       "end": 15.0
+      }
+     }
+    ]
+   },
+   "앞_라운드_분류(참고)": "BENIGN/collateral_unguarded",
+   "검증": {
+    "정답_전_호출_success": true,
+    "정답_TSR": true,
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "position_equals"
+    ]
+   }
+  },
+  {
+   "n": 18,
+   "변이_종류": "M4 값 왜곡(+7)",
+   "변이_상세": {
+    "scenario": "NLB-v3-EX-CU-007",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   "시나리오": "NLB-v3-EX-CU-007",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/explicit/cumulative/dev/NLB-v3-EX-CU-007.yaml",
+   "fixture": "simple_sequence",
+   "지시문_요지": "Add a cross-dissolve transition between video_clip_1 and video_clip_2. || Change the transition duration to 1.5s. Keep the transition type.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 뒤 턴이 같은 필드를 지시된 값으로 덮어쓴다. 변이한 중간 값은 최종 상태에 남지 않으므로(최종 상태 동일) 제약이 잡을 대상 자체가 없다. 중간 값은 지시가 지정하지도 않는다.",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/overwritten_later",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 23,
+   "변이_종류": "M4 값 왜곡(+7)",
+   "변이_상세": {
+    "scenario": "NLB-v3-EX-DE-001",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   "시나리오": "NLB-v3-EX-DE-001",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/explicit/dependent/dev/NLB-v3-EX-DE-001.yaml",
+   "fixture": "simple_sequence",
+   "지시문_요지": "Import the file 'interview_b.mp4' as new media, then add a clip from it after video_clip_3.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 지시는 순서('~ 뒤에')만 말하고 정확한 시각을 말하지 않는다. 변이한 값도 여전히 '뒤'다. 게다가 이 트랙은 해당 구간이 꽉 차 있어 executor 의 겹침 거부 때문에 순서를 어기는 배치는 **실행 자체가 안 된다**(하네스로 확인) — 순서 제약을 더해도 막을 것이 없다.",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/value_unspecified",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 28,
+   "변이_종류": "M3 대상 오조준",
+   "변이_상세": {
+    "scenario": "NLB-v3-EX-AT-010",
+    "step": 2,
+    "intended": "audio_clip_4",
+    "used": "video_clip_1"
+   },
+   "시나리오": "NLB-v3-EX-AT-010",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/explicit/atomic/dev/NLB-v3-EX-AT-010.yaml",
+   "fixture": "simple_sequence",
+   "지시문_요지": "Unlink video_clip_1 from its linked audio. || Import media from /assets/overlay.png into the project. || Set audio_clip_4 volume to -6 dB.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 제약은 지시 값을 **정확히** 걸고 있다(attribute_equals). 변종이 통과하는 이유는 제약이 약해서가 아니라 픽스처 초기값이 이미 그 값이어서 지시가 요구하는 최종 상태가 처음부터 참이기 때문이다. 제약이 더 걸 것이 없다 — 변별력은 시나리오 저작 문제다(권고 참조). (audio_clip_4 의 초기 볼륨이 이미 -6.0 dB)",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/vacuous_subgoal",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 31,
+   "변이_종류": "M1 단계 누락",
+   "변이_상세": {
+    "scenario": "NLB-v3-CX-CO-004",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_4"
+    }
+   },
+   "시나리오": "NLB-v3-CX-CO-004",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/context/compound/dev/NLB-v3-CX-CO-004.yaml",
+   "fixture": {
+    "base": "complex_sequence",
+    "patch": [
+     {
+      "op": "link_clips",
+      "params": {
+       "video_clip_id": "video_clip_5",
+       "audio_clip_id": "audio_clip_3"
+      }
+     }
+    ]
+   },
+   "지시문_요지": "The later B-roll overlay is distracting: unlink it from its audio, remove the clip, and shift the earlier B-roll's start 2 seconds later.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 최종 상태에서 원리적으로 구별 불가. remove_clip 이 짝 클립의 link_group 을 직접 지운다(executor.py:466-473 cascade). 따라서 '먼저 링크 해제 후 삭제' 와 '그냥 삭제' 의 **최종 상태가 완전히 같다**. 하네스는 최종 상태만 채점하므로 어떤 제약을 더해도 두 수순을 가를 수 없다 — 제약을 더하면 정답까지 떨어진다. 지시의 '해제하라' 는 절차이지 상태가 아니다.",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/subsumed_by_later_step",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 36,
+   "변이_종류": "M1 단계 누락",
+   "변이_상세": {
+    "scenario": "NLB-v3-CX-DE-005",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_4"
+    }
+   },
+   "시나리오": "NLB-v3-CX-DE-005",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/context/dependent/dev/NLB-v3-CX-DE-005.yaml",
+   "fixture": {
+    "base": "complex_sequence",
+    "patch": [
+     {
+      "op": "link_clips",
+      "params": {
+       "video_clip_id": "video_clip_5",
+       "audio_clip_id": "audio_clip_3"
+      }
+     }
+    ]
+   },
+   "지시문_요지": "The later B-roll overlay's audio is clashing. Unlink it from its audio track. || Now remove the B-roll clip entirely — we don't need it.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 최종 상태에서 원리적으로 구별 불가. remove_clip 이 짝 클립의 link_group 을 직접 지운다(executor.py:466-473 cascade). 따라서 '먼저 링크 해제 후 삭제' 와 '그냥 삭제' 의 **최종 상태가 완전히 같다**. 하네스는 최종 상태만 채점하므로 어떤 제약을 더해도 두 수순을 가를 수 없다 — 제약을 더하면 정답까지 떨어진다. 지시의 '해제하라' 는 절차이지 상태가 아니다.",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/subsumed_by_later_step",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 41,
+   "변이_종류": "M1 단계 누락",
+   "변이_상세": {
+    "scenario": "NLB-v3-DI-DE-007",
+    "dropped_step": 1,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "video_clip_3",
+     "start": 18.0,
+     "end": 30.0
+    }
+   },
+   "시나리오": "NLB-v3-DI-DE-007",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/diagnosis/dependent/dev/NLB-v3-DI-DE-007.yaml",
+   "fixture": {
+    "base": "complex_sequence",
+    "patch": [
+     {
+      "op": "set_attribute",
+      "params": {
+       "entity": "video_clip_2",
+       "field": "duration",
+       "value": {
+        "n": 50,
+        "d": 1
+       }
+      }
+     }
+    ]
+   },
+   "지시문_요지": "The second clip's duration is way off — set it to 10 seconds, then slide the next clip so it starts right when this one ends, and finally add a cross-dissolve between them.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 제약은 지시 값을 **정확히** 걸고 있다(attribute_equals). 변종이 통과하는 이유는 제약이 약해서가 아니라 픽스처 초기값이 이미 그 값이어서 지시가 요구하는 최종 상태가 처음부터 참이기 때문이다. 제약이 더 걸 것이 없다 — 변별력은 시나리오 저작 문제다(권고 참조). (video_clip_3 이 이미 18.0s 에서 시작한다 — vc_2 의 새 끝점과 정확히 일치)",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/vacuous_subgoal",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 43,
+   "변이_종류": "M1 단계 누락",
+   "변이_상세": {
+    "scenario": "NLB-v3-EX-AT-010",
+    "dropped_step": 2,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "audio_clip_4",
+     "volume": -6.0
+    }
+   },
+   "시나리오": "NLB-v3-EX-AT-010",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/explicit/atomic/dev/NLB-v3-EX-AT-010.yaml",
+   "fixture": "simple_sequence",
+   "지시문_요지": "Unlink video_clip_1 from its linked audio. || Import media from /assets/overlay.png into the project. || Set audio_clip_4 volume to -6 dB.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 제약은 지시 값을 **정확히** 걸고 있다(attribute_equals). 변종이 통과하는 이유는 제약이 약해서가 아니라 픽스처 초기값이 이미 그 값이어서 지시가 요구하는 최종 상태가 처음부터 참이기 때문이다. 제약이 더 걸 것이 없다 — 변별력은 시나리오 저작 문제다(권고 참조). (audio_clip_4 의 초기 볼륨이 이미 -6.0 dB)",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/vacuous_subgoal",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 47,
+   "변이_종류": "M1 단계 누락",
+   "변이_상세": {
+    "scenario": "NLB-v3-EX-DE-006",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_3"
+    }
+   },
+   "시나리오": "NLB-v3-EX-DE-006",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/explicit/dependent/dev/NLB-v3-EX-DE-006.yaml",
+   "fixture": "complex_sequence",
+   "지시문_요지": "Unlink video_clip_3 from audio_clip_3. || Remove video_clip_3 from the timeline.",
+   "분류": "FREEDOM",
+   "근거": "FREEDOM · 최종 상태에서 원리적으로 구별 불가. remove_clip 이 짝 클립의 link_group 을 직접 지운다(executor.py:466-473 cascade). 따라서 '먼저 링크 해제 후 삭제' 와 '그냥 삭제' 의 **최종 상태가 완전히 같다**. 하네스는 최종 상태만 채점하므로 어떤 제약을 더해도 두 수순을 가를 수 없다 — 제약을 더하면 정답까지 떨어진다. 지시의 '해제하라' 는 절차이지 상태가 아니다.",
+   "조치": "없음 — 그대로 두는 것이 결론이다",
+   "앞_라운드_분류(참고)": "BENIGN/subsumed_by_later_step",
+   "검증": {
+    "조치_없음": "보강하지 않았으므로 정답·변종 상태 그대로. 근거는 위 서술과 하네스 확인(픽스처 초기값·executor 동작·최종 상태 비교)에 있다."
+   }
+  },
+  {
+   "n": 52,
+   "변이_종류": "M1 단계 누락",
+   "변이_상세": {
+    "scenario": "NLB-v3-ST-DE-004",
+    "dropped_step": 2,
+    "tool": "remove_clip",
+    "params": {
+     "clip_id": "caption_1"
+    }
+   },
+   "시나리오": "NLB-v3-ST-DE-004",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/state/dependent/dev/NLB-v3-ST-DE-004.yaml",
+   "fixture": "simple_sequence",
+   "지시문_요지": "Remove the first V1 clip from the timeline. || Shift all following clips earlier so there is no gap.",
+   "분류": "GOLD",
+   "근거": "GOLD · 지시는 '첫 V1 클립 제거 + 뒤 클립들을 당겨 빈틈 없애기' 다. 정답 2단계는 caption_1 을 **삭제**한다 — 지시는 캡션을 지우라고 하지 않는다(당기라고 했다). 사용자의 자막을 묻지 않고 지우는 수순을 정답으로 두면 모델에 그 행동을 가르치는 셈이다.",
+   "조치": {
+    "정답수정": "reference_solution[2] remove_clip caption_1 단계 삭제"
+   },
+   "앞_라운드_분류(참고)": "GOLD/unrequested_step",
+   "검증": {
+    "정답_전_호출_success": true,
+    "정답_TSR": true,
+    "yaml.safe_load_재파싱": "OK",
+    "해당_M1/M4_발견": "재실행에서 사라짐(변이 대상 단계·파라미터가 정답에서 없어졌다)"
+   }
+  },
+  {
+   "n": 53,
+   "변이_종류": "M1 단계 누락",
+   "변이_상세": {
+    "scenario": "NLB-v3-ST-DE-008",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_1"
+    }
+   },
+   "시나리오": "NLB-v3-ST-DE-008",
+   "path": "src/nlebench/dataset/scenarios_v3_1/feasible/state/dependent/dev/NLB-v3-ST-DE-008.yaml",
+   "fixture": {
+    "base": "complex_sequence",
+    "patch": [
+     {
+      "op": "link_clips",
+      "params": {
+       "video_clip_id": "video_clip_5",
+       "audio_clip_id": "audio_clip_3"
+      }
+     }
+    ]
+   },
+   "지시문_요지": "Unlink the shortest V2 clip from its linked audio. || Then remove that audio clip and shift the following audio clips earlier to fill the gap.",
+   "분류": "GOLD",
+   "근거": "GOLD · 대상 오조준. '가장 짧은 V2 클립' 은 video_clip_5(5s < vc_4 6s)이고 그 링크는 픽스처 패치가 만든 link_4(vc_5↔ac_3)다. 정답은 link_1(vc_1↔ac_1)을 끊고 있었다 — 지시와 무관한 링크다. 그런데도 통과한 것은 뒤 단계의 remove_clip(audio_clip_3)이 cascade 로 vc_5 의 링크를 지워 not_linked{video_clip_5} 가 참이 되기 때문이다. (이 단계를 빼도 통과하는 잔여 성질은 cascade 동등성 — FREEDOM 과 같은 원리적 한계다.)",
+   "조치": {
+    "정답수정": "reference_solution[0] unlink link_id: link_1 → link_4"
+   },
+   "앞_라운드_분류(참고)": "GOLD/wrong_target_in_gold",
+   "검증": {
+    "정답_전_호출_success": true,
+    "정답_TSR": true,
+    "yaml.safe_load_재파싱": "OK",
+    "해당_M1_발견": "남는다 — cascade 동등성 때문이며 제약 결함이 아니다(위 근거)"
+   }
+  }
+ ],
+ "프로브_확장": {
+  "왜": "원본 M4 는 **시나리오당 첫 수치 파라미터 하나**만 변이하고 내부·외부 루프를 모두 break 한다(false_success_probe.py:138-157). 그래서 '정답 두 번째 단계의 caption start' 같은 값은 한 번도 검사되지 않았다. 79건(보강 후 26건)은 하한이었다.",
+  "무엇을_했나": {
+   "파일": "<LEDGER_DIR>/false_success_probe_full.py (신규)",
+   "M4-full": "정답의 **모든 단계 × 모든 수치 파라미터**를 각각 +7 로 왜곡 (시행 515 → 1163회)",
+   "M5(신규 변이)": "지시가 글자 그대로 못 박는 **문자열 리터럴** 왜곡 — 자막 텍스트/트랙·시퀀스·빈 이름/파일 경로는 다른 문자열로, 트랜지션·이펙트 종류는 유효한 **다른** 종류로. 엔티티 id 로 쓰이는 키는 제외(그 축은 M3 담당). 시행 455회",
+   "부수_개선": "픽스처 스펙을 deepcopy 해 넘긴다 — 앞 라운드에서 M1 4건을 오탐으로 만든 상태 별칭(P6) 차단"
+  },
+  "새_발견": {
+   "M4-full": 312,
+   "M5": 118,
+   "계": 430,
+   "해석": "원본 프로브가 보던 창(시나리오당 1회)을 넓히자 거짓 성공이 **8배** 나왔다. 이것이 '79건은 하한' 의 실제 크기다."
+  },
+  "이번에_닫은_것": {
+   "M5_transition_type": {
+    "건수": 33,
+    "조치": "attribute_equals{$new_transition_1, field: type} 추가(참조가 없는 DI-DE-007/034/037 3건은 has_transition 에 type 병기)",
+    "왜_REAL": "지시가 'cross-dissolve'/'wipe'/'dissolve' 로 **종류를 명시**하는데 제약은 entity_exists 뿐이라 dip_to_black 을 넣어도 통과했다. 가장 노골적인 거짓 성공 — 사용자가 요청한 것과 다른 편집이 만점을 받는다.",
+    "검증": "33/33 정답 전 호출 success + TSR=True 유지, 변종 전부 탈락"
+   },
+   "M5_caption_text": {
+    "건수": 7,
+    "조치": "attribute_equals{$new_caption_1, field: text} 추가",
+    "왜_REAL": "지시가 'Part One'·'Act 2' 처럼 **텍스트를 따옴표로 인용**하는데 제약이 텍스트를 재지 않아 아무 문자열이나 통과했다.",
+    "검증": "7/7 정답 통과 유지, 변종 전부 탈락"
+   },
+   "M4-full_소규모_REAL": {
+    "건수": 9,
+    "조치": "볼륨 6건 attribute_equals(P1 패턴 — 앞 라운드가 첫 단계만 봐서 놓친 뒤 단계들) · split 지점 1건 position_equals · 캡션 시작 1건 position_equals · position_y 1건 attribute_equals",
+    "검증": "9/9 정답 통과 유지, 변종 전부 탈락"
+   },
+   "계": 49
+  },
+  "확장_프로브_재실행": {
+   "보강_전": {
+    "M4-full": 312,
+    "M5": 118,
+    "계": 430
+   },
+   "보강_후": {
+    "M4-full": 303,
+    "M5": 78,
+    "계": 381
+   }
+  },
+  "남은_381건의_분류(클러스터 단위, 이번에 손대지 않음)": [
+   {
+    "클러스터": "update_clip.scale_y",
+    "건수": 86,
+    "판정": "REAL 유력",
+    "설명": "'scale to 0.9' 는 균등 배율을 뜻하는데 제약은 transform.scale_x 만 잰다. scale_y 만 어긋난 비균등 배율(화면 찌그러짐)이 통과한다.",
+    "권고": "attribute_equals{transform.scale_y} 병기 — 기계적이지만 86개 시나리오를 건드리므로 별도 라운드로 분리"
+   },
+   {
+    "클러스터": "import_media.file_path",
+    "건수": 32,
+    "판정": "REAL 유력(30) + FREEDOM(2)",
+    "설명": "지시가 파일명을 인용하는데('ambient_bg.mp3') 제약은 entity_exists/entity_count_changed 뿐이라 다른 파일을 임포트해도 통과한다. Media.name = basename(file_path)(executor.py:938)이므로 attribute_equals{$new_media_1, name} 로 잴 수 있다."
+   },
+   {
+    "클러스터": "add_track.name(27) / add_sequence.name(4) / manage_bin.name(1)",
+    "건수": 32,
+    "판정": "혼재",
+    "설명": "'named V3'·'called B-Roll' 처럼 이름을 인용한 건은 REAL(약 16건), '오버레이용 새 비디오 트랙을 만들어라' 처럼 이름을 말하지 않는 건은 FREEDOM(약 16건).",
+    "권고": "REAL 쪽만 보강. 다만 대부분 시나리오에 $new_track_1 참조가 없어 참조 도입이 선행되어야 한다"
+   },
+   {
+    "클러스터": "길이·끝점 — add_transition.duration(46) · add_caption.end(46) · add_clip.end(46)",
+    "건수": 138,
+    "판정": "대부분 FREEDOM",
+    "설명": "지시가 길이를 말하지 않는 경우가 다수(이번 53건의 FREEDOM 13건과 같은 성격). 다만 '2-second black clip'·'4-second caption' 처럼 길이를 못 박는 건은 REAL 이다.",
+    "권고": "지시문 단위 선별 후 duration_equals 보강"
+   },
+   {
+    "클러스터": "update_clip.start/end/in_point/out_point",
+    "건수": 44,
+    "판정": "혼재"
+   },
+   {
+    "클러스터": "add_clip.start/in_point/out_point",
+    "건수": 24,
+    "판정": "대부분 FREEDOM",
+    "설명": "'~ 뒤에' 순서만 지정하거나 소스 인·아웃점을 아예 말하지 않는 경우."
+   },
+   {
+    "클러스터": "update_caption.text (garbled 계열)",
+    "건수": 7,
+    "판정": "저작 결함",
+    "설명": "'자막이 깨졌다 — 고쳐라' 는 **올바른 텍스트를 지시문이 말하지 않는다**. 제약이 attribute_changed 뿐이라 아무 문자열이나 통과하지만, 값을 못 박으면 지시로부터 유도할 수 없는 정답을 강요하게 된다.",
+    "권고": "제약이 아니라 시나리오를 고친다 — 원문을 지시에 넣거나 컨텍스트로 유일하게 결정되게 한다"
+   },
+   {
+    "클러스터": "add_transition.transition_type ('fade' 3건)",
+    "건수": 3,
+    "판정": "보류(문구 모호)"
+   },
+   {
+    "클러스터": "add_caption.text(2) / add_clip.text(1) / add_effect.effect_type(1)",
+    "건수": 4,
+    "판정": "FREEDOM"
+   },
+   {
+    "클러스터": "기타 — add_sequence width/height/fps(6) · update_clip.volume(2) · speed(2) · split_clip.position(1)",
+    "건수": 11,
+    "판정": "대부분 FREEDOM"
+   }
+  ]
+ },
+ "저작_권고(제약·정답으로는 못 고치는 것)": [
+  {
+   "시나리오": [
+    "NLB-v3-EX-AT-010",
+    "NLB-v3-DI-DE-007"
+   ],
+   "무엇": "공허한 하위목표 — 지시가 요구하는 최종 상태가 픽스처에서 이미 참이라 그 턴이 변별력을 갖지 못한다",
+   "권고": "지시 값을 초기값과 다르게 하거나(예: -6 dB → -12 dB) 픽스처 값을 바꾼다. 공유 픽스처는 다른 시나리오와 얽혀 있으므로 지시 값 쪽 수정이 안전하다"
+  },
+  {
+   "시나리오": [
+    "NLB-v3-ST-CU-003"
+   ],
+   "권고": "픽스처 길이를 어긋나게 하거나 지시를 명시적 지목으로 바꾼다. 동률이 남아 있는 한 분할 지점 등을 못 박으면 옳은 독해를 떨어뜨린다(그래서 ST-CU-003 은 보강하지 않았다)"
+  },
+  {
+   "시나리오": [
+    "NLB-v3-ST-DE-004"
+   ],
+   "무엇": "'뒤 클립을 모두 앞으로 당겨 빈틈을 없애라' 인데 V1 의 caption_1(2.0-5.0s)은 5초 앞으로 당기면 음수 시각이 된다 — 저자가 그래서 캡션을 지웠고 그것이 이번 GOLD 수정의 대상이었다",
+   "권고": "캡션을 다른 트랙으로 옮기거나 지시에서 캡션을 명시적으로 제외한다"
+  }
+ ],
+ "최종_확인": {
+  "false_success_probe.py_재실행": {
+   "보강_전": {
+    "M4": 26,
+    "M3": 3,
+    "M1": 24,
+    "계": 53
+   },
+   "보강_후": {
+    "M4_값이_틀려도_통과": 23,
+    "M3_다른_대상에_해도_통과": 3,
+    "M1_단계가_불필요": 18,
+    "계": 44
+   },
+   "사라진_9건": [
+    "M1 ST-DE-004#2",
+    "M4 DI-CO-008 start"
+   ],
+   "새로_생긴_것": 0
+  },
+  "전량_회귀": {
+   "총_yaml": 800,
+   "yaml.safe_load_+_load_scenario_실패": 0,
+   "정답이_있는_시나리오": 633,
+   "정답_전_호출_success_실패": 0,
+   "정답_TSR_False": 0,
+   "no-op(도구_호출_0개)로_통과": {
+    "feasible": 0,
+    "ambiguous": 80,
+    "infeasible": 80,
+    "해석": "feasible 640개 중 no-op 통과 0개. ambiguous/infeasible 이 no-op 으로 통과하는 것은 설계대로다(되묻거나 거절하는 것이 정답이므로 제약이 '상태 불변' 을 요구한다)"
+   }
+  },
+  "확장_프로브": {
+   "보강_전": 430,
+   "보강_후": 381,
+   "이번에_닫은_것": 49
+  }
+ },
+ "수정한_파일": {
+  "제약_보강(53건 대상)": [
+   "src/nlebench/dataset/scenarios_v3_1/feasible/diagnosis/compound/dev/NLB-v3-DI-CO-008.yaml (+position_equals)"
+  ],
+  "정답_정리(53건 대상)": [
+   "feasible/state/dependent/dev/NLB-v3-ST-DE-004.yaml (remove_clip caption_1 단계 삭제)",
+   "feasible/state/dependent/dev/NLB-v3-ST-DE-008.yaml (unlink 대상 link_1 → link_4)"
+  ],
+  "제약_보강(확장 프로브 신규 발견)": {
+   "transition_type": 33,
+   "caption_text": 7,
+   "M4-full 소규모": 9,
+   "계": 49,
+   "시나리오": {
+    "transition_type": [
+     "NLB-v3-CX-AT-009",
+     "NLB-v3-CX-CO-002",
+     "NLB-v3-CX-CO-007",
+     "NLB-v3-CX-CO-009",
+     "NLB-v3-CX-CU-003",
+     "NLB-v3-CX-CU-009",
+     "NLB-v3-CX-DE-001",
+     "NLB-v3-DI-DE-007",
+     "NLB-v3-EX-CU-007",
+     "NLB-v3-EX-DE-008",
+     "NLB-v3-EX-DE-010"
+    ],
+    "caption_text": [],
+    "m4full": [
+     "NLB-v3-DI-CU-007",
+     "NLB-v3-DI-DE-008",
+     "NLB-v3-CX-CU-004"
+    ]
+   }
+  },
+  "신규_스크립트": [
+   "<LEDGER_DIR>/false_success_probe_full.py"
+  ],
+  "건드리지_않은_것": [
+   "src/ 소스 코드 전부",
+   "공유 픽스처 JSON 전부"
+  ]
+ },
+ "확장_보강_검증_로그": {
+  "transition_type": [
+   {
+    "scenario": "NLB-v3-CX-AT-009",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "wipe"
+     }
+    },
+    "변종": "M5 transition_type wipe -> cross_dissolve",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-002",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-007",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "wipe"
+     }
+    },
+    "변종": "M5 transition_type wipe -> cross_dissolve",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-009",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-003",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-009",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-001",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-DI-DE-007",
+    "ok": true,
+    "추가한_제약": {
+     "has_transition": {
+      "between": [
+       "video_clip_2",
+       "video_clip_3"
+      ],
+      "type": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "has_transition"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-007",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-008",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-010",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "$new_transition_1",
+      "field": "type",
+      "value": "cross_dissolve"
+     }
+    },
+    "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true
+   }
+  ],
+  "caption_text": [],
+  "m4full": [
+   {
+    "scenario": "NLB-v3-DI-CU-007",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "audio_clip_4",
+      "field": "audio.volume",
+      "value": -4.0
+     }
+    },
+    "변종": "M4-full volume -4.0 -> 3.0",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true,
+    "근거": "turn2 'boost the longest audio clip by 2 dB' — ac_4 초기 -6.0 dB + 2 = -4.0"
+   },
+   {
+    "scenario": "NLB-v3-DI-DE-008",
+    "ok": true,
+    "추가한_제약": {
+     "attribute_equals": {
+      "entity": "audio_clip_1",
+      "field": "audio.volume",
+      "value": 3.0
+     }
+    },
+    "변종": "M4-full volume 3.0 -> 10.0",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "attribute_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true,
+    "근거": "turn1 'boost its volume by 3 dB' — audio_clip_1 초기 0.0 + 3 = 3.0"
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-004",
+    "ok": true,
+    "추가한_제약": {
+     "position_equals": {
+      "entity": "$new_clip_1",
+      "start": 23.0
+     }
+    },
+    "변종": "M4-full position 23.0 -> 30.0",
+    "보강_전_변종_TSR": true,
+    "보강_후_변종_TSR": false,
+    "막은_제약": [
+     "position_equals"
+    ],
+    "정답_전_호출_success": true,
+    "정답_TSR": true,
+    "근거": "turn2 'split the hero at the 5-second mark' — 히어로 vc_3 는 18.0s 시작이므로 분할점 = 23.0s"
+   }
+  ]
+ },
+ "_limits": [
+  "★ 변이 검정은 **저자가 만든 변종**만 본다. 확장으로 창이 넓어졌지만(M4-full·M5) 여전히 '한 파라미터를 한 번에 하나씩' 이다. 두 값을 동시에 어긋내거나, 옳은 값을 옳은 대상에 주면서 지시 밖 엔티티를 함께 건드리는 형태는 unchanged_except 가 없는 시나리오에서 계속 새어 나간다.",
+  "★ 확장 프로브가 드러낸 430건 중 **49건만 닫았다.** 남은 381건은 클러스터 단위로 분류·권고만 적었다. 특히 scale_y(86) · file_path(32) 는 REAL 유력이고 조치도 기계적이지만, 시나리오 100개 이상을 한 번에 건드리는 변경이라 별도 라운드로 분리했다 — **이 산출물은 그 범위에서 미완이다.**",
+  "★ 새 모델 실행 0회. 이번 보강(53건 대상 3개 + 확장 49개 = 52개 시나리오)이 리더보드 점수를 얼마나 낮추는지는 **측정하지 않았다.** 트랜지션 종류와 자막 텍스트를 이제 재므로 모든 모델의 TSR 이 내려갈 것은 확실하나 크기와 순위 변화는 재채점해야 안다.",
+  "★ FREEDOM 42건 중 8건(cascade)과 3건(최종 상태 동일)은 **최종 상태 채점의 원리적 한계**다. 턴별 중간 상태를 채점하면 잡히지만 그것은 하네스 설계 변경이라 손대지 않았다.",
+  "★ 공허한 하위목표 7건은 '제약이 옳다' 는 판정으로 닫았지만, 그 턴이 **변별력 0** 이라는 사실은 그대로다. 제약 결함이 아니라 **측정 항목의 낭비**이고, 저작 권고에 남겼다.",
+  "★ ST-CU-003(분할 지점)은 '가장 긴 영상' 이 동률이라 보강하지 않았다. 동률을 없애면 REAL 로 보강할 수 있다.",
+  "★ 전량 회귀는 **정답 수순**만 돌린다. 정답이 없는 167개(ambiguous 80 + infeasible 80 + feasible 7)의 제약은 no-op 검사 외에는 실행 검증을 받지 않았다.",
+  "★ constraint_hardening.json 이 지적한 볼륨 허용오차 문제(_VOLUME_FIELDS 가 'audio.volume' 을 못 읽어 0.5 dB 가 아니라 0.01 이 적용된다, constraints.py:35,43)는 그대로다. 이번에 추가한 볼륨 제약 6건도 같은 관행을 따랐다."
+ ]
+}

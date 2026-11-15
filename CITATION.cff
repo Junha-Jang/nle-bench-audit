@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  If you use this audit material, please cite the paper named under
+  preferred-citation. No DOI, proceedings entry or release date exists yet;
+  none is given here, and this file will be corrected when one does.
+title: "Audit material for 'Red-Teaming the Grader: Mutation-Validated Constraint Checking for Tool-Agent Benchmarks'"
+type: dataset
+repository-code: "https://github.com/Junha-Jang/nle-bench-audit"
+license: CC-BY-NC-4.0
+authors:
+  - given-names: Junha
+    family-names: Jang
+    affiliation: "Someple Inc."
+preferred-citation:
+  type: conference-paper
+  title: "Red-Teaming the Grader: Mutation-Validated Constraint Checking for Tool-Agent Benchmarks"
+  authors:
+    - given-names: Junha
+      family-names: Jang
+      affiliation: "Someple Inc."
+  year: 2026
+  conference:
+    name: "NeurIPS 2026 Workshop: Who Verifies the Agents?"
+  notes: >-
+    Accepted as a poster. The workshop is non-archival; no DOI or proceedings
+    entry is claimed.

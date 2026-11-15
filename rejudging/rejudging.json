@@ -1,0 +1,985 @@
+{
+ "comparison_A": {
+  "changed_records": {
+   "equal": true,
+   "observed_2026_10": 894,
+   "recorded_2026_08": 894
+  },
+  "decomposition": {
+   "pre_to_new": {
+    "changed_records": {
+     "equal": true,
+     "observed_2026_10": 0,
+     "recorded_2026_08": 0
+    },
+    "dispositions_of_changed_records": {},
+    "fail_to_pass": {
+     "equal": true,
+     "observed_2026_10": 0,
+     "recorded_2026_08": 0
+    },
+    "failed_check_labels_after_differ_from_ledger": 0,
+    "ledger": "stored_row_rescore.ledgers.p1_repair",
+    "other_signs_observed": 0,
+    "pass_to_fail": {
+     "equal": true,
+     "observed_2026_10": 0,
+     "recorded_2026_08": 0
+    },
+    "record_keys_and_signs": {
+     "definition": "set of (row id, raw log line, verdict before, verdict after)",
+     "equal": true,
+     "only_in_ledger": 0,
+     "only_in_new_run": 0
+    },
+    "rows_with_a_change": {
+     "equal": true,
+     "observed_2026_10": 0,
+     "recorded_2026_08": 0
+    }
+   },
+   "sub_to_pre": {
+    "changed_records": {
+     "equal": true,
+     "observed_2026_10": 894,
+     "recorded_2026_08": 894
+    },
+    "dispositions_of_changed_records": {
+     "state_rejudged -> state_rejudged": 894
+    },
+    "fail_to_pass": {
+     "equal": true,
+     "observed_2026_10": 482,
+     "recorded_2026_08": 482
+    },
+    "failed_check_labels_after_differ_from_ledger": 0,
+    "ledger": "stored_row_rescore.ledgers.dev_lineage",
+    "other_signs_observed": 0,
+    "pass_to_fail": {
+     "equal": true,
+     "observed_2026_10": 412,
+     "recorded_2026_08": 412
+    },
+    "record_keys_and_signs": {
+     "definition": "set of (row id, raw log line, verdict before, verdict after)",
+     "equal": true,
+     "only_in_ledger": 0,
+     "only_in_new_run": 0
+    },
+    "rows_with_a_change": {
+     "equal": true,
+     "observed_2026_10": 52,
+     "recorded_2026_08": 52
+    }
+   }
+  },
+  "diff_file": "diff_A.csv",
+  "direction_axis_under_the_new_scorer": {
+   "changed_records": 198,
+   "note": "the same option applied to run new; a new result with no 2026-08 counterpart",
+   "signs": {
+    "pass_to_fail": 198
+   }
+  },
+  "dispositions_of_changed_records": {
+   "state_rejudged -> state_rejudged": 894
+  },
+  "fail_to_pass": {
+   "equal": true,
+   "observed_2026_10": 482,
+   "recorded_2026_08": 482
+  },
+  "failed_check_labels_after_differ_from_ledger": 0,
+  "feasible_success": {
+   "new": 24240,
+   "newm": 24735,
+   "pre": 24240,
+   "sub": 24170
+  },
+  "ledger": "stored_row_rescore.ledgers.published_to_current",
+  "net_success": 70,
+  "other_signs_observed": 0,
+  "overlap_with_A_prime_record_keys": 0,
+  "pass_to_fail": {
+   "equal": true,
+   "observed_2026_10": 412,
+   "recorded_2026_08": 412
+  },
+  "record_keys_and_signs": {
+   "definition": "set of (row id, raw log line, verdict before, verdict after)",
+   "equal": true,
+   "only_in_ledger": 0,
+   "only_in_new_run": 0
+  },
+  "rows_with_a_change": {
+   "equal": true,
+   "observed_2026_10": 52,
+   "recorded_2026_08": 52
+  },
+  "what": "corpus, harness and script fixed; scorer of the review snapshot -> scorer of the dev pin"
+ },
+ "comparison_A_prime": {
+  "changed_records": {
+   "equal": true,
+   "observed_2026_10": 195,
+   "recorded_2026_08": 195
+  },
+  "diff_file": "diff_A_prime.csv",
+  "dispositions_of_changed_records": {
+   "state_rejudged -> state_rejudged": 195
+  },
+  "fail_to_pass": {
+   "equal": true,
+   "observed_2026_10": 0,
+   "recorded_2026_08": 0
+  },
+  "failed_check_labels_after_differ_from_ledger": 0,
+  "ledger": "stored_row_rescore.ledgers.direction_enforcement",
+  "other_signs_observed": 0,
+  "pass_to_fail": {
+   "equal": true,
+   "observed_2026_10": 195,
+   "recorded_2026_08": 195
+  },
+  "record_keys_and_signs": {
+   "definition": "set of (row id, raw log line, verdict before, verdict after)",
+   "equal": true,
+   "only_in_ledger": 0,
+   "only_in_new_run": 0
+  },
+  "rows_with_a_change": {
+   "equal": true,
+   "observed_2026_10": 32,
+   "recorded_2026_08": 32
+  },
+  "what": "scorer and corpus fixed (run sub); attribute_changed.direction not enforced -> enforced"
+ },
+ "comparison_BC": {
+  "by_membership": {
+   "constraints_only": {
+    "changed": {
+     "fail_to_pass": 695,
+     "pass_to_fail": 448
+    },
+    "kind": "B: constraints changed, task input identical",
+    "net": 247,
+    "records": {
+     "feasible_pairs_both_failure_retained": 2841,
+     "feasible_pairs_both_state_rejudged": 29058,
+     "feasible|records": 31899,
+     "pair_fail_fail": 21763,
+     "pair_fail_pass": 695,
+     "pair_pass_fail": 448,
+     "pair_pass_pass": 6152
+    },
+    "scenarios": 217
+   },
+   "input_changed": {
+    "changed": {
+     "fail_to_pass": 142,
+     "pass_to_fail": 87
+    },
+    "kind": "C: fixture or instruction changed; the stored final state was produced from the earlier input (counterfactual)",
+    "net": 55,
+    "records": {
+     "feasible_pairs_both_failure_retained": 908,
+     "feasible_pairs_both_state_rejudged": 9970,
+     "feasible|records": 10878,
+     "pair_fail_fail": 9465,
+     "pair_fail_pass": 142,
+     "pair_pass_fail": 87,
+     "pair_pass_pass": 276
+    },
+    "scenarios": 74
+   },
+   "unchanged": {
+    "changed": {},
+    "kind": "scenario identical in both corpora",
+    "net": 0,
+    "records": {
+     "ambiguous|records": 11760,
+     "feasible_pairs_both_failure_retained": 4433,
+     "feasible_pairs_both_state_rejudged": 46870,
+     "feasible|records": 51303,
+     "infeasible|records": 11760,
+     "pair_fail_fail": 29098,
+     "pair_pass_pass": 17772
+    },
+    "scenarios": null
+   }
+  },
+  "changed_records": 1372,
+  "diff_file": "diff_BC.csv",
+  "executable_identity": {
+   "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+   "repo": "nle-bench-dev",
+   "same_implementation_rests_on": "the two run stamps (runs/d31s.json, runs/d32.json) and the pinned export they both ran from; see identity_comparison_d31s_d32 for what was compared",
+   "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "scorer_file_sha256_equal": true,
+   "scorer_file_sha256_equal_means": "the two runs report the same scorer-file hash. It is not a statement about the rest of the implementation."
+  },
+  "feasible": {
+   "d31p": {
+    "no_verdict": 0,
+    "records": 94080,
+    "success": 24735
+   },
+   "d31s": {
+    "no_verdict": 0,
+    "records": 94080,
+    "success": 24735
+   },
+   "d32": {
+    "no_verdict": 0,
+    "records": 94080,
+    "success": 25037
+   }
+  },
+  "harness_axis": {
+   "feasible_success": {
+    "d31p": 24735,
+    "d31s": 24735,
+    "d32": 25037,
+    "new": 24240,
+    "newm": 24735,
+    "sub": 24170
+   },
+   "module_differences": {
+    "models_py": {
+     "dev_pin": "5ee991c9f9d6170d432255d97b15b134f2b5e439a1eb071ab6bef5839ed0f2be",
+     "diff_file": "../adapters/models_swap_206e1838224a.diff",
+     "published": "33fb03e0b977087f0a75e235fd4a50244681bfecebb73ea2da73e229223fb48f"
+    }
+   },
+   "new_vs_dev_tree": {
+    "arms": {
+     "feasible": 673
+    },
+    "by_failed_check": {
+     "fail_to_pass: before [named:attribute_equals:failed] after []": 584,
+     "pass_to_fail: before [] after [named:entity_not_exists:failed]": 89
+    },
+    "changed_records": 673,
+    "diff_file": "diff_harness_new_to_dev_tree.csv",
+    "scenarios": 18,
+    "signs": {
+     "fail_to_pass": 584,
+     "pass_to_fail": 89
+    }
+   },
+   "newm_vs_dev_tree": {
+    "arms": {},
+    "by_failed_check": {},
+    "changed_records": 0,
+    "scenarios": 0,
+    "signs": {},
+    "what": "diagnostic adapter: snapshot harness with the dev scorer AND the whole dev nlebench/models.py. Zero differences here means that this replacement reproduced the development tree's verdicts on the tested stored records; it isolates no single change."
+   },
+   "published_tree_vs_dev_tree_on_the_published_corpus": {
+    "arms": {
+     "feasible": 1567
+    },
+    "by_failed_check": {
+     "fail_to_pass: before [named:attribute_equals:failed] after []": 588,
+     "fail_to_pass: before [named:entity_count_changed:failed;named:unchanged_except:failed] after []": 1,
+     "fail_to_pass: before [named:entity_count_changed:failed] after []": 44,
+     "fail_to_pass: before [named:entity_not_exists:failed] after []": 433,
+     "pass_to_fail: before [] after [named:attribute_changed:failed]": 3,
+     "pass_to_fail: before [] after [named:entity_exists:failed;named:entity_exists:failed]": 73,
+     "pass_to_fail: before [] after [named:entity_exists:failed]": 324,
+     "pass_to_fail: before [] after [named:entity_not_exists:failed]": 89,
+     "pass_to_fail: before [] after [named:unchanged_except:failed]": 12
+    },
+    "changed_records": 1567,
+    "scenarios": 44,
+    "signs": {
+     "fail_to_pass": 1066,
+     "pass_to_fail": 501
+    },
+    "what": "whole implementation changed, corpus fixed: the snapshot tree with its own scorer (run sub) against the dev tree (run d31p). A new result; no 2026-08 ledger made this comparison."
+   },
+   "scope": "Supported: in this tested context, with the development scorer file already in place, replacing the whole models.py module was sufficient to reproduce the development tree's verdicts on the stored records. Not supported: that the module is the unique or necessary cause in every environment; that one change inside it caused the differences (no run isolates a hunk); that either tree is the correct judge; that the constraints of the affected scenarios are right. No semantic label or defect class is assigned to them.",
+   "stored_initial_state_equals_fixture_built_by_the_tree": {
+    "new": {
+     "false": 0,
+     "true": 107535
+    },
+    "newm": {
+     "false": 0,
+     "true": 107535
+    },
+    "pre": {
+     "false": 0,
+     "true": 107535
+    },
+    "sub": {
+     "false": 0,
+     "true": 107535
+    }
+   },
+   "what": "Same scorer file and same corpus content, different surrounding code. `new` is the dev scorer inside the snapshot harness (the construction the 2026-08 stored-row rescoring script declares); `d31p` is the dev tree itself on the snapshot corpus. A 2026-10 comparison with no 2026-08 counterpart."
+  },
+  "historical_checks": {
+   "feasible_success_after": {
+    "equal": true,
+    "observed_2026_10": 25037,
+    "recorded_2026_08": 25037,
+    "recorded_source": "contract_rescore_v32.totals_per_arm.feasible.success"
+   },
+   "feasible_success_before": {
+    "equal": false,
+    "observed_2026_10": 24735,
+    "recorded_2026_08": 24240,
+    "recorded_source": "stored_row_rescore.totals.dev_head.feasible_success. Its generator script declares the construction: the dev scorer file inside the snapshot harness on the snapshot corpus. Which modules the 2026-08 execution imported is not recorded."
+   },
+   "net": {
+    "equal": false,
+    "observed_2026_10": 302,
+    "recorded_2026_08": 797
+   },
+   "reconstruction_2026_10": {
+    "after": 25037,
+    "along_the_measured_path": {
+     "fixed_corpus_and_scorer_file": 495,
+     "fixed_development_implementation": 302
+    },
+    "before": 24240,
+    "equals_the_recorded_aggregate": true,
+    "net": 797,
+    "what": "the recorded aggregate rebuilt from 2026-10 runs: run `new` (snapshot harness with the development scorer file, snapshot corpus) on one side and run `d32` (development implementation, revised corpus) on the other"
+   },
+   "rows_where_the_count_differs": {
+    "d31s_feasible_success_vs_srr_dev_head": 46,
+    "d32_feasible_success_vs_v32_ledger": 0
+   },
+   "status_of_the_recorded_net": "Three things are kept apart. (1) What the ledgers declare: the 2026-08 ledgers record a net aggregate, and their declared generator scripts describe the recorded constructions; they do not establish which modules the 2026-08 executions imported. (2) The historical aggregate itself, which is preserved as recorded and is no longer read as a corpus-only change. (3) The 2026-10 reconstruction, which reproduces the aggregate from two 2026-10 runs and, along the measured path, places part of it at fixed corpus and scorer file and part at fixed development implementation. Matching the historical aggregate does not establish historical executable identity, and the ordered decomposition is not an interaction-free causal estimate. Historical implementation equivalence stays unverified."
+  },
+  "identity_comparison_d31s_d32": {
+   "groups": {
+    "corpus_input_source": {
+     "differing_leaf_count": 13,
+     "differing_leaves": [
+      "corpus/F_canon",
+      "corpus/F_file",
+      "corpus/commit",
+      "execution/input_sources",
+      "execution/input_sources/0/actual_content_sha256",
+      "execution/input_sources/0/expected_content_sha256",
+      "execution/input_sources/0/files_verified",
+      "execution/input_sources/0/identity/commit",
+      "execution/input_sources/0/identity/repo",
+      "execution/input_sources/0/kind",
+      "execution/input_sources/0/method",
+      "execution/input_sources/0/when",
+      "result/corpus_dir"
+     ],
+     "fields": [
+      "corpus",
+      "execution/input_sources",
+      "result/corpus_dir",
+      "result/corpus_scenarios"
+     ],
+     "leaves_compared": 19
+    },
+    "exported_and_imported_implementation": {
+     "differing_leaf_count": 0,
+     "differing_leaves": [],
+     "fields": [
+      "benchmark_code",
+      "execution/export_verification",
+      "execution/pinned_source",
+      "export",
+      "runtime/nlebench_file"
+     ],
+     "leaves_compared": 58
+    },
+    "external_tools_and_environment": {
+     "differing_leaf_count": 0,
+     "differing_leaves": [],
+     "fields": [
+      "execution/env",
+      "execution/external_tools"
+     ],
+     "leaves_compared": 22
+    },
+    "interpreter_and_dependencies": {
+     "differing_leaf_count": 0,
+     "differing_leaves": [],
+     "fields": [
+      "runtime/dependencies",
+      "runtime/executable",
+      "runtime/executable_realpath",
+      "runtime/implementation",
+      "runtime/platform",
+      "runtime/python"
+     ],
+     "leaves_compared": 10
+    },
+    "judging_and_loader_rule": {
+     "differing_leaf_count": 0,
+     "differing_leaves": [],
+     "fields": [
+      "judging_rule",
+      "result/loader",
+      "result/rule",
+      "scenario_loader"
+     ],
+     "leaves_compared": 4
+    },
+    "predicate_registry_and_scorer_file": {
+     "differing_leaf_count": 0,
+     "differing_leaves": [],
+     "fields": [
+      "result/predicates_registered",
+      "result/scorer_file_sha256",
+      "runtime/registry_predicates",
+      "runtime/scorer_file_sha256",
+      "runtime/scorer_version"
+     ],
+     "leaves_compared": 5
+    },
+    "raw_logs_and_stored_states": {
+     "differing_leaf_count": 0,
+     "differing_leaves": [],
+     "fields": [
+      "inputs",
+      "result/logs_fold_sha256",
+      "result/records"
+     ],
+     "leaves_compared": 6
+    },
+    "worker_and_controller": {
+     "differing_leaf_count": 0,
+     "differing_leaves": [],
+     "fields": [
+      "execution/analysis_code",
+      "execution/analysis_code_this_folder",
+      "execution/script",
+      "runtime/worker_file_sha256"
+     ],
+     "leaves_compared": 23
+    }
+   },
+   "groups_with_a_differing_leaf": [
+    "corpus_input_source"
+   ],
+   "groups_without_a_differing_leaf": [
+    "exported_and_imported_implementation",
+    "external_tools_and_environment",
+    "interpreter_and_dependencies",
+    "judging_and_loader_rule",
+    "predicate_registry_and_scorer_file",
+    "raw_logs_and_stored_states",
+    "worker_and_controller"
+   ],
+   "limit": "A stamp records what a run reported and what was verified immediately before it started. Whether the stamps are linked to what actually ran is for the independent terminal review.",
+   "not_compared_here": "the per-record outputs and their hashes, the disposition counts and the fixture link of each run: those are results, and they are expected to differ",
+   "what": "run stamps of d31s and d32 compared by field group; a report, not a pass flag"
+  },
+  "membership": {
+   "against_the_published_copy": {
+    "constraints_changed": 265,
+    "constraints_only": 217,
+    "fixture_changed": 30,
+    "input_changed": 74,
+    "turns_changed": 52
+   },
+   "definition": "identity fields fixture, constraints, turns of each scenario, v3.1-submission (dev 64668e0) against v3.2 (dev pin), from git objects",
+   "file": "membership.csv",
+   "published_copy_differs_from_v31s_in": [],
+   "recorded_2026_08": {
+    "constraints_only": {
+     "equal": true,
+     "observed_2026_10": 217,
+     "recorded_2026_08": 217
+    },
+    "id_lists_equal": {
+     "constraints_only": true,
+     "input_changed": true
+    },
+    "input_changed": {
+     "equal": true,
+     "observed_2026_10": 74,
+     "recorded_2026_08": 74
+    }
+   },
+   "scenarios": {
+    "constraints_changed": 265,
+    "constraints_only": 217,
+    "fixture_changed": 30,
+    "input_changed": 74,
+    "turns_changed": 52
+   }
+  },
+  "net_feasible_success_v31s_to_v32": 302,
+  "nonfeasible": {
+   "detector_verdict_differs_from_stored_success": 0,
+   "retained_failures_whose_stored_success_is_true": 0
+  },
+  "original_input_link": {
+   "by_run_and_membership": {
+    "d31p": {
+     "constraints_only": {
+      "stored_initial_state_equals_fixture_false": 526,
+      "stored_initial_state_equals_fixture_true": 28532
+     },
+     "input_changed": {
+      "stored_initial_state_equals_fixture_true": 9970
+     },
+     "unchanged": {
+      "stored_initial_state_equals_fixture_false": 1724,
+      "stored_initial_state_equals_fixture_true": 45146
+     }
+    },
+    "d31s": {
+     "constraints_only": {
+      "stored_initial_state_equals_fixture_false": 526,
+      "stored_initial_state_equals_fixture_true": 28532
+     },
+     "input_changed": {
+      "stored_initial_state_equals_fixture_true": 9970
+     },
+     "unchanged": {
+      "stored_initial_state_equals_fixture_false": 1724,
+      "stored_initial_state_equals_fixture_true": 45146
+     }
+    },
+    "d32": {
+     "constraints_only": {
+      "stored_initial_state_equals_fixture_false": 526,
+      "stored_initial_state_equals_fixture_true": 28532
+     },
+     "input_changed": {
+      "stored_initial_state_equals_fixture_false": 4070,
+      "stored_initial_state_equals_fixture_true": 5900
+     },
+     "unchanged": {
+      "stored_initial_state_equals_fixture_false": 1724,
+      "stored_initial_state_equals_fixture_true": 45146
+     }
+    }
+   },
+   "definition": "for a feasible record with a stored state pair: whether its stored initial state equals the state this tree builds from the scenario's fixture in that corpus (canonical JSON). The stored initial state is the baseline of every change and preservation check in all runs; the corpus fixture is never substituted for it.",
+   "fixture_builds": {
+    "d31p": {
+     "build_errors": {},
+     "nondeterministic_builds": [],
+     "scenarios_built": 800
+    },
+    "d31s": {
+     "build_errors": {},
+     "nondeterministic_builds": [],
+     "scenarios_built": 800
+    },
+    "d32": {
+     "build_errors": {},
+     "nondeterministic_builds": [],
+     "scenarios_built": 800
+    }
+   }
+  },
+  "published_copy_vs_v31_submission": {
+   "disposition_differs": 0,
+   "note": "runs d31s and d31p, record by record",
+   "verdict_differs": 0
+  },
+  "row_statistics": {
+   "new_comparison_d31s_to_d32": {
+    "max_pp": 2.0312,
+    "mean_pp": 0.4091,
+    "median_pp": 0.2604,
+    "min_pp": -1.8229,
+    "net_records": 302,
+    "rows": 55,
+    "rows_down": 13,
+    "rows_unchanged": 7,
+    "rows_up": 35,
+    "spearman_rho_of_row_rates": 0.999026
+   },
+   "note": "Two different comparisons. The second is the 2026-10 reconstruction of the aggregate the 2026-08 ledgers record; its statistics are never mixed with the first.",
+   "reconstruction_of_the_recorded_aggregate_new_to_d32": {
+    "max_pp": 3.2812,
+    "mean_pp": 0.9233,
+    "median_pp": 0.8333,
+    "min_pp": -1.6667,
+    "net_records": 797,
+    "rows": 55,
+    "rows_down": 6,
+    "rows_unchanged": 7,
+    "rows_up": 42,
+    "spearman_rho_of_row_rates": 0.998665
+   }
+  },
+  "signs": {
+   "fail_to_pass": 837,
+   "pass_to_fail": 535
+  },
+  "validation_status": "producer-reported 2026-10 run values; no independent terminal review has validated them.",
+  "what": "one executable identity (dev tree at the pin: loader, models, scorer) on two corpora; v3.1-submission -> v3.2; stored final states judged, no agent rerun"
+ },
+ "counters": {
+  "d31s_vs_d31p_disposition_differs": 0,
+  "d31s_vs_d31p_verdict_differs": 0,
+  "new_official_vs_d31p_verdict_differs": 673,
+  "new_stored_initial_state_equals_fixture_true": 107535,
+  "newm_stored_initial_state_equals_fixture_true": 107535,
+  "nonfeasible_detector_verdict_vs_stored_differs": 0,
+  "nonfeasible_retained_with_stored_success_true": 0,
+  "pre_stored_initial_state_equals_fixture_true": 107535,
+  "records": 117600,
+  "sub_stored_initial_state_equals_fixture_true": 107535
+ },
+ "coverage": {
+  "by_run": {
+   "d31p": {
+    "by_arm": {
+     "detector_judged|ambiguous": 10814,
+     "detector_judged|infeasible": 10823,
+     "failure_retained_no_detector_fields|ambiguous": 946,
+     "failure_retained_no_detector_fields|infeasible": 937,
+     "failure_retained_no_stored_state|feasible": 8182,
+     "state_rejudged|feasible": 85898
+    },
+    "classes": {
+     "1_state_rejudged": 85898,
+     "2_detector_judged": 21637,
+     "3_failure_retained_by_recorded_policy": 10065,
+     "4_not_judged_input_or_execution_error": 0
+    },
+    "dispositions": {
+     "detector_judged": 21637,
+     "failure_retained_no_detector_fields": 1883,
+     "failure_retained_no_stored_state": 8182,
+     "state_rejudged": 85898
+    },
+    "every_record_has_one_disposition": true,
+    "failure_retained": {
+     "feasible_no_stored_state": 8182,
+     "nonfeasible_no_detector_fields": 1883
+    }
+   },
+   "d31s": {
+    "by_arm": {
+     "detector_judged|ambiguous": 10814,
+     "detector_judged|infeasible": 10823,
+     "failure_retained_no_detector_fields|ambiguous": 946,
+     "failure_retained_no_detector_fields|infeasible": 937,
+     "failure_retained_no_stored_state|feasible": 8182,
+     "state_rejudged|feasible": 85898
+    },
+    "classes": {
+     "1_state_rejudged": 85898,
+     "2_detector_judged": 21637,
+     "3_failure_retained_by_recorded_policy": 10065,
+     "4_not_judged_input_or_execution_error": 0
+    },
+    "dispositions": {
+     "detector_judged": 21637,
+     "failure_retained_no_detector_fields": 1883,
+     "failure_retained_no_stored_state": 8182,
+     "state_rejudged": 85898
+    },
+    "every_record_has_one_disposition": true,
+    "failure_retained": {
+     "feasible_no_stored_state": 8182,
+     "nonfeasible_no_detector_fields": 1883
+    }
+   },
+   "d32": {
+    "by_arm": {
+     "detector_judged|ambiguous": 10814,
+     "detector_judged|infeasible": 10823,
+     "failure_retained_no_detector_fields|ambiguous": 946,
+     "failure_retained_no_detector_fields|infeasible": 937,
+     "failure_retained_no_stored_state|feasible": 8182,
+     "state_rejudged|feasible": 85898
+    },
+    "classes": {
+     "1_state_rejudged": 85898,
+     "2_detector_judged": 21637,
+     "3_failure_retained_by_recorded_policy": 10065,
+     "4_not_judged_input_or_execution_error": 0
+    },
+    "dispositions": {
+     "detector_judged": 21637,
+     "failure_retained_no_detector_fields": 1883,
+     "failure_retained_no_stored_state": 8182,
+     "state_rejudged": 85898
+    },
+    "every_record_has_one_disposition": true,
+    "failure_retained": {
+     "feasible_no_stored_state": 8182,
+     "nonfeasible_no_detector_fields": 1883
+    }
+   },
+   "new": {
+    "by_arm": {
+     "detector_judged|ambiguous": 10814,
+     "detector_judged|infeasible": 10823,
+     "failure_retained_no_detector_fields|ambiguous": 946,
+     "failure_retained_no_detector_fields|infeasible": 937,
+     "failure_retained_no_stored_state|feasible": 8182,
+     "state_rejudged|feasible": 85898
+    },
+    "classes": {
+     "1_state_rejudged": 85898,
+     "2_detector_judged": 21637,
+     "3_failure_retained_by_recorded_policy": 10065,
+     "4_not_judged_input_or_execution_error": 0
+    },
+    "dispositions": {
+     "detector_judged": 21637,
+     "failure_retained_no_detector_fields": 1883,
+     "failure_retained_no_stored_state": 8182,
+     "state_rejudged": 85898
+    },
+    "every_record_has_one_disposition": true,
+    "failure_retained": {
+     "feasible_no_stored_state": 8182,
+     "nonfeasible_no_detector_fields": 1883
+    }
+   },
+   "newm": {
+    "by_arm": {
+     "detector_judged|ambiguous": 10814,
+     "detector_judged|infeasible": 10823,
+     "failure_retained_no_detector_fields|ambiguous": 946,
+     "failure_retained_no_detector_fields|infeasible": 937,
+     "failure_retained_no_stored_state|feasible": 8182,
+     "state_rejudged|feasible": 85898
+    },
+    "classes": {
+     "1_state_rejudged": 85898,
+     "2_detector_judged": 21637,
+     "3_failure_retained_by_recorded_policy": 10065,
+     "4_not_judged_input_or_execution_error": 0
+    },
+    "dispositions": {
+     "detector_judged": 21637,
+     "failure_retained_no_detector_fields": 1883,
+     "failure_retained_no_stored_state": 8182,
+     "state_rejudged": 85898
+    },
+    "every_record_has_one_disposition": true,
+    "failure_retained": {
+     "feasible_no_stored_state": 8182,
+     "nonfeasible_no_detector_fields": 1883
+    }
+   },
+   "pre": {
+    "by_arm": {
+     "detector_judged|ambiguous": 10814,
+     "detector_judged|infeasible": 10823,
+     "failure_retained_no_detector_fields|ambiguous": 946,
+     "failure_retained_no_detector_fields|infeasible": 937,
+     "failure_retained_no_stored_state|feasible": 8182,
+     "state_rejudged|feasible": 85898
+    },
+    "classes": {
+     "1_state_rejudged": 85898,
+     "2_detector_judged": 21637,
+     "3_failure_retained_by_recorded_policy": 10065,
+     "4_not_judged_input_or_execution_error": 0
+    },
+    "dispositions": {
+     "detector_judged": 21637,
+     "failure_retained_no_detector_fields": 1883,
+     "failure_retained_no_stored_state": 8182,
+     "state_rejudged": 85898
+    },
+    "every_record_has_one_disposition": true,
+    "failure_retained": {
+     "feasible_no_stored_state": 8182,
+     "nonfeasible_no_detector_fields": 1883
+    }
+   },
+   "sub": {
+    "by_arm": {
+     "detector_judged|ambiguous": 10814,
+     "detector_judged|infeasible": 10823,
+     "failure_retained_no_detector_fields|ambiguous": 946,
+     "failure_retained_no_detector_fields|infeasible": 937,
+     "failure_retained_no_stored_state|feasible": 8182,
+     "state_rejudged|feasible": 85898
+    },
+    "classes": {
+     "1_state_rejudged": 85898,
+     "2_detector_judged": 21637,
+     "3_failure_retained_by_recorded_policy": 10065,
+     "4_not_judged_input_or_execution_error": 0
+    },
+    "dispositions": {
+     "detector_judged": 21637,
+     "failure_retained_no_detector_fields": 1883,
+     "failure_retained_no_stored_state": 8182,
+     "state_rejudged": 85898
+    },
+    "every_record_has_one_disposition": true,
+    "failure_retained": {
+     "feasible_no_stored_state": 8182,
+     "nonfeasible_no_detector_fields": 1883
+    }
+   }
+  },
+  "definition": "Every record receives one disposition in every run. Class 4 is whatever could not be judged, with its reason; it is reported as found and its verdict column stays empty.",
+  "errors": {
+   "listed_in": "errors.json",
+   "records": 0
+  },
+  "identical_across_all_runs": true,
+  "inventory_availability_vs_processed": {
+   "available_nonfeasible_detector_inputs": {
+    "equal_in_every_run": true,
+    "inventory_available": 21637,
+    "processed_by_run": {
+     "d31p": 21637,
+     "d31s": 21637,
+     "d32": 21637,
+     "new": 21637,
+     "newm": 21637,
+     "pre": 21637,
+     "sub": 21637
+    }
+   },
+   "eligible_feasible_state_rejudging": {
+    "equal_in_every_run": true,
+    "inventory_available": 85898,
+    "processed_by_run": {
+     "d31p": 85898,
+     "d31s": 85898,
+     "d32": 85898,
+     "new": 85898,
+     "newm": 85898,
+     "pre": 85898,
+     "sub": 85898
+    }
+   },
+   "missing_input_feasible_no_stored_state": {
+    "equal_in_every_run": true,
+    "inventory_available": 8182,
+    "processed_by_run": {
+     "d31p": 8182,
+     "d31s": 8182,
+     "d32": 8182,
+     "new": 8182,
+     "newm": 8182,
+     "pre": 8182,
+     "sub": 8182
+    }
+   },
+   "missing_input_nonfeasible_no_detector_fields": {
+    "equal_in_every_run": true,
+    "inventory_available": 1883,
+    "processed_by_run": {
+     "d31p": 1883,
+     "d31s": 1883,
+     "d32": 1883,
+     "new": 1883,
+     "newm": 1883,
+     "pre": 1883,
+     "sub": 1883
+    }
+   },
+   "note": "The inventory counted what a re-judging could use. These are the counts of what each run did. They are compared, not copied."
+  }
+ },
+ "full_e3_recomputation_executed": true,
+ "historical_checks_A_family": {
+  "baseline_reproduction": {
+   "equal": true,
+   "observed_2026_10": 117600,
+   "recorded_2026_08": 117600
+  },
+  "feasible_success_new": {
+   "equal": true,
+   "observed_2026_10": 24240,
+   "recorded_2026_08": 24240
+  },
+  "feasible_success_pre": {
+   "equal": true,
+   "observed_2026_10": 24240,
+   "recorded_2026_08": 24240
+  },
+  "feasible_success_sub": {
+   "equal": true,
+   "observed_2026_10": 24170,
+   "recorded_2026_08": 24170
+  },
+  "rows_where_the_count_differs": {
+   "new_feasible_success": 0,
+   "pre_feasible_success": 0,
+   "sub_feasible_success": 0
+  }
+ },
+ "population": {
+  "manifest": {
+   "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+   "path": "results/run_manifest.csv",
+   "repo": "nle-bench-artifact"
+  },
+  "records": 117600,
+  "rows": 55,
+  "rule": "track == 'canonical' AND recompute_status == 'reconciled' AND excluded_from_recompute != 'yes'"
+ },
+ "published_per_record_verdicts": {
+  "no_published_record": 0,
+  "note": "`run_sub_reproduces` is the 2026-10 run of the snapshot script with the snapshot scorer against the snapshot per-record verdicts. The raw logs' own stored verdicts need not equal them: the snapshot's file was produced after the direction patch.",
+  "raw_log_stored_success_equals_published": 116550,
+  "records_compared": 117600,
+  "run_sub_reproduces": 117600,
+  "scenario_id_equals_published_legacy_id": 117600,
+  "source": "nle-bench-artifact results/per_scenario_results_redacted.csv (success)"
+ },
+ "runs": {
+  "d31p": {
+   "per_record_output_sha256": "8646a47ec03081ab93fae1dcf01e607d2377b6631a1480d8a01f4c5fe07e580d",
+   "predicates_registered": 23,
+   "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "stamp": "runs/d31p.json",
+   "what": "dev tree at the pin, corpus of the review snapshot (snapshot copy of v3.1)"
+  },
+  "d31s": {
+   "per_record_output_sha256": "8646a47ec03081ab93fae1dcf01e607d2377b6631a1480d8a01f4c5fe07e580d",
+   "predicates_registered": 23,
+   "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "stamp": "runs/d31s.json",
+   "what": "dev tree at the pin, corpus v3.1-submission (dev 64668e0)"
+  },
+  "d32": {
+   "per_record_output_sha256": "1eed81392e77af956bdb5ea8092b524cd3c345c6549c35fd00f4a07f33adf0a4",
+   "predicates_registered": 23,
+   "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "stamp": "runs/d32.json",
+   "what": "dev tree at the pin, corpus v3.2 (the pin's own)"
+  },
+  "new": {
+   "per_record_output_sha256": "54b5fe507737a725d94d89f07060b0d394224bc87a29c9cc339eb5b6f2fe1903",
+   "predicates_registered": 23,
+   "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "stamp": "runs/new.json",
+   "what": "snapshot harness and corpus, snapshot rescoring script, scorer of the dev pin"
+  },
+  "newm": {
+   "per_record_output_sha256": "cbc7176da64a3feeaa35f236c7865a3e9a7f844ab9c0cf546ff925b88c726624",
+   "predicates_registered": 23,
+   "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "stamp": "runs/newm.json",
+   "what": "diagnostic: as `new`, with nlebench/models.py also replaced by the dev pin's (tests which module carries the difference between `new` and the dev tree)"
+  },
+  "pre": {
+   "per_record_output_sha256": "56386264c7774ad17646590ccb092e6675dd1e1066e21c21aa69711e41a0411c",
+   "predicates_registered": 22,
+   "scorer_file_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+   "stamp": "runs/pre.json",
+   "what": "snapshot harness and corpus, snapshot rescoring script, scorer of dev 6876b0dd (pre-P1)"
+  },
+  "sub": {
+   "per_record_output_sha256": "5610c6cd979a920b7f98aa013546295124077c4a2634c6b5c635efef16244222",
+   "predicates_registered": 22,
+   "scorer_file_sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10",
+   "stamp": "runs/sub.json",
+   "what": "snapshot harness and corpus, snapshot rescoring script, scorer of the review snapshot"
+  }
+ },
+ "what": "E3: every one of the stored records is processed."
+}

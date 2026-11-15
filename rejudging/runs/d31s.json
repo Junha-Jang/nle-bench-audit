@@ -1,0 +1,283 @@
+{
+ "benchmark_code": {
+  "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+  "corpus": {
+   "F_canon": "af4834d8c0e4992f88a9c8d1a1dda88e6691a849c22f1265aee4350bba1297e0",
+   "F_canon_definition": "sha256 over the id-sorted sequence of json.dumps([id, canonical {fixture, constraints, turns}])",
+   "F_file": "117b855f67309498b640b2e6073487eeccd9597cc3f568bb4032a0740c18e329",
+   "F_file_definition": "sha256 folded over (relative path, per-file sha256) in path order",
+   "path": "src/nlebench/dataset/scenarios_v3_1",
+   "scenario_files": 800
+  },
+  "files": {
+   "models": {
+    "git_blob": "9058e6a77d02b77b9956056ac480a895065060eb",
+    "path": "src/nlebench/models.py",
+    "sha256": "5ee991c9f9d6170d432255d97b15b134f2b5e439a1eb071ab6bef5839ed0f2be"
+   },
+   "probe": {
+    "git_blob": "c33d2165fefb849b30595420c6db64293678a1ee",
+    "path": "<LEDGER_DIR>/false_success_probe.py",
+    "sha256": "c2821d4334f3ca10a59c82a6f2e6f9fa9e1bd41a7515c64c3b58d12bdf8d8382"
+   },
+   "probe_full": {
+    "git_blob": "a6f72f31b9b48ffb1a99157b444a76b8dbfd6b1d",
+    "path": "<LEDGER_DIR>/false_success_probe_full.py",
+    "sha256": "39b7fdd640bc7672cf2e8aac6808979e83863e40409ae143513cdfb66c9bce55"
+   },
+   "runner_executor": {
+    "git_blob": "96cb0e711bb2e7b84c18fda0c953417f911908b8",
+    "path": "src/nlebench/runner/executor.py",
+    "sha256": "4afd48e0e4eff8b4959f5928e991ad581892ba43f17f16c6408f79418338e488"
+   },
+   "runner_track": {
+    "git_blob": "86850208e44acc15d0dd3a1860c6edc9ee06b51b",
+    "path": "src/nlebench/runner/track_runner.py",
+    "sha256": "3a072553493ca59037a0a132d056a5e92fb53d8cebb369084f03bdd66c7b9410"
+   },
+   "scenario_loader": {
+    "git_blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+    "path": "src/nlebench/runner/scenario_loader.py",
+    "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+   },
+   "scorer": {
+    "git_blob": "b5be35b4c3a6deb3d5b75f86fe839006d0266a32",
+    "path": "src/nlebench/runner/constraints.py",
+    "sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777"
+   },
+   "structural_validator": {
+    "git_blob": "e0b4658aa0d8e845375f0aae13faf07c9ac19ea9",
+    "path": "src/nlebench/runner/validator.py",
+    "sha256": "52fbf778a0517222b13fdd10d8f376701eb9bc25f1df2247dee382be18261d4d"
+   },
+   "tool_executor": {
+    "git_blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+    "path": "src/nlebench/tools/executor.py",
+    "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+   },
+   "tool_schema": {
+    "git_blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+    "path": "src/nlebench/tools/schema.py",
+    "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+   }
+  },
+  "trees": {
+   "corpus_v3_1": {
+    "git_tree": "58a61aca69d169ad417b4c75216ccd5e8ef22a13",
+    "path": "src/nlebench/dataset/scenarios_v3_1"
+   },
+   "fixtures": {
+    "git_tree": "3b793b3d327e21a5c3ffa495826a53868960a59a",
+    "path": "src/nlebench/dataset/fixtures"
+   },
+   "src_nlebench": {
+    "git_tree": "7121ba8afb034a4cc3552db85dfef265f1617929",
+    "path": "src/nlebench"
+   },
+   "tools": {
+    "git_tree": "0661c5ac14d066c608393d5f1fcc0bb111aaa93e",
+    "path": "src/nlebench/tools"
+   }
+  }
+ },
+ "command": [
+  "<DEV_CHECKOUT>/.venv/bin/python",
+  "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+  "probe",
+  "<EXPORT_ROOT_FULL>/206e1838224add4d7d685349ab1daaf4ab717c6f/src",
+  "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3full-20261005/e3_judge_script.py",
+  "<RUN_WORKDIR>/runtime.json",
+  "<RUN_WORKDIR>/config.json"
+ ],
+ "corpus": {
+  "F_canon": "4781a34f03a3ee0bdefecbc433c92ada405039ed08c59869d8b43fffce898b79",
+  "F_canon_definition": "sha256 over the id-sorted sequence of json.dumps([id, canonical {fixture, constraints, turns}]), keyed by `id`",
+  "F_file": "bb51cfd020aac4c55876ea7280ec0c4af8e04c87974c7f5d47c90a4f2d86adbe",
+  "F_file_definition": "sha256 folded over (relative path, per-file sha256) in path order",
+  "commit": "64668e09fb2fa4c2d1d0c03024191e94046f24b2",
+  "path": "src/nlebench/dataset/scenarios_v3_1",
+  "repo": "nle-bench-dev",
+  "scenario_files": 800
+ },
+ "execution": {
+  "analysis_code": {
+   "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+   "note": "content hashes only; no commit hash, so the record cannot refer to itself",
+   "source_manifest": {
+    "va142-camera-ready-p1-20261004/p1_identity.py": "7cb139983222a9e374f9f10fb2ab40087ec92fb976a0a42f9185bded7d9eb776",
+    "va142-camera-ready-p1-20261004/p1lib.py": "50536701c8cb20419b5f3d18de4120dadebd8eea001e8ed19b12956b27629e41",
+    "va142-camera-ready-p3-20261005/e1_probes.py": "cb5f4f73c977e9fae08866e12d25834f6690c76ff2a9fd98b93531e24b9ff1cb",
+    "va142-camera-ready-p3-20261005/e1_recover.py": "6420cd2141ce01e9a9d0c92452d05842610c4c0de183d5a32e0928934eefd1a2",
+    "va142-camera-ready-p3-20261005/e2_cases.py": "e7c64220f850ff220e0823c9c2292f58c65eb511118fb726bd2b3e3b077e1a91",
+    "va142-camera-ready-p3-20261005/e3_inventory.py": "91a202715d3e995e27bdabc816dd4c194d9b89db1887e8f3cac0b924e5c152ab",
+    "va142-camera-ready-p3-20261005/p3_compare.py": "ab21306a1feb0cb318def4b3d64f5534575e166af46ba4d216d85a5bd9a83ef5",
+    "va142-camera-ready-p3-20261005/p3_worker.py": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655",
+    "va142-camera-ready-p3-20261005/p3lib.py": "3f0667dd0ffe523ef857e17e88526c04a967c847844154981b6c81f32cd8abcb",
+    "va142-camera-ready-p3-20261005/run_p3.py": "de6430281eb6fad4bf766052ae3927cec4837b619d6616620f10019d75112f55"
+   },
+   "source_manifest_sha256": "397f44cf2be358d1caea14d77857cd5b73615c4fb900de80530af1a1529bc8f6",
+   "worker_file": "va142-camera-ready-p3-20261005/p3_worker.py",
+   "worker_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+  },
+  "analysis_code_this_folder": {
+   "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+   "source_manifest": {
+    "e3_judge_script.py": "82f723b8c3ab375acb79f6082a0242e9115cc219da6ff20cfd0e7a4435bd137d",
+    "e3_rejudge.py": "7e557c8f4425a7ed5114a1f216d0bb1b34149900c67e12665d485f2688238906",
+    "fulllib.py": "504d174fd6460f52ffba3b7b0d81ec5d5163a0b795293af761ad22ebcf5e4b12"
+   },
+   "source_manifest_sha256": "719a206b9d9f79b7e95bc483f309a11a83ee765104d2868eec6c56b88ccb7f30"
+  },
+  "env": {
+   "LANG": "C.UTF-8",
+   "LC_ALL": "C.UTF-8",
+   "P3_EXPORT_ROOT": "<EXPORT_ROOT_FULL>",
+   "PATH": "<LOCAL_PATH_ENV>",
+   "PYTHONDONTWRITEBYTECODE": "1",
+   "PYTHONHASHSEED": "0"
+  },
+  "export_verification": {
+   "actual_content_sha256": "fc0d6dac8765234e26e0382ba942780674929efc2268bcde7b845442e1836167",
+   "expected_content_sha256": "fc0d6dac8765234e26e0382ba942780674929efc2268bcde7b845442e1836167",
+   "files_verified": 3171,
+   "kind": "dev",
+   "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+   "when": "immediately before this launch"
+  },
+  "external_tools": {
+   "chmod": {
+    "realpath": "/usr/bin/chmod",
+    "resolved": "/usr/bin/chmod",
+    "sha256": "636dc2e0792244a537121ec10b6e140797cb8d27d231f5c1d025148d1b0c6fc8",
+    "version": "chmod (GNU coreutils) 9.4"
+   },
+   "cp": {
+    "realpath": "/usr/bin/cp",
+    "resolved": "/usr/bin/cp",
+    "sha256": "95cdd604fdf0a292e349d27d1a80170ca0913bd3bbd9d2c0fcfc6c8adaebe2f0",
+    "version": "cp (GNU coreutils) 9.4"
+   },
+   "git": {
+    "realpath": "/usr/bin/git",
+    "resolved": "/usr/bin/git",
+    "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668",
+    "version": "git version 2.43.0"
+   },
+   "tar": {
+    "realpath": "/usr/bin/tar",
+    "resolved": "/usr/bin/tar",
+    "sha256": "3ee2c3c0b4dd9aacebfd2f0fbae44bad36348203acff78a44888dd58c05f811c",
+    "version": "tar (GNU tar) 1.35"
+   }
+  },
+  "input_sources": [
+   {
+    "actual_content_sha256": "3aef084fd79679830c9d6bd80fad92fe160e1022f9caa44293cee24c57facaa1",
+    "expected_content_sha256": "3aef084fd79679830c9d6bd80fad92fe160e1022f9caa44293cee24c57facaa1",
+    "files_verified": 3155,
+    "identity": {
+     "commit": "64668e09fb2fa4c2d1d0c03024191e94046f24b2",
+     "repo": "nle-bench-dev"
+    },
+    "kind": "dev",
+    "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+    "when": "immediately before this launch"
+   }
+  ],
+  "pinned_source": {
+   "actual_scorer_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "expected_scorer_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "identity": {
+    "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+    "repo": "nle-bench-dev"
+   },
+   "kind": "dev"
+  },
+  "script": {
+   "file": "e3_judge_script.py",
+   "sha256": "82f723b8c3ab375acb79f6082a0242e9115cc219da6ff20cfd0e7a4435bd137d"
+  }
+ },
+ "export": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+ "inputs": {
+  "every_log_hash_equals_published_manifest": true,
+  "raw_logs": 55,
+  "raw_logs_fold_definition": "sha256 of the JSON list of [row_id, log sha256]",
+  "raw_logs_fold_sha256": "2567c52a6771b7c4628aef320c4a358434091a219a3532802ecdd491f4aa5ba6"
+ },
+ "judging_rule": "contract",
+ "result": {
+  "corpus_dir": "64668e09fb2fa4c2d1d0c03024191e94046f24b2/src/nlebench/dataset/scenarios_v3_1",
+  "corpus_scenarios": 800,
+  "dispositions": {
+   "detector_judged": {
+    "ambiguous": 10814,
+    "infeasible": 10823
+   },
+   "failure_retained_no_detector_fields": {
+    "ambiguous": 946,
+    "infeasible": 937
+   },
+   "failure_retained_no_stored_state": {
+    "feasible": 8182
+   },
+   "state_rejudged": {
+    "feasible": 85898
+   }
+  },
+  "error_reasons": {},
+  "fixture_states": {
+   "build_errors": {},
+   "nondeterministic_builds": [],
+   "scenarios_built": 800
+  },
+  "loader": "harness",
+  "logs_fold_sha256": "2567c52a6771b7c4628aef320c4a358434091a219a3532802ecdd491f4aa5ba6",
+  "output_sha256": "8646a47ec03081ab93fae1dcf01e607d2377b6631a1480d8a01f4c5fe07e580d",
+  "predicates_registered": 23,
+  "records": 117600,
+  "rule": "contract",
+  "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+  "scorer_version": "1.0.0+registry.71c96a519562"
+ },
+ "run": "d31s",
+ "runtime": {
+  "argv": [
+   "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+   "probe",
+   "<EXPORT_ROOT_FULL>/206e1838224add4d7d685349ab1daaf4ab717c6f/src",
+   "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3full-20261005/e3_judge_script.py",
+   "<RUN_WORKDIR>/runtime.json",
+   "<RUN_WORKDIR>/config.json"
+  ],
+  "dependencies": {
+   "PyYAML": "6.0.3",
+   "annotated-types": "0.8.0",
+   "pydantic": "2.13.5",
+   "pydantic-core": "2.46.5",
+   "typing-extensions": "4.16.0"
+  },
+  "executable": "<DEV_CHECKOUT>/.venv/bin/python",
+  "executable_realpath": "/usr/bin/python3.12",
+  "implementation": "CPython",
+  "nlebench_file": "<EXPORT_ROOT_FULL>/206e1838224add4d7d685349ab1daaf4ab717c6f/src/nlebench/__init__.py",
+  "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "registry_note": "SCORER_VERSION carries a digest of the declared predicate contract. It is not a hash of the executable and is not used as one.",
+  "registry_predicates": 23,
+  "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+  "scorer_version": "1.0.0+registry.71c96a519562",
+  "sys_path": [
+   "<EXPORT_ROOT_FULL>/206e1838224add4d7d685349ab1daaf4ab717c6f/src",
+   "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005",
+   "/usr/lib/python312.zip",
+   "/usr/lib/python3.12",
+   "/usr/lib/python3.12/lib-dynload",
+   "<DEV_CHECKOUT>/.venv/lib/python3.12/site-packages",
+   "<DEV_CHECKOUT>/src"
+  ],
+  "worker_file_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+ },
+ "scenario_loader": "harness",
+ "what": "dev tree at the pin, corpus v3.1-submission (dev 64668e0)"
+}

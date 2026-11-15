@@ -1,0 +1,311 @@
+--- nle-bench-artifact@58afb977515b:code/src/nlebench/runner/constraints.py
++++ nle-bench-dev@6876b0ddc25a:src/nlebench/runner/constraints.py
+@@ -4 +4 @@
+-22 named constraint functions + entity binding + global tolerance.
++15 named constraint functions + entity binding + global tolerance.
+@@ -7 +7 @@
+-Spec reference: scenario_design_spec.md §2, harness_spec.md §5
++Spec reference: scenario-design-spec.md §2, harness-spec.md §5
+@@ -11,0 +12 @@
++import json
+@@ -33 +34 @@
+-_TIME_FIELDS = {"start", "end", "timeline_start", "in_point", "out_point", "duration"}
++_TIME_FIELDS = {"start", "end", "in_point", "out_point", "duration"}
+@@ -36 +36,0 @@
+-_ATTRIBUTE_CHANGED_DIRECTIONS = {"increase", "decrease", "any"}
+@@ -40 +40,9 @@
+-    """Get tolerance for a specific field name."""
++    """Get tolerance for a specific field name.
++
++    Match on the last path segment: the field-specific tables list bare names
++    (`volume`, `duration`), but scenarios address nested fields by path, so
++    `audio.volume` missed the volume entry and silently fell back to the default
++    0.01 instead of 0.5 dB — a 50x tighter bar than intended, on the field that
++    most volume constraints in the set actually use.
++    """
++    field_name = field_name.rsplit(".", 1)[-1]
+@@ -58,11 +65,0 @@
+-def _as_number(value: Any) -> Optional[float]:
+-    """Return a comparable float for numeric and Rational-like values."""
+-    if isinstance(value, bool):
+-        return None
+-    if isinstance(value, (int, float)):
+-        return float(value)
+-    if hasattr(value, "to_float"):
+-        return float(value.to_float())
+-    return None
+-
+-
+@@ -77 +74,3 @@
+-    # Strip 'new_' prefix
++    # Strip 'new_' / 'existing_' prefix. `new_` was handled but `existing_` was
++    # not, so `$existing_effect_1` parsed as type "existing_effect" — a type no
++    # mapping knows — and bound to None forever.
+@@ -79,0 +79,2 @@
++    elif s.startswith("existing_"):
++        s = s[9:]
+@@ -99 +100,5 @@
+-        "media": state.av_medias + state.video_medias + state.audio_medias,
++        # `av_medias` and `video_medias` are the same predicate (type == "video"),
++        # so summing the three legacy lists counted every video media twice and
++        # dropped images entirely — an imported .png could never satisfy a
++        # `media` constraint. Read the backing collection once instead.
++        "media": list(state.media),
+@@ -310,0 +316,16 @@
++    # Effects are NativeBlocks: `effect_type` is the block type and everything
++    # else (`params.*`, `enabled`, `id`) lives inside `data`.
++    data = getattr(entity, "data", None)
++    if isinstance(data, dict) and hasattr(entity, "type"):
++        if field_name == "effect_type":
++            return getattr(entity, "effect_type", None) or entity.type
++        probe: Any = data
++        for part in field_name.split("."):
++            if isinstance(probe, dict) and part in probe:
++                probe = probe[part]
++            else:
++                probe = None
++                break
++        if probe is not None:
++            return probe
++
+@@ -339,0 +361,97 @@
++def _entities_under_parent(state: EditProject, entity_type: str, parent_id: str) -> list:
++    """Entities of `entity_type` belonging to one parent entity.
++
++    31 constraints scope `entity_not_exists` to a single clip via `parent`, and
++    the parameter was never read — so the check ran project-wide and failed
++    whenever any effect existed anywhere, not just on the named clip.
++    """
++    if entity_type == "effect":
++        clip = state.get_clip_by_id(parent_id)
++        if clip is None:
++            return []
++        return [nb for nb in clip.native if nb.type not in ("source", "metadata")]
++    if entity_type in ("clip", "video_clip", "audio_clip", "caption", "transition"):
++        return _get_entities_in_track(state, entity_type, parent_id)
++    return [e for e in _get_entity_list(state, entity_type)
++            if getattr(e, "parent_id", None) == parent_id]
++
++
++def _where_field_value(entity: Any, field: str) -> Any:
++    """Resolve `where.field` on an entity.
++
++    `_resolve_field` cannot read caption text off a Clip (the text lives on the
++    nested `caption`/`title` object), so fall back to those children for
++    single-segment field names.
++    """
++    value = _resolve_field(entity, field)
++    if value is not None:
++        return value
++    if "." not in field:
++        for parent in ("caption", "title"):
++            child = getattr(entity, parent, None)
++            if child is not None:
++                value = _resolve_field(child, field)
++                if value is not None:
++                    return value
++    return None
++
++
++def _as_number(value: Any) -> float | None:
++    """Coerce a field value to a float for comparison.
++
++    Time-valued fields (`duration`, `timeline_start`, …) hold `Rational`, which
++    is not a `float` and whose dataclass `__eq__` returns False against one.
++    Without this coercion a numeric `where` silently degraded to a string
++    comparison of `Rational(n=5, d=2)` against `2.5`.
++    """
++    to_float = getattr(value, "to_float", None)
++    if callable(to_float):
++        try:
++            return float(to_float())
++        except (TypeError, ValueError):
++            return None
++    try:
++        return float(value)
++    except (TypeError, ValueError):
++        return None
++
++
++def _where_match(entity: Any, where: dict, tolerance: dict) -> bool:
++    """Evaluate one `where` clause against an entity.
++
++    Fails closed: an unresolvable field never matches. An unknown operator
++    raises rather than silently making the constraint unsatisfiable — a typo in
++    an authored scenario must surface as an error, not as a scenario nobody can
++    pass.
++    """
++    field = where["field"]
++    op = where.get("op", "==")
++    expected = where["value"]
++    actual = _where_field_value(entity, field)
++    if actual is None:
++        return False
++
++    actual_n, expected_n = _as_number(actual), _as_number(expected)
++    if actual_n is not None and expected_n is not None:
++        tol = _field_tolerance(field, tolerance)
++        if op in ("==", "eq"):
++            return abs(actual_n - expected_n) <= tol
++        if op in ("!=", "ne"):
++            return abs(actual_n - expected_n) > tol
++        if op == "<=":
++            return actual_n <= expected_n + tol
++        if op == "<":
++            return actual_n < expected_n + tol
++        if op == ">=":
++            return actual_n >= expected_n - tol
++        if op == ">":
++            return actual_n > expected_n - tol
++        raise ValueError(f"unknown where operator for numeric compare: {op!r}")
++
++    if op in ("==", "eq"):
++        return str(actual) == str(expected)
++    if op in ("!=", "ne"):
++        return str(actual) != str(expected)
++    raise ValueError(f"unknown where operator for string compare: {op!r}")
++
++
+@@ -344,0 +463,5 @@
++    #
++    # Mode 2 additionally accepts a `where` clause narrowing the candidate list
++    # before `index` is applied. Ignoring it made 23 constraints across 16
++    # scenarios trivially true — they held in the initial fixture, so the
++    # scenario passed without the requested entity ever being created.
+@@ -351 +474,13 @@
+-    entities = _get_entities_in_track(state, entity_type, track)
++    parent = params.get("parent")
++    if parent is not None:
++        entities = _entities_under_parent(state, entity_type, parent)
++    else:
++        entities = _get_entities_in_track(state, entity_type, track)
++    effect_type = params.get("effect_type")
++    if effect_type is not None:
++        entities = [e for e in entities
++                    if (getattr(e, "effect_type", None) or getattr(e, "type", None))
++                    == effect_type]
++    where = params.get("where")
++    if where:
++        entities = [e for e in entities if _where_match(e, where, tolerance)]
+@@ -385,3 +520,7 @@
+-    value_num = _as_number(value)
+-    expected_num = _as_number(expected)
+-    if value_num is not None and expected_num is not None:
++    # Time-valued fields hold `Rational`, which is neither `int` nor `float` and
++    # whose dataclass `__eq__` is False against one. Without coercion a model
++    # that set `duration` to exactly 1.5 was scored wrong, because
++    # `Rational(n=3, d=2) == 1.5` is False and the comparison fell through to
++    # the identity branch below.
++    value_n, expected_n = _as_number(value), _as_number(expected)
++    if value_n is not None and expected_n is not None:
+@@ -389 +528 @@
+-        return abs(value_num - expected_num) <= tol
++        return abs(value_n - expected_n) <= tol
+@@ -402,3 +541,2 @@
+-    value = _resolve_field(entity, field_name)
+-    value_num = _as_number(value)
+-    if value_num is None:
++    value = _as_number(_resolve_field(entity, field_name))
++    if value is None:
+@@ -407 +545 @@
+-    return (params["min"] - tol) <= value_num <= (params["max"] + tol)
++    return (params["min"] - tol) <= value <= (params["max"] + tol)
+@@ -412,7 +549,0 @@
+-    direction = params.get("direction", "any")
+-    if direction not in _ATTRIBUTE_CHANGED_DIRECTIONS:
+-        raise ValueError(
+-            "attribute_changed.direction must be one of "
+-            f"{sorted(_ATTRIBUTE_CHANGED_DIRECTIONS)}, got {direction!r}"
+-        )
+-
+@@ -424,2 +555,13 @@
+-    if entity is None or initial_entity is None:
+-        return entity is not initial_entity  # One exists, other doesn't → changed
++    if entity is None:
++        # The entity was deleted. This used to return True (`None is not <obj>`),
++        # so "raise the BGM" was satisfied by removing the BGM and "move this
++        # clip to the new track" by deleting the clip — the constraint passed
++        # while the project ended up the opposite of what was asked.
++        return False
++    if initial_entity is None:
++        # The entity was created during the run. There is no baseline value, so
++        # the field genuinely went from nothing to something.
++        # ⚠ `direction` cannot be enforced here for want of a baseline; a task
++        # that needs a bound on a new entity's value should use
++        # `attribute_equals` or `position_equals` instead.
++        return True
+@@ -429,3 +571,8 @@
+-    current_num = _as_number(current_val)
+-    initial_num = _as_number(initial_val)
+-    if current_num is not None and initial_num is not None:
++    # `direction` says which way the value must move. It was never read, so
++    # "raise the volume" and "lower the volume" scored identically and a model
++    # that moved the value the wrong way passed — a false success, across the
++    # 115 constraints that declare a direction. `entity_count_changed` has
++    # honoured its own `direction` all along; only this predicate did not.
++    direction = params.get("direction")
++    cur_n, ini_n = _as_number(current_val), _as_number(initial_val)
++    if cur_n is not None and ini_n is not None:
+@@ -434 +581 @@
+-            return current_num > initial_num + tol
++            return cur_n - ini_n > tol
+@@ -436,2 +583,4 @@
+-            return current_num < initial_num - tol
+-        return abs(current_num - initial_num) > tol
++            return ini_n - cur_n > tol
++        return abs(cur_n - ini_n) > tol
++    if direction in ("increase", "decrease"):
++        return False   # a direction is meaningless on a non-numeric field
+@@ -450,4 +599,8 @@
+-    if params.get("start") is not None:
+-        ok = ok and abs(entity.start - params["start"]) <= time_tol
+-    if params.get("end") is not None:
+-        ok = ok and abs(entity.end - params["end"]) <= time_tol
++    for key in ("start", "end"):
++        want = params.get(key)
++        if want is None:
++            continue
++        got, want_n = _as_number(_resolve_field(entity, key)), _as_number(want)
++        if got is None or want_n is None:
++            return False
++        ok = ok and abs(got - want_n) <= time_tol
+@@ -463,2 +616,5 @@
+-    actual = entity.end - entity.start
+-    return abs(actual - params["value"]) <= time_tol
++    end, start = _as_number(_resolve_field(entity, "end")), _as_number(_resolve_field(entity, "start"))
++    want = _as_number(params["value"])
++    if end is None or start is None or want is None:
++        return False
++    return abs((end - start) - want) <= time_tol
+@@ -531 +687 @@
+-# --- 2.5 Relation (4) ---
++# --- 2.5 Relation (2) ---
+@@ -591 +747 @@
+-# --- 2.6 State delta (6) ---
++# --- 2.6 Global (1) ---
+@@ -706,2 +862,7 @@
+-    Skips nested list fields (clips, tracks, transitions, native, bins)
+-    since those are compared separately at their own entity level.
++    Skips nested list fields (clips, tracks, transitions, bins, …) because those
++    are walked separately at their own entity level.
++
++    ★ `native` is NOT one of them. Effects live there and are not walked
++    anywhere else, so skipping it meant `unchanged_except` never saw an effect
++    added to, changed on, or removed from a clip outside the allowed list — a
++    silent channel for collateral damage.
+@@ -712,2 +873,13 @@
+-    # Fields that contain child entities - skip these
+-    nested_fields = {"clips", "tracks", "transitions", "native", "bins", "media", "timelines"}
++    # Fields that contain child entities walked elsewhere - skip these
++    nested_fields = {"clips", "tracks", "transitions", "bins", "media", "timelines"}
++
++    # Effects are only reachable here; compare them by value.
++    na, nb = getattr(a, "native", None), getattr(b, "native", None)
++    if na is not None or nb is not None:
++        def _blocks(blocks):
++            return sorted(
++                (nb_.type, json.dumps(nb_.data, sort_keys=True, default=str))
++                for nb_ in (blocks or [])
++                if nb_.type not in ("source", "metadata"))
++        if _blocks(na) != _blocks(nb):
++            return False

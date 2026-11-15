@@ -1,0 +1,606 @@
+{
+ "_meta": {
+  "what": "false_success_probe.json 의 발견 120건을 UNDER(제약 결함)/BENIGN(무해)/GOLD(정답 결함)로 분류",
+  "date": "2026-08-14",
+  "scoring_path": "validate_named_constraints + load_scenario + build_fixture + execute_tool (하네스 경로)",
+  "judgement_basis": "각 시나리오의 turns(지시문)가 그 값/대상/단계를 실제로 요구하는가",
+  "reverification": "발견 120건 전부를 픽스처 스펙 deepcopy 후 하네스로 재실행해 변종이 여전히 통과하는지 확인했다. M1 4건이 재실행에서 탈락 → 프로브 자체의 상태 별칭 오탐으로 판명(아래 P6)."
+ },
+ "counts_by_mutation": {
+  "M3_다른_대상에_해도_통과": {
+   "BENIGN": 3,
+   "UNDER": 2
+  },
+  "M1_단계가_불필요": {
+   "BENIGN": 18,
+   "GOLD": 11,
+   "UNDER": 7
+  },
+  "M4_값이_틀려도_통과": {
+   "BENIGN": 25,
+   "UNDER": 53,
+   "GOLD": 1
+  }
+ },
+ "counts_by_subtype": {
+  "M3_다른_대상에_해도_통과": {
+   "BENIGN/probe_artifact": 1,
+   "BENIGN/vacuous_subgoal": 1,
+   "BENIGN/final_state_equivalent": 1,
+   "UNDER/target_identity": 2
+  },
+  "M1_단계가_불필요": {
+   "BENIGN/probe_artifact": 4,
+   "GOLD/unrequested_ripple": 2,
+   "BENIGN/subsumed_by_later_step": 8,
+   "GOLD/unrequested_step": 8,
+   "UNDER/missing_membership": 2,
+   "BENIGN/vacuous_subgoal": 6,
+   "UNDER/missing_position": 2,
+   "UNDER/missing_attribute": 1,
+   "UNDER/partial_coverage": 1,
+   "GOLD/wrong_target_in_gold": 1,
+   "UNDER/target_identity": 1
+  },
+  "M4_값이_틀려도_통과": {
+   "BENIGN/value_unspecified": 20,
+   "UNDER/direction_only": 24,
+   "UNDER/missing_position": 24,
+   "BENIGN/overwritten_later": 3,
+   "BENIGN/collateral_unguarded": 2,
+   "GOLD/unrequested_step": 1,
+   "UNDER/partial_coverage": 1,
+   "UNDER/missing_attribute": 4
+  }
+ },
+ "counts_total": {
+  "BENIGN": 46,
+  "UNDER": 62,
+  "GOLD": 12
+ },
+ "findings": {
+  "M3_다른_대상에_해도_통과": [
+   {
+    "mutation": "M3 대상 오조준",
+    "scenario": "NLB-v3-EX-AT-010",
+    "step": 2,
+    "intended_target": "audio_clip_4",
+    "used_target": "video_clip_1",
+    "instruction": "Unlink video_clip_1 from its linked audio. || Import media from /assets/overlay.png into the project. || Set audio_clip_4 volume to -6 dB.",
+    "classification": "BENIGN",
+    "subtype": "vacuous_subgoal",
+    "basis": "지시 '(turn3) Set audio_clip_4 volume to -6 dB' 가 요구하는 값이 픽스처 simple_sequence 의 audio_clip_4 초기값(-6.0 dB)과 같다. 제약 attribute_equals(audio_clip_4, audio.volume, -6.0) 은 값을 정확히 걸고 있으므로 제약 결함이 아니다 — 과제가 공허(아무것도 안 해도 정답)한 것이다.",
+    "fix": "제약이 아니라 시나리오를 고쳐야 한다: 지시 값을 초기값과 다르게(예: -12 dB) 하거나 픽스처의 audio_clip_4 볼륨을 0 dB 로 바꾼다. 그래야 이 턴이 변별력을 갖는다."
+   },
+   {
+    "mutation": "M3 대상 오조준",
+    "scenario": "NLB-v3-EX-DE-004",
+    "step": 1,
+    "intended_target": "video_clip_3",
+    "used_target": "video_clip_1",
+    "instruction": "Create a new video track above the existing ones. || Place video_clip_3 onto the new track for a picture-in-picture look.",
+    "classification": "UNDER",
+    "subtype": "target_identity",
+    "basis": "지시가 '**Place video_clip_3** onto the new track' 로 대상을 ID 로 명시한다. 그런데 제약은 entity_exists($new_track_1) 와 entity_exists(type=video_clip, track=$new_track_1, index=0) 뿐 — 새 트랙에 '아무 비디오 클립이나' 있으면 통과한다. video_clip_1 을 대신 올려도 통과함을 하네스로 확인.",
+    "fix": "required 에 attribute_equals: {entity: video_clip_3, field: track_id, value: $new_track_1} 를 추가한다. (또는 index 방식을 유지하려면 entity_exists 에 where: {field: id, value: video_clip_3} 를 붙인다.)"
+   },
+   {
+    "mutation": "M3 대상 오조준",
+    "scenario": "NLB-v3-ST-DE-009",
+    "step": 1,
+    "intended_target": "video_clip_5",
+    "used_target": "video_clip_1",
+    "instruction": "Add a new video track V3. || Move the shortest V2 clip to the new track. || Add a blur effect to that moved clip since it's now a standalone overlay.",
+    "classification": "UNDER",
+    "subtype": "target_identity",
+    "basis": "지시가 '**Move the shortest V2 clip**(=video_clip_5) to the new track' 로 이동 대상을 특정한다. 제약은 entity_count_changed(track, increase) 와 has_effect(video_clip_5, blur) 뿐이라 **이동 자체를 전혀 재지 않는다**. video_clip_1 을 대신 옮겨도 통과(하네스 확인).",
+    "fix": "required 에 attribute_equals: {entity: video_clip_5, field: track_id, value: $new_track_1} 를 추가한다. turn2 의 'that moved clip' 가 turn1 의 결과에 의존하므로 이 제약이 없으면 의존 구조 자체가 채점되지 않는다."
+   }
+  ],
+  "M1_단계가_불필요": [
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-CX-CO-004",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_4"
+    },
+    "instruction": "The later B-roll overlay is distracting: unlink it from its audio, remove the clip, and shift the earlier B-roll's start 2 seconds later.",
+    "classification": "BENIGN",
+    "subtype": "subsumed_by_later_step",
+    "basis": "지시는 unlink 를 분명히 요구하지만, 뒤따르는 remove_clip/split+remove/re-link 가 링크를 어차피 소멸시킨다. unlink 단계를 빼도 **최종 상태가 정답과 동일**함을 하네스로 확인. not_linked 제약이 느슨한 것이 아니라 최종 상태 채점이 이 순서를 구별할 수 없다.",
+    "fix": "최종 상태 제약으로는 불가. 턴별 채점에서만 구별 가능하다."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-CX-DE-005",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_4"
+    },
+    "instruction": "The later B-roll overlay's audio is clashing. Unlink it from its audio track. || Now remove the B-roll clip entirely — we don't need it.",
+    "classification": "BENIGN",
+    "subtype": "subsumed_by_later_step",
+    "basis": "지시는 unlink 를 분명히 요구하지만, 뒤따르는 remove_clip/split+remove/re-link 가 링크를 어차피 소멸시킨다. unlink 단계를 빼도 **최종 상태가 정답과 동일**함을 하네스로 확인. not_linked 제약이 느슨한 것이 아니라 최종 상태 채점이 이 순서를 구별할 수 없다.",
+    "fix": "최종 상태 제약으로는 불가. 턴별 채점에서만 구별 가능하다."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-DI-DE-007",
+    "dropped_step": 1,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "video_clip_3",
+     "start": 18.0,
+     "end": 30.0
+    },
+    "instruction": "The second clip's duration is way off — set it to 10 seconds, then slide the next clip so it starts right when this one ends, and finally add a cross-dissolve between them.",
+    "classification": "BENIGN",
+    "subtype": "vacuous_subgoal",
+    "basis": "instruction 이 요구하는 값이 픽스처 초기값과 이미 같아 그 단계가 무연산(no-op)이다. 해당 제약은 값을 정확히 걸고 있으므로 제약 결함이 아니라 시나리오의 변별력 결함이다. video_clip_3 는 complex_sequence 에서 이미 18.0-30.0s 이고 지시 'slide the next clip so it starts right when this one ends' 가 요구하는 값도 18.0 이다. 제약 attribute_equals(video_clip_3, timeline_start, 18.0) 은 값을 정확히 건다.",
+    "fix": "시나리오 수정 권고: 픽스처 패치로 video_clip_3 를 18.0 아닌 위치에 두어 이 하위 목표에 변별력을 준다."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-EX-AT-010",
+    "dropped_step": 2,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "audio_clip_4",
+     "volume": -6.0
+    },
+    "instruction": "Unlink video_clip_1 from its linked audio. || Import media from /assets/overlay.png into the project. || Set audio_clip_4 volume to -6 dB.",
+    "classification": "BENIGN",
+    "subtype": "vacuous_subgoal",
+    "basis": "instruction 이 요구하는 값이 픽스처 초기값과 이미 같아 그 단계가 무연산(no-op)이다. 해당 제약은 값을 정확히 걸고 있으므로 제약 결함이 아니라 시나리오의 변별력 결함이다. audio_clip_4 볼륨이 이미 -6.0 dB 다. M3 발견과 같은 뿌리.",
+    "fix": "지시 값을 -12 dB 등으로 바꾸거나 픽스처 초기값을 0 dB 로 바꾼다."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-EX-DE-006",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_3"
+    },
+    "instruction": "Unlink video_clip_3 from audio_clip_3. || Remove video_clip_3 from the timeline.",
+    "classification": "BENIGN",
+    "subtype": "subsumed_by_later_step",
+    "basis": "지시는 unlink 를 분명히 요구하지만, 뒤따르는 remove_clip/split+remove/re-link 가 링크를 어차피 소멸시킨다. unlink 단계를 빼도 **최종 상태가 정답과 동일**함을 하네스로 확인. not_linked 제약이 느슨한 것이 아니라 최종 상태 채점이 이 순서를 구별할 수 없다.",
+    "fix": "최종 상태 제약으로는 불가. 턴별 채점에서만 구별 가능하다."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-ST-CO-008",
+    "dropped_step": 3,
+    "tool": "update_effect",
+    "params": {
+     "effect_id": "effect_1",
+     "params": {
+      "intensity": 1.5
+     }
+    },
+    "instruction": "Change the text of the earliest caption to 'Intro' and add a fade-in effect to it. || On the longest V1 clip, set opacity to 0.8 and update the saturation effect intensity to 1.5.",
+    "classification": "BENIGN",
+    "subtype": "probe_artifact",
+    "fix": "위와 동일."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-ST-DE-004",
+    "dropped_step": 2,
+    "tool": "remove_clip",
+    "params": {
+     "clip_id": "caption_1"
+    },
+    "instruction": "Remove the first V1 clip from the timeline. || Shift all following clips earlier so there is no gap.",
+    "classification": "GOLD",
+    "subtype": "unrequested_step",
+    "basis": "지시 turn1 은 'Remove **the first V1 clip**'(=video_clip_1) 이다. 정답은 caption_1 까지 지웠다 — 캡션 삭제는 지시 밖이고 오히려 자료 손실이다.",
+    "fix": "정답에서 remove_clip(caption_1) 을 뺀다. ★ 이 시나리오도 unchanged_except 가 없어 부수적 삭제가 감점되지 않는다 — 공통 패턴 P4."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-ST-DE-004",
+    "dropped_step": 6,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "audio_clip_3",
+     "end": 15,
+     "start": 10
+    },
+    "instruction": "Remove the first V1 clip from the timeline. || Shift all following clips earlier so there is no gap.",
+    "classification": "UNDER",
+    "subtype": "partial_coverage",
+    "basis": "지시 turn2 가 'Shift **all following clips** earlier so there is no gap' 이다. '모든' 이므로 오디오 트랙의 audio_clip_2/3 도 대상인데, 제약은 video_clip_2·video_clip_3 의 timeline_start 감소만 본다. 오디오를 그대로 두어 A1 에 5초 구멍이 남아도 통과.",
+    "fix": "required 에 attribute_changed{entity: audio_clip_2, field: timeline_start, direction: decrease} 와 audio_clip_3 동일 제약을 추가하거나, 더 직접적으로 no_gap: {track: video_track_1} 와 no_gap: {track: audio_track_1} 을 건다(no_gap 은 이미 등록된 함수다)."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-ST-DE-008",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_1"
+    },
+    "instruction": "Unlink the shortest V2 clip from its linked audio. || Then remove that audio clip and shift the following audio clips earlier to fill the gap.",
+    "classification": "GOLD",
+    "subtype": "wrong_target_in_gold",
+    "basis": "지시는 '**the shortest V2 clip**(=video_clip_5) 을 링크된 오디오에서 분리' 다. 픽스처 패치가 만든 그 링크는 link_4 인데 정답은 **link_1**(video_clip_1↔audio_clip_1)을 푼다 — 정답이 엉뚱한 링크를 건드린다. 그런데도 통과하는 이유는 뒤의 remove_clip(audio_clip_3) 이 link_4 를 소멸시켜 not_linked(video_clip_5) 를 자동 충족시키기 때문이다.",
+    "fix": "정답 0단계를 unlink_clips{link_id: link_4} 로 고친다. 부수적으로 unchanged_except{changed:[video_clip_5, audio_clip_3]} 를 걸면 무관한 link_1 파괴가 잡힌다."
+   },
+   {
+    "mutation": "M1 단계 누락",
+    "scenario": "NLB-v3-ST-DE-009",
+    "dropped_step": 1,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "video_clip_5",
+     "track_id": "track_1"
+    },
+    "instruction": "Add a new video track V3. || Move the shortest V2 clip to the new track. || Add a blur effect to that moved clip since it's now a standalone overlay.",
+    "classification": "UNDER",
+    "subtype": "target_identity",
+    "basis": "M3 과 같은 뿌리다. 지시 turn2 'Move the shortest V2 clip to the new track' 를 재는 제약이 없어, 이동 단계를 통째로 빼도 통과한다.",
+    "fix": "attribute_equals: {entity: video_clip_5, field: track_id, value: $new_track_1} 를 추가한다."
+   }
+  ],
+  "M4_값이_틀려도_통과": [
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-CX-AT-003",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0,
+    "instruction": "The cut between the intro and the middle section feels too abrupt. Add a cross-dissolve transition there.",
+    "classification": "BENIGN",
+    "subtype": "value_unspecified",
+    "basis": "지시문이 전환의 길이를 지정하지 않는다(전환 종류와 위치만 요구). 정답의 duration 은 저자가 임의로 고른 값이므로 제약이 걸지 않는 것이 옳다.",
+    "fix": null
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-CX-AT-009",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0,
+    "instruction": "The jump from the intro to the bridge feels harsh — add a wipe transition there. || And put a contrast effect on the bridge clip to set it apart.",
+    "classification": "BENIGN",
+    "subtype": "value_unspecified",
+    "basis": "지시문이 전환의 길이를 지정하지 않는다(전환 종류와 위치만 요구). 정답의 duration 은 저자가 임의로 고른 값이므로 제약이 걸지 않는 것이 옳다.",
+    "fix": null
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-CX-CO-004",
+    "step": 2,
+    "param": "start",
+    "intended": 6.0,
+    "used": 13.0,
+    "instruction": "The later B-roll overlay is distracting: unlink it from its audio, remove the clip, and shift the earlier B-roll's start 2 seconds later.",
+    "classification": "UNDER",
+    "subtype": "direction_only",
+    "basis": "지시가 \"shift the earlier B-roll's start **2 seconds later**\" 로 이동량을 명시한다. 제약은 attribute_changed(video_clip_4, timeline_start, increase) — 9초를 밀어도 통과.",
+    "fix": "attribute_changed 를 attribute_equals: {entity: video_clip_4, field: timeline_start, value: 6.0} 로 교체한다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-CX-CO-005",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0,
+    "instruction": "Import the new voiceover file 'narration.wav' into the project. || Place a clip from it on audio track 1, starting right where the dialogue on that track runs out, and link it with the intro shot.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 새 클립의 위치를 명시한다(‘starting right where the dialogue on that track runs out(=20.0s)’). 제약은 존재/개수 계열뿐이라 7초 어긋난 위치에 놓아도 통과.",
+    "fix": "required 에 position_equals: {entity: $new_clip_1, start: <지시값>} 를 추가한다(필요하면 duration_equals 도 함께). entity_exists/entity_count_changed 는 '생겼는가' 만 보고 '어디에' 를 안 본다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-CX-CU-003",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0,
+    "instruction": "Add a cross-dissolve between the intro and the middle clip. || Now slow the outro to 0.85x. Keep the transition.",
+    "classification": "BENIGN",
+    "subtype": "value_unspecified",
+    "basis": "지시문이 전환의 길이를 지정하지 않는다(전환 종류와 위치만 요구). 정답의 duration 은 저자가 임의로 고른 값이므로 제약이 걸지 않는 것이 옳다.",
+    "fix": null
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-CX-CU-007",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0,
+    "instruction": "Import the new voiceover 'narration.wav' into the project. || Place a clip from it on audio track 1, starting right where the dialogue on that track runs out. || Link the new audio with the intro video. Keep the import and clip.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 새 클립의 위치를 명시한다(‘starting right where the dialogue on that track runs out(=20.0s)’). 제약은 존재/개수 계열뿐이라 7초 어긋난 위치에 놓아도 통과.",
+    "fix": "required 에 position_equals: {entity: $new_clip_1, start: <지시값>} 를 추가한다(필요하면 duration_equals 도 함께). entity_exists/entity_count_changed 는 '생겼는가' 만 보고 '어디에' 를 안 본다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-CX-DE-002",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0,
+    "instruction": "We have new background music — import 'ambient.mp3' and place a clip from it on audio track 2, starting right where the current music ends.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 새 클립의 위치를 명시한다(‘starting right where the current music ends(=20.0s)’). 제약은 존재/개수 계열뿐이라 7초 어긋난 위치에 놓아도 통과.",
+    "fix": "required 에 position_equals: {entity: $new_clip_1, start: <지시값>} 를 추가한다(필요하면 duration_equals 도 함께). entity_exists/entity_count_changed 는 '생겼는가' 만 보고 '어디에' 를 안 본다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-CX-DE-007",
+    "step": 1,
+    "param": "start",
+    "intended": 5.0,
+    "used": 12.0,
+    "instruction": "I need a picture-in-picture layer. Create a new video track. || Now add a clip from media_2 on the new track starting at 5s.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 새 클립의 위치를 명시한다(‘starting **at 5s**’). 제약은 존재/개수 계열뿐이라 7초 어긋난 위치에 놓아도 통과.",
+    "fix": "required 에 position_equals: {entity: $new_clip_1, start: <지시값>} 를 추가한다(필요하면 duration_equals 도 함께). entity_exists/entity_count_changed 는 '생겼는가' 만 보고 '어디에' 를 안 본다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-DI-CO-008",
+    "step": 0,
+    "param": "start",
+    "intended": 5,
+    "used": 12.0,
+    "instruction": "The second clip is running way too fast and there's a dip-to-black transition after it that shouldn't be there — fix both.",
+    "classification": "BENIGN",
+    "subtype": "collateral_unguarded",
+    "basis": "지시는 '두 번째 클립의 속도 복구 + dip-to-black 전환 제거' 다. 변이된 것은 정답이 함께 준 video_clip_2 의 start 이고 지시문은 위치를 말하지 않는다. 다만 unchanged_except(changed=[video_clip_2, transition_1]) 가 **엔티티 단위 화이트리스트**라 video_clip_2 에 대한 임의 훼손이 전부 허용된다는 별개 문제가 드러난다(공통 패턴 P3).",
+    "fix": "엄밀히는 지시가 값을 지정하지 않으므로 무해. 다만 수리(diagnosis) 과제에서 '고치라고 한 필드 외에는 그대로' 를 재려면 position_equals{entity: video_clip_2, start: 5.0} 를 추가하는 편이 낫다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-AT-002",
+    "step": 0,
+    "param": "start",
+    "intended": 25.0,
+    "used": 32.0,
+    "instruction": "Add a new clip from av_media_1 onto track V1 starting at 00:00:25:00.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 새 클립의 위치를 명시한다(‘starting at **00:00:25:00**’). 제약은 존재/개수 계열뿐이라 7초 어긋난 위치에 놓아도 통과.",
+    "fix": "required 에 position_equals: {entity: $new_clip_1, start: <지시값>} 를 추가한다(필요하면 duration_equals 도 함께). entity_exists/entity_count_changed 는 '생겼는가' 만 보고 '어디에' 를 안 본다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-AT-009",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0,
+    "instruction": "Add a cross-dissolve transition between video_clip_1 and video_clip_2 with duration 1.0s. || Set video_clip_3 opacity to 0.7.",
+    "classification": "UNDER",
+    "subtype": "missing_attribute",
+    "basis": "지시가 'Add a cross-dissolve transition between video_clip_1 and video_clip_2 **with duration 1.0s**' 로 길이를 명시한다. 제약은 has_transition(양끝+종류)뿐이라 8.0s 로 넣어도 통과.",
+    "fix": "required 에 attribute_equals: {entity: $new_transition_1, field: duration, value: <지시값>} 를 추가한다. has_transition 은 존재/종류/양끝만 보고 길이를 전혀 보지 않는다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-CO-005",
+    "step": 0,
+    "param": "position",
+    "intended": 20.5,
+    "used": 27.5,
+    "instruction": "video_clip_3: split at 20.5s, add brightness effect to the first part.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 분할 지점을 못 박는다(‘video_clip_3: split at **20.5s**’). 제약은 분할 지점을 전혀 보지 않는다.",
+    "fix": "분할 지점을 재는 제약을 추가한다: 남는 조각에 position_equals{start: <분할점>} 또는 원본 조각에 duration_equals{value: <분할점-원본시작>}. entity_count_changed 만으로는 '아무 데나 자르면 통과' 다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-CO-010",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0,
+    "instruction": "Add a cross-dissolve transition between vc_1 and vc_2 with duration 1.0s, and set vc_2 opacity to 0.95.",
+    "classification": "UNDER",
+    "subtype": "missing_attribute",
+    "basis": "지시가 '**with duration 1.0s**' 를 명시한다. has_transition 은 길이를 보지 않는다.",
+    "fix": "required 에 attribute_equals: {entity: $new_transition_1, field: duration, value: <지시값>} 를 추가한다. has_transition 은 존재/종류/양끝만 보고 길이를 전혀 보지 않는다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-CU-004",
+    "step": 1,
+    "param": "start",
+    "intended": 0.0,
+    "used": 7.0,
+    "instruction": "Create a new video track above the existing ones. || Add a clip from av_media_1 on the new track at 0s. Keep the track.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 새 클립의 위치를 명시한다(‘on the new track **at 0s**’). 제약은 존재/개수 계열뿐이라 7초 어긋난 위치에 놓아도 통과.",
+    "fix": "required 에 position_equals: {entity: $new_clip_1, start: <지시값>} 를 추가한다(필요하면 duration_equals 도 함께). entity_exists/entity_count_changed 는 '생겼는가' 만 보고 '어디에' 를 안 본다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-CU-007",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0,
+    "instruction": "Add a cross-dissolve transition between video_clip_1 and video_clip_2. || Change the transition duration to 1.5s. Keep the transition type.",
+    "classification": "BENIGN",
+    "subtype": "overwritten_later",
+    "basis": "지시문이 최초 추가 시점의 길이를 지정하지 않고, 뒤 턴이 길이를 따로 지정하며 그 값은 attribute_equals($new_transition_1, duration, …) 로 이미 걸려 있다. 초기 duration 을 바꿔도 최종 상태가 정답과 동일(하네스 확인).",
+    "fix": null
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-CU-009",
+    "step": 0,
+    "param": "end",
+    "intended": 27.0,
+    "used": 34.0,
+    "instruction": "Extend video_clip_5 by 2 seconds. || Add a caption 'The End' at the new end of video_clip_5. Keep the duration change.",
+    "classification": "UNDER",
+    "subtype": "direction_only",
+    "basis": "지시가 'Extend video_clip_5 **by 2 seconds**' 로 양을 명시하는데 제약은 attribute_changed(duration, increase) 다. 9초를 늘려도 통과.",
+    "fix": "attribute_equals: {entity: video_clip_5, field: duration, value: 7.0} 로 교체한다(원 duration 5s + 2s)."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-DE-001",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0,
+    "instruction": "Import the file 'interview_b.mp4' as new media, then add a clip from it after video_clip_3.",
+    "classification": "BENIGN",
+    "subtype": "value_unspecified",
+    "basis": "지시가 위치를 정확히 못 박지 않는다(‘**after video_clip_3** — 27.0s 도 그 뒤다’). 변이값도 그 조건을 여전히 만족하거나, 위치 자체가 자유다.",
+    "fix": null
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-EX-DE-009",
+    "step": 0,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0,
+    "instruction": "Add a new audio clip from av_media_2 starting at 20s on audio track 2. || Link the new audio clip with video_clip_2. || Extend video_clip_2 by 1 second so it ends at 16s.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 새 클립의 위치를 명시한다(‘Add a new audio clip … **starting at 20s**’). 제약은 존재/개수 계열뿐이라 7초 어긋난 위치에 놓아도 통과.",
+    "fix": "required 에 position_equals: {entity: $new_clip_1, start: <지시값>} 를 추가한다(필요하면 duration_equals 도 함께). entity_exists/entity_count_changed 는 '생겼는가' 만 보고 '어디에' 를 안 본다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-ST-AT-005",
+    "step": 0,
+    "param": "start",
+    "intended": 18.0,
+    "used": 25.0,
+    "instruction": "Drop a title card reading 'Main Scene' over the longest V1 clip and have it run the full length of that clip.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 '**over the longest V1 clip** and have it **run the full length of that clip**' 로 시작과 길이를 모두 못 박는다(=18.0-30.0s). 제약은 개수 증가와 텍스트만 본다.",
+    "fix": "required 에 position_equals: {entity: $new_caption_1, start: <지시값>} + duration_equals: {entity: $new_caption_1, value: <지시 길이>} 를 추가한다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-ST-CO-003",
+    "step": 0,
+    "param": "start",
+    "intended": 18.0,
+    "used": 25.0,
+    "instruction": "Add a caption 'Hero Shot' over the longest clip on V1 and set that clip's opacity to 0.9.",
+    "classification": "UNDER",
+    "subtype": "missing_position",
+    "basis": "지시가 '**over the longest clip on V1**'(=video_clip_3, 18-30s) 로 위치를 지정한다. 제약은 존재/개수와 텍스트, 그리고 그 클립의 opacity 만 본다.",
+    "fix": "required 에 position_equals: {entity: $new_caption_1, start: <지시값>} + duration_equals: {entity: $new_caption_1, value: <지시 길이>} 를 추가한다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-ST-CO-007",
+    "step": 1,
+    "param": "volume",
+    "intended": 3.0,
+    "used": 10.0,
+    "instruction": "I need to treat the first video and audio clips separately — break their link, and while you're at it, bump the audio up by 3 dB.",
+    "classification": "UNDER",
+    "subtype": "direction_only",
+    "basis": "지시가 볼륨 변화량을 수치로 명시하는데(‘bump the audio up by 3 dB’) 제약은 attribute_changed{direction} 하나뿐이다. 방향만 맞으면 어떤 값이든 통과 — 정답값+7 dB 로도 통과함을 하네스로 확인.",
+    "fix": "attribute_changed{direction} 를 attribute_equals{field: audio.volume, value: <초기값±지시량>} 로 **교체**한다. 지시가 상대량('by N dB')이므로 값 계산이 픽스처에 묶인다면 attribute_in_range{min: v-tol, max: v+tol} 도 가능하다. 방향만 보는 제약은 '조금이라도 올리면 통과' 라서 지시가 명시한 양을 전혀 재지 못한다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-ST-CU-001",
+    "step": 0,
+    "param": "volume",
+    "intended": -3.0,
+    "used": 4.0,
+    "instruction": "Boost the volume of the audio clip that runs the longest on the timeline by 3 dB. || Also add a fade-in effect to the longest video clip. Keep the volume change.",
+    "classification": "UNDER",
+    "subtype": "direction_only",
+    "basis": "지시가 볼륨 변화량을 수치로 명시하는데(‘Boost … by 3 dB’) 제약은 attribute_changed{direction} 하나뿐이다. 방향만 맞으면 어떤 값이든 통과 — 정답값+7 dB 로도 통과함을 하네스로 확인.",
+    "fix": "attribute_changed{direction} 를 attribute_equals{field: audio.volume, value: <초기값±지시량>} 로 **교체**한다. 지시가 상대량('by N dB')이므로 값 계산이 픽스처에 묶인다면 attribute_in_range{min: v-tol, max: v+tol} 도 가능하다. 방향만 보는 제약은 '조금이라도 올리면 통과' 라서 지시가 명시한 양을 전혀 재지 못한다."
+   },
+   {
+    "mutation": "M4 값 왜곡",
+    "scenario": "NLB-v3-ST-DE-005",
+    "step": 1,
+    "param": "volume",
+    "intended": 4.0,
+    "used": 11.0,
+    "instruction": "Mute the longest audio clip (the BGM). || Raise the volume of the longest V1 clip's audio by 4 dB to compensate, and add a caption 'No BGM' at its start.",
+    "classification": "UNDER",
+    "subtype": "direction_only",
+    "basis": "지시가 볼륨 변화량을 수치로 명시하는데(‘Raise … by 4 dB’) 제약은 attribute_changed{direction} 하나뿐이다. 방향만 맞으면 어떤 값이든 통과 — 정답값+7 dB 로도 통과함을 하네스로 확인.",
+    "fix": "attribute_changed{direction} 를 attribute_equals{field: audio.volume, value: <초기값±지시량>} 로 **교체**한다. 지시가 상대량('by N dB')이므로 값 계산이 픽스처에 묶인다면 attribute_in_range{min: v-tol, max: v+tol} 도 가능하다. 방향만 보는 제약은 '조금이라도 올리면 통과' 라서 지시가 명시한 양을 전혀 재지 못한다."
+   }
+  ]
+ },
+ "공통_패턴": [
+  {
+   "id": "P1",
+   "제목": "★ 상대량 지시를 direction 만으로 채점한다 (UNDER 24건)",
+   "설명": "‘by N dB’, ‘by 2 seconds’, ‘to close the gap’ 처럼 지시가 **양**을 못 박는데 제약은 attribute_changed{direction: increase|decrease} 하나뿐인 저작 관행. 방향만 맞으면 어떤 값이든 통과한다. M4 UNDER 53건 중 24건(볼륨 20 + 이동/길이 4)이 이 하나의 관행에서 나온다.",
+   "해당": [
+    "update_clip.volume 20건 전부",
+    "CX-CO-004",
+    "EX-CU-009"
+   ],
+   "일괄_규칙": "지시문에 수치 리터럴(‘N dB’, ‘N seconds’, ‘0.9x’)이 있으면 attribute_changed 를 금지하고 attribute_equals(또는 attribute_in_range)로 값을 건다. attribute_changed 는 지시가 정말로 방향만 말할 때(‘조금 낮춰줘’)에만 쓴다. 린터로 강제 가능: turns 에 숫자+단위가 있고 required 에 그 엔티티/필드에 대한 값 제약이 없으면 실패시킨다."
+  },
+  {
+   "id": "P2",
+   "제목": "★ ‘어디에’ 를 안 잰다 — 생성 계열 제약이 존재/개수에서 멈춘다 (UNDER 24건)",
+   "일괄_규칙": "add_clip/add_caption/split_clip 을 요구하는 지시에 시각·길이 리터럴이나 ‘~에 맞춰’ 류 관계 지정이 있으면 position_equals / duration_equals 를 필수로 만든다."
+  },
+  {
+   "id": "P3",
+   "제목": "unchanged_except 의 두 구멍 — native(이펙트) 무시 + 엔티티 단위 화이트리스트",
+   "일괄_규칙": "(a) _entities_equal 에서 native 를 비교 대상에 넣거나(이펙트 id/type/params 정규화 비교), unchanged_except 안에 이펙트 집합 비교를 따로 넣는다. 이 한 줄이 이펙트 관련 부수 변경 전부를 감시 범위로 되돌린다. (b) changed 를 {entity: [fields]} 형태로 확장해 필드 단위 화이트리스트를 허용한다."
+  },
+  {
+   "id": "P4",
+   "제목": "정답이 ‘통과한 모델 실행에서 수확’되어 지시 밖 단계를 안고 있다 (GOLD 12건)",
+   "일괄_규칙": "수확 정답에 대해 ‘지시문이 언급하지 않은 엔티티를 건드리는 단계’ 를 자동 표시하는 검사를 돌리고, expected_changed_entities 밖의 엔티티를 바꾸는 단계는 저자 확인 없이는 정답에 넣지 않는다. 동시에 이 시나리오들에 unchanged_except{changed: expected_changed_entities} 를 기본으로 깐다."
+  },
+  {
+   "id": "P5",
+   "제목": "공허한 하위 목표 — 지시가 요구하는 값이 픽스처 초기값과 같다 (BENIGN 6건)",
+   "일괄_규칙": "저작 린터: reference_solution 의 각 단계를 단독 실행했을 때 상태가 변하지 않으면 시나리오를 반려한다."
+  },
+  {
+   "id": "P6",
+   "제목": "프로브 오탐 — 픽스처 patch params 딕셔너리가 build_fixture 호출 간에 공유된다",
+   "일괄_규칙": "build_fixture/apply_patch 에서 params 를 deepcopy 한다. 분석 스크립트도 build_fixture(copy.deepcopy(spec)) 를 쓴다."
+  },
+  {
+   "id": "P7",
+   "제목": "최종 상태 채점의 원리적 사각지대 — 뒤 단계가 앞 단계를 흡수한다 (BENIGN 9건)",
+   "일괄_규칙": "이 부류를 ‘결함’ 으로 세지 말고, 논문에서는 최종 상태 채점의 알려진 한계로 명시한다."
+  }
+ ],
+ "가장_시급한_보강_셋": [
+  "① P1 — attribute_changed{direction} → attribute_equals 교체: 볼륨 20건 + 이동/길이 4건 = UNDER 24건이 한 규칙으로 사라진다. 지시문에 수치가 있는데 값 제약이 없으면 실패시키는 린터를 함께 넣는다.",
+  "② P2 — 생성 계열에 position_equals/duration_equals 의무화: add_clip 17 + split_clip 4 + add_caption 3 = UNDER 24건. 두 제약 함수는 이미 구현·등록돼 있어 시나리오 YAML 수정만으로 닫힌다."
+ ],
+ "_limits": [
+  "★ M4 는 전수가 아니다 — 그러나 표본은 내가 뽑은 것이 아니라 프로브가 만든 것이다. false_success_probe.py 의 M4 루프는 시나리오마다 **첫 단계의 첫 수치 파라미터 하나만** 변이하고 break 한다(633 시나리오 → 515 시행). 따라서 79건은 '값을 안 거는 파라미터' 의 **하한**이다. 나는 그 79건을 **전수 분류**했다(표본 추출 없음).",
+  "★ M3 도 같은 이유로 하한이다 — 시나리오마다 clip_id 를 가진 **첫 단계 하나만** 변이한다(527 시행).",
+  "M1 은 정답의 모든 단계를 하나씩 뺐으므로(1200 시행) 이 축은 전수다.",
+  "M2(삭제 대체)는 발견 0건이라 이번 분류 대상에 없다.",
+  "P3(a)(unchanged_except 의 native 무시)의 영향 범위는 이번 120건 밖까지 미칠 것이나, **unchanged_except 를 쓰는 전체 시나리오에 대한 재감사는 하지 않았다 — 확인 못 함.**"
+ ]
+}

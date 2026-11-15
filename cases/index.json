@@ -1,0 +1,50 @@
+{
+ "cases": [
+  {
+   "case": "NLB-v3-CX-CO-002",
+   "incomplete_reasons": [],
+   "kind": "deterministic probe run",
+   "role": "central case (Figure 1): a transition-type check",
+   "status": "complete"
+  },
+  {
+   "case": "NLB-v3-EX-DE-008",
+   "incomplete_reasons": [],
+   "kind": "deterministic probe run",
+   "role": "Appendix A: agreement between a stored reference trajectory and the checker does not establish instruction fidelity (type-axis result kept)",
+   "status": "complete"
+  },
+  {
+   "case": "NLB-v3-CX-AT-003",
+   "incomplete_reasons": [],
+   "kind": "deterministic probe run",
+   "role": "instruction freedom: the candidate passes and the checker is left as is",
+   "status": "complete"
+  },
+  {
+   "case": "NLB-v3-EX-CO-004",
+   "incomplete_reasons": [],
+   "kind": "stored agent run (2026-04), judged again; no model is run",
+   "role": "false failure repaired on the scorer side (fail -> pass)",
+   "status": "complete"
+  },
+  {
+   "case": "NLB-v3-EX-CO-009",
+   "incomplete_reasons": [],
+   "kind": "stored agent run (2026-04), judged again; no model is run",
+   "role": "false success repaired on the scorer side (pass -> fail)",
+   "status": "complete"
+  }
+ ],
+ "fallback_for_figure_1": [
+  {
+   "case": "NLB-v3-CX-CU-003",
+   "incomplete_reasons": [],
+   "kind": "deterministic probe run",
+   "role": "fallback for Figure 1: not used",
+   "status": "complete"
+  }
+ ],
+ "figure_1_case": "NLB-v3-CX-CO-002",
+ "what": "E2 case pack index"
+}

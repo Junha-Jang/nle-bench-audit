@@ -1,0 +1,35 @@
+record_type,order,name,source_type,source_ref,tex_tag_line,mapped_to,direction,layer,verification_extent
+appendix_row,1,Direction unenforced,version-control defect record,6b4db6838,1320,none,false success,scorer predicate,commit message and tex tag; not one of the 20 audit classes (the audit notes direction was enforced by an earlier patch)
+appendix_row,2,Deletion read as change,version-control defect record,5d2f3a617,1327,none,false success,scorer predicate,commit message and scorer diff; Round 0 has no per-item ledger in the searched history
+appendix_row,3,"Existence filters ignored, lenient side",version-control defect record,b658af163,1331,related: D-ENTITY-EXISTS-NAME; D-ENTITY-EXISTS-KIND,false success,scorer predicate,commit message (23 constraints in 16 scenarios) and public supplement t1_where_rescore.json; the audit classes concern other unread keys of the same predicate
+appendix_row,4,"Existence filters ignored, strict side",version-control defect record,959664bc5,1337,related: D-EFFECT-IN-TRACK; D-NOT-EXISTS-BETWEEN,false failure,scorer predicate,commit message (31 scoped constraints); related audit classes are not the same defect
+appendix_row,5,Preservation blind spot,version-control defect record,0b3a4adb7,1347,none,false success,scorer predicate,commit message and scorer diff
+appendix_row,6,Tolerance misrouting,version-control defect record,c8be3e83a,1351,none,either direction,scorer predicate,commit message and scorer diff
+appendix_row,7,Silent-False operator,version-control defect record,b658af163,1356,none,false failure,scorer predicate,commit message and scorer diff
+appendix_row,8,Type coercion fall-through,version-control defect record,b658af163,1361,none,false failure,scorer predicate,commit message; a follow-up repair is in 2658af284
+appendix_row,9,Identifier reissue,version-control defect record,b1a5c90f2,1366,none,false failure,tool executor,commit message and regression tests named in it
+appendix_row,10,Move-became-trim,version-control defect record,bfc5690a9,1371,none,false success,tool executor,commit message
+appendix_row,11,Name that lies,predicate audit,D-EFFECT-PARAM-CHANGED-LIES,1376,D-EFFECT-PARAM-CHANGED-LIES,false success,scorer predicate,audit ledger defect entry with pinned cases
+appendix_row,12,Vacuous call shapes,predicate audit,D-POSITION-EQUALS-VACUOUS; D-UNBOUND-REF-PASS,1381,D-POSITION-EQUALS-VACUOUS; D-UNBOUND-REF-PASS,false success,scorer predicate,audit ledger defect entries with pinned cases
+appendix_row,13,Missing-baseline pass,predicate audit,D-MISSING-BASELINE-PASS,1387,D-MISSING-BASELINE-PASS,false success for direct callers only,scorer predicate,audit ledger defect entry; the ledger states no dataset verdict moved
+appendix_row,14,Overlay miscounted as lane,predicate audit,D-STRUCTURAL-OVERLAY-CLIPS,1392,D-STRUCTURAL-OVERLAY-CLIPS,false failure,scorer structural check,audit ledger defect entry; 17 no-op passes listed for a superseded pilot corpus
+audit_class,1,D-ENTITY-EXISTS-NAME,predicate audit,constraint_predicate_audit.defects,,related to appendix row 3 (not the same defect),false success,scorer predicate,audit ledger only
+audit_class,2,D-ENTITY-EXISTS-KIND,predicate audit,constraint_predicate_audit.defects,,related to appendix row 3 (not the same defect),false success,scorer predicate,audit ledger only
+audit_class,3,D-ENTITY-COUNT-MIN,predicate audit,constraint_predicate_audit.defects,,unmapped,false failure,scorer predicate,audit ledger only
+audit_class,4,D-HAS-TRANSITION-NO-BETWEEN,predicate audit,constraint_predicate_audit.defects,,unmapped,false failure,scorer predicate,audit ledger only
+audit_class,5,D-ORDER-EXPECTED,predicate audit,constraint_predicate_audit.defects,,unmapped,false failure,scorer predicate,audit ledger only
+audit_class,6,D-REFERENCE-INTACT-LINKID,predicate audit,constraint_predicate_audit.defects,,unmapped,false success,scorer predicate,audit ledger only
+audit_class,7,D-POSITION-CHANGED-IGNORES-ENTITY,predicate audit,constraint_predicate_audit.defects,,unmapped,false success,scorer predicate,audit ledger only
+audit_class,8,D-EFFECT-PARAM-CHANGED-LIES,predicate audit,constraint_predicate_audit.defects,,appendix row 11,false success,scorer predicate,audit ledger and tex tag
+audit_class,9,D-EFFECT-REMOVED-UNREGISTERED,predicate audit,constraint_predicate_audit.defects,,unmapped,false failure,scorer registry,audit ledger only
+audit_class,10,D-EFFECT-REMOVED-FIXTURE-CONTRADICTION,predicate audit,constraint_predicate_audit.defects,,unmapped,blocked: not fixable by a predicate contract,corpus fixture,audit ledger only (status BLOCKED)
+audit_class,11,D-UNKNOWN-ENTITY-TYPE,predicate audit,constraint_predicate_audit.defects,,unmapped,false failure,scorer predicate,audit ledger only
+audit_class,12,D-EFFECT-IN-TRACK,predicate audit,constraint_predicate_audit.defects,,related to appendix row 4 (not the same defect),false success,scorer predicate,audit ledger only
+audit_class,13,D-NOT-EXISTS-BETWEEN,predicate audit,constraint_predicate_audit.defects,,related to appendix row 4 (not the same defect),false failure,scorer predicate,audit ledger only
+audit_class,14,D-ATTR-EQUALS-NULL,predicate audit,constraint_predicate_audit.defects,,unmapped,false failure,scorer predicate,audit ledger only
+audit_class,15,D-POSITION-EQUALS-VACUOUS,predicate audit,constraint_predicate_audit.defects,,appendix row 12,false success,scorer predicate,audit ledger and tex tag
+audit_class,16,D-UNRESOLVABLE-TRACK,predicate audit,constraint_predicate_audit.defects,,unmapped,false success,scorer structural check,audit ledger only
+audit_class,17,D-STRUCTURAL-OVERLAY-CLIPS,predicate audit,constraint_predicate_audit.defects,,appendix row 14,false failure,scorer structural check,audit ledger and tex tag
+audit_class,18,D-UNBOUND-REF-PASS,predicate audit,constraint_predicate_audit.defects,,appendix row 12,false success,scorer predicate,audit ledger and tex tag
+audit_class,19,D-MISSING-BASELINE-PASS,predicate audit,constraint_predicate_audit.defects,,appendix row 13,false success for direct callers only,scorer predicate,audit ledger and tex tag
+audit_class,20,D-BATCH-SCOPE-UNVERIFIED,predicate audit,constraint_predicate_audit.defects,,unmapped,blocked: no machine-evaluable selector,scorer predicate,audit ledger only (status BLOCKED)

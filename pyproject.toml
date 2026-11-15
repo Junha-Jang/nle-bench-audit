@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nle-bench-audit"
+version = "0.1.0.dev0"
+description = "Replay and integrity tools for the audit material of 'Red-Teaming the Grader'"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "Junha Jang"}]
+# The licence and its scope, including exclusions, are stated in LICENSE.md. Covered files,
+# program source included, are under CC BY-NC 4.0. No `license` key is set here, because the
+# form the build backend accepts differs between its versions.
+dependencies = [
+    "pydantic>=2.5,<3",
+    "pyyaml>=6,<7",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.1,<9"]
+
+[project.scripts]
+nle-bench-audit = "nlebench_audit.__main__:main"
+
+[tool.setuptools]
+packages = ["nlebench_audit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"

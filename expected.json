@@ -1,0 +1,416 @@
+{
+ "cases": {
+  "probe": [
+   {
+    "candidate_steps": [
+     {
+      "params": {
+       "clip_id": "video_clip_3",
+       "opacity": 0.9,
+       "speed": 0.8
+      },
+      "tool": "update_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 1.0,
+       "track_id": "video_track_1",
+       "transition_type": "dip_to_black"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "constraint_isolation_in_package": {
+     "available": true,
+     "recorded_verdicts": {
+      "candidate": [
+       true,
+       false
+      ],
+      "reference": [
+       true,
+       true
+      ]
+     },
+     "same_code_commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+     "same_fixture": true,
+     "same_instruction": true,
+     "same_steps": "the reference steps and the candidate steps are the same list at every stage",
+     "scenario_files": [
+      "scenario_b0c48f988109.yaml",
+      "scenario_6a6dd54230aa.yaml"
+     ],
+     "scenario_files_differ_only_in": [
+      "constraints"
+     ],
+     "scope": "isolation of the constraint change on the code of the repair commit. The cell with the code before the repair and the new constraints is not in the package and is not replayed by it.",
+     "stages": [
+      "code_axis_alone",
+      "post"
+     ],
+     "stages_not_in_package": [
+      "constraint_axis_alone"
+     ]
+    },
+    "reference_steps": [
+     {
+      "params": {
+       "clip_id": "video_clip_3",
+       "opacity": 0.9,
+       "speed": 0.8
+      },
+      "tool": "update_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 1.0,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "scenario": "NLB-v3-CX-CO-002",
+    "split": "dev",
+    "stages": [
+     {
+      "candidate_passed": true,
+      "code_commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+      "reference_passed": true,
+      "scenario_file": "scenario_b0c48f988109.yaml",
+      "scenario_sha256": "b0c48f98810915e4405ec21308b69b77cb661c6756276c799fa1c288ae7025e6",
+      "stage": "code_axis_alone"
+     },
+     {
+      "candidate_passed": false,
+      "code_commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+      "reference_passed": true,
+      "scenario_file": "scenario_6a6dd54230aa.yaml",
+      "scenario_sha256": "6a6dd54230aa2068a5fe6e78c6911a23b8a12accd3e9488507fb8ef1269733eb",
+      "stage": "current_pin"
+     },
+     {
+      "candidate_passed": false,
+      "code_commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+      "reference_passed": true,
+      "scenario_file": "scenario_6a6dd54230aa.yaml",
+      "scenario_sha256": "6a6dd54230aa2068a5fe6e78c6911a23b8a12accd3e9488507fb8ef1269733eb",
+      "stage": "post"
+     },
+     {
+      "candidate_passed": true,
+      "code_commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+      "reference_passed": true,
+      "scenario_file": "scenario_b0c48f988109.yaml",
+      "scenario_sha256": "b0c48f98810915e4405ec21308b69b77cb661c6756276c799fa1c288ae7025e6",
+      "stage": "pre"
+     }
+    ],
+    "stages_not_replayable_from_pinned_files": [
+     {
+      "stage": "constraint_axis_alone",
+      "why": "its scenario was assembled for the axis test and is in no commit"
+     }
+    ]
+   },
+   {
+    "candidate_steps": [
+     {
+      "params": {
+       "end": 22,
+       "in_point": 0,
+       "media_id": "av_media_3",
+       "out_point": 2,
+       "start": 20,
+       "track_id": "video_track_1"
+      },
+      "tool": "add_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 2,
+       "track_id": "video_track_1",
+       "transition_type": "dip_to_black"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "constraint_isolation_in_package": {
+     "available": true,
+     "recorded_verdicts": {
+      "candidate": [
+       true,
+       false
+      ],
+      "reference": [
+       true,
+       true
+      ]
+     },
+     "same_code_commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+     "same_fixture": true,
+     "same_instruction": true,
+     "same_steps": "the reference steps and the candidate steps are the same list at every stage",
+     "scenario_files": [
+      "scenario_25c92c33cfab.yaml",
+      "scenario_abf8dc2d3c14.yaml"
+     ],
+     "scenario_files_differ_only_in": [
+      "constraints"
+     ],
+     "scope": "isolation of the constraint change on the code of the repair commit. The cell with the code before the repair and the new constraints is not in the package and is not replayed by it.",
+     "stages": [
+      "code_axis_alone",
+      "post"
+     ],
+     "stages_not_in_package": [
+      "constraint_axis_alone"
+     ]
+    },
+    "reference_steps": [
+     {
+      "params": {
+       "end": 22,
+       "in_point": 0,
+       "media_id": "av_media_3",
+       "out_point": 2,
+       "start": 20,
+       "track_id": "video_track_1"
+      },
+      "tool": "add_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 2,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "scenario": "NLB-v3-EX-DE-008",
+    "split": "dev",
+    "stages": [
+     {
+      "candidate_passed": true,
+      "code_commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+      "reference_passed": true,
+      "scenario_file": "scenario_25c92c33cfab.yaml",
+      "scenario_sha256": "25c92c33cfab6915b53bc94beb0c9e6607b5ba25465ddc6f4ab69b878053fb43",
+      "stage": "code_axis_alone"
+     },
+     {
+      "candidate_passed": false,
+      "code_commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+      "reference_passed": true,
+      "scenario_file": "scenario_61b686d4ec14.yaml",
+      "scenario_sha256": "61b686d4ec14e36fd8e78bc486eb2d00305f7566c7311071c4bddbea81986c0d",
+      "stage": "current_pin"
+     },
+     {
+      "candidate_passed": false,
+      "code_commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+      "reference_passed": true,
+      "scenario_file": "scenario_abf8dc2d3c14.yaml",
+      "scenario_sha256": "abf8dc2d3c14b686871ffc9ce908d3819579e183e7316516a0306549960552b1",
+      "stage": "post"
+     },
+     {
+      "candidate_passed": true,
+      "code_commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+      "reference_passed": true,
+      "scenario_file": "scenario_25c92c33cfab.yaml",
+      "scenario_sha256": "25c92c33cfab6915b53bc94beb0c9e6607b5ba25465ddc6f4ab69b878053fb43",
+      "stage": "pre"
+     }
+    ],
+    "stages_not_replayable_from_pinned_files": [
+     {
+      "stage": "constraint_axis_alone",
+      "why": "its scenario was assembled for the axis test and is in no commit"
+     }
+    ]
+   },
+   {
+    "candidate_steps": [
+     {
+      "params": {
+       "clip_id_1": "video_clip_1",
+       "clip_id_2": "video_clip_2",
+       "duration": 8.0,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "constraint_isolation_in_package": {
+     "available": false,
+     "stages_not_in_package": [],
+     "why": "the case has no code_axis_alone / post pair"
+    },
+    "reference_steps": [
+     {
+      "params": {
+       "clip_id_1": "video_clip_1",
+       "clip_id_2": "video_clip_2",
+       "duration": 1.0,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "scenario": "NLB-v3-CX-AT-003",
+    "split": "dev",
+    "stages": [
+     {
+      "candidate_passed": true,
+      "code_commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+      "reference_passed": true,
+      "scenario_file": "scenario_473d3b54ecd4.yaml",
+      "scenario_sha256": "473d3b54ecd431573360b6d4cad7627994a72948f9eff3a51671f1ef3fc1b4c3",
+      "stage": "current_pin"
+     },
+     {
+      "candidate_passed": true,
+      "code_commit": "5d2f3a6175ad3295a884535c578ce58b5c01893f",
+      "reference_passed": true,
+      "scenario_file": "scenario_473d3b54ecd4.yaml",
+      "scenario_sha256": "473d3b54ecd431573360b6d4cad7627994a72948f9eff3a51671f1ef3fc1b4c3",
+      "stage": "pre"
+     }
+    ]
+   }
+  ],
+  "stored_run": [
+   {
+    "scenario": "NLB-v3-EX-CO-004",
+    "scorers": {
+     "current": {
+      "passed": true,
+      "sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777"
+     },
+     "published": {
+      "passed": false,
+      "sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10"
+     }
+    },
+    "split": "dev"
+   },
+   {
+    "scenario": "NLB-v3-EX-CO-009",
+    "scorers": {
+     "current": {
+      "passed": false,
+      "sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777"
+     },
+     "published": {
+      "passed": true,
+      "sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10"
+     }
+    },
+    "split": "dev"
+   }
+  ]
+ },
+ "fingerprints": {
+  "definitions": {
+   "F_canon": "sha256 over the id-sorted sequence of json.dumps([id, canonical JSON of {fixture, constraints, turns}]); canonical JSON has sorted keys and compact separators",
+   "F_file": "sha256 folded over (relative path, sha256 of the file bytes) of every *.yaml, in path order",
+   "comparable": "no: the two definitions hash different things"
+  },
+  "published": {
+   "F_canon": "8ab26d3de81ed2fbd84c968ddbccd4ca7f162df98dba8daa6a85fc5e41abf268",
+   "F_file": "2c7580806804f11949c14072aad2be7984957bd45bd2ac06f5bea293ddf217b7",
+   "id_key": "legacy",
+   "scenario_files": 800,
+   "source": "nle-bench-artifact@58afb977515b:code/src/nlebench/dataset/scenarios_v3_1"
+  },
+  "v31": {
+   "F_canon": "4781a34f03a3ee0bdefecbc433c92ada405039ed08c59869d8b43fffce898b79",
+   "F_file": "bb51cfd020aac4c55876ea7280ec0c4af8e04c87974c7f5d47c90a4f2d86adbe",
+   "id_key": "id",
+   "scenario_files": 800,
+   "source": "nle-bench-dev@64668e09fb2f:src/nlebench/dataset/scenarios_v3_1"
+  },
+  "v32": {
+   "F_canon": "af4834d8c0e4992f88a9c8d1a1dda88e6691a849c22f1265aee4350bba1297e0",
+   "F_file": "117b855f67309498b640b2e6073487eeccd9597cc3f568bb4032a0740c18e329",
+   "id_key": "id",
+   "scenario_files": 800,
+   "source": "nle-bench-dev@206e1838224a:src/nlebench/dataset/scenarios_v3_1"
+  }
+ },
+ "fixtures": {
+  "fixture_cases": 69,
+  "registry_predicates": 23
+ },
+ "tables": {
+  "stored_records": {
+   "A_changed": 396,
+   "A_fail_to_pass": 233,
+   "A_pass_to_fail": 163,
+   "A_prime_changed": 45,
+   "BC_changed": 417,
+   "BC_fail_to_pass": 255,
+   "BC_pass_to_fail": 162,
+   "B_changed": 300,
+   "B_fail_to_pass": 178,
+   "B_feasible": 8820,
+   "B_pass_to_fail": 122,
+   "B_rejudged": 8063,
+   "C_changed": 117,
+   "C_fail_to_pass": 77,
+   "C_feasible": 2646,
+   "C_pass_to_fail": 40,
+   "C_rejudged": 2428,
+   "H_changed": 184,
+   "H_fail_to_pass": 184,
+   "H_pass_to_fail": 0,
+   "U_changed": 0,
+   "U_fail_to_pass": 0,
+   "U_feasible": 12054,
+   "U_pass_to_fail": 0,
+   "U_rejudged": 11079,
+   "disposition_D": 5484,
+   "disposition_FD": 396,
+   "disposition_FS": 1950,
+   "disposition_S": 21570,
+   "feasible": 23520,
+   "published_verdict_reproduced": 29400,
+   "records": 29400,
+   "success_dev_v31": 5602,
+   "success_dev_v32": 5695,
+   "success_new": 5418,
+   "success_sub": 5348
+  },
+  "sites": {
+   "author_adjudicated_defect|blocked_recorded_at_key": 69,
+   "author_adjudicated_defect|blocked_recorded_reference_pass_not_recorded": 1,
+   "author_adjudicated_defect|survives_deferred": 0,
+   "author_adjudicated_defect|survives_intermediate_value": 3,
+   "author_adjudicated_defect|survives_weak_closure": 7,
+   "cause_author_adjudicated_defect": 80,
+   "cause_gold_error": 5,
+   "cause_instruction_freedom": 53,
+   "cause_probe_artifact": 1,
+   "gold_error|gone_after_reference_repair": 1,
+   "gold_error|gone_without_item_record": 0,
+   "gold_error|survives_final": 1,
+   "gold_error|survives_not_hardened": 3,
+   "instruction_freedom|survives_final": 6,
+   "instruction_freedom|survives_not_hardened": 47,
+   "probe_artifact|gone_without_item_record": 1,
+   "sites": 139
+  }
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "environment": {
+  "declared_ranges": "pyproject.toml at the development pin: python ^3.11, pydantic ^2.5.0, pyyaml ^6.0.0",
+  "lock_file": "none. The benchmark repository declares version ranges in pyproject.toml and tracks no lock file at the pinned commit, so these are the versions of the one environment the runs used, not versions taken from a lock.",
+  "observed_in_the_2026_10_runs": {
+   "dependencies": {
+    "PyYAML": "6.0.3",
+    "annotated-types": "0.8.0",
+    "pydantic": "2.13.5",
+    "pydantic-core": "2.46.5",
+    "typing-extensions": "4.16.0"
+   },
+   "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+   "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  }
+ },
+ "note": "A contract digest hashes the declared predicate contract. It is not a hash of the code. A scorer is identified here by the hash of its file and by the tree it ran in.",
+ "scorers": {
+  "current": {
+   "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+   "contract_digest_version_string": "1.0.0+registry.71c96a519562",
+   "file": "scorers/current_constraints.py",
+   "path": "src/nlebench/runner/constraints.py",
+   "predicates_registered": 23,
+   "repo": "nle-bench-dev",
+   "sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+   "sha256_reported_by_the_2026_10_run": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777"
+  },
+  "pre_p1": {
+   "commit": "6876b0ddc25aa07e9f1d6dd3d4cdbc78e62c9dcf",
+   "contract_digest_version_string": null,
+   "file": "scorers/pre_p1_constraints.py",
+   "path": "src/nlebench/runner/constraints.py",
+   "predicates_registered": 22,
+   "repo": "nle-bench-dev",
+   "sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+   "sha256_reported_by_the_2026_10_run": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6"
+  },
+  "published": {
+   "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+   "contract_digest_version_string": null,
+   "file": "scorers/published_constraints.py",
+   "path": "code/src/nlebench/runner/constraints.py",
+   "predicates_registered": 22,
+   "repo": "nle-bench-artifact",
+   "sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10",
+   "sha256_reported_by_the_2026_10_run": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10"
+  }
+ }
+}

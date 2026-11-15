@@ -1,0 +1,107 @@
+{
+ "what": "A small read-only map from known concerns about the benchmark to what this audit does and does not show about them. It is not a certificate that no defect remains, not an adjudication of every flagged scenario, and not a repair plan. Statuses: addressed, partial, open, not checked.",
+ "scope": "The six groups of concerns raised in review of the benchmark (2026-07-24), and the concerns named in 2026-10. Nothing was re-run or re-rated to fill this map; every entry cites an existing record.",
+ "pins": {"published": "nle-bench-artifact@58afb977515b (the review snapshot)", "development": "nle-bench-dev@206e1838224a"},
+ "issues": [
+  {
+   "id": "I1", "group": "label validity",
+   "original_issue": "Feasibility labels came from one convenience pool with fair agreement and were never re-rated in a blinded, frozen pass.",
+   "existing_evidence": "Recorded on 2026-08-15, in a record that is not part of this repository: the human rating packet was built, four steps that only people can complete were still open, and no annotation output existed. No later record in this repository changes that.",
+   "audit_pin_status": "unchanged at both pins. This audit takes the arm of every scenario as given: the feasible denominator (94,080 records over both splits, 23,520 of them dev-split records held here) is defined by those labels.",
+   "proposed_public_copy_status": "stated as an open limitation",
+   "remaining_limit": "Needs outside raters. The audit's own dispositions (527 candidate sites over both splits, 139 of them dev-split sites held here) have the same weakness: they were generated in a coding-agent workflow, with no human validation or second rater.",
+   "affected_claim": "none of the audit's counts is a statement about label validity; all of them are conditional on the labels",
+   "status": "open"
+  },
+  {
+   "id": "I2", "group": "constraint coverage and preservation",
+   "original_issue": "Success on the feasible arm certifies the authored predicates, not the instruction. A coverage audit flagged feasible scenarios that were not checked by hand, and many scenarios do not check for unrequested changes.",
+   "existing_evidence": "Over both splits, as the paper reports: 527 candidate sites from two probe rounds; 274 recorded as blocked (106 with the payload verified, 168 at site-key grain only), 240 surviving; between the submitted corpus and the development pin the constraints changed in 217 feasible scenarios with inputs unchanged and the inputs changed in 74; 4 feasible scenarios passed with no edit under the snapshot scorer, 0 under the current scorer on the current corpus. Held here, for the dev split: sites/candidate_keys.csv, 139 candidate sites, 70 recorded as blocked (34 with the payload verified, 36 at site-key grain only), 67 surviving; rejudging/membership.csv, constraints changed in 60 feasible scenarios with inputs unchanged and inputs changed in 18; checks/null_guard.json, 1 feasible scenario.",
+   "audit_pin_status": "partly repaired at the development pin; the snapshot pin is kept as it was, with its defects",
+   "proposed_public_copy_status": "the audit is the evidence; the limits below are stated with it",
+   "remaining_limit": "A candidate is not a confirmed defect. 173 surviving instruction-freedom keys (over both splits; 47 of them dev-split keys held here) were left unhardened on purpose. The flagged scenarios of the earlier coverage audit were not adjudicated one by one here; that count and the 173 keys above are different things that happen to share a number. Probes cover the checks they mutate, not every way to violate an instruction.",
+   "affected_claim": "the paper's central claim; bounded to the probed checks of the feasible arm",
+   "status": "partial"
+  },
+  {
+   "id": "I3", "group": "correct missing-slot clarification",
+   "original_issue": "The ambiguous arm credits any clarifying question, not a question about the parameter that is actually missing.",
+   "existing_evidence": "runtime/pins/dev-206e1838224a/nlebench/models.py, line 1496: ambiguous-arm success is still `asked_clarification` with the state unchanged.",
+   "audit_pin_status": "unchanged at the development pin",
+   "proposed_public_copy_status": "stated as an open issue of the audited benchmark, outside this audit",
+   "remaining_limit": "The audit does not examine the ambiguous arm. Its records are carried by the stored detector verdict (see I4).",
+   "affected_claim": "none; the audit makes no claim about clarification behaviour",
+   "status": "open"
+  },
+  {
+   "id": "I4", "group": "refusal evidence",
+   "original_issue": "The refusal arm rests on a detector audited in aggregate on a few rows; per-response audit labels and raw outputs were withheld.",
+   "existing_evidence": "rejudging/rejudging.json (coverage, as recorded, over both splits): 21,637 records are detector-judged and 1,883 are failures retained without detector fields; for the dev split held here, 5,484 and 396. The audit re-judged the state of records (85,898 over both splits, 21,570 dev-split) and no refusal or clarification label.",
+   "audit_pin_status": "not examined at either pin",
+   "proposed_public_copy_status": "stated as not examined",
+   "remaining_limit": "No per-response refusal label is in this repository. The detector verdicts are copied from the stored runs, not validated.",
+   "affected_claim": "none; every A, H, B and C number is on the feasible arm",
+   "status": "not checked"
+  },
+  {
+   "id": "I5", "group": "post-hoc rewrite",
+   "original_issue": "Scenarios were rewritten after model results had been seen, so difficulty findings may be confounded with the rewrite.",
+   "existing_evidence": "rejudging/diff_BC.csv and membership.csv quantify a later change, from the submitted corpus to the development pin, for the dev split held here: 417 feasible verdicts differ (255 fail to pass, 162 pass to fail). Over both splits the paper reports 1,372 (837 / 535).",
+   "audit_pin_status": "the earlier, pre-submission rewrite is not examined. The later change is measured.",
+   "proposed_public_copy_status": "stated as not examined; the later change is reported with its limit",
+   "remaining_limit": "Where inputs changed (74 scenarios over both splits, 18 dev-split) the comparison is counterfactual: stored final states produced for the old inputs are judged against new ones, and no agent was rerun. The audit adds a second after-the-fact change of its own; it does not control for the first.",
+   "affected_claim": "the B/C comparison, which is reported as a change in verdicts and not as a change in agent ability",
+   "status": "not checked"
+  },
+  {
+   "id": "I6", "group": "added value of tool use",
+   "original_issue": "A tool-free baseline matches or beats tool-using agents, so it is unclear what the tool interface measures.",
+   "existing_evidence": "none in this repository",
+   "audit_pin_status": "not examined",
+   "proposed_public_copy_status": "stated as outside the audit",
+   "remaining_limit": "Needs new agent runs and a design. None was made.",
+   "affected_claim": "none",
+   "status": "open"
+  },
+  {
+   "id": "I7", "group": "constraint coverage and preservation",
+   "original_issue": "How did enforcing the direction of an attribute change alter per-model numbers, and were other unenforced constraints checked?",
+   "existing_evidence": "rejudging/rows.csv (as recorded, over both splits): with scorer and corpus fixed, enforcing the direction changes 195 stored verdicts, in 32 of the 55 rows; rejudging/diff_A_prime.csv holds the 45 dev-split records among them. checks/direction_constraints.json: 115 constraints declare a direction in the submitted corpus.",
+   "audit_pin_status": "enforced at the development pin; measured on the snapshot pin",
+   "proposed_public_copy_status": "reported per row in rejudging/rows.csv",
+   "remaining_limit": "Values of runs made in October 2026 on a Someple Inc. server through a coding agent, not independently reproduced. The second half of the question is I2.",
+   "affected_claim": "comparison A-prime",
+   "status": "addressed"
+  },
+  {
+   "id": "I8", "group": "named in 2026-10",
+   "original_issue": "Problems found during the review period have not all been reflected in the scenario data and the grader.",
+   "existing_evidence": "Repairs exist between the two pins: the scorer file changes from 22 to 23 registered predicates (scorers/IDENTITY.json), and the constraints or inputs of feasible scenarios change (291 over both splits; 78 of the dev split in membership.csv).",
+   "audit_pin_status": "some repairs are in the development pin. No record maps each review concern to a change, and I1, I3, I4 and I6 above are not repaired.",
+   "proposed_public_copy_status": "the audited versions are presented as work in development, not as a benchmark release",
+   "remaining_limit": "'Some fixes exist' is not 'every concern is incorporated'. This repository does not show the second.",
+   "affected_claim": "any statement that the audited benchmark is ready; this repository makes none",
+   "status": "partial"
+  },
+  {
+   "id": "I9", "group": "named in 2026-10",
+   "original_issue": "Test-split material is not to be distributed with the audit material.",
+   "existing_evidence": "Decided on 2026-10-29: the test split is not distributed with this material. No file here names a test-split scenario; every file that named scenarios holds its dev-split part (provenance/README.md, provenance/TRANSFORMATIONS.json, provenance/CONTENT_REVIEW.json).",
+   "audit_pin_status": "not a property of the audited pins; a property of this repository",
+   "proposed_public_copy_status": "this repository holds no item of a test-split scenario; the three worked probe cases and both stored-run cases are dev-split",
+   "remaining_limit": "The exclusion is by item: a kept dev-split item keeps its values except registered notes that refer to test-split scenarios, and the quote measure counts test-split scenarios whose instruction shares a turn with a kept dev-split item. The totals of the paper include both splits and cannot be recounted from these files.",
+   "affected_claim": "what a reader can recount here: the dev-split part of each total",
+   "status": "addressed"
+  },
+  {
+   "id": "I10", "group": "named in 2026-10",
+   "original_issue": "Version-pinned examples of broken behaviour must stay as they were; a frozen snapshot is not to be silently fixed.",
+   "existing_evidence": "cases/ holds the scenario file of each stage, before and after the repair, with the bytes of its git blob except in six files whose annotator value is a placeholder (cases/SCENARIO_IDENTITIES.json gives both hashes); runtime/pins/ holds the modules of each commit unchanged. `verify` compares their hashes.",
+   "audit_pin_status": "kept as recorded at every pin",
+   "proposed_public_copy_status": "kept; corrections are new versions (CONTRIBUTING.md)",
+   "remaining_limit": "none known",
+   "affected_claim": "every before/after verdict in cases/",
+   "status": "addressed"
+  }
+ ]
+}

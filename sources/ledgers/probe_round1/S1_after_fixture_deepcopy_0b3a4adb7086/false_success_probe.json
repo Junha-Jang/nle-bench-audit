@@ -1,0 +1,292 @@
+{
+ "_meta": {
+  "what": "검증된 정답을 훼손한 변종이 통과하는지 본다 — 거짓 성공 탐지",
+  "why": "성공 0건 감사는 거짓 실패만 본다. 거짓 성공은 통과하는 쪽에 숨으므로 반대편에서 들어가야 한다.",
+  "mutations": {
+   "M1": "정답의 한 단계를 뺀다",
+   "M2": "편집 대신 대상을 삭제한다",
+   "M3": "같은 편집을 다른 대상에 한다",
+   "M4": "수치를 7 만큼 틀리게 준다"
+  },
+  "scoring_path": "validate_named_constraints (하네스 경로)",
+  "note": "변종이 통과하면 제약 집합이 지시를 못 붙잡는 것이다."
+ },
+ "stats": {
+  "검사한 시나리오": 633,
+  "M2 시행": 1097,
+  "M3 시행": 527,
+  "M4 시행": 515,
+  "M1 시행": 1198,
+  "정답없음": 7
+ },
+ "findings": {
+  "M4_값이_틀려도_통과": [
+   {
+    "scenario": "NLB-v3-CX-AT-003",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-AT-009",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-004",
+    "step": 2,
+    "param": "start",
+    "intended": 6.0,
+    "used": 13.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-005",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-003",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-007",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-002",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-007",
+    "step": 1,
+    "param": "start",
+    "intended": 5.0,
+    "used": 12.0
+   },
+   {
+    "scenario": "NLB-v3-DI-CO-008",
+    "step": 0,
+    "param": "start",
+    "intended": 5,
+    "used": 12.0
+   },
+   {
+    "scenario": "NLB-v3-EX-AT-002",
+    "step": 0,
+    "param": "start",
+    "intended": 25.0,
+    "used": 32.0
+   },
+   {
+    "scenario": "NLB-v3-EX-AT-009",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CO-005",
+    "step": 0,
+    "param": "position",
+    "intended": 20.5,
+    "used": 27.5
+   },
+   {
+    "scenario": "NLB-v3-EX-CO-010",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-004",
+    "step": 1,
+    "param": "start",
+    "intended": 0.0,
+    "used": 7.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-007",
+    "step": 0,
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-009",
+    "step": 0,
+    "param": "end",
+    "intended": 27.0,
+    "used": 34.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-001",
+    "step": 1,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-009",
+    "step": 0,
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   {
+    "scenario": "NLB-v3-ST-AT-005",
+    "step": 0,
+    "param": "start",
+    "intended": 18.0,
+    "used": 25.0
+   },
+   {
+    "scenario": "NLB-v3-ST-CO-003",
+    "step": 0,
+    "param": "start",
+    "intended": 18.0,
+    "used": 25.0
+   },
+   {
+    "scenario": "NLB-v3-ST-CO-007",
+    "step": 1,
+    "param": "volume",
+    "intended": 3.0,
+    "used": 10.0
+   },
+   {
+    "scenario": "NLB-v3-ST-CU-001",
+    "step": 0,
+    "param": "volume",
+    "intended": -3.0,
+    "used": 4.0
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-005",
+    "step": 1,
+    "param": "volume",
+    "intended": 4.0,
+    "used": 11.0
+   }
+  ],
+  "M3_다른_대상에_해도_통과": [
+   {
+    "scenario": "NLB-v3-EX-AT-010",
+    "step": 2,
+    "intended": "audio_clip_4",
+    "used": "video_clip_1"
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-004",
+    "step": 1,
+    "intended": "video_clip_3",
+    "used": "video_clip_1"
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-009",
+    "step": 1,
+    "intended": "video_clip_5",
+    "used": "video_clip_1"
+   }
+  ],
+  "M1_단계가_불필요": [
+   {
+    "scenario": "NLB-v3-CX-CO-004",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_4"
+    }
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-005",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_4"
+    }
+   },
+   {
+    "scenario": "NLB-v3-DI-DE-007",
+    "dropped_step": 1,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "video_clip_3",
+     "start": 18.0,
+     "end": 30.0
+    }
+   },
+   {
+    "scenario": "NLB-v3-EX-AT-010",
+    "dropped_step": 2,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "audio_clip_4",
+     "volume": -6.0
+    }
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-006",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_3"
+    }
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-004",
+    "dropped_step": 2,
+    "tool": "remove_clip",
+    "params": {
+     "clip_id": "caption_1"
+    }
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-004",
+    "dropped_step": 6,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "audio_clip_3",
+     "end": 15,
+     "start": 10
+    }
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-008",
+    "dropped_step": 0,
+    "tool": "unlink_clips",
+    "params": {
+     "link_id": "link_1"
+    }
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-009",
+    "dropped_step": 1,
+    "tool": "update_clip",
+    "params": {
+     "clip_id": "video_clip_5",
+     "track_id": "track_1"
+    }
+   }
+  ]
+ },
+ "counts": {
+  "M4_값이_틀려도_통과": 79,
+  "M3_다른_대상에_해도_통과": 5,
+  "M1_단계가_불필요": 30
+ }
+}

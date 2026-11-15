@@ -1,0 +1,410 @@
+{
+ "pins": {
+  "artifact-58afb977515b": {
+   "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+   "files": [
+    {
+     "blob": "b92482c4ac82e51015ff3c4e32d29ef389d8d997",
+     "bytes": 569,
+     "path": "nlebench/__init__.py",
+     "sha256": "1fdd0486ef8927c7efab35839db8d25746e0e6d28f3a7bd69f73d67c863593bc"
+    },
+    {
+     "blob": "40f618ea407e4d64fe15e59eab9428d831958fc9",
+     "bytes": 8258,
+     "path": "nlebench/config.py",
+     "sha256": "dcce03e1c1859cc7b4a3002672dcf52af91ee56eb7bcd9c9ed439568de942929"
+    },
+    {
+     "blob": "f9da128c82d1cafef3ad1f94f40743fcfc7e5f27",
+     "bytes": 55684,
+     "path": "nlebench/models.py",
+     "sha256": "33fb03e0b977087f0a75e235fd4a50244681bfecebb73ea2da73e229223fb48f"
+    },
+    {
+     "blob": "e9f3b56a52be87221adf518bf3853a84593fc96f",
+     "bytes": 967,
+     "path": "nlebench/runner/__init__.py",
+     "sha256": "63fc0a79c7cb23b930b5943cff3853ca3a2d238b4c0ed46d3f2fd293cbfc9acf"
+    },
+    {
+     "blob": "ac32065f5705669ef13e50ace37038dac97c2ab6",
+     "bytes": 29513,
+     "path": "nlebench/runner/constraints.py",
+     "sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10"
+    }
+   ],
+   "repository": "nle-bench-artifact",
+   "source_prefix": "code/src/",
+   "used_by": [
+    "stored-cases: the snapshot harness, under the snapshot scorer and with constraints.py replaced by scorers/current_constraints.py"
+   ]
+  },
+  "dev-206e1838224a": {
+   "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+   "files": [
+    {
+     "blob": "b92482c4ac82e51015ff3c4e32d29ef389d8d997",
+     "bytes": 569,
+     "path": "nlebench/__init__.py",
+     "sha256": "1fdd0486ef8927c7efab35839db8d25746e0e6d28f3a7bd69f73d67c863593bc"
+    },
+    {
+     "blob": "3ec6889feff4ad32995f366510ff3a82a0fa74dd",
+     "bytes": 8432,
+     "path": "nlebench/config.py",
+     "sha256": "cf6a34ba257bae227c8fa8d0cec416cf448952e1096ab943de5a95e35718d1fc"
+    },
+    {
+     "blob": "bbdb4e7eb7b215c4f16a394778d7491fd639a492",
+     "bytes": 76,
+     "path": "nlebench/dataset/__init__.py",
+     "sha256": "4d64e60d47314928ca1fc46e9c2085e41500b565eb8d58e7c539f7e06dd6258b"
+    },
+    {
+     "blob": "22d46c3826ba5d61c70065595aabb4515915af7b",
+     "bytes": 11253,
+     "path": "nlebench/dataset/fixtures/__init__.py",
+     "sha256": "35fa2743120438360b93b756bb56b6b46b7c8162ba39e20d9a2d2f69fbe94302"
+    },
+    {
+     "blob": "fd910bf9a1136f69b2ad1e3b34ae07af24223e69",
+     "bytes": 10038,
+     "path": "nlebench/dataset/fixtures/json/simple_sequence.json",
+     "sha256": "33c447c664ec0778b71d57642558b7d748e82f4d16ab66f653db39e522b3323e"
+    },
+    {
+     "blob": "eb31c4d432c83c9c3360e8acc525929a0accbc92",
+     "bytes": 7741,
+     "path": "nlebench/dataset/fixtures/json/with_transitions.json",
+     "sha256": "9dc2f20a3162de464a6b68f416f7634fdaa341a49ad80831dc365908b8bd1be5"
+    },
+    {
+     "blob": "9058e6a77d02b77b9956056ac480a895065060eb",
+     "bytes": 60681,
+     "path": "nlebench/models.py",
+     "sha256": "5ee991c9f9d6170d432255d97b15b134f2b5e439a1eb071ab6bef5839ed0f2be"
+    },
+    {
+     "blob": "7388f856295e2f7124d5f154caec8a924277cb20",
+     "bytes": 11294,
+     "path": "nlebench/protocols.py",
+     "sha256": "4e33901427b48be434db4539b34803a189cc844050c9b8ae6b2c720f3dffe071"
+    },
+    {
+     "blob": "e9f3b56a52be87221adf518bf3853a84593fc96f",
+     "bytes": 967,
+     "path": "nlebench/runner/__init__.py",
+     "sha256": "63fc0a79c7cb23b930b5943cff3853ca3a2d238b4c0ed46d3f2fd293cbfc9acf"
+    },
+    {
+     "blob": "b5be35b4c3a6deb3d5b75f86fe839006d0266a32",
+     "bytes": 79954,
+     "path": "nlebench/runner/constraints.py",
+     "sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777"
+    },
+    {
+     "blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+     "bytes": 7107,
+     "path": "nlebench/runner/scenario_loader.py",
+     "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+    },
+    {
+     "blob": "e0b4658aa0d8e845375f0aae13faf07c9ac19ea9",
+     "bytes": 32114,
+     "path": "nlebench/runner/validator.py",
+     "sha256": "52fbf778a0517222b13fdd10d8f376701eb9bc25f1df2247dee382be18261d4d"
+    },
+    {
+     "blob": "30ae33620c9979def279014ad621c926a8836864",
+     "bytes": 1200,
+     "path": "nlebench/tools/__init__.py",
+     "sha256": "998211434e84f2c179763997a8b9fc3a70f32cf5b1ea2c17f6ba010d2f8291c6"
+    },
+    {
+     "blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+     "bytes": 51615,
+     "path": "nlebench/tools/executor.py",
+     "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+    },
+    {
+     "blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+     "bytes": 24850,
+     "path": "nlebench/tools/schema.py",
+     "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+    }
+   ],
+   "repository": "nle-bench-dev",
+   "source_prefix": "src/",
+   "used_by": [
+    "fixtures",
+    "cases: stage current_pin of all three probe cases"
+   ]
+  },
+  "dev-28a5f11c6f26": {
+   "commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+   "files": [
+    {
+     "blob": "b92482c4ac82e51015ff3c4e32d29ef389d8d997",
+     "bytes": 569,
+     "path": "nlebench/__init__.py",
+     "sha256": "1fdd0486ef8927c7efab35839db8d25746e0e6d28f3a7bd69f73d67c863593bc"
+    },
+    {
+     "blob": "3ec6889feff4ad32995f366510ff3a82a0fa74dd",
+     "bytes": 8432,
+     "path": "nlebench/config.py",
+     "sha256": "cf6a34ba257bae227c8fa8d0cec416cf448952e1096ab943de5a95e35718d1fc"
+    },
+    {
+     "blob": "bbdb4e7eb7b215c4f16a394778d7491fd639a492",
+     "bytes": 76,
+     "path": "nlebench/dataset/__init__.py",
+     "sha256": "4d64e60d47314928ca1fc46e9c2085e41500b565eb8d58e7c539f7e06dd6258b"
+    },
+    {
+     "blob": "22d46c3826ba5d61c70065595aabb4515915af7b",
+     "bytes": 11253,
+     "path": "nlebench/dataset/fixtures/__init__.py",
+     "sha256": "35fa2743120438360b93b756bb56b6b46b7c8162ba39e20d9a2d2f69fbe94302"
+    },
+    {
+     "blob": "fd910bf9a1136f69b2ad1e3b34ae07af24223e69",
+     "bytes": 10038,
+     "path": "nlebench/dataset/fixtures/json/simple_sequence.json",
+     "sha256": "33c447c664ec0778b71d57642558b7d748e82f4d16ab66f653db39e522b3323e"
+    },
+    {
+     "blob": "457f5013f7f6afbe98f168083f74776fcff87525",
+     "bytes": 56765,
+     "path": "nlebench/models.py",
+     "sha256": "166ffbeb91a7a6bca471c95b6690b40dfd1730b114c5abb8cc9ceead12f8a7bf"
+    },
+    {
+     "blob": "67f93b6088567a4a3f41217f9748d42f44fc3007",
+     "bytes": 10270,
+     "path": "nlebench/protocols.py",
+     "sha256": "ce775350193740605d4389e7a587de0d0e8d0fa6cd8da4f3a9f54b4f7d3f8a54"
+    },
+    {
+     "blob": "e9f3b56a52be87221adf518bf3853a84593fc96f",
+     "bytes": 967,
+     "path": "nlebench/runner/__init__.py",
+     "sha256": "63fc0a79c7cb23b930b5943cff3853ca3a2d238b4c0ed46d3f2fd293cbfc9acf"
+    },
+    {
+     "blob": "be921125f91627514f3dc7287c67675a16953408",
+     "bytes": 37347,
+     "path": "nlebench/runner/constraints.py",
+     "sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6"
+    },
+    {
+     "blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+     "bytes": 7107,
+     "path": "nlebench/runner/scenario_loader.py",
+     "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+    },
+    {
+     "blob": "30ae33620c9979def279014ad621c926a8836864",
+     "bytes": 1200,
+     "path": "nlebench/tools/__init__.py",
+     "sha256": "998211434e84f2c179763997a8b9fc3a70f32cf5b1ea2c17f6ba010d2f8291c6"
+    },
+    {
+     "blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+     "bytes": 51615,
+     "path": "nlebench/tools/executor.py",
+     "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+    },
+    {
+     "blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+     "bytes": 24850,
+     "path": "nlebench/tools/schema.py",
+     "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+    }
+   ],
+   "repository": "nle-bench-dev",
+   "source_prefix": "src/",
+   "used_by": [
+    "cases: stages code_axis_alone and post of NLB-v3-CX-CO-002 and NLB-v3-EX-DE-008"
+   ]
+  },
+  "dev-5d2f3a6175ad": {
+   "commit": "5d2f3a6175ad3295a884535c578ce58b5c01893f",
+   "files": [
+    {
+     "blob": "b92482c4ac82e51015ff3c4e32d29ef389d8d997",
+     "bytes": 569,
+     "path": "nlebench/__init__.py",
+     "sha256": "1fdd0486ef8927c7efab35839db8d25746e0e6d28f3a7bd69f73d67c863593bc"
+    },
+    {
+     "blob": "3ec6889feff4ad32995f366510ff3a82a0fa74dd",
+     "bytes": 8432,
+     "path": "nlebench/config.py",
+     "sha256": "cf6a34ba257bae227c8fa8d0cec416cf448952e1096ab943de5a95e35718d1fc"
+    },
+    {
+     "blob": "bbdb4e7eb7b215c4f16a394778d7491fd639a492",
+     "bytes": 76,
+     "path": "nlebench/dataset/__init__.py",
+     "sha256": "4d64e60d47314928ca1fc46e9c2085e41500b565eb8d58e7c539f7e06dd6258b"
+    },
+    {
+     "blob": "bebf881a588ff09c86c832623e38cd5f2522d106",
+     "bytes": 10936,
+     "path": "nlebench/dataset/fixtures/__init__.py",
+     "sha256": "aa4965299c9ffdcb45d9e2724106dc09936386b249468ce573726c89c48e0220"
+    },
+    {
+     "blob": "fd910bf9a1136f69b2ad1e3b34ae07af24223e69",
+     "bytes": 10038,
+     "path": "nlebench/dataset/fixtures/json/simple_sequence.json",
+     "sha256": "33c447c664ec0778b71d57642558b7d748e82f4d16ab66f653db39e522b3323e"
+    },
+    {
+     "blob": "c279283807b61b9b43b023eb208f2b39db384a34",
+     "bytes": 56184,
+     "path": "nlebench/models.py",
+     "sha256": "c938bb9c9e0b50cf9b79ec3f2767642b326f0bdfbe0a01700fd025fa82f57914"
+    },
+    {
+     "blob": "007d4a00b111a4dec6c35f0ffd5cd4a847dab1f6",
+     "bytes": 4740,
+     "path": "nlebench/protocols.py",
+     "sha256": "6d2a1449326c7de6ee3cd275d23285c3e4ae0cbe9feadf4ed56aca336697a1f4"
+    },
+    {
+     "blob": "e9f3b56a52be87221adf518bf3853a84593fc96f",
+     "bytes": 967,
+     "path": "nlebench/runner/__init__.py",
+     "sha256": "63fc0a79c7cb23b930b5943cff3853ca3a2d238b4c0ed46d3f2fd293cbfc9acf"
+    },
+    {
+     "blob": "b8fa636cdf1fe9f1dff3dc6044ba8b041d64c83c",
+     "bytes": 36160,
+     "path": "nlebench/runner/constraints.py",
+     "sha256": "c9016ac8dc9964818c3715f3c76f5257a17308e528c779d27a102f77a194c306"
+    },
+    {
+     "blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+     "bytes": 7107,
+     "path": "nlebench/runner/scenario_loader.py",
+     "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+    },
+    {
+     "blob": "30ae33620c9979def279014ad621c926a8836864",
+     "bytes": 1200,
+     "path": "nlebench/tools/__init__.py",
+     "sha256": "998211434e84f2c179763997a8b9fc3a70f32cf5b1ea2c17f6ba010d2f8291c6"
+    },
+    {
+     "blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+     "bytes": 51615,
+     "path": "nlebench/tools/executor.py",
+     "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+    },
+    {
+     "blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+     "bytes": 24850,
+     "path": "nlebench/tools/schema.py",
+     "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+    }
+   ],
+   "repository": "nle-bench-dev",
+   "source_prefix": "src/",
+   "used_by": [
+    "cases: stage pre of NLB-v3-CX-AT-003"
+   ]
+  },
+  "dev-69f8d58a1382": {
+   "commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+   "files": [
+    {
+     "blob": "b92482c4ac82e51015ff3c4e32d29ef389d8d997",
+     "bytes": 569,
+     "path": "nlebench/__init__.py",
+     "sha256": "1fdd0486ef8927c7efab35839db8d25746e0e6d28f3a7bd69f73d67c863593bc"
+    },
+    {
+     "blob": "3ec6889feff4ad32995f366510ff3a82a0fa74dd",
+     "bytes": 8432,
+     "path": "nlebench/config.py",
+     "sha256": "cf6a34ba257bae227c8fa8d0cec416cf448952e1096ab943de5a95e35718d1fc"
+    },
+    {
+     "blob": "bbdb4e7eb7b215c4f16a394778d7491fd639a492",
+     "bytes": 76,
+     "path": "nlebench/dataset/__init__.py",
+     "sha256": "4d64e60d47314928ca1fc46e9c2085e41500b565eb8d58e7c539f7e06dd6258b"
+    },
+    {
+     "blob": "22d46c3826ba5d61c70065595aabb4515915af7b",
+     "bytes": 11253,
+     "path": "nlebench/dataset/fixtures/__init__.py",
+     "sha256": "35fa2743120438360b93b756bb56b6b46b7c8162ba39e20d9a2d2f69fbe94302"
+    },
+    {
+     "blob": "fd910bf9a1136f69b2ad1e3b34ae07af24223e69",
+     "bytes": 10038,
+     "path": "nlebench/dataset/fixtures/json/simple_sequence.json",
+     "sha256": "33c447c664ec0778b71d57642558b7d748e82f4d16ab66f653db39e522b3323e"
+    },
+    {
+     "blob": "c279283807b61b9b43b023eb208f2b39db384a34",
+     "bytes": 56184,
+     "path": "nlebench/models.py",
+     "sha256": "c938bb9c9e0b50cf9b79ec3f2767642b326f0bdfbe0a01700fd025fa82f57914"
+    },
+    {
+     "blob": "007d4a00b111a4dec6c35f0ffd5cd4a847dab1f6",
+     "bytes": 4740,
+     "path": "nlebench/protocols.py",
+     "sha256": "6d2a1449326c7de6ee3cd275d23285c3e4ae0cbe9feadf4ed56aca336697a1f4"
+    },
+    {
+     "blob": "e9f3b56a52be87221adf518bf3853a84593fc96f",
+     "bytes": 967,
+     "path": "nlebench/runner/__init__.py",
+     "sha256": "63fc0a79c7cb23b930b5943cff3853ca3a2d238b4c0ed46d3f2fd293cbfc9acf"
+    },
+    {
+     "blob": "be921125f91627514f3dc7287c67675a16953408",
+     "bytes": 37347,
+     "path": "nlebench/runner/constraints.py",
+     "sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6"
+    },
+    {
+     "blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+     "bytes": 7107,
+     "path": "nlebench/runner/scenario_loader.py",
+     "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+    },
+    {
+     "blob": "30ae33620c9979def279014ad621c926a8836864",
+     "bytes": 1200,
+     "path": "nlebench/tools/__init__.py",
+     "sha256": "998211434e84f2c179763997a8b9fc3a70f32cf5b1ea2c17f6ba010d2f8291c6"
+    },
+    {
+     "blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+     "bytes": 51615,
+     "path": "nlebench/tools/executor.py",
+     "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+    },
+    {
+     "blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+     "bytes": 24850,
+     "path": "nlebench/tools/schema.py",
+     "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+    }
+   ],
+   "repository": "nle-bench-dev",
+   "source_prefix": "src/",
+   "used_by": [
+    "cases: stage pre of NLB-v3-CX-CO-002 and NLB-v3-EX-DE-008"
+   ]
+  }
+ },
+ "what": "the benchmark modules held for replay, by commit; every file is the byte-identical git blob"
+}

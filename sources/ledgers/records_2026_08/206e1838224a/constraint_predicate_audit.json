@@ -1,0 +1,6813 @@
+{
+  "meta": {
+    "audit": "P1 — named constraint predicate contract audit",
+    "generated_by": "scripts/audit_constraint_predicates.py",
+    "constraints_source": "src/nlebench/runner/constraints.py",
+    "constraints_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+    "datasets_scanned": [
+      "scenarios_v1",
+      "scenarios_v2",
+      "scenarios_v3",
+      "scenarios_v3_1"
+    ],
+    "paper_dataset": "scenarios_v3_1",
+    "deferred": "55행 재채점은 이 감사에 포함되지 않는다."
+  },
+  "population": {
+    "registry": [
+      "attribute_changed",
+      "attribute_equals",
+      "attribute_in_range",
+      "batch_operation",
+      "duration_equals",
+      "effect_param_changed",
+      "effect_removed",
+      "entity_count",
+      "entity_count_changed",
+      "entity_exists",
+      "entity_not_exists",
+      "has_effect",
+      "has_link",
+      "has_transition",
+      "no_gap",
+      "no_overlap",
+      "not_linked",
+      "order",
+      "position_changed",
+      "position_equals",
+      "reference_intact",
+      "state_changed",
+      "unchanged_except"
+    ],
+    "yaml": [
+      "attribute_changed",
+      "attribute_equals",
+      "attribute_in_range",
+      "batch_operation",
+      "duration_equals",
+      "effect_removed",
+      "entity_count",
+      "entity_count_changed",
+      "entity_exists",
+      "entity_not_exists",
+      "has_effect",
+      "has_link",
+      "has_transition",
+      "no_gap",
+      "no_overlap",
+      "not_linked",
+      "order",
+      "position_changed",
+      "position_equals",
+      "reference_intact",
+      "state_changed",
+      "unchanged_except"
+    ],
+    "tests_direct_invocation": [
+      "attribute_changed",
+      "attribute_equals",
+      "attribute_in_range",
+      "duration_equals",
+      "entity_count",
+      "entity_exists",
+      "entity_not_exists",
+      "has_effect",
+      "has_transition",
+      "no_gap",
+      "no_overlap",
+      "order",
+      "position_equals",
+      "reference_intact",
+      "unchanged_except"
+    ],
+    "union": [
+      "attribute_changed",
+      "attribute_equals",
+      "attribute_in_range",
+      "batch_operation",
+      "duration_equals",
+      "effect_param_changed",
+      "effect_removed",
+      "entity_count",
+      "entity_count_changed",
+      "entity_exists",
+      "entity_not_exists",
+      "has_effect",
+      "has_link",
+      "has_transition",
+      "no_gap",
+      "no_overlap",
+      "not_linked",
+      "order",
+      "position_changed",
+      "position_equals",
+      "reference_intact",
+      "state_changed",
+      "unchanged_except"
+    ],
+    "registered_but_never_called_by_a_scenario": [
+      "effect_param_changed"
+    ],
+    "called_by_a_scenario_but_unregistered": [],
+    "pinned": [
+      "attribute_changed",
+      "attribute_equals",
+      "attribute_in_range",
+      "batch_operation",
+      "duration_equals",
+      "effect_param_changed",
+      "effect_removed",
+      "entity_count",
+      "entity_count_changed",
+      "entity_exists",
+      "entity_not_exists",
+      "has_effect",
+      "has_link",
+      "has_transition",
+      "no_gap",
+      "no_overlap",
+      "not_linked",
+      "order",
+      "position_changed",
+      "position_equals",
+      "reference_intact",
+      "state_changed",
+      "unchanged_except"
+    ],
+    "matches_pinned": true
+  },
+  "predicates": {
+    "attribute_changed": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`direction` 강제는 이전 패치에서 이미 들어갔다(1341→1301). 여기서는 기준 상태 부재를 조용한 False 가 아니라 오류로 만든다.",
+      "defects": [
+        "D-MISSING-BASELINE-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "attribute_changed",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 775,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity",
+          "field"
+        ],
+        "one_of": [],
+        "optional": [
+          "direction"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "direction",
+          "entity",
+          "field"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 263,
+        "by_dataset": {
+          "scenarios_v2": 31,
+          "scenarios_v3": 117,
+          "scenarios_v3_1": 115
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-043",
+            "NLB-176",
+            "NLB-179",
+            "NLB-662",
+            "NLB-683",
+            "NLB-686",
+            "NLB-721"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-CX-AT-007",
+            "NLB-v3-CX-AT-008",
+            "NLB-v3-CX-CO-004",
+            "NLB-v3-CX-CO-008",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-DE-006",
+            "NLB-v3-CX-DE-008",
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-DI-AT-008",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-CU-007",
+            "NLB-v3-DI-CU-009",
+            "NLB-v3-DI-CU-010",
+            "NLB-v3-DI-DE-008",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-DE-001",
+            "NLB-v3-EX-DE-004",
+            "NLB-v3-EX-DE-007",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-ST-AT-007",
+            "NLB-v3-ST-AT-009",
+            "NLB-v3-ST-CO-005",
+            "NLB-v3-ST-CO-007",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-004",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-004",
+            "NLB-v3-ST-DE-005",
+            "NLB-v3-ST-DE-007",
+            "NLB-v3-ST-DE-010"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-007",
+            "NLB-v3-CX-AT-008",
+            "NLB-v3-CX-CO-004",
+            "NLB-v3-CX-CO-008",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-DE-006",
+            "NLB-v3-CX-DE-008",
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-DI-AT-008",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-CU-007",
+            "NLB-v3-DI-CU-009",
+            "NLB-v3-DI-CU-010",
+            "NLB-v3-DI-DE-008",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-DE-001",
+            "NLB-v3-EX-DE-007",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-ST-AT-007",
+            "NLB-v3-ST-AT-009",
+            "NLB-v3-ST-CO-005",
+            "NLB-v3-ST-CO-007",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-004",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-004",
+            "NLB-v3-ST-DE-005",
+            "NLB-v3-ST-DE-007"
+          ]
+        },
+        "observed_param_keys": {
+          "entity": 263,
+          "field": 263,
+          "direction": 232
+        },
+        "observed_value_types": {
+          "entity": {
+            "str": 263
+          },
+          "field": {
+            "str": 263
+          },
+          "direction": {
+            "str": 232
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "direction",
+              "entity",
+              "field"
+            ],
+            "count": 232,
+            "example": "scenarios_v3/NLB-v3-CX-AT-007"
+          },
+          {
+            "keys": [
+              "entity",
+              "field"
+            ],
+            "count": 31
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 31
+          },
+          "scenarios_v3": {
+            "FAIL": 117
+          },
+          "scenarios_v3_1": {
+            "FAIL": 115
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "방향이 맞으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "audio_clip_4",
+              "field": "audio.volume",
+              "direction": "decrease"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "반대로 움직이면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "audio_clip_4",
+              "field": "audio.volume",
+              "direction": "decrease"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "기준 상태가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "audio_clip_4",
+              "field": "audio.volume"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: attribute_changed: no initial-state snapshot to compare against (set `state._initial`, or evaluate via validate_named_constraints)",
+            "regression_of": "D-MISSING-BASELINE-PASS"
+          },
+          {
+            "kind": "positive",
+            "why": "방향 없이도 변화면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "name"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "비수치 필드에 방향을 요구하면 만족될 수 없다",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "name",
+              "direction": "increase"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "엔티티를 지우는 것은 값을 바꾸는 것이 아니다",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_2",
+              "field": "name"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "허용 오차(볼륨 0.5dB) 안의 흔들림은 변화가 아니다",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "audio_clip_4",
+              "field": "audio.volume"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 4,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 23,
+        "covered": 20,
+        "uncovered_lines": [
+          775,
+          793,
+          807
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "attribute_equals": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`value: null` 은 '필드가 있고 비어 있다' 로 판정한다.",
+      "defects": [
+        "D-ATTR-EQUALS-NULL"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "attribute_equals",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 729,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity",
+          "field",
+          "value"
+        ],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "entity",
+          "field",
+          "value"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 1735,
+        "by_dataset": {
+          "scenarios_v2": 218,
+          "scenarios_v3": 644,
+          "scenarios_v3_1": 873
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-006",
+            "NLB-008",
+            "NLB-076",
+            "NLB-087",
+            "NLB-121",
+            "NLB-194",
+            "NLB-197",
+            "NLB-203",
+            "NLB-243",
+            "NLB-249",
+            "NLB-253",
+            "NLB-256",
+            "NLB-342",
+            "NLB-348",
+            "NLB-360",
+            "NLB-365",
+            "NLB-601",
+            "NLB-604",
+            "NLB-607",
+            "NLB-619",
+            "NLB-622",
+            "NLB-636",
+            "NLB-642",
+            "NLB-645",
+            "NLB-648",
+            "NLB-651",
+            "NLB-654",
+            "NLB-662",
+            "NLB-674",
+            "NLB-680",
+            "NLB-683",
+            "NLB-686",
+            "NLB-700",
+            "NLB-742",
+            "NLB-745",
+            "NLB-780",
+            "NLB-794",
+            "NLB-797",
+            "NLB-800",
+            "NLB-803",
+            "NLB-806"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-CX-AT-001",
+            "NLB-v3-CX-AT-010",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CO-002",
+            "NLB-v3-CX-CO-006",
+            "NLB-v3-CX-CO-007",
+            "NLB-v3-CX-CO-008",
+            "NLB-v3-CX-CO-010",
+            "NLB-v3-CX-CU-001",
+            "NLB-v3-CX-CU-002",
+            "NLB-v3-CX-CU-003",
+            "NLB-v3-CX-CU-004",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-CU-008",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-DE-003",
+            "NLB-v3-CX-DE-004",
+            "NLB-v3-CX-DE-006",
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-CX-DE-010",
+            "NLB-v3-DI-AT-001",
+            "NLB-v3-DI-AT-003",
+            "NLB-v3-DI-AT-004",
+            "NLB-v3-DI-AT-005",
+            "NLB-v3-DI-AT-007",
+            "NLB-v3-DI-AT-008",
+            "NLB-v3-DI-AT-009",
+            "NLB-v3-DI-AT-010",
+            "NLB-v3-DI-CO-001",
+            "NLB-v3-DI-CO-002",
+            "NLB-v3-DI-CO-003",
+            "NLB-v3-DI-CO-004",
+            "NLB-v3-DI-CO-005",
+            "NLB-v3-DI-CO-006",
+            "NLB-v3-DI-CO-007",
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-DI-CO-009",
+            "NLB-v3-DI-CO-010",
+            "NLB-v3-DI-CU-001",
+            "NLB-v3-DI-CU-002",
+            "NLB-v3-DI-CU-003",
+            "NLB-v3-DI-CU-004",
+            "NLB-v3-DI-CU-005",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-CU-007",
+            "NLB-v3-DI-CU-008",
+            "NLB-v3-DI-CU-009",
+            "NLB-v3-DI-CU-010",
+            "NLB-v3-DI-DE-001",
+            "NLB-v3-DI-DE-002",
+            "NLB-v3-DI-DE-003",
+            "NLB-v3-DI-DE-004",
+            "NLB-v3-DI-DE-006",
+            "NLB-v3-DI-DE-007",
+            "NLB-v3-DI-DE-008",
+            "NLB-v3-DI-DE-009",
+            "NLB-v3-DI-DE-010",
+            "NLB-v3-EX-AT-001",
+            "NLB-v3-EX-AT-008",
+            "NLB-v3-EX-AT-009",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-EX-CO-001",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-007",
+            "NLB-v3-EX-CO-010",
+            "NLB-v3-EX-CU-001",
+            "NLB-v3-EX-CU-002",
+            "NLB-v3-EX-CU-003",
+            "NLB-v3-EX-CU-006",
+            "NLB-v3-EX-CU-007",
+            "NLB-v3-EX-CU-008",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-002",
+            "NLB-v3-EX-DE-003",
+            "NLB-v3-EX-DE-005",
+            "NLB-v3-ST-AT-001",
+            "NLB-v3-ST-AT-006",
+            "NLB-v3-ST-CO-001",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CO-004",
+            "NLB-v3-ST-CO-006",
+            "NLB-v3-ST-CO-008",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CU-002",
+            "NLB-v3-ST-CU-003",
+            "NLB-v3-ST-CU-005",
+            "NLB-v3-ST-CU-006",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-CU-009",
+            "NLB-v3-ST-CU-010",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-002",
+            "NLB-v3-ST-DE-005",
+            "NLB-v3-ST-DE-006",
+            "NLB-v3-ST-DE-007",
+            "NLB-v3-ST-DE-010"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-001",
+            "NLB-v3-CX-AT-002",
+            "NLB-v3-CX-AT-007",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-AT-010",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CO-002",
+            "NLB-v3-CX-CO-006",
+            "NLB-v3-CX-CO-007",
+            "NLB-v3-CX-CO-008",
+            "NLB-v3-CX-CO-009",
+            "NLB-v3-CX-CO-010",
+            "NLB-v3-CX-CU-001",
+            "NLB-v3-CX-CU-002",
+            "NLB-v3-CX-CU-003",
+            "NLB-v3-CX-CU-004",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-CU-008",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-CU-010",
+            "NLB-v3-CX-DE-001",
+            "NLB-v3-CX-DE-003",
+            "NLB-v3-CX-DE-004",
+            "NLB-v3-CX-DE-006",
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-CX-DE-010",
+            "NLB-v3-DI-AT-001",
+            "NLB-v3-DI-AT-003",
+            "NLB-v3-DI-AT-005",
+            "NLB-v3-DI-AT-007",
+            "NLB-v3-DI-AT-008",
+            "NLB-v3-DI-AT-009",
+            "NLB-v3-DI-AT-010",
+            "NLB-v3-DI-CO-001",
+            "NLB-v3-DI-CO-002",
+            "NLB-v3-DI-CO-003",
+            "NLB-v3-DI-CO-004",
+            "NLB-v3-DI-CO-005",
+            "NLB-v3-DI-CO-006",
+            "NLB-v3-DI-CO-007",
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-DI-CO-009",
+            "NLB-v3-DI-CO-010",
+            "NLB-v3-DI-CU-001",
+            "NLB-v3-DI-CU-002",
+            "NLB-v3-DI-CU-003",
+            "NLB-v3-DI-CU-004",
+            "NLB-v3-DI-CU-005",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-CU-007",
+            "NLB-v3-DI-CU-008",
+            "NLB-v3-DI-CU-009",
+            "NLB-v3-DI-CU-010",
+            "NLB-v3-DI-DE-001",
+            "NLB-v3-DI-DE-002",
+            "NLB-v3-DI-DE-003",
+            "NLB-v3-DI-DE-004",
+            "NLB-v3-DI-DE-006",
+            "NLB-v3-DI-DE-007",
+            "NLB-v3-DI-DE-008",
+            "NLB-v3-DI-DE-009",
+            "NLB-v3-DI-DE-010",
+            "NLB-v3-EX-AT-001",
+            "NLB-v3-EX-AT-005",
+            "NLB-v3-EX-AT-008",
+            "NLB-v3-EX-AT-009",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-EX-CO-001",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-007",
+            "NLB-v3-EX-CO-010",
+            "NLB-v3-EX-CU-001",
+            "NLB-v3-EX-CU-002",
+            "NLB-v3-EX-CU-003",
+            "NLB-v3-EX-CU-006",
+            "NLB-v3-EX-CU-007",
+            "NLB-v3-EX-CU-008",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-002",
+            "NLB-v3-EX-DE-003",
+            "NLB-v3-EX-DE-005",
+            "NLB-v3-EX-DE-008",
+            "NLB-v3-EX-DE-010",
+            "NLB-v3-ST-AT-001",
+            "NLB-v3-ST-AT-005",
+            "NLB-v3-ST-AT-006",
+            "NLB-v3-ST-CO-001",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CO-004",
+            "NLB-v3-ST-CO-006",
+            "NLB-v3-ST-CO-007",
+            "NLB-v3-ST-CO-008",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-002",
+            "NLB-v3-ST-CU-003",
+            "NLB-v3-ST-CU-005",
+            "NLB-v3-ST-CU-006",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-CU-009",
+            "NLB-v3-ST-CU-010",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-002",
+            "NLB-v3-ST-DE-005",
+            "NLB-v3-ST-DE-006",
+            "NLB-v3-ST-DE-007",
+            "NLB-v3-ST-DE-010"
+          ]
+        },
+        "observed_param_keys": {
+          "entity": 1735,
+          "field": 1735,
+          "value": 1735
+        },
+        "observed_value_types": {
+          "entity": {
+            "str": 1735
+          },
+          "field": {
+            "str": 1735
+          },
+          "value": {
+            "str": 294,
+            "float": 1229,
+            "bool": 160,
+            "int": 49,
+            "NoneType": 2,
+            "list": 1
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "entity",
+              "field",
+              "value"
+            ],
+            "count": 1735
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 210,
+            "NOOP_PASS": 8
+          },
+          "scenarios_v3": {
+            "FAIL": 622,
+            "NOOP_PASS": 22
+          },
+          "scenarios_v3_1": {
+            "FAIL": 843,
+            "NOOP_PASS": 30
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [
+            "NLB-680",
+            "NLB-700",
+            "NLB-742"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-DI-AT-004",
+            "NLB-v3-DI-DE-002",
+            "NLB-v3-DI-DE-007",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-ST-AT-006",
+            "NLB-v3-ST-DE-006"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-DI-CO-006",
+            "NLB-v3-DI-DE-002",
+            "NLB-v3-DI-DE-007",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-ST-AT-006",
+            "NLB-v3-ST-DE-006"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "허용 오차 안이면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "transform.opacity",
+              "value": 1.0
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "값이 다르면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "transform.opacity",
+              "value": 0.2
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "`value: null` 은 '이 필드가 비어야 한다' 이다",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "link_group",
+              "value": null
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ATTR-EQUALS-NULL"
+          },
+          {
+            "kind": "negative",
+            "why": "링크가 살아 있으면 `value: null` 은 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "link_group",
+              "value": null
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ATTR-EQUALS-NULL"
+          },
+          {
+            "kind": "negative",
+            "why": "없는 필드는 `value: null` 로도 만족되지 않는다",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "no_such_field",
+              "value": null
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ATTR-EQUALS-NULL"
+          },
+          {
+            "kind": "malformed",
+            "why": "value 가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "name"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: attribute_equals: missing required parameter(s) ['value']",
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 3,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 19,
+        "covered": 13,
+        "uncovered_lines": [
+          729,
+          733,
+          744,
+          756,
+          757,
+          758
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 5,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "attribute_in_range": {
+      "verdict": "PASS",
+      "action": "없음. 필드별 허용 오차가 min·max 양쪽에 적용되는 것을 케이스로 고정했다.",
+      "defects": [],
+      "implementation": {
+        "registered": true,
+        "function": "attribute_in_range",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 761,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity",
+          "field",
+          "min",
+          "max"
+        ],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "entity",
+          "field",
+          "max",
+          "min"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 112,
+        "by_dataset": {
+          "scenarios_v2": 112
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-010",
+            "NLB-031",
+            "NLB-079",
+            "NLB-087",
+            "NLB-123",
+            "NLB-129",
+            "NLB-133",
+            "NLB-140",
+            "NLB-296",
+            "NLB-305",
+            "NLB-315",
+            "NLB-318",
+            "NLB-323",
+            "NLB-328",
+            "NLB-631",
+            "NLB-791",
+            "NLB-803"
+          ]
+        },
+        "observed_param_keys": {
+          "entity": 112,
+          "field": 112,
+          "min": 112,
+          "max": 112
+        },
+        "observed_value_types": {
+          "entity": {
+            "str": 112
+          },
+          "field": {
+            "str": 112
+          },
+          "min": {
+            "float": 112
+          },
+          "max": {
+            "float": 112
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "entity",
+              "field",
+              "max",
+              "min"
+            ],
+            "count": 112
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 112
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "범위 안이면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "transform.opacity",
+              "min": 0.9,
+              "max": 1.0
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "범위 밖이면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "transform.opacity",
+              "min": 0.0,
+              "max": 0.5
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "max 가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "field": "transform.opacity",
+              "min": 0.0
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: attribute_in_range: missing required parameter(s) ['max']",
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 10,
+        "covered": 7,
+        "uncovered_lines": [
+          761,
+          766,
+          770
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "batch_operation": {
+      "verdict": "BLOCKED_NEEDS_OWNER",
+      "action": "기준 상태 부재는 고쳤다. `scope` 는 못 고친다 — 'matching' 을 정의하는 선택자 언어가 없으면 이 술어는 `state_changed` 이고, 그 이름값을 하지 못한다. v2 전용(73건)이고 v3.1 사용은 0건이다.",
+      "defects": [
+        "D-BATCH-SCOPE-UNVERIFIED",
+        "D-MISSING-BASELINE-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "batch_operation",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1310,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "Meta-constraint: batch operation was applied. Always passes if state changed."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [
+          "scope"
+        ],
+        "accepted": [
+          "scope"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 73,
+        "by_dataset": {
+          "scenarios_v2": 73
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-691",
+            "NLB-694",
+            "NLB-697",
+            "NLB-700",
+            "NLB-703",
+            "NLB-706",
+            "NLB-709",
+            "NLB-712",
+            "NLB-715",
+            "NLB-718",
+            "NLB-721",
+            "NLB-733",
+            "NLB-736",
+            "NLB-742",
+            "NLB-745",
+            "NLB-748",
+            "NLB-763",
+            "NLB-766",
+            "NLB-769",
+            "NLB-783",
+            "NLB-786",
+            "NLB-789"
+          ]
+        },
+        "observed_param_keys": {
+          "scope": 73
+        },
+        "observed_value_types": {
+          "scope": {
+            "str": 73
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "scope"
+            ],
+            "count": 73
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 73
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "무엇이든 바뀌면 참 (= state_changed)",
+            "fixture": "simple_sequence",
+            "params": {
+              "scope": "all_matching"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "⛔ 한 개만 고쳐도 참이다 — `scope` 를 아무도 검증하지 않는다",
+            "fixture": "simple_sequence",
+            "params": {
+              "scope": "all_matching"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-BATCH-SCOPE-UNVERIFIED"
+          },
+          {
+            "kind": "malformed",
+            "why": "기준 상태가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "scope": "all_matching"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: batch_operation: no initial-state snapshot to compare against (set `state._initial`, or evaluate via validate_named_constraints)",
+            "regression_of": "D-MISSING-BASELINE-PASS"
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 3,
+        "covered": 2,
+        "uncovered_lines": [
+          1310
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 0,
+        "appears_by_name_only": true,
+        "files": [],
+        "mentioned_but_never_invoked": true
+      }
+    },
+    "duration_equals": {
+      "verdict": "PASS",
+      "action": "없음. entity 부재·수치 강제를 케이스로 고정했다.",
+      "defects": [],
+      "implementation": {
+        "registered": true,
+        "function": "duration_equals",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 842,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity",
+          "value"
+        ],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "entity",
+          "value"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 74,
+        "by_dataset": {
+          "scenarios_v2": 18,
+          "scenarios_v3_1": 56
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-052",
+            "NLB-292",
+            "NLB-306"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-008",
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-DI-DE-007",
+            "NLB-v3-EX-CO-005",
+            "NLB-v3-EX-CO-006",
+            "NLB-v3-EX-CU-001",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-008",
+            "NLB-v3-ST-AT-008",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CO-006",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CU-002",
+            "NLB-v3-ST-CU-003",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-004"
+          ]
+        },
+        "observed_param_keys": {
+          "entity": 74,
+          "value": 74
+        },
+        "observed_value_types": {
+          "entity": {
+            "str": 74
+          },
+          "value": {
+            "float": 74
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "entity",
+              "value"
+            ],
+            "count": 74
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 17,
+            "NOOP_PASS": 1
+          },
+          "scenarios_v3_1": {
+            "NOOP_PASS": 18,
+            "FAIL": 38
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-008",
+            "NLB-v3-DI-DE-007",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-004"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "길이가 맞으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "value": 5.0
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "길이가 다르면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1",
+              "value": 2.0
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "value 가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: duration_equals: missing required parameter(s) ['value']",
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 10,
+        "covered": 7,
+        "uncovered_lines": [
+          842,
+          846,
+          851
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "effect_param_changed": {
+      "verdict": "DEAD_OR_LEGACY",
+      "action": "⚠ **어느 데이터셋에서도 호출되지 않는다**(v1·v2·v3·v3.1 모두 0건) — 테스트에만 존재하는 사문이다. 이름이 공개 레지스트리 표면이라 **등록은 유지**하되, 본문의 거짓말(= `state_changed`)은 없앤다. 제거는 외부 시나리오 파일을 깨뜨릴 수 있어 소유자 판단으로 남긴다. 사용 0건은 회귀 테스트로 고정했다.",
+      "defects": [
+        "D-EFFECT-PARAM-CHANGED-LIES",
+        "D-MISSING-BASELINE-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "effect_param_changed_fn",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1218,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "A parameter of an effect on the named clip differs from the baseline."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity"
+        ],
+        "one_of": [],
+        "optional": [
+          "effect_type",
+          "param"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "effect_type",
+          "entity",
+          "param"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 0,
+        "by_dataset": {},
+        "scenario_ids": {},
+        "observed_param_keys": {},
+        "observed_value_types": {},
+        "observed_keysets": []
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {},
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "이펙트 파라미터가 바뀌면 참",
+            "fixture": "<patched>",
+            "params": {
+              "entity": "video_clip_1",
+              "effect_type": "blur"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-EFFECT-PARAM-CHANGED-LIES"
+          },
+          {
+            "kind": "negative",
+            "why": "다른 것만 바뀌면 거짓 — 예전에는 이것도 참이었다",
+            "fixture": "<patched>",
+            "params": {
+              "entity": "video_clip_1",
+              "effect_type": "blur"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-EFFECT-PARAM-CHANGED-LIES"
+          },
+          {
+            "kind": "malformed",
+            "why": "entity 가 없으면 오류",
+            "fixture": "<patched>",
+            "params": {},
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: effect_param_changed: missing required parameter(s) ['entity']",
+            "regression_of": "D-EFFECT-PARAM-CHANGED-LIES"
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 7,
+        "covered": 6,
+        "uncovered_lines": [
+          1218
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 0,
+        "appears_by_name_only": true,
+        "files": [],
+        "mentioned_but_never_invoked": true
+      }
+    },
+    "effect_removed": {
+      "verdict": "DEFECT_FIXED",
+      "action": "레지스트리에 올리고, 호출 문맥에서 복원한 **존재했다가 사라짐** 계약을 구현한다. ⛔ 이것이 v2 3건을 측정 가능하게 만들지는 **않는다** — 그 부분은 BLOCKED_NEEDS_OWNER 로 따로 세워 뒀다.",
+      "defects": [
+        "D-EFFECT-REMOVED-UNREGISTERED",
+        "D-EFFECT-REMOVED-FIXTURE-CONTRADICTION",
+        "D-MISSING-BASELINE-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "effect_removed",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1258,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "Effects of `effect_type` existed at the start and none remain."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "effect_type"
+        ],
+        "one_of": [],
+        "optional": [
+          "entity"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "effect_type",
+          "entity"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 3,
+        "by_dataset": {
+          "scenarios_v2": 3
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-718"
+          ]
+        },
+        "observed_param_keys": {
+          "effect_type": 3
+        },
+        "observed_value_types": {
+          "effect_type": {
+            "str": 3
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "effect_type"
+            ],
+            "count": 3
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 3
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "있던 이펙트가 사라지면 참",
+            "fixture": "<patched>",
+            "params": {
+              "effect_type": "blur"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-EFFECT-REMOVED-UNREGISTERED"
+          },
+          {
+            "kind": "negative",
+            "why": "남아 있으면 거짓",
+            "fixture": "<patched>",
+            "params": {
+              "effect_type": "blur"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-EFFECT-REMOVED-UNREGISTERED"
+          },
+          {
+            "kind": "negative",
+            "why": "애초에 없던 것은 '제거' 가 아니다 — 무행동이 통과하면 안 된다",
+            "fixture": "complex_sequence",
+            "params": {
+              "effect_type": "blur"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-EFFECT-REMOVED-FIXTURE-CONTRADICTION"
+          },
+          {
+            "kind": "malformed",
+            "why": "기준 상태가 없으면 오류",
+            "fixture": "<patched>",
+            "params": {
+              "effect_type": "blur"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: effect_removed: no initial-state snapshot to compare against (set `state._initial`, or evaluate via validate_named_constraints)",
+            "regression_of": "D-MISSING-BASELINE-PASS"
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 2,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 8,
+        "covered": 7,
+        "uncovered_lines": [
+          1258
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 0,
+        "appears_by_name_only": true,
+        "files": [],
+        "mentioned_but_never_invoked": true
+      }
+    },
+    "entity_count": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`expected` · `min` · `max` 중 하나 이상을 요구하고 전부 읽는다.",
+      "defects": [
+        "D-ENTITY-COUNT-MIN",
+        "D-UNKNOWN-ENTITY-TYPE"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "entity_count",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 705,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "Exact count via `expected`, or a bound via `min` / `max`."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "type"
+        ],
+        "one_of": [
+          [
+            "expected",
+            "min",
+            "max"
+          ]
+        ],
+        "optional": [
+          "track"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "expected",
+          "max",
+          "min",
+          "track",
+          "type"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 24,
+        "by_dataset": {
+          "scenarios_v2": 16,
+          "scenarios_v3": 1,
+          "scenarios_v3_1": 7
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-095",
+            "NLB-616",
+            "NLB-656",
+            "NLB-668",
+            "NLB-691",
+            "NLB-777",
+            "NLB-789"
+          ],
+          "scenarios_v3": [],
+          "scenarios_v3_1": []
+        },
+        "observed_param_keys": {
+          "type": 24,
+          "track": 14,
+          "expected": 17,
+          "min": 7
+        },
+        "observed_value_types": {
+          "type": {
+            "str": 24
+          },
+          "track": {
+            "str": 10,
+            "NoneType": 4
+          },
+          "expected": {
+            "int": 17
+          },
+          "min": {
+            "int": 7
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "expected",
+              "track",
+              "type"
+            ],
+            "count": 10
+          },
+          {
+            "keys": [
+              "expected",
+              "type"
+            ],
+            "count": 7
+          },
+          {
+            "keys": [
+              "min",
+              "track",
+              "type"
+            ],
+            "count": 4,
+            "example": "scenarios_v2/NLB-656"
+          },
+          {
+            "keys": [
+              "min",
+              "type"
+            ],
+            "count": 3,
+            "example": "scenarios_v2/NLB-777"
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 12,
+            "NOOP_PASS": 4
+          },
+          "scenarios_v3": {
+            "NOOP_PASS": 1
+          },
+          "scenarios_v3_1": {
+            "NOOP_PASS": 7
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [
+            "NLB-616",
+            "NLB-656",
+            "NLB-668"
+          ],
+          "scenarios_v3": [],
+          "scenarios_v3_1": []
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "expected 와 정확히 같으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "video_clip",
+              "track": "V1",
+              "expected": 3
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "개수가 다르면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "video_clip",
+              "track": "V1",
+              "expected": 4
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "min 은 하한이다 — 넘으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "clip",
+              "track": "V1",
+              "min": 4
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ENTITY-COUNT-MIN"
+          },
+          {
+            "kind": "negative",
+            "why": "min 에 못 미치면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "clip",
+              "track": "V1",
+              "min": 9
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ENTITY-COUNT-MIN"
+          },
+          {
+            "kind": "malformed",
+            "why": "expected 도 min 도 max 도 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "clip",
+              "track": "V1"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: entity_count: needs at least one of ['expected', 'min', 'max']",
+            "regression_of": "D-ENTITY-COUNT-MIN"
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 2,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 11,
+        "covered": 9,
+        "uncovered_lines": [
+          705,
+          723
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 3,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "entity_count_changed": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`timeline` 을 셀 수 있게 하고, 스키마에 없는 type 은 오류.",
+      "defects": [
+        "D-UNKNOWN-ENTITY-TYPE",
+        "D-MISSING-BASELINE-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "entity_count_changed_fn",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1156,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "Check that entity count changed in the expected direction."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [],
+        "one_of": [],
+        "optional": [
+          "type",
+          "direction"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "direction",
+          "type"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 274,
+        "by_dataset": {
+          "scenarios_v2": 40,
+          "scenarios_v3": 121,
+          "scenarios_v3_1": 113
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-003",
+            "NLB-628",
+            "NLB-659",
+            "NLB-668",
+            "NLB-671",
+            "NLB-674",
+            "NLB-727",
+            "NLB-730",
+            "NLB-739",
+            "NLB-757",
+            "NLB-771",
+            "NLB-774",
+            "NLB-783",
+            "NLB-786"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-CX-AT-002",
+            "NLB-v3-CX-AT-004",
+            "NLB-v3-CX-AT-010",
+            "NLB-v3-EX-AT-002",
+            "NLB-v3-EX-AT-003",
+            "NLB-v3-EX-AT-005",
+            "NLB-v3-EX-AT-007",
+            "NLB-v3-EX-AT-008",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-EX-CO-005",
+            "NLB-v3-EX-CO-006",
+            "NLB-v3-EX-CO-008",
+            "NLB-v3-ST-AT-003",
+            "NLB-v3-ST-AT-004",
+            "NLB-v3-ST-AT-005",
+            "NLB-v3-ST-AT-008",
+            "NLB-v3-ST-AT-009",
+            "NLB-v3-ST-AT-010",
+            "NLB-v3-ST-CO-002",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CO-006",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CU-002",
+            "NLB-v3-ST-CU-003",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-CU-009",
+            "NLB-v3-ST-CU-010",
+            "NLB-v3-ST-DE-003",
+            "NLB-v3-ST-DE-005",
+            "NLB-v3-ST-DE-008",
+            "NLB-v3-ST-DE-009"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-002",
+            "NLB-v3-CX-AT-004",
+            "NLB-v3-CX-AT-010",
+            "NLB-v3-EX-AT-002",
+            "NLB-v3-EX-AT-003",
+            "NLB-v3-EX-AT-005",
+            "NLB-v3-EX-AT-007",
+            "NLB-v3-EX-AT-008",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-EX-CO-005",
+            "NLB-v3-EX-CO-006",
+            "NLB-v3-EX-CO-008",
+            "NLB-v3-ST-AT-003",
+            "NLB-v3-ST-AT-004",
+            "NLB-v3-ST-AT-005",
+            "NLB-v3-ST-AT-008",
+            "NLB-v3-ST-AT-009",
+            "NLB-v3-ST-AT-010",
+            "NLB-v3-ST-CO-002",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CO-006",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CU-002",
+            "NLB-v3-ST-CU-003",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-CU-009",
+            "NLB-v3-ST-CU-010",
+            "NLB-v3-ST-DE-003",
+            "NLB-v3-ST-DE-005",
+            "NLB-v3-ST-DE-008",
+            "NLB-v3-ST-DE-009"
+          ]
+        },
+        "observed_param_keys": {
+          "type": 274,
+          "direction": 274
+        },
+        "observed_value_types": {
+          "type": {
+            "str": 274
+          },
+          "direction": {
+            "str": 274
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "direction",
+              "type"
+            ],
+            "count": 274
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 39,
+            "ERROR": 1
+          },
+          "scenarios_v3": {
+            "FAIL": 121
+          },
+          "scenarios_v3_1": {
+            "FAIL": 113
+          }
+        },
+        "error_messages": {
+          "ValueError: unknown entity type: 'marker' (known: audio_clip, audio_media, audio_track, av_media, bin, caption, clip, ef": 1
+        },
+        "error_scenario_ids": {
+          "scenarios_v2": []
+        },
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "늘면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "caption",
+              "direction": "increase"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "안 늘면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "caption",
+              "direction": "increase"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "이 스키마에 없는 type 은 조용한 거짓이 아니라 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "marker",
+              "direction": "increase"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: unknown entity type: 'marker' (known: audio_clip, audio_media, audio_track, av_media, bin, caption, clip, effect, link, media, sequence, timeline, track, transition, video_clip, video_media, video_track)",
+            "regression_of": "D-UNKNOWN-ENTITY-TYPE"
+          },
+          {
+            "kind": "positive",
+            "why": "timeline 도 셀 수 있는 type 이다",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "timeline",
+              "direction": "increase"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-UNKNOWN-ENTITY-TYPE"
+          },
+          {
+            "kind": "positive",
+            "why": "줄면 decrease 가 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "video_clip",
+              "direction": "decrease"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "direction 이 `any` 면 어느 쪽이든 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "video_clip",
+              "direction": "any"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "type 을 안 주면 clip 을 세는데, 클립이 안 변하면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "direction": "increase"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 4,
+          "negative": 2,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 11,
+        "covered": 10,
+        "uncovered_lines": [
+          1156
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 0,
+        "appears_by_name_only": true,
+        "files": [],
+        "mentioned_but_never_invoked": true
+      }
+    },
+    "entity_exists": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`name` · `kind` 를 읽고, 트랙 슬롯 표기(V2 ↔ 'V2 (B-Roll)')를 `_resolve_track` 으로 동일하게 해석한다. 모르는 type 은 오류.",
+      "defects": [
+        "D-ENTITY-EXISTS-NAME",
+        "D-ENTITY-EXISTS-KIND",
+        "D-UNKNOWN-ENTITY-TYPE",
+        "D-EFFECT-IN-TRACK"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "entity_exists",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 640,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [],
+        "one_of": [
+          [
+            "entity",
+            "type"
+          ]
+        ],
+        "optional": [
+          "track",
+          "index",
+          "parent",
+          "effect_type",
+          "where",
+          "name",
+          "kind",
+          "between"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "between",
+          "effect_type",
+          "entity",
+          "index",
+          "kind",
+          "name",
+          "parent",
+          "track",
+          "type",
+          "where"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 527,
+        "by_dataset": {
+          "scenarios_v2": 42,
+          "scenarios_v3": 208,
+          "scenarios_v3_1": 277
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-006",
+            "NLB-096",
+            "NLB-243",
+            "NLB-249",
+            "NLB-253",
+            "NLB-256",
+            "NLB-601",
+            "NLB-613",
+            "NLB-622",
+            "NLB-636",
+            "NLB-642"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-CX-AT-002",
+            "NLB-v3-CX-AT-003",
+            "NLB-v3-CX-AT-004",
+            "NLB-v3-CX-AT-007",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-AT-010",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CO-002",
+            "NLB-v3-CX-CO-003",
+            "NLB-v3-CX-CO-005",
+            "NLB-v3-CX-CO-006",
+            "NLB-v3-CX-CO-007",
+            "NLB-v3-CX-CO-009",
+            "NLB-v3-CX-CU-002",
+            "NLB-v3-CX-CU-003",
+            "NLB-v3-CX-CU-004",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-007",
+            "NLB-v3-CX-CU-008",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-CU-010",
+            "NLB-v3-CX-DE-001",
+            "NLB-v3-CX-DE-002",
+            "NLB-v3-CX-DE-004",
+            "NLB-v3-CX-DE-007",
+            "NLB-v3-CX-DE-010",
+            "NLB-v3-EX-AT-002",
+            "NLB-v3-EX-AT-005",
+            "NLB-v3-EX-CO-002",
+            "NLB-v3-EX-CO-005",
+            "NLB-v3-EX-CO-006",
+            "NLB-v3-EX-CO-009",
+            "NLB-v3-EX-CU-001",
+            "NLB-v3-EX-CU-003",
+            "NLB-v3-EX-CU-004",
+            "NLB-v3-EX-CU-005",
+            "NLB-v3-EX-CU-007",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-001",
+            "NLB-v3-EX-DE-002",
+            "NLB-v3-EX-DE-004",
+            "NLB-v3-EX-DE-005",
+            "NLB-v3-EX-DE-008",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-EX-DE-010"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-002",
+            "NLB-v3-CX-AT-003",
+            "NLB-v3-CX-AT-004",
+            "NLB-v3-CX-AT-007",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-AT-010",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CO-002",
+            "NLB-v3-CX-CO-003",
+            "NLB-v3-CX-CO-005",
+            "NLB-v3-CX-CO-006",
+            "NLB-v3-CX-CO-007",
+            "NLB-v3-CX-CO-009",
+            "NLB-v3-CX-CU-002",
+            "NLB-v3-CX-CU-003",
+            "NLB-v3-CX-CU-004",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-007",
+            "NLB-v3-CX-CU-008",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-CU-010",
+            "NLB-v3-CX-DE-001",
+            "NLB-v3-CX-DE-002",
+            "NLB-v3-CX-DE-004",
+            "NLB-v3-CX-DE-005",
+            "NLB-v3-CX-DE-007",
+            "NLB-v3-CX-DE-010",
+            "NLB-v3-EX-AT-002",
+            "NLB-v3-EX-AT-005",
+            "NLB-v3-EX-AT-007",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-EX-CO-002",
+            "NLB-v3-EX-CO-005",
+            "NLB-v3-EX-CO-006",
+            "NLB-v3-EX-CO-009",
+            "NLB-v3-EX-CU-001",
+            "NLB-v3-EX-CU-003",
+            "NLB-v3-EX-CU-004",
+            "NLB-v3-EX-CU-005",
+            "NLB-v3-EX-CU-007",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-001",
+            "NLB-v3-EX-DE-002",
+            "NLB-v3-EX-DE-004",
+            "NLB-v3-EX-DE-005",
+            "NLB-v3-EX-DE-008",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-EX-DE-010",
+            "NLB-v3-ST-AT-008",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CO-006",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CU-002",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-CU-009",
+            "NLB-v3-ST-DE-005",
+            "NLB-v3-ST-DE-009"
+          ]
+        },
+        "observed_param_keys": {
+          "type": 135,
+          "track": 25,
+          "index": 16,
+          "kind": 1,
+          "name": 20,
+          "entity": 392,
+          "where": 92
+        },
+        "observed_value_types": {
+          "type": {
+            "str": 135
+          },
+          "track": {
+            "str": 25
+          },
+          "index": {
+            "int": 16
+          },
+          "kind": {
+            "str": 1
+          },
+          "name": {
+            "str": 20
+          },
+          "entity": {
+            "str": 392
+          },
+          "where": {
+            "dict": 92
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "entity"
+            ],
+            "count": 392,
+            "example": "scenarios_v3/NLB-v3-CX-AT-002"
+          },
+          {
+            "keys": [
+              "type",
+              "where"
+            ],
+            "count": 90,
+            "example": "scenarios_v3/NLB-v3-EX-CO-002"
+          },
+          {
+            "keys": [
+              "name",
+              "type"
+            ],
+            "count": 19,
+            "example": "scenarios_v2/NLB-613"
+          },
+          {
+            "keys": [
+              "index",
+              "track",
+              "type"
+            ],
+            "count": 16
+          },
+          {
+            "keys": [
+              "track",
+              "type"
+            ],
+            "count": 7,
+            "example": "scenarios_v2/NLB-601"
+          },
+          {
+            "keys": [
+              "track",
+              "type",
+              "where"
+            ],
+            "count": 2,
+            "example": "scenarios_v3_1/NLB-v3-EX-DE-004"
+          },
+          {
+            "keys": [
+              "kind",
+              "name",
+              "type"
+            ],
+            "count": 1
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "NOOP_PASS": 22,
+            "FAIL": 20
+          },
+          "scenarios_v3": {
+            "FAIL": 208
+          },
+          "scenarios_v3_1": {
+            "FAIL": 273,
+            "NOOP_PASS": 4
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [
+            "NLB-006",
+            "NLB-243",
+            "NLB-249",
+            "NLB-253",
+            "NLB-256",
+            "NLB-601",
+            "NLB-622",
+            "NLB-636",
+            "NLB-642"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-DE-005",
+            "NLB-v3-EX-DE-004",
+            "NLB-v3-ST-DE-009"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "이름이 맞는 미디어가 생기면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "media",
+              "name": "interview.mp4"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ENTITY-EXISTS-NAME"
+          },
+          {
+            "kind": "negative",
+            "why": "요구한 이름이 없으면 거짓 — 다른 미디어가 있어도 통하지 않는다",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "media",
+              "name": "interview.mp4"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ENTITY-EXISTS-NAME"
+          },
+          {
+            "kind": "malformed",
+            "why": "entity 도 type 도 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "index": 0
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: entity_exists: needs at least one of ['entity', 'type']",
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "kind 가 트랙 종류를 좁힌다",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "track",
+              "kind": "audio",
+              "name": "SFX"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ENTITY-EXISTS-KIND"
+          },
+          {
+            "kind": "negative",
+            "why": "kind 가 맞아도 이름이 다르면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "track",
+              "kind": "audio",
+              "name": "SFX"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ENTITY-EXISTS-KIND"
+          },
+          {
+            "kind": "malformed",
+            "why": "모르는 entity type 은 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "marker"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: unknown entity type: 'marker' (known: audio_clip, audio_media, audio_track, av_media, bin, caption, clip, effect, link, media, sequence, timeline, track, transition, video_clip, video_media, video_track)",
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "where 가 후보를 좁힌 뒤 index 를 센다",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "caption",
+              "where": {
+                "field": "text",
+                "value": "Hello"
+              }
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "where 에 맞는 후보가 없으면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "caption",
+              "where": {
+                "field": "text",
+                "value": "Hello"
+              }
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 3,
+          "negative": 3,
+          "malformed": 2
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 30,
+        "covered": 27,
+        "uncovered_lines": [
+          640,
+          651,
+          652
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 11,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "entity_not_exists": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`entity_exists` 와 같은 계약을 공유하고, bind 실패는 통과가 아니라 오류.",
+      "defects": [
+        "D-ENTITY-EXISTS-NAME",
+        "D-NOT-EXISTS-BETWEEN",
+        "D-EFFECT-IN-TRACK",
+        "D-UNBOUND-REF-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "entity_not_exists",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 691,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [],
+        "one_of": [
+          [
+            "entity",
+            "type"
+          ]
+        ],
+        "optional": [
+          "track",
+          "index",
+          "parent",
+          "effect_type",
+          "where",
+          "name",
+          "kind",
+          "between"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "between",
+          "effect_type",
+          "entity",
+          "index",
+          "kind",
+          "name",
+          "parent",
+          "track",
+          "type",
+          "where"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 226,
+        "by_dataset": {
+          "scenarios_v2": 10,
+          "scenarios_v3": 103,
+          "scenarios_v3_1": 113
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-038",
+            "NLB-100",
+            "NLB-104"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-CX-AT-008",
+            "NLB-v3-CX-CO-004",
+            "NLB-v3-CX-CO-007",
+            "NLB-v3-CX-CO-010",
+            "NLB-v3-CX-DE-005",
+            "NLB-v3-CX-DE-008",
+            "NLB-v3-DI-AT-002",
+            "NLB-v3-DI-AT-007",
+            "NLB-v3-DI-CO-002",
+            "NLB-v3-DI-CO-005",
+            "NLB-v3-DI-CO-009",
+            "NLB-v3-DI-CU-004",
+            "NLB-v3-DI-CU-008",
+            "NLB-v3-DI-DE-003",
+            "NLB-v3-EX-AT-003",
+            "NLB-v3-EX-CO-008",
+            "NLB-v3-EX-DE-006",
+            "NLB-v3-EX-DE-007",
+            "NLB-v3-ST-AT-004",
+            "NLB-v3-ST-AT-009",
+            "NLB-v3-ST-CO-004",
+            "NLB-v3-ST-CU-004",
+            "NLB-v3-ST-DE-004"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-008",
+            "NLB-v3-CX-CO-004",
+            "NLB-v3-CX-CO-007",
+            "NLB-v3-CX-CO-010",
+            "NLB-v3-CX-DE-005",
+            "NLB-v3-CX-DE-008",
+            "NLB-v3-DI-AT-002",
+            "NLB-v3-DI-AT-004",
+            "NLB-v3-DI-AT-007",
+            "NLB-v3-DI-CO-002",
+            "NLB-v3-DI-CO-005",
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-DI-CO-009",
+            "NLB-v3-DI-CU-004",
+            "NLB-v3-DI-CU-008",
+            "NLB-v3-DI-DE-003",
+            "NLB-v3-EX-AT-003",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-008",
+            "NLB-v3-EX-DE-006",
+            "NLB-v3-EX-DE-007",
+            "NLB-v3-ST-AT-004",
+            "NLB-v3-ST-AT-009",
+            "NLB-v3-ST-CO-004",
+            "NLB-v3-ST-CO-010",
+            "NLB-v3-ST-CU-004",
+            "NLB-v3-ST-DE-004"
+          ]
+        },
+        "observed_param_keys": {
+          "type": 68,
+          "track": 7,
+          "index": 8,
+          "name": 2,
+          "between": 1,
+          "entity": 158,
+          "parent": 58,
+          "effect_type": 55
+        },
+        "observed_value_types": {
+          "type": {
+            "str": 68
+          },
+          "track": {
+            "str": 7
+          },
+          "index": {
+            "int": 8
+          },
+          "name": {
+            "str": 2
+          },
+          "between": {
+            "list": 1
+          },
+          "entity": {
+            "str": 158
+          },
+          "parent": {
+            "str": 58
+          },
+          "effect_type": {
+            "str": 55
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "entity"
+            ],
+            "count": 158,
+            "example": "scenarios_v3/NLB-v3-CX-AT-008"
+          },
+          {
+            "keys": [
+              "effect_type",
+              "parent",
+              "type"
+            ],
+            "count": 55,
+            "example": "scenarios_v3/NLB-v3-DI-AT-002"
+          },
+          {
+            "keys": [
+              "index",
+              "track",
+              "type"
+            ],
+            "count": 7
+          },
+          {
+            "keys": [
+              "name",
+              "type"
+            ],
+            "count": 2
+          },
+          {
+            "keys": [
+              "parent",
+              "type"
+            ],
+            "count": 2
+          },
+          {
+            "keys": [
+              "between",
+              "type"
+            ],
+            "count": 1,
+            "example": "scenarios_v2/NLB-100"
+          },
+          {
+            "keys": [
+              "index",
+              "parent",
+              "type"
+            ],
+            "count": 1
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 8,
+            "NOOP_PASS": 2
+          },
+          "scenarios_v3": {
+            "FAIL": 102,
+            "ERROR": 1
+          },
+          "scenarios_v3_1": {
+            "FAIL": 110,
+            "NOOP_PASS": 3
+          }
+        },
+        "error_messages": {
+          "ValueError: entity_not_exists: `entity` did not bind to an id": 1
+        },
+        "error_scenario_ids": {
+          "scenarios_v3": []
+        },
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [
+            "NLB-038"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-ST-CO-010"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "트랙을 지우면 그 슬롯은 사라진다",
+            "fixture": "complex_sequence",
+            "params": {
+              "type": "track",
+              "name": "V2"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ENTITY-EXISTS-NAME"
+          },
+          {
+            "kind": "negative",
+            "why": "`V2` 는 화면에 'V2 (B-Roll)' 로 보이지만 여전히 존재한다",
+            "fixture": "complex_sequence",
+            "params": {
+              "type": "track",
+              "name": "V2"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ENTITY-EXISTS-NAME"
+          },
+          {
+            "kind": "malformed",
+            "why": "bind 되지 않은 `$ref` 는 통과가 아니라 오류다",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": null
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: entity_not_exists: `entity` did not bind to an id",
+            "regression_of": "D-UNBOUND-REF-PASS"
+          },
+          {
+            "kind": "positive",
+            "why": "트랙 위 이펙트가 없으면 참",
+            "fixture": "complex_sequence",
+            "params": {
+              "type": "effect",
+              "track": "V1"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-EFFECT-IN-TRACK"
+          },
+          {
+            "kind": "negative",
+            "why": "트랙 위 클립에 이펙트가 붙어 있으면 거짓 — 이펙트는 트랙의 자식이 아니다",
+            "fixture": "<patched>",
+            "params": {
+              "type": "effect",
+              "track": "V1"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-EFFECT-IN-TRACK"
+          },
+          {
+            "kind": "positive",
+            "why": "between 이 지목한 쌍에 트랜지션이 없으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "transition",
+              "between": [
+                "video_clip_1",
+                "video_clip_2"
+              ]
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-NOT-EXISTS-BETWEEN"
+          },
+          {
+            "kind": "negative",
+            "why": "그 쌍에 트랜지션이 있으면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "type": "transition",
+              "between": [
+                "video_clip_1",
+                "video_clip_2"
+              ]
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-NOT-EXISTS-BETWEEN"
+          },
+          {
+            "kind": "positive",
+            "why": "parent 가 지목한 클립에 그 이펙트가 없으면 참",
+            "fixture": "<patched>",
+            "params": {
+              "type": "effect",
+              "parent": "video_clip_2",
+              "effect_type": "blur"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "parent 가 지목한 클립에 있으면 거짓 — 프로젝트 전체가 아니라 그 클립이다",
+            "fixture": "<patched>",
+            "params": {
+              "type": "effect",
+              "parent": "video_clip_1",
+              "effect_type": "blur"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "ID 로 지목한 엔티티를 지우면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_2"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 5,
+          "negative": 4,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 7,
+        "covered": 6,
+        "uncovered_lines": [
+          691
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 5,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "has_effect": {
+      "verdict": "PASS",
+      "action": "없음. `effect_type` 이 실제로 좁히는 것을 케이스로 고정했다.",
+      "defects": [],
+      "implementation": {
+        "registered": true,
+        "function": "has_effect",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 994,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity"
+        ],
+        "one_of": [],
+        "optional": [
+          "effect_type"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "effect_type",
+          "entity"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 628,
+        "by_dataset": {
+          "scenarios_v2": 204,
+          "scenarios_v3": 213,
+          "scenarios_v3_1": 211
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-015",
+            "NLB-028",
+            "NLB-046",
+            "NLB-055",
+            "NLB-091",
+            "NLB-100",
+            "NLB-104",
+            "NLB-128",
+            "NLB-130",
+            "NLB-192",
+            "NLB-205",
+            "NLB-208",
+            "NLB-268",
+            "NLB-278",
+            "NLB-282",
+            "NLB-288",
+            "NLB-293",
+            "NLB-298",
+            "NLB-338",
+            "NLB-356",
+            "NLB-362",
+            "NLB-370",
+            "NLB-386",
+            "NLB-389",
+            "NLB-390",
+            "NLB-392",
+            "NLB-394",
+            "NLB-398",
+            "NLB-400",
+            "NLB-639",
+            "NLB-677",
+            "NLB-694",
+            "NLB-715",
+            "NLB-736",
+            "NLB-769"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-CX-AT-006",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CO-003",
+            "NLB-v3-CX-CO-008",
+            "NLB-v3-CX-CO-010",
+            "NLB-v3-CX-CU-001",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-CU-010",
+            "NLB-v3-CX-DE-003",
+            "NLB-v3-CX-DE-010",
+            "NLB-v3-DI-CU-001",
+            "NLB-v3-DI-CU-005",
+            "NLB-v3-DI-DE-003",
+            "NLB-v3-DI-DE-004",
+            "NLB-v3-DI-DE-009",
+            "NLB-v3-DI-DE-010",
+            "NLB-v3-EX-AT-004",
+            "NLB-v3-EX-CO-001",
+            "NLB-v3-EX-CO-002",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-005",
+            "NLB-v3-EX-CU-002",
+            "NLB-v3-EX-CU-003",
+            "NLB-v3-EX-CU-008",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-003",
+            "NLB-v3-EX-DE-010",
+            "NLB-v3-ST-AT-002",
+            "NLB-v3-ST-CO-002",
+            "NLB-v3-ST-CO-004",
+            "NLB-v3-ST-CO-006",
+            "NLB-v3-ST-CO-008",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CO-010",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-006",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-DE-009"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-006",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CO-003",
+            "NLB-v3-CX-CO-008",
+            "NLB-v3-CX-CO-010",
+            "NLB-v3-CX-CU-001",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-CU-010",
+            "NLB-v3-CX-DE-003",
+            "NLB-v3-CX-DE-010",
+            "NLB-v3-DI-CU-001",
+            "NLB-v3-DI-CU-005",
+            "NLB-v3-DI-DE-003",
+            "NLB-v3-DI-DE-004",
+            "NLB-v3-DI-DE-009",
+            "NLB-v3-EX-AT-004",
+            "NLB-v3-EX-CO-001",
+            "NLB-v3-EX-CO-002",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-005",
+            "NLB-v3-EX-CU-002",
+            "NLB-v3-EX-CU-003",
+            "NLB-v3-EX-CU-008",
+            "NLB-v3-EX-DE-003",
+            "NLB-v3-EX-DE-010",
+            "NLB-v3-ST-AT-002",
+            "NLB-v3-ST-CO-002",
+            "NLB-v3-ST-CO-004",
+            "NLB-v3-ST-CO-006",
+            "NLB-v3-ST-CO-008",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CO-010",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-003",
+            "NLB-v3-ST-CU-006",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-DE-009"
+          ]
+        },
+        "observed_param_keys": {
+          "entity": 628,
+          "effect_type": 628
+        },
+        "observed_value_types": {
+          "entity": {
+            "str": 628
+          },
+          "effect_type": {
+            "str": 628
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "effect_type",
+              "entity"
+            ],
+            "count": 628
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 203
+          },
+          "scenarios_v3": {
+            "FAIL": 213
+          },
+          "scenarios_v3_1": {
+            "FAIL": 210,
+            "NOOP_PASS": 1
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v3_1": [
+            "NLB-v3-ST-CO-008"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "그 종류의 이펙트가 붙어 있으면 참",
+            "fixture": "<patched>",
+            "params": {
+              "entity": "video_clip_1",
+              "effect_type": "blur"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "다른 종류만 있으면 거짓",
+            "fixture": "<patched>",
+            "params": {
+              "entity": "video_clip_1",
+              "effect_type": "contrast"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "entity 가 없으면 오류",
+            "fixture": "<patched>",
+            "params": {
+              "effect_type": "blur"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: has_effect: missing required parameter(s) ['entity']",
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 12,
+        "covered": 10,
+        "uncovered_lines": [
+          994,
+          1003
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "has_link": {
+      "verdict": "PASS",
+      "action": "없음. 클립 부재·link_group 불일치가 닫혀 있음을 케이스로 고정했다.",
+      "defects": [],
+      "implementation": {
+        "registered": true,
+        "function": "has_link",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1039,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "Check that two clips share the same link_group."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "clip_ids"
+        ],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "clip_ids"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 75,
+        "by_dataset": {
+          "scenarios_v3": 38,
+          "scenarios_v3_1": 37
+        },
+        "scenario_ids": {
+          "scenarios_v3": [
+            "NLB-v3-CX-CO-005",
+            "NLB-v3-CX-CU-007",
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-DI-DE-005",
+            "NLB-v3-EX-AT-006",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CU-006",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-ST-AT-007",
+            "NLB-v3-ST-CO-005",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CU-006"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-CO-005",
+            "NLB-v3-CX-CU-007",
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-DI-DE-005",
+            "NLB-v3-EX-AT-006",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CU-006",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-ST-AT-007",
+            "NLB-v3-ST-CO-005",
+            "NLB-v3-ST-CO-009",
+            "NLB-v3-ST-CU-006"
+          ]
+        },
+        "observed_param_keys": {
+          "clip_ids": 75
+        },
+        "observed_value_types": {
+          "clip_ids": {
+            "list": 75
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "clip_ids"
+            ],
+            "count": 75
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v3": {
+            "NOOP_PASS": 16,
+            "FAIL": 22
+          },
+          "scenarios_v3_1": {
+            "FAIL": 28,
+            "NOOP_PASS": 9
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v3": [
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CU-006",
+            "NLB-v3-ST-CU-006"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-DE-009",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-ST-CU-006"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "같은 link_group 이면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "clip_ids": [
+                "video_clip_1",
+                "audio_clip_1"
+              ]
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "끊으면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "clip_ids": [
+                "video_clip_1",
+                "audio_clip_1"
+              ]
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "clip_ids 가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {},
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: has_link: missing required parameter(s) ['clip_ids']",
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 11,
+        "covered": 8,
+        "uncovered_lines": [
+          1039,
+          1044,
+          1048
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 0,
+        "appears_by_name_only": true,
+        "files": [],
+        "mentioned_but_never_invoked": true
+      }
+    },
+    "has_transition": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`between` · `track` · `type` 중 하나 이상으로 좁히도록 하고 전부 읽는다.",
+      "defects": [
+        "D-HAS-TRANSITION-NO-BETWEEN"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "has_transition",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1014,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "A transition exists, narrowed by any of `between` / `track` / `type`."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [],
+        "one_of": [
+          [
+            "between",
+            "track",
+            "type"
+          ]
+        ],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "between",
+          "track",
+          "type"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 128,
+        "by_dataset": {
+          "scenarios_v2": 75,
+          "scenarios_v3": 25,
+          "scenarios_v3_1": 28
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-192",
+            "NLB-205",
+            "NLB-208",
+            "NLB-215",
+            "NLB-217",
+            "NLB-221",
+            "NLB-223",
+            "NLB-227",
+            "NLB-229",
+            "NLB-238",
+            "NLB-248",
+            "NLB-254",
+            "NLB-259",
+            "NLB-355",
+            "NLB-364",
+            "NLB-625",
+            "NLB-656",
+            "NLB-689",
+            "NLB-751",
+            "NLB-757",
+            "NLB-771"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-CX-AT-003",
+            "NLB-v3-DI-DE-007",
+            "NLB-v3-EX-AT-009",
+            "NLB-v3-EX-CO-010",
+            "NLB-v3-ST-AT-006",
+            "NLB-v3-ST-CO-004",
+            "NLB-v3-ST-CU-005",
+            "NLB-v3-ST-DE-003",
+            "NLB-v3-ST-DE-007"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-003",
+            "NLB-v3-DI-DE-007",
+            "NLB-v3-EX-AT-009",
+            "NLB-v3-EX-CO-010",
+            "NLB-v3-ST-AT-006",
+            "NLB-v3-ST-CO-004",
+            "NLB-v3-ST-CU-005",
+            "NLB-v3-ST-DE-003",
+            "NLB-v3-ST-DE-007"
+          ]
+        },
+        "observed_param_keys": {
+          "between": 118,
+          "type": 120,
+          "track": 8
+        },
+        "observed_value_types": {
+          "between": {
+            "list": 118
+          },
+          "type": {
+            "str": 119,
+            "NoneType": 1
+          },
+          "track": {
+            "str": 8
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "between",
+              "type"
+            ],
+            "count": 112
+          },
+          {
+            "keys": [
+              "track",
+              "type"
+            ],
+            "count": 6,
+            "example": "scenarios_v2/NLB-656"
+          },
+          {
+            "keys": [
+              "between"
+            ],
+            "count": 6,
+            "example": "scenarios_v3/NLB-v3-DI-DE-007"
+          },
+          {
+            "keys": [
+              "type"
+            ],
+            "count": 2,
+            "example": "scenarios_v2/NLB-771"
+          },
+          {
+            "keys": [
+              "track"
+            ],
+            "count": 2,
+            "example": "scenarios_v2/NLB-751"
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 74,
+            "NOOP_PASS": 1
+          },
+          "scenarios_v3": {
+            "FAIL": 25
+          },
+          "scenarios_v3_1": {
+            "FAIL": 28
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": []
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "between 이 지목한 쌍에 있으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "between": [
+                "video_clip_1",
+                "video_clip_2"
+              ],
+              "type": "cross_dissolve"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "종류가 다르면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "between": [
+                "video_clip_1",
+                "video_clip_2"
+              ],
+              "type": "wipe"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "track 만으로도 물을 수 있다",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V1",
+              "type": "cross_dissolve"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-HAS-TRANSITION-NO-BETWEEN"
+          },
+          {
+            "kind": "negative",
+            "why": "그 트랙에 없으면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V1",
+              "type": "cross_dissolve"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-HAS-TRANSITION-NO-BETWEEN"
+          },
+          {
+            "kind": "malformed",
+            "why": "between · track · type 이 다 없으면 아무것도 좁히지 못한다",
+            "fixture": "simple_sequence",
+            "params": {},
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: has_transition: needs at least one of ['between', 'track', 'type']",
+            "regression_of": "D-HAS-TRANSITION-NO-BETWEEN"
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 2,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 15,
+        "covered": 13,
+        "uncovered_lines": [
+          1014,
+          1032
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "no_gap": {
+      "verdict": "DEFECT_FIXED",
+      "action": "트랙 참조를 먼저 해석하고 못 찾으면 오류. 캡션·타이틀은 오버레이이므로 레인 비교에서 뺀다. ⛔ 그 결과 v2 17건이 무행동 통과로 드러난다 — 감춰져 있던 사실이지 새로 생긴 통과가 아니다.",
+      "defects": [
+        "D-UNRESOLVABLE-TRACK",
+        "D-STRUCTURAL-OVERLAY-CLIPS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "no_gap",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 928,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "track"
+        ],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "track"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 18,
+        "by_dataset": {
+          "scenarios_v2": 17,
+          "scenarios_v3_1": 1
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-162",
+            "NLB-166",
+            "NLB-174",
+            "NLB-175",
+            "NLB-177"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-ST-DE-004"
+          ]
+        },
+        "observed_param_keys": {
+          "track": 18
+        },
+        "observed_value_types": {
+          "track": {
+            "str": 18
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "track"
+            ],
+            "count": 18
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "NOOP_PASS": 17
+          },
+          "scenarios_v3_1": {
+            "NOOP_PASS": 1
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [
+            "NLB-162",
+            "NLB-166",
+            "NLB-174",
+            "NLB-175",
+            "NLB-177"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-ST-DE-004"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "캡션은 빈틈 계산에도 끼어들지 않는다",
+            "fixture": "complex_sequence",
+            "params": {
+              "track": "V1"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-STRUCTURAL-OVERLAY-CLIPS"
+          },
+          {
+            "kind": "negative",
+            "why": "같은 레인에 빈틈이 생기면 캡션과 무관하게 거짓",
+            "fixture": "complex_sequence",
+            "params": {
+              "track": "V1"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-STRUCTURAL-OVERLAY-CLIPS"
+          },
+          {
+            "kind": "positive",
+            "why": "빈틈이 없으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "A1"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "빈틈이 생기면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "A1"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "없는 트랙은 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "A9"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: unresolvable track reference: 'A9'",
+            "regression_of": "D-UNRESOLVABLE-TRACK"
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 2,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 10,
+        "covered": 9,
+        "uncovered_lines": [
+          928
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "no_overlap": {
+      "verdict": "DEFECT_FIXED",
+      "action": "트랙 참조를 먼저 해석하고 못 찾으면 오류. 캡션·타이틀은 오버레이이므로 레인 비교에서 뺀다.",
+      "defects": [
+        "D-UNRESOLVABLE-TRACK",
+        "D-STRUCTURAL-OVERLAY-CLIPS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "no_overlap",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 916,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "track"
+        ],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "track"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 6,
+        "by_dataset": {
+          "scenarios_v2": 6
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-190"
+          ]
+        },
+        "observed_param_keys": {
+          "track": 6
+        },
+        "observed_value_types": {
+          "track": {
+            "str": 6
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "track"
+            ],
+            "count": 6
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "NOOP_PASS": 6
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [
+            "NLB-190"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "겹치지 않으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V1"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "겹치면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "A1"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "없는 트랙은 '위반 없음' 이 아니라 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V9"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: unresolvable track reference: 'V9'",
+            "regression_of": "D-UNRESOLVABLE-TRACK"
+          },
+          {
+            "kind": "positive",
+            "why": "캡션이 클립 위에 얹혀 있어도 겹침이 아니다 — 오버레이는 레인 밖이다",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V1"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-STRUCTURAL-OVERLAY-CLIPS"
+          },
+          {
+            "kind": "negative",
+            "why": "같은 레인의 클립이 겹치면 캡션과 무관하게 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V1"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-STRUCTURAL-OVERLAY-CLIPS"
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 2,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 9,
+        "covered": 8,
+        "uncovered_lines": [
+          916
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "not_linked": {
+      "verdict": "PASS",
+      "action": "없음. 클립이 없으면 거짓(fail-closed)임을 케이스로 고정했다.",
+      "defects": [],
+      "implementation": {
+        "registered": true,
+        "function": "not_linked",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1054,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "Check that a clip has no link_group (is unlinked)."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity"
+        ],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "entity"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 96,
+        "by_dataset": {
+          "scenarios_v3": 48,
+          "scenarios_v3_1": 48
+        },
+        "scenario_ids": {
+          "scenarios_v3": [
+            "NLB-v3-CX-AT-005",
+            "NLB-v3-CX-CO-004",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-DE-005",
+            "NLB-v3-DI-AT-006",
+            "NLB-v3-DI-CO-007",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-DE-005",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-EX-CO-008",
+            "NLB-v3-EX-DE-006",
+            "NLB-v3-ST-CO-007",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-DE-008"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-AT-005",
+            "NLB-v3-CX-CO-004",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-DE-005",
+            "NLB-v3-DI-AT-006",
+            "NLB-v3-DI-CO-007",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-DE-005",
+            "NLB-v3-EX-AT-010",
+            "NLB-v3-EX-CO-008",
+            "NLB-v3-EX-DE-006",
+            "NLB-v3-ST-CO-007",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-DE-008"
+          ]
+        },
+        "observed_param_keys": {
+          "entity": 96
+        },
+        "observed_value_types": {
+          "entity": {
+            "str": 96
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "entity"
+            ],
+            "count": 96,
+            "example": "scenarios_v3/NLB-v3-CX-AT-005"
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v3": {
+            "FAIL": 41,
+            "NOOP_PASS": 7
+          },
+          "scenarios_v3_1": {
+            "FAIL": 48
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v3": [
+            "NLB-v3-CX-CO-004",
+            "NLB-v3-CX-DE-005",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-DE-008"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "링크를 끊으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "링크가 살아 있으면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_1"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "entity 가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {},
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: not_linked: missing required parameter(s) ['entity']",
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 6,
+        "covered": 4,
+        "uncovered_lines": [
+          1054,
+          1060
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 0,
+        "appears_by_name_only": true,
+        "files": [],
+        "mentioned_but_never_invoked": true
+      }
+    },
+    "order": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`entities` 와 `expected` 를 같은 목록으로 받고, `track` 은 소속을 검사한다.",
+      "defects": [
+        "D-ORDER-EXPECTED"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "order_constraint",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 855,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "The listed entities must appear in the listed order along the timeline."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [],
+        "one_of": [
+          [
+            "entities",
+            "expected"
+          ]
+        ],
+        "optional": [
+          "track"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "entities",
+          "expected",
+          "track"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 2,
+        "by_dataset": {
+          "scenarios_v2": 1,
+          "scenarios_v3_1": 1
+        },
+        "scenario_ids": {
+          "scenarios_v2": [],
+          "scenarios_v3_1": []
+        },
+        "observed_param_keys": {
+          "track": 1,
+          "expected": 1,
+          "entities": 1
+        },
+        "observed_value_types": {
+          "track": {
+            "str": 1
+          },
+          "expected": {
+            "list": 1
+          },
+          "entities": {
+            "list": 1
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "expected",
+              "track"
+            ],
+            "count": 1
+          },
+          {
+            "keys": [
+              "entities"
+            ],
+            "count": 1
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 1
+          },
+          "scenarios_v3_1": {
+            "FAIL": 1
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "entities 순서가 타임라인과 맞으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entities": [
+                "video_clip_1",
+                "video_clip_2",
+                "video_clip_3"
+              ]
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "순서가 어긋나면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "entities": [
+                "video_clip_2",
+                "video_clip_1"
+              ]
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "`expected` 는 `entities` 의 다른 표기다",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V1",
+              "expected": [
+                "video_clip_1",
+                "video_clip_2",
+                "video_clip_3"
+              ]
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ORDER-EXPECTED"
+          },
+          {
+            "kind": "negative",
+            "why": "track 밖의 엔티티가 섞이면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V1",
+              "expected": [
+                "video_clip_1",
+                "audio_clip_2"
+              ]
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-ORDER-EXPECTED"
+          },
+          {
+            "kind": "malformed",
+            "why": "entities 도 expected 도 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "track": "V1"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: order: needs at least one of ['entities', 'expected']",
+            "regression_of": "D-ORDER-EXPECTED"
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 2,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 16,
+        "covered": 14,
+        "uncovered_lines": [
+          855,
+          871
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "position_changed": {
+      "verdict": "DEFECT_FIXED",
+      "action": "지목된 엔티티의 (start, end) 를 기준 상태와 비교하고 `max_duration` 을 강제한다. 삭제는 이동이 아니다.",
+      "defects": [
+        "D-POSITION-CHANGED-IGNORES-ENTITY",
+        "D-MISSING-BASELINE-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "position_changed_fn",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1186,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "The named entity sits somewhere else than it did, and still exists."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity"
+        ],
+        "one_of": [],
+        "optional": [
+          "max_duration"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "entity",
+          "max_duration"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 16,
+        "by_dataset": {
+          "scenarios_v2": 16
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-709",
+            "NLB-733",
+            "NLB-751",
+            "NLB-754",
+            "NLB-760",
+            "NLB-763"
+          ]
+        },
+        "observed_param_keys": {
+          "entity": 16,
+          "max_duration": 1
+        },
+        "observed_value_types": {
+          "entity": {
+            "str": 16
+          },
+          "max_duration": {
+            "float": 1
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "entity"
+            ],
+            "count": 15
+          },
+          {
+            "keys": [
+              "entity",
+              "max_duration"
+            ],
+            "count": 1
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 16
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "그 클립이 움직이면 참",
+            "fixture": "complex_sequence",
+            "params": {
+              "entity": "video_clip_4"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-POSITION-CHANGED-IGNORES-ENTITY"
+          },
+          {
+            "kind": "negative",
+            "why": "다른 클립이 움직인 것은 이 클립이 움직인 것이 아니다",
+            "fixture": "complex_sequence",
+            "params": {
+              "entity": "video_clip_4"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-POSITION-CHANGED-IGNORES-ENTITY"
+          },
+          {
+            "kind": "negative",
+            "why": "클립을 지우는 것은 옮기는 것이 아니다",
+            "fixture": "complex_sequence",
+            "params": {
+              "entity": "video_clip_4"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-POSITION-CHANGED-IGNORES-ENTITY"
+          },
+          {
+            "kind": "negative",
+            "why": "옮겼어도 max_duration 을 넘으면 거짓",
+            "fixture": "complex_sequence",
+            "params": {
+              "entity": "video_clip_4",
+              "max_duration": 4.0
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-POSITION-CHANGED-IGNORES-ENTITY"
+          },
+          {
+            "kind": "malformed",
+            "why": "entity 가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {},
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: position_changed: missing required parameter(s) ['entity']",
+            "regression_of": "D-POSITION-CHANGED-IGNORES-ENTITY"
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 3,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 20,
+        "covered": 17,
+        "uncovered_lines": [
+          1186,
+          1210,
+          1213
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 0,
+        "appears_by_name_only": true,
+        "files": [],
+        "mentioned_but_never_invoked": true
+      }
+    },
+    "position_equals": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`start` · `end` 중 적어도 하나가 비어 있지 않기를 요구한다.",
+      "defects": [
+        "D-POSITION-EQUALS-VACUOUS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "position_equals",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 818,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "entity"
+        ],
+        "one_of": [
+          [
+            "start",
+            "end"
+          ]
+        ],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "end",
+          "entity",
+          "start"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 100,
+        "by_dataset": {
+          "scenarios_v2": 49,
+          "scenarios_v3_1": 51
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-005",
+            "NLB-006",
+            "NLB-077",
+            "NLB-092",
+            "NLB-107",
+            "NLB-190",
+            "NLB-324",
+            "NLB-333",
+            "NLB-601",
+            "NLB-622"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-CX-CO-004",
+            "NLB-v3-CX-CO-005",
+            "NLB-v3-CX-CU-004",
+            "NLB-v3-CX-CU-007",
+            "NLB-v3-CX-DE-002",
+            "NLB-v3-CX-DE-007",
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-EX-AT-002",
+            "NLB-v3-EX-CO-005",
+            "NLB-v3-EX-CU-004",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-ST-AT-005",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-DE-004",
+            "NLB-v3-ST-DE-005",
+            "NLB-v3-ST-DE-010"
+          ]
+        },
+        "observed_param_keys": {
+          "entity": 100,
+          "start": 96,
+          "end": 58
+        },
+        "observed_value_types": {
+          "entity": {
+            "str": 100
+          },
+          "start": {
+            "float": 94,
+            "NoneType": 2
+          },
+          "end": {
+            "NoneType": 38,
+            "float": 20
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "end",
+              "entity",
+              "start"
+            ],
+            "count": 54
+          },
+          {
+            "keys": [
+              "entity",
+              "start"
+            ],
+            "count": 42,
+            "example": "scenarios_v3_1/NLB-v3-CX-CO-004"
+          },
+          {
+            "keys": [
+              "end",
+              "entity"
+            ],
+            "count": 4
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 49
+          },
+          "scenarios_v3_1": {
+            "FAIL": 44,
+            "NOOP_PASS": 7
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v3_1": [
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-ST-DE-010"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "start 가 맞으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_2",
+              "start": 5.0
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "start 가 다르면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_2",
+              "start": 9.0
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "start 도 end 도 없는 호출은 아무것도 주장하지 않는다 — 통과가 아니라 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "entity": "video_clip_2",
+              "start": null,
+              "end": null
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: position_equals: needs a non-null `start` or `end`",
+            "regression_of": "D-POSITION-EQUALS-VACUOUS"
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 17,
+        "covered": 14,
+        "uncovered_lines": [
+          818,
+          828,
+          837
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 3,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "reference_intact": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`link_id` 가 주어지면 그 링크 하나만 검사한다.",
+      "defects": [
+        "D-REFERENCE-INTACT-LINKID"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "reference_intact",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 948,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [],
+        "one_of": [],
+        "optional": [
+          "link_id"
+        ],
+        "documentation_only": [],
+        "accepted": [
+          "link_id"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 6,
+        "by_dataset": {
+          "scenarios_v2": 6
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-194",
+            "NLB-203"
+          ]
+        },
+        "observed_param_keys": {
+          "link_id": 6
+        },
+        "observed_value_types": {
+          "link_id": {
+            "str": 6
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "link_id"
+            ],
+            "count": 6
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "NOOP_PASS": 6
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [
+            "NLB-194",
+            "NLB-203"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "지목한 링크가 살아 있으면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "link_id": "link_1"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-REFERENCE-INTACT-LINKID"
+          },
+          {
+            "kind": "negative",
+            "why": "지목한 링크가 끊기면 거짓 — 프로젝트 전체는 여전히 멀쩡하다",
+            "fixture": "simple_sequence",
+            "params": {
+              "link_id": "link_1"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-REFERENCE-INTACT-LINKID"
+          },
+          {
+            "kind": "malformed",
+            "why": "모르는 파라미터는 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "link": "link_1"
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: reference_intact: unknown parameter(s) ['link'] (accepted: link_id)",
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "link_id 가 없으면 프로젝트 전체 참조 무결성을 본다",
+            "fixture": "simple_sequence",
+            "params": {},
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "미디어를 가리키지 않는 클립이 생기면 거짓",
+            "fixture": "simple_sequence",
+            "params": {},
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "링크가 지목한 클립이 사라져도 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "link_id": "link_1"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": "D-REFERENCE-INTACT-LINKID"
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 3,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 28,
+        "covered": 20,
+        "uncovered_lines": [
+          948,
+          963,
+          982,
+          983,
+          984,
+          985,
+          986,
+          987
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 2,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    },
+    "state_changed": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`description` 을 documentation-only 로 **선언**해 '일부러 안 읽음' 과 '읽는 걸 잊음' 을 갈라 둔다.",
+      "defects": [
+        "D-MISSING-BASELINE-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "state_changed",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1144,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": [
+          "Check that the final state differs from initial state in any way."
+        ]
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [
+          "description"
+        ],
+        "accepted": [
+          "description"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 141,
+        "by_dataset": {
+          "scenarios_v2": 141
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-022",
+            "NLB-023",
+            "NLB-029",
+            "NLB-032",
+            "NLB-048",
+            "NLB-051",
+            "NLB-062",
+            "NLB-068",
+            "NLB-069",
+            "NLB-072",
+            "NLB-085",
+            "NLB-215",
+            "NLB-216",
+            "NLB-217",
+            "NLB-221",
+            "NLB-223",
+            "NLB-227",
+            "NLB-229",
+            "NLB-230",
+            "NLB-236",
+            "NLB-238",
+            "NLB-243",
+            "NLB-249",
+            "NLB-253",
+            "NLB-256",
+            "NLB-270",
+            "NLB-275",
+            "NLB-284",
+            "NLB-320",
+            "NLB-342",
+            "NLB-348",
+            "NLB-360",
+            "NLB-365",
+            "NLB-610",
+            "NLB-636",
+            "NLB-642",
+            "NLB-656",
+            "NLB-659",
+            "NLB-665",
+            "NLB-668",
+            "NLB-671",
+            "NLB-697",
+            "NLB-703",
+            "NLB-706",
+            "NLB-712",
+            "NLB-724",
+            "NLB-748"
+          ]
+        },
+        "observed_param_keys": {
+          "description": 141
+        },
+        "observed_value_types": {
+          "description": {
+            "str": 141
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "description"
+            ],
+            "count": 141,
+            "example": "scenarios_v2/NLB-032"
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "FAIL": 141
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {}
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "무엇이든 바뀌면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "description": "position should change"
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "아무것도 안 바뀌면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "description": "position should change"
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "기준 상태가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {},
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: state_changed: no initial-state snapshot to compare against (set `state._initial`, or evaluate via validate_named_constraints)",
+            "regression_of": "D-MISSING-BASELINE-PASS"
+          }
+        ],
+        "kinds": {
+          "positive": 1,
+          "negative": 1,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 3,
+        "covered": 2,
+        "uncovered_lines": [
+          1144
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 0,
+        "appears_by_name_only": true,
+        "files": [],
+        "mentioned_but_never_invoked": true
+      }
+    },
+    "unchanged_except": {
+      "verdict": "DEFECT_FIXED",
+      "action": "`native`(이펙트) 비교는 이전 패치에서 들어갔다. 여기서는 기준 상태 부재를 오류로 만든다.",
+      "defects": [
+        "D-MISSING-BASELINE-PASS"
+      ],
+      "implementation": {
+        "registered": true,
+        "function": "unchanged_except",
+        "source": "src/nlebench/runner/constraints.py",
+        "lineno": 1093,
+        "signature": "(state: 'EditProject', params: 'dict', tolerance: 'dict') -> 'bool'",
+        "doc_first_line": []
+      },
+      "signature_drift": null,
+      "contract": {
+        "declared": true,
+        "required": [
+          "changed"
+        ],
+        "one_of": [],
+        "optional": [],
+        "documentation_only": [],
+        "accepted": [
+          "changed"
+        ]
+      },
+      "corpus": {
+        "total_constraint_occurrences": 1145,
+        "by_dataset": {
+          "scenarios_v2": 157,
+          "scenarios_v3": 461,
+          "scenarios_v3_1": 527
+        },
+        "scenario_ids": {
+          "scenarios_v2": [
+            "NLB-005",
+            "NLB-006",
+            "NLB-008",
+            "NLB-010",
+            "NLB-015",
+            "NLB-028",
+            "NLB-029",
+            "NLB-031",
+            "NLB-032",
+            "NLB-038",
+            "NLB-043",
+            "NLB-046",
+            "NLB-048",
+            "NLB-051",
+            "NLB-052",
+            "NLB-055",
+            "NLB-076",
+            "NLB-077",
+            "NLB-079",
+            "NLB-121",
+            "NLB-123",
+            "NLB-129",
+            "NLB-133",
+            "NLB-140",
+            "NLB-176",
+            "NLB-179",
+            "NLB-190",
+            "NLB-194",
+            "NLB-197",
+            "NLB-203",
+            "NLB-604",
+            "NLB-607",
+            "NLB-631",
+            "NLB-636",
+            "NLB-639",
+            "NLB-642",
+            "NLB-645",
+            "NLB-648",
+            "NLB-651",
+            "NLB-654"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-AM-CX-001",
+            "NLB-v3-AM-CX-002",
+            "NLB-v3-AM-CX-003",
+            "NLB-v3-AM-CX-004",
+            "NLB-v3-AM-CX-005",
+            "NLB-v3-AM-DI-001",
+            "NLB-v3-AM-DI-002",
+            "NLB-v3-AM-DI-003",
+            "NLB-v3-AM-DI-004",
+            "NLB-v3-AM-DI-005",
+            "NLB-v3-AM-EX-001",
+            "NLB-v3-AM-EX-002",
+            "NLB-v3-AM-EX-003",
+            "NLB-v3-AM-EX-004",
+            "NLB-v3-AM-EX-005",
+            "NLB-v3-AM-ST-001",
+            "NLB-v3-AM-ST-002",
+            "NLB-v3-AM-ST-003",
+            "NLB-v3-AM-ST-004",
+            "NLB-v3-AM-ST-005",
+            "NLB-v3-CX-AT-001",
+            "NLB-v3-CX-AT-006",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CU-001",
+            "NLB-v3-CX-CU-003",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-DE-003",
+            "NLB-v3-DI-AT-001",
+            "NLB-v3-DI-AT-002",
+            "NLB-v3-DI-AT-003",
+            "NLB-v3-DI-AT-004",
+            "NLB-v3-DI-AT-005",
+            "NLB-v3-DI-AT-007",
+            "NLB-v3-DI-AT-008",
+            "NLB-v3-DI-AT-009",
+            "NLB-v3-DI-AT-010",
+            "NLB-v3-DI-CO-001",
+            "NLB-v3-DI-CO-002",
+            "NLB-v3-DI-CO-003",
+            "NLB-v3-DI-CO-004",
+            "NLB-v3-DI-CO-005",
+            "NLB-v3-DI-CO-006",
+            "NLB-v3-DI-CO-007",
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-DI-CO-009",
+            "NLB-v3-DI-CO-010",
+            "NLB-v3-DI-CU-001",
+            "NLB-v3-DI-CU-002",
+            "NLB-v3-DI-CU-003",
+            "NLB-v3-DI-CU-004",
+            "NLB-v3-DI-CU-005",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-CU-007",
+            "NLB-v3-DI-CU-008",
+            "NLB-v3-DI-CU-009",
+            "NLB-v3-DI-CU-010",
+            "NLB-v3-DI-DE-001",
+            "NLB-v3-DI-DE-004",
+            "NLB-v3-DI-DE-005",
+            "NLB-v3-DI-DE-006",
+            "NLB-v3-DI-DE-008",
+            "NLB-v3-DI-DE-009",
+            "NLB-v3-EX-AT-001",
+            "NLB-v3-EX-AT-004",
+            "NLB-v3-EX-AT-009",
+            "NLB-v3-EX-CO-001",
+            "NLB-v3-EX-CO-002",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-007",
+            "NLB-v3-EX-CO-010",
+            "NLB-v3-EX-CU-002",
+            "NLB-v3-EX-CU-004",
+            "NLB-v3-EX-CU-008",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-003",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-IN-CX-001",
+            "NLB-v3-IN-CX-002",
+            "NLB-v3-IN-CX-003",
+            "NLB-v3-IN-CX-004",
+            "NLB-v3-IN-CX-005",
+            "NLB-v3-IN-DI-001",
+            "NLB-v3-IN-DI-002",
+            "NLB-v3-IN-DI-003",
+            "NLB-v3-IN-DI-004",
+            "NLB-v3-IN-DI-005",
+            "NLB-v3-IN-EX-001",
+            "NLB-v3-IN-EX-002",
+            "NLB-v3-IN-EX-003",
+            "NLB-v3-IN-EX-004",
+            "NLB-v3-IN-EX-005",
+            "NLB-v3-IN-ST-001",
+            "NLB-v3-IN-ST-002",
+            "NLB-v3-IN-ST-003",
+            "NLB-v3-IN-ST-004",
+            "NLB-v3-IN-ST-005",
+            "NLB-v3-ST-AT-001",
+            "NLB-v3-ST-AT-002",
+            "NLB-v3-ST-AT-003",
+            "NLB-v3-ST-CO-001",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-005",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-002",
+            "NLB-v3-ST-DE-006",
+            "NLB-v3-ST-DE-010"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-AM-CX-001",
+            "NLB-v3-AM-CX-002",
+            "NLB-v3-AM-CX-003",
+            "NLB-v3-AM-CX-004",
+            "NLB-v3-AM-CX-005",
+            "NLB-v3-AM-DI-001",
+            "NLB-v3-AM-DI-002",
+            "NLB-v3-AM-DI-003",
+            "NLB-v3-AM-DI-004",
+            "NLB-v3-AM-DI-005",
+            "NLB-v3-AM-EX-001",
+            "NLB-v3-AM-EX-002",
+            "NLB-v3-AM-EX-003",
+            "NLB-v3-AM-EX-004",
+            "NLB-v3-AM-EX-005",
+            "NLB-v3-AM-ST-001",
+            "NLB-v3-AM-ST-002",
+            "NLB-v3-AM-ST-003",
+            "NLB-v3-AM-ST-004",
+            "NLB-v3-AM-ST-005",
+            "NLB-v3-CX-AT-001",
+            "NLB-v3-CX-AT-006",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CU-001",
+            "NLB-v3-CX-CU-002",
+            "NLB-v3-CX-CU-003",
+            "NLB-v3-CX-CU-004",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-CU-007",
+            "NLB-v3-CX-CU-008",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-CU-010",
+            "NLB-v3-CX-DE-003",
+            "NLB-v3-DI-AT-001",
+            "NLB-v3-DI-AT-002",
+            "NLB-v3-DI-AT-003",
+            "NLB-v3-DI-AT-004",
+            "NLB-v3-DI-AT-005",
+            "NLB-v3-DI-AT-007",
+            "NLB-v3-DI-AT-008",
+            "NLB-v3-DI-AT-009",
+            "NLB-v3-DI-AT-010",
+            "NLB-v3-DI-CO-001",
+            "NLB-v3-DI-CO-002",
+            "NLB-v3-DI-CO-003",
+            "NLB-v3-DI-CO-004",
+            "NLB-v3-DI-CO-005",
+            "NLB-v3-DI-CO-006",
+            "NLB-v3-DI-CO-007",
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-DI-CO-009",
+            "NLB-v3-DI-CO-010",
+            "NLB-v3-DI-CU-001",
+            "NLB-v3-DI-CU-002",
+            "NLB-v3-DI-CU-003",
+            "NLB-v3-DI-CU-004",
+            "NLB-v3-DI-CU-005",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-CU-007",
+            "NLB-v3-DI-CU-008",
+            "NLB-v3-DI-CU-009",
+            "NLB-v3-DI-CU-010",
+            "NLB-v3-DI-DE-001",
+            "NLB-v3-DI-DE-004",
+            "NLB-v3-DI-DE-005",
+            "NLB-v3-DI-DE-006",
+            "NLB-v3-DI-DE-008",
+            "NLB-v3-DI-DE-009",
+            "NLB-v3-EX-AT-001",
+            "NLB-v3-EX-AT-004",
+            "NLB-v3-EX-AT-009",
+            "NLB-v3-EX-CO-001",
+            "NLB-v3-EX-CO-002",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-007",
+            "NLB-v3-EX-CO-010",
+            "NLB-v3-EX-CU-001",
+            "NLB-v3-EX-CU-002",
+            "NLB-v3-EX-CU-003",
+            "NLB-v3-EX-CU-004",
+            "NLB-v3-EX-CU-005",
+            "NLB-v3-EX-CU-007",
+            "NLB-v3-EX-CU-008",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-003",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-IN-CX-001",
+            "NLB-v3-IN-CX-002",
+            "NLB-v3-IN-CX-003",
+            "NLB-v3-IN-CX-004",
+            "NLB-v3-IN-CX-005",
+            "NLB-v3-IN-DI-001",
+            "NLB-v3-IN-DI-002",
+            "NLB-v3-IN-DI-003",
+            "NLB-v3-IN-DI-004",
+            "NLB-v3-IN-DI-005",
+            "NLB-v3-IN-EX-001",
+            "NLB-v3-IN-EX-002",
+            "NLB-v3-IN-EX-003",
+            "NLB-v3-IN-EX-004",
+            "NLB-v3-IN-EX-005",
+            "NLB-v3-IN-ST-001",
+            "NLB-v3-IN-ST-002",
+            "NLB-v3-IN-ST-003",
+            "NLB-v3-IN-ST-004",
+            "NLB-v3-IN-ST-005",
+            "NLB-v3-ST-AT-001",
+            "NLB-v3-ST-AT-002",
+            "NLB-v3-ST-AT-003",
+            "NLB-v3-ST-CO-001",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CO-008",
+            "NLB-v3-ST-CO-010",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-002",
+            "NLB-v3-ST-CU-003",
+            "NLB-v3-ST-CU-005",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-CU-010",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-002",
+            "NLB-v3-ST-DE-006",
+            "NLB-v3-ST-DE-010"
+          ]
+        },
+        "observed_param_keys": {
+          "changed": 1145
+        },
+        "observed_value_types": {
+          "changed": {
+            "list": 1145
+          }
+        },
+        "observed_keysets": [
+          {
+            "keys": [
+              "changed"
+            ],
+            "count": 1145
+          }
+        ]
+      },
+      "unknown_params_in_corpus": [],
+      "noop_behaviour": {
+        "by_dataset": {
+          "scenarios_v2": {
+            "NOOP_PASS": 156
+          },
+          "scenarios_v3": {
+            "NOOP_PASS": 461
+          },
+          "scenarios_v3_1": {
+            "NOOP_PASS": 527
+          }
+        },
+        "error_messages": {},
+        "error_scenario_ids": {},
+        "noop_pass_scenario_ids": {
+          "scenarios_v2": [
+            "NLB-005",
+            "NLB-006",
+            "NLB-008",
+            "NLB-010",
+            "NLB-015",
+            "NLB-028",
+            "NLB-029",
+            "NLB-031",
+            "NLB-032",
+            "NLB-038",
+            "NLB-043",
+            "NLB-046",
+            "NLB-048",
+            "NLB-051",
+            "NLB-052",
+            "NLB-055",
+            "NLB-076",
+            "NLB-077",
+            "NLB-079",
+            "NLB-121",
+            "NLB-123",
+            "NLB-129",
+            "NLB-133",
+            "NLB-140",
+            "NLB-176",
+            "NLB-179",
+            "NLB-190",
+            "NLB-194",
+            "NLB-197",
+            "NLB-203",
+            "NLB-604",
+            "NLB-607",
+            "NLB-631",
+            "NLB-636",
+            "NLB-639",
+            "NLB-642",
+            "NLB-645",
+            "NLB-648",
+            "NLB-651",
+            "NLB-654"
+          ],
+          "scenarios_v3": [
+            "NLB-v3-AM-CX-001",
+            "NLB-v3-AM-CX-002",
+            "NLB-v3-AM-CX-003",
+            "NLB-v3-AM-CX-004",
+            "NLB-v3-AM-CX-005",
+            "NLB-v3-AM-DI-001",
+            "NLB-v3-AM-DI-002",
+            "NLB-v3-AM-DI-003",
+            "NLB-v3-AM-DI-004",
+            "NLB-v3-AM-DI-005",
+            "NLB-v3-AM-EX-001",
+            "NLB-v3-AM-EX-002",
+            "NLB-v3-AM-EX-003",
+            "NLB-v3-AM-EX-004",
+            "NLB-v3-AM-EX-005",
+            "NLB-v3-AM-ST-001",
+            "NLB-v3-AM-ST-002",
+            "NLB-v3-AM-ST-003",
+            "NLB-v3-AM-ST-004",
+            "NLB-v3-AM-ST-005",
+            "NLB-v3-CX-AT-001",
+            "NLB-v3-CX-AT-006",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CU-001",
+            "NLB-v3-CX-CU-003",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-DE-003",
+            "NLB-v3-DI-AT-001",
+            "NLB-v3-DI-AT-002",
+            "NLB-v3-DI-AT-003",
+            "NLB-v3-DI-AT-004",
+            "NLB-v3-DI-AT-005",
+            "NLB-v3-DI-AT-007",
+            "NLB-v3-DI-AT-008",
+            "NLB-v3-DI-AT-009",
+            "NLB-v3-DI-AT-010",
+            "NLB-v3-DI-CO-001",
+            "NLB-v3-DI-CO-002",
+            "NLB-v3-DI-CO-003",
+            "NLB-v3-DI-CO-004",
+            "NLB-v3-DI-CO-005",
+            "NLB-v3-DI-CO-006",
+            "NLB-v3-DI-CO-007",
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-DI-CO-009",
+            "NLB-v3-DI-CO-010",
+            "NLB-v3-DI-CU-001",
+            "NLB-v3-DI-CU-002",
+            "NLB-v3-DI-CU-003",
+            "NLB-v3-DI-CU-004",
+            "NLB-v3-DI-CU-005",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-CU-007",
+            "NLB-v3-DI-CU-008",
+            "NLB-v3-DI-CU-009",
+            "NLB-v3-DI-CU-010",
+            "NLB-v3-DI-DE-001",
+            "NLB-v3-DI-DE-004",
+            "NLB-v3-DI-DE-005",
+            "NLB-v3-DI-DE-006",
+            "NLB-v3-DI-DE-008",
+            "NLB-v3-DI-DE-009",
+            "NLB-v3-EX-AT-001",
+            "NLB-v3-EX-AT-004",
+            "NLB-v3-EX-AT-009",
+            "NLB-v3-EX-CO-001",
+            "NLB-v3-EX-CO-002",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-007",
+            "NLB-v3-EX-CO-010",
+            "NLB-v3-EX-CU-002",
+            "NLB-v3-EX-CU-004",
+            "NLB-v3-EX-CU-008",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-003",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-IN-CX-001",
+            "NLB-v3-IN-CX-002",
+            "NLB-v3-IN-CX-003",
+            "NLB-v3-IN-CX-004",
+            "NLB-v3-IN-CX-005",
+            "NLB-v3-IN-DI-001",
+            "NLB-v3-IN-DI-002",
+            "NLB-v3-IN-DI-003",
+            "NLB-v3-IN-DI-004",
+            "NLB-v3-IN-DI-005",
+            "NLB-v3-IN-EX-001",
+            "NLB-v3-IN-EX-002",
+            "NLB-v3-IN-EX-003",
+            "NLB-v3-IN-EX-004",
+            "NLB-v3-IN-EX-005",
+            "NLB-v3-IN-ST-001",
+            "NLB-v3-IN-ST-002",
+            "NLB-v3-IN-ST-003",
+            "NLB-v3-IN-ST-004",
+            "NLB-v3-IN-ST-005",
+            "NLB-v3-ST-AT-001",
+            "NLB-v3-ST-AT-002",
+            "NLB-v3-ST-AT-003",
+            "NLB-v3-ST-CO-001",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-005",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-002",
+            "NLB-v3-ST-DE-006",
+            "NLB-v3-ST-DE-010"
+          ],
+          "scenarios_v3_1": [
+            "NLB-v3-AM-CX-001",
+            "NLB-v3-AM-CX-002",
+            "NLB-v3-AM-CX-003",
+            "NLB-v3-AM-CX-004",
+            "NLB-v3-AM-CX-005",
+            "NLB-v3-AM-DI-001",
+            "NLB-v3-AM-DI-002",
+            "NLB-v3-AM-DI-003",
+            "NLB-v3-AM-DI-004",
+            "NLB-v3-AM-DI-005",
+            "NLB-v3-AM-EX-001",
+            "NLB-v3-AM-EX-002",
+            "NLB-v3-AM-EX-003",
+            "NLB-v3-AM-EX-004",
+            "NLB-v3-AM-EX-005",
+            "NLB-v3-AM-ST-001",
+            "NLB-v3-AM-ST-002",
+            "NLB-v3-AM-ST-003",
+            "NLB-v3-AM-ST-004",
+            "NLB-v3-AM-ST-005",
+            "NLB-v3-CX-AT-001",
+            "NLB-v3-CX-AT-006",
+            "NLB-v3-CX-AT-009",
+            "NLB-v3-CX-CO-001",
+            "NLB-v3-CX-CU-001",
+            "NLB-v3-CX-CU-002",
+            "NLB-v3-CX-CU-003",
+            "NLB-v3-CX-CU-004",
+            "NLB-v3-CX-CU-005",
+            "NLB-v3-CX-CU-006",
+            "NLB-v3-CX-CU-007",
+            "NLB-v3-CX-CU-008",
+            "NLB-v3-CX-CU-009",
+            "NLB-v3-CX-CU-010",
+            "NLB-v3-CX-DE-003",
+            "NLB-v3-DI-AT-001",
+            "NLB-v3-DI-AT-002",
+            "NLB-v3-DI-AT-003",
+            "NLB-v3-DI-AT-004",
+            "NLB-v3-DI-AT-005",
+            "NLB-v3-DI-AT-007",
+            "NLB-v3-DI-AT-008",
+            "NLB-v3-DI-AT-009",
+            "NLB-v3-DI-AT-010",
+            "NLB-v3-DI-CO-001",
+            "NLB-v3-DI-CO-002",
+            "NLB-v3-DI-CO-003",
+            "NLB-v3-DI-CO-004",
+            "NLB-v3-DI-CO-005",
+            "NLB-v3-DI-CO-006",
+            "NLB-v3-DI-CO-007",
+            "NLB-v3-DI-CO-008",
+            "NLB-v3-DI-CO-009",
+            "NLB-v3-DI-CO-010",
+            "NLB-v3-DI-CU-001",
+            "NLB-v3-DI-CU-002",
+            "NLB-v3-DI-CU-003",
+            "NLB-v3-DI-CU-004",
+            "NLB-v3-DI-CU-005",
+            "NLB-v3-DI-CU-006",
+            "NLB-v3-DI-CU-007",
+            "NLB-v3-DI-CU-008",
+            "NLB-v3-DI-CU-009",
+            "NLB-v3-DI-CU-010",
+            "NLB-v3-DI-DE-001",
+            "NLB-v3-DI-DE-004",
+            "NLB-v3-DI-DE-005",
+            "NLB-v3-DI-DE-006",
+            "NLB-v3-DI-DE-008",
+            "NLB-v3-DI-DE-009",
+            "NLB-v3-EX-AT-001",
+            "NLB-v3-EX-AT-004",
+            "NLB-v3-EX-AT-009",
+            "NLB-v3-EX-CO-001",
+            "NLB-v3-EX-CO-002",
+            "NLB-v3-EX-CO-003",
+            "NLB-v3-EX-CO-004",
+            "NLB-v3-EX-CO-007",
+            "NLB-v3-EX-CO-010",
+            "NLB-v3-EX-CU-001",
+            "NLB-v3-EX-CU-002",
+            "NLB-v3-EX-CU-003",
+            "NLB-v3-EX-CU-004",
+            "NLB-v3-EX-CU-005",
+            "NLB-v3-EX-CU-007",
+            "NLB-v3-EX-CU-008",
+            "NLB-v3-EX-CU-009",
+            "NLB-v3-EX-CU-010",
+            "NLB-v3-EX-DE-003",
+            "NLB-v3-EX-DE-009",
+            "NLB-v3-IN-CX-001",
+            "NLB-v3-IN-CX-002",
+            "NLB-v3-IN-CX-003",
+            "NLB-v3-IN-CX-004",
+            "NLB-v3-IN-CX-005",
+            "NLB-v3-IN-DI-001",
+            "NLB-v3-IN-DI-002",
+            "NLB-v3-IN-DI-003",
+            "NLB-v3-IN-DI-004",
+            "NLB-v3-IN-DI-005",
+            "NLB-v3-IN-EX-001",
+            "NLB-v3-IN-EX-002",
+            "NLB-v3-IN-EX-003",
+            "NLB-v3-IN-EX-004",
+            "NLB-v3-IN-EX-005",
+            "NLB-v3-IN-ST-001",
+            "NLB-v3-IN-ST-002",
+            "NLB-v3-IN-ST-003",
+            "NLB-v3-IN-ST-004",
+            "NLB-v3-IN-ST-005",
+            "NLB-v3-ST-AT-001",
+            "NLB-v3-ST-AT-002",
+            "NLB-v3-ST-AT-003",
+            "NLB-v3-ST-CO-001",
+            "NLB-v3-ST-CO-003",
+            "NLB-v3-ST-CO-008",
+            "NLB-v3-ST-CO-010",
+            "NLB-v3-ST-CU-001",
+            "NLB-v3-ST-CU-002",
+            "NLB-v3-ST-CU-003",
+            "NLB-v3-ST-CU-005",
+            "NLB-v3-ST-CU-007",
+            "NLB-v3-ST-CU-008",
+            "NLB-v3-ST-CU-010",
+            "NLB-v3-ST-DE-001",
+            "NLB-v3-ST-DE-002",
+            "NLB-v3-ST-DE-006",
+            "NLB-v3-ST-DE-010"
+          ]
+        }
+      },
+      "machine_evidence": {
+        "cases": [
+          {
+            "kind": "positive",
+            "why": "허용된 것만 바뀌면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "changed": [
+                "video_clip_1"
+              ]
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "허용되지 않은 것이 바뀌면 거짓",
+            "fixture": "simple_sequence",
+            "params": {
+              "changed": [
+                "video_clip_1"
+              ]
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "허용되지 않은 클립에 이펙트가 붙어도 거짓 — 이펙트는 여기서만 보인다",
+            "fixture": "simple_sequence",
+            "params": {
+              "changed": [
+                "video_clip_2"
+              ]
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "malformed",
+            "why": "기준 상태가 없으면 오류",
+            "fixture": "simple_sequence",
+            "params": {
+              "changed": []
+            },
+            "expected": "error",
+            "observed": "error",
+            "agrees": true,
+            "error_message": "ValueError: unchanged_except: no initial-state snapshot to compare against (set `state._initial`, or evaluate via validate_named_constraints)",
+            "regression_of": "D-MISSING-BASELINE-PASS"
+          },
+          {
+            "kind": "negative",
+            "why": "허용 밖의 삭제도 위반이다",
+            "fixture": "simple_sequence",
+            "params": {
+              "changed": [
+                "video_clip_1"
+              ]
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "negative",
+            "why": "허용 밖의 추가도 위반이다",
+            "fixture": "simple_sequence",
+            "params": {
+              "changed": [
+                "video_clip_1"
+              ]
+            },
+            "expected": false,
+            "observed": false,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          },
+          {
+            "kind": "positive",
+            "why": "아무것도 안 바뀌면 참",
+            "fixture": "simple_sequence",
+            "params": {
+              "changed": []
+            },
+            "expected": true,
+            "observed": true,
+            "agrees": true,
+            "error_message": null,
+            "regression_of": null
+          }
+        ],
+        "kinds": {
+          "positive": 2,
+          "negative": 4,
+          "malformed": 1
+        },
+        "all_agree": true,
+        "has_positive_negative_malformed": true
+      },
+      "line_coverage_from_cases": {
+        "executable": 30,
+        "covered": 29,
+        "uncovered_lines": [
+          1093
+        ]
+      },
+      "test_references": {
+        "direct_invocations": 3,
+        "appears_by_name_only": false,
+        "files": [
+          "tests/test_constraints.py"
+        ],
+        "mentioned_but_never_invoked": false
+      }
+    }
+  },
+  "defects": {
+    "D-ENTITY-EXISTS-NAME": {
+      "predicates": [
+        "entity_exists",
+        "entity_not_exists"
+      ],
+      "what": "`name:` 을 아무도 읽지 않았다. 'interview.mp4 라는 미디어를 넣어라' 가 '미디어가 하나라도 있느냐' 로 약해져, 초기 픽스처가 이미 만족했다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "entity_exists",
+          "kind": "positive",
+          "why": "이름이 맞는 미디어가 생기면 참",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_exists",
+          "kind": "negative",
+          "why": "요구한 이름이 없으면 거짓 — 다른 미디어가 있어도 통하지 않는다",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_not_exists",
+          "kind": "positive",
+          "why": "트랙을 지우면 그 슬롯은 사라진다",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_not_exists",
+          "kind": "negative",
+          "why": "`V2` 는 화면에 'V2 (B-Roll)' 로 보이지만 여전히 존재한다",
+          "agrees": true
+        }
+      ]
+    },
+    "D-ENTITY-EXISTS-KIND": {
+      "predicates": [
+        "entity_exists"
+      ],
+      "what": "`kind:` 를 아무도 읽지 않아 'SFX 라는 오디오 트랙' 이 '트랙이 하나라도 있느냐' 가 됐다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "entity_exists",
+          "kind": "positive",
+          "why": "kind 가 트랙 종류를 좁힌다",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_exists",
+          "kind": "negative",
+          "why": "kind 가 맞아도 이름이 다르면 거짓",
+          "agrees": true
+        }
+      ]
+    },
+    "D-ENTITY-COUNT-MIN": {
+      "predicates": [
+        "entity_count"
+      ],
+      "what": "`min:` 을 안 읽고 `expected` 를 무방비로 인덱싱해, `{type: caption, min: 4}` 형태가 `KeyError` 로 **영구 실패**했다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "entity_count",
+          "kind": "positive",
+          "why": "min 은 하한이다 — 넘으면 참",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_count",
+          "kind": "negative",
+          "why": "min 에 못 미치면 거짓",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_count",
+          "kind": "malformed",
+          "why": "expected 도 min 도 max 도 없으면 오류",
+          "agrees": true
+        }
+      ]
+    },
+    "D-HAS-TRANSITION-NO-BETWEEN": {
+      "predicates": [
+        "has_transition"
+      ],
+      "what": "`between` 을 무방비로 인덱싱해, 트랙·종류로만 좁히는 호출이 `KeyError` 로 **영구 실패**했다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "has_transition",
+          "kind": "positive",
+          "why": "track 만으로도 물을 수 있다",
+          "agrees": true
+        },
+        {
+          "predicate": "has_transition",
+          "kind": "negative",
+          "why": "그 트랙에 없으면 거짓",
+          "agrees": true
+        },
+        {
+          "predicate": "has_transition",
+          "kind": "malformed",
+          "why": "between · track · type 이 다 없으면 아무것도 좁히지 못한다",
+          "agrees": true
+        }
+      ]
+    },
+    "D-ORDER-EXPECTED": {
+      "predicates": [
+        "order"
+      ],
+      "what": "같은 목록의 다른 표기인 `expected:` 를 안 읽어 `KeyError` 로 **영구 실패**했다. `track:` 도 안 읽었다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "order",
+          "kind": "positive",
+          "why": "`expected` 는 `entities` 의 다른 표기다",
+          "agrees": true
+        },
+        {
+          "predicate": "order",
+          "kind": "negative",
+          "why": "track 밖의 엔티티가 섞이면 거짓",
+          "agrees": true
+        },
+        {
+          "predicate": "order",
+          "kind": "malformed",
+          "why": "entities 도 expected 도 없으면 오류",
+          "agrees": true
+        }
+      ]
+    },
+    "D-REFERENCE-INTACT-LINKID": {
+      "predicates": [
+        "reference_intact"
+      ],
+      "what": "`link_id:` 를 안 읽고 프로젝트 전체 무결성만 봤다. 과제가 지키라고 한 바로 그 링크를 끊어도 통과했다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "reference_intact",
+          "kind": "positive",
+          "why": "지목한 링크가 살아 있으면 참",
+          "agrees": true
+        },
+        {
+          "predicate": "reference_intact",
+          "kind": "negative",
+          "why": "지목한 링크가 끊기면 거짓 — 프로젝트 전체는 여전히 멀쩡하다",
+          "agrees": true
+        },
+        {
+          "predicate": "reference_intact",
+          "kind": "negative",
+          "why": "링크가 지목한 클립이 사라져도 거짓",
+          "agrees": true
+        }
+      ]
+    },
+    "D-POSITION-CHANGED-IGNORES-ENTITY": {
+      "predicates": [
+        "position_changed"
+      ],
+      "what": "`entity` 를 아예 안 보고 '프로젝트에 뭔가 바뀌었나' 만 물었다. 무관한 편집도, 그 클립을 **지우는 것**도 통과했다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "position_changed",
+          "kind": "positive",
+          "why": "그 클립이 움직이면 참",
+          "agrees": true
+        },
+        {
+          "predicate": "position_changed",
+          "kind": "negative",
+          "why": "다른 클립이 움직인 것은 이 클립이 움직인 것이 아니다",
+          "agrees": true
+        },
+        {
+          "predicate": "position_changed",
+          "kind": "negative",
+          "why": "클립을 지우는 것은 옮기는 것이 아니다",
+          "agrees": true
+        },
+        {
+          "predicate": "position_changed",
+          "kind": "negative",
+          "why": "옮겼어도 max_duration 을 넘으면 거짓",
+          "agrees": true
+        },
+        {
+          "predicate": "position_changed",
+          "kind": "malformed",
+          "why": "entity 가 없으면 오류",
+          "agrees": true
+        }
+      ]
+    },
+    "D-EFFECT-PARAM-CHANGED-LIES": {
+      "predicates": [
+        "effect_param_changed"
+      ],
+      "what": "이름은 이펙트 파라미터를 약속하는데 본문은 `state_changed` 였다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "effect_param_changed",
+          "kind": "positive",
+          "why": "이펙트 파라미터가 바뀌면 참",
+          "agrees": true
+        },
+        {
+          "predicate": "effect_param_changed",
+          "kind": "negative",
+          "why": "다른 것만 바뀌면 거짓 — 예전에는 이것도 참이었다",
+          "agrees": true
+        },
+        {
+          "predicate": "effect_param_changed",
+          "kind": "malformed",
+          "why": "entity 가 없으면 오류",
+          "agrees": true
+        }
+      ]
+    },
+    "D-EFFECT-REMOVED-UNREGISTERED": {
+      "predicates": [
+        "effect_removed"
+      ],
+      "what": "v2 시나리오 3건이 부르는데 레지스트리에 없어 `Unknown constraint function` 으로 조용히 실패했다 — 로그에서 모델의 오답과 구분되지 않는다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "effect_removed",
+          "kind": "positive",
+          "why": "있던 이펙트가 사라지면 참",
+          "agrees": true
+        },
+        {
+          "predicate": "effect_removed",
+          "kind": "negative",
+          "why": "남아 있으면 거짓",
+          "agrees": true
+        }
+      ]
+    },
+    "D-EFFECT-REMOVED-FIXTURE-CONTRADICTION": {
+      "predicates": [
+        "effect_removed"
+      ],
+      "what": "등록만으로는 해당 3건이 측정 가능해지지 않는다. 세 시나리오 모두 `complex_sequence`(이펙트 0개)를 쓰고 패치도 없어, 지우라는 이펙트가 처음부터 없다. 부재 해석이면 무행동 통과, 제거 해석이면 영구 실패 — 어떤 predicate 계약으로도 고칠 수 없는 **과제·픽스처 모순**이다.",
+      "status": "BLOCKED",
+      "pinned_cases": [
+        {
+          "predicate": "effect_removed",
+          "kind": "negative",
+          "why": "애초에 없던 것은 '제거' 가 아니다 — 무행동이 통과하면 안 된다",
+          "agrees": true
+        }
+      ]
+    },
+    "D-UNKNOWN-ENTITY-TYPE": {
+      "predicates": [
+        "entity_count_changed",
+        "entity_exists",
+        "entity_not_exists",
+        "entity_count"
+      ],
+      "what": "스키마에 없는 `type:` 이 빈 목록으로 떨어져 0 대 0 을 비교했다. `{type: marker}` 는 어떤 실행으로도 만족될 수 없는 제약이었고 아무 출력도 그 사실을 말하지 않았다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "entity_count_changed",
+          "kind": "malformed",
+          "why": "이 스키마에 없는 type 은 조용한 거짓이 아니라 오류",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_count_changed",
+          "kind": "positive",
+          "why": "timeline 도 셀 수 있는 type 이다",
+          "agrees": true
+        }
+      ]
+    },
+    "D-EFFECT-IN-TRACK": {
+      "predicates": [
+        "entity_exists",
+        "entity_not_exists"
+      ],
+      "what": "이펙트는 클립의 NativeBlock 이라 트랙의 자식이 아니다. `parent_id` 로 거르던 경로가 하나도 못 찾아 'V1 에 이펙트 없음' 이 지우기 전부터 참이었다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "entity_not_exists",
+          "kind": "positive",
+          "why": "트랙 위 이펙트가 없으면 참",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_not_exists",
+          "kind": "negative",
+          "why": "트랙 위 클립에 이펙트가 붙어 있으면 거짓 — 이펙트는 트랙의 자식이 아니다",
+          "agrees": true
+        }
+      ]
+    },
+    "D-NOT-EXISTS-BETWEEN": {
+      "predicates": [
+        "entity_not_exists"
+      ],
+      "what": "`between:` 을 안 읽어 '이 두 클립 사이에 트랜지션 없음' 이 '프로젝트에 트랜지션이 하나도 없음' 으로 넓어졌다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "entity_not_exists",
+          "kind": "positive",
+          "why": "between 이 지목한 쌍에 트랜지션이 없으면 참",
+          "agrees": true
+        },
+        {
+          "predicate": "entity_not_exists",
+          "kind": "negative",
+          "why": "그 쌍에 트랜지션이 있으면 거짓",
+          "agrees": true
+        }
+      ]
+    },
+    "D-ATTR-EQUALS-NULL": {
+      "predicates": [
+        "attribute_equals"
+      ],
+      "what": "`_resolve_field` 가 '필드 없음' 과 '값이 None' 을 같은 None 으로 돌려줘, `value: null`(예: 링크 해제 후 `link_group`)은 어떤 실행으로도 만족될 수 없었다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "attribute_equals",
+          "kind": "positive",
+          "why": "`value: null` 은 '이 필드가 비어야 한다' 이다",
+          "agrees": true
+        },
+        {
+          "predicate": "attribute_equals",
+          "kind": "negative",
+          "why": "링크가 살아 있으면 `value: null` 은 거짓",
+          "agrees": true
+        },
+        {
+          "predicate": "attribute_equals",
+          "kind": "negative",
+          "why": "없는 필드는 `value: null` 로도 만족되지 않는다",
+          "agrees": true
+        }
+      ]
+    },
+    "D-POSITION-EQUALS-VACUOUS": {
+      "predicates": [
+        "position_equals"
+      ],
+      "what": "`start` 와 `end` 가 둘 다 없으면 아무것도 주장하지 않고 참을 돌려줬다. 현재 코퍼스에는 그런 호출이 없다 — 방지선이다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "position_equals",
+          "kind": "malformed",
+          "why": "start 도 end 도 없는 호출은 아무것도 주장하지 않는다 — 통과가 아니라 오류",
+          "agrees": true
+        }
+      ]
+    },
+    "D-UNRESOLVABLE-TRACK": {
+      "predicates": [
+        "no_overlap",
+        "no_gap"
+      ],
+      "what": "없는 트랙이 빈 클립 목록이 되고, 구조 검사는 빈 목록을 '위반 없음' 으로 읽었다. 오타 하나가 깨끗한 타임라인을 보고했다. 현재 코퍼스의 트랙 참조는 전부 해석된다 — 방지선이다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "no_overlap",
+          "kind": "malformed",
+          "why": "없는 트랙은 '위반 없음' 이 아니라 오류",
+          "agrees": true
+        },
+        {
+          "predicate": "no_gap",
+          "kind": "malformed",
+          "why": "없는 트랙은 오류",
+          "agrees": true
+        }
+      ]
+    },
+    "D-STRUCTURAL-OVERLAY-CLIPS": {
+      "predicates": [
+        "no_overlap",
+        "no_gap"
+      ],
+      "what": "구조 검사가 캡션을 타임라인 이웃으로 셌다. 캡션은 설계상 비디오 트랙 **위에** 얹히므로(`add_caption` 이 비디오 트랙을 받는다), 캡션이 있는 트랙에서는 `no_overlap` 이 편집 전부터 거짓이었다 — 기본 픽스처 `simple_sequence` 의 V1 이 그렇다. ⚠ 이 결함은 v2 `no_gap {track: V1}` 17건을 **엉뚱한 이유로 실패**시켜 그 시나리오들의 전제가 틀렸다는 사실을 가리고 있었다 — 보수 뒤 그 17건은 무행동으로 통과하고, 그것이 참인 상태다. 시나리오 쪽 결함은 `S-NO-GAP-FIXTURE-HAS-NO-GAP` 로 따로 세웠다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "no_overlap",
+          "kind": "positive",
+          "why": "캡션이 클립 위에 얹혀 있어도 겹침이 아니다 — 오버레이는 레인 밖이다",
+          "agrees": true
+        },
+        {
+          "predicate": "no_overlap",
+          "kind": "negative",
+          "why": "같은 레인의 클립이 겹치면 캡션과 무관하게 거짓",
+          "agrees": true
+        },
+        {
+          "predicate": "no_gap",
+          "kind": "positive",
+          "why": "캡션은 빈틈 계산에도 끼어들지 않는다",
+          "agrees": true
+        },
+        {
+          "predicate": "no_gap",
+          "kind": "negative",
+          "why": "같은 레인에 빈틈이 생기면 캡션과 무관하게 거짓",
+          "agrees": true
+        }
+      ]
+    },
+    "D-UNBOUND-REF-PASS": {
+      "predicates": [
+        "entity_not_exists"
+      ],
+      "what": "bind 되지 않은 `$ref` 가 `entity: None` 이 되고, `None` 인 엔티티는 '존재하지 않는다' 로 읽혀 통과했다. 무엇을 물었는지 모르는 상태가 답이 됐다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "entity_not_exists",
+          "kind": "malformed",
+          "why": "bind 되지 않은 `$ref` 는 통과가 아니라 오류다",
+          "agrees": true
+        }
+      ]
+    },
+    "D-MISSING-BASELINE-PASS": {
+      "predicates": [
+        "unchanged_except",
+        "state_changed",
+        "entity_count_changed",
+        "position_changed",
+        "effect_param_changed",
+        "batch_operation",
+        "effect_removed",
+        "attribute_changed"
+      ],
+      "what": "`_initial` 스냅샷이 없을 때 변화 술어들이 **True** 를 돌려줬다 — 비교 대상이 없는데 '바뀌었다' 고 답했다. 채점 경로(`validate_named_constraints`)는 항상 스냅샷을 넣으므로 데이터셋 판정은 하나도 바뀌지 않지만, 직접 호출자에게는 열린 통과 구멍이었다.",
+      "status": "FIXED",
+      "pinned_cases": [
+        {
+          "predicate": "attribute_changed",
+          "kind": "malformed",
+          "why": "기준 상태가 없으면 오류",
+          "agrees": true
+        },
+        {
+          "predicate": "unchanged_except",
+          "kind": "malformed",
+          "why": "기준 상태가 없으면 오류",
+          "agrees": true
+        },
+        {
+          "predicate": "state_changed",
+          "kind": "malformed",
+          "why": "기준 상태가 없으면 오류",
+          "agrees": true
+        },
+        {
+          "predicate": "effect_removed",
+          "kind": "malformed",
+          "why": "기준 상태가 없으면 오류",
+          "agrees": true
+        },
+        {
+          "predicate": "batch_operation",
+          "kind": "malformed",
+          "why": "기준 상태가 없으면 오류",
+          "agrees": true
+        }
+      ]
+    },
+    "D-BATCH-SCOPE-UNVERIFIED": {
+      "predicates": [
+        "batch_operation"
+      ],
+      "what": "`scope: all_matching` 에 기계적 의미가 없다. 무엇이 'matching' 인지 채점기에 알려주는 것이 없어, 일치하는 것 중 **하나만** 고친 실행과 전부 고친 실행이 구분되지 않는다. 닫으려면 채점기가 평가할 수 있는 선택자 언어가 필요하다 — 데이터셋 설계 결정이다.",
+      "status": "BLOCKED",
+      "pinned_cases": [
+        {
+          "predicate": "batch_operation",
+          "kind": "negative",
+          "why": "⛔ 한 개만 고쳐도 참이다 — `scope` 를 아무도 검증하지 않는다",
+          "agrees": true
+        }
+      ]
+    }
+  },
+  "scenario_level_findings": [
+    {
+      "id": "S-EFFECT-REMOVED-EMPTY-FIXTURE",
+      "status": "BLOCKED_NEEDS_OWNER",
+      "dataset": "scenarios_v2",
+      "scenario_ids": [
+        "NLB-718"
+      ],
+      "what": "세 시나리오 모두 `complex_sequence`(이펙트 0개)를 쓰면서 'blur/brightness 이펙트를 전부 제거하라' 를 지시한다. 지울 대상이 처음부터 없다.",
+      "candidate_repair": {
+        "NLB-718": {
+          "base": "complex_sequence",
+          "patch": [
+            {
+              "op": "add_effect",
+              "params": {
+                "clip_id": "video_clip_1",
+                "effect_type": "blur"
+              }
+            },
+            {
+              "op": "add_effect",
+              "params": {
+                "clip_id": "video_clip_2",
+                "effect_type": "blur"
+              }
+            }
+          ]
+        }
+      },
+      "why_not_applied": "시나리오 YAML 을 고치는 것은 v2 가 무엇을 재는지 바꾸는 데이터셋 변경이라 소유자 결정이다. 후보는 기계로 검증해 붙여 두되 적용하지 않는다."
+    },
+    {
+      "id": "S-NO-GAP-FIXTURE-HAS-NO-GAP",
+      "status": "BLOCKED_NEEDS_OWNER",
+      "dataset": "scenarios_v2",
+      "scenario_ids": [
+        "NLB-162",
+        "NLB-166",
+        "NLB-174",
+        "NLB-175",
+        "NLB-177"
+      ],
+      "what": "'V1 의 두 번째와 세 번째 클립 사이에 빈틈이 있다, 메워라' 를 지시하지만 `complex_sequence` 의 V1 은 0–8 · 8–18 · 18–30 으로 **이미 연속**이다. 빈틈이 없다. 이 시나리오들은 지금까지 실패했지만 그것은 캡션을 이웃으로 세던 결함(`D-STRUCTURAL-OVERLAY-CLIPS`) 때문이었지 지시한 빈틈 때문이 아니었다.",
+      "candidate_repair": "픽스처에서 video_clip_3 을 뒤로 밀어 실제 빈틈을 만들거나, 지시문을 픽스처에 맞게 고친다. 어느 쪽이 의도인지 코드가 알 수 없다.",
+      "why_not_applied": "시나리오 YAML 변경은 v2 가 무엇을 재는지 바꾸는 데이터셋 결정이다. v3.1 에는 이 형태가 없다."
+    }
+  ],
+  "whole_scenario_noop": {
+    "feasible_scenarios_passing_with_zero_tool_calls": {
+      "scenarios_v2": [
+        "NLB-038",
+        "NLB-162",
+        "NLB-166",
+        "NLB-174",
+        "NLB-175",
+        "NLB-177",
+        "NLB-616",
+        "NLB-680"
+      ],
+      "scenarios_v3": [
+        "NLB-v3-DI-AT-004"
+      ],
+      "scenarios_v3_1": []
+    },
+    "same_with_the_pre_audit_overlay_lens": {
+      "scenarios_v2": [
+        "NLB-038",
+        "NLB-616",
+        "NLB-680"
+      ],
+      "scenarios_v3": [
+        "NLB-v3-DI-AT-004"
+      ],
+      "scenarios_v3_1": []
+    },
+    "newly_visible_after_the_overlay_lane_fix": {
+      "scenarios_v2": [
+        "NLB-162",
+        "NLB-166",
+        "NLB-174",
+        "NLB-175",
+        "NLB-177"
+      ],
+      "scenarios_v3": [],
+      "scenarios_v3_1": []
+    },
+    "newly_visible_v2_no_gap": [
+      "NLB-162",
+      "NLB-166",
+      "NLB-174",
+      "NLB-175",
+      "NLB-177"
+    ],
+    "counts": {
+      "scenarios_v2": 24,
+      "scenarios_v3": 4,
+      "scenarios_v3_1": 0
+    },
+    "counts_before": {
+      "scenarios_v2": 7,
+      "scenarios_v3": 4,
+      "scenarios_v3_1": 0
+    },
+    "paper_dataset_count": 0
+  },
+  "effect_removed_repair_probe": {
+    "NLB-718": {
+      "shipped": {
+        "noop_passes": false,
+        "reference_repair_passes": false,
+        "measures_something": false,
+        "still_failing_after_repair": [
+          {
+            "predicate": "effect_removed",
+            "params": {
+              "effect_type": "blur"
+            }
+          },
+          {
+            "predicate": "batch_operation",
+            "params": {
+              "scope": "all_matching"
+            }
+          }
+        ]
+      },
+      "candidate": {
+        "noop_passes": false,
+        "reference_repair_passes": true,
+        "measures_something": true,
+        "still_failing_after_repair": []
+      }
+    }
+  },
+  "fixture_build_failures": [],
+  "paper_dataset_impact": {
+    "unknown_parameter_keys_in_paper_dataset": {},
+    "predicates_never_called_by_paper_dataset": [
+      "attribute_in_range",
+      "batch_operation",
+      "effect_param_changed",
+      "effect_removed",
+      "no_overlap",
+      "position_changed",
+      "reference_intact",
+      "state_changed"
+    ],
+    "predicates_called_by_paper_dataset": [
+      "attribute_changed",
+      "attribute_equals",
+      "duration_equals",
+      "entity_count",
+      "entity_count_changed",
+      "entity_exists",
+      "entity_not_exists",
+      "has_effect",
+      "has_link",
+      "has_transition",
+      "no_gap",
+      "not_linked",
+      "order",
+      "position_equals",
+      "unchanged_except"
+    ],
+    "paper_dataset_scenarios_erroring_per_defect": {
+      "D-ENTITY-EXISTS-NAME": [],
+      "D-ENTITY-EXISTS-KIND": [],
+      "D-ENTITY-COUNT-MIN": [],
+      "D-HAS-TRANSITION-NO-BETWEEN": [],
+      "D-ORDER-EXPECTED": [],
+      "D-REFERENCE-INTACT-LINKID": [],
+      "D-POSITION-CHANGED-IGNORES-ENTITY": [],
+      "D-EFFECT-PARAM-CHANGED-LIES": [],
+      "D-EFFECT-REMOVED-UNREGISTERED": [],
+      "D-EFFECT-REMOVED-FIXTURE-CONTRADICTION": [],
+      "D-UNKNOWN-ENTITY-TYPE": [],
+      "D-EFFECT-IN-TRACK": [],
+      "D-NOT-EXISTS-BETWEEN": [],
+      "D-ATTR-EQUALS-NULL": [],
+      "D-POSITION-EQUALS-VACUOUS": [],
+      "D-UNRESOLVABLE-TRACK": [],
+      "D-STRUCTURAL-OVERLAY-CLIPS": [],
+      "D-UNBOUND-REF-PASS": [],
+      "D-MISSING-BASELINE-PASS": [],
+      "D-BATCH-SCOPE-UNVERIFIED": []
+    },
+    "paper_dataset_error_total": 0
+  },
+  "summary": {
+    "population_size": 23,
+    "verdicts": {
+      "PASS": 5,
+      "DEFECT_FIXED": 16,
+      "DEAD_OR_LEGACY": 1,
+      "BLOCKED_NEEDS_OWNER": 1
+    },
+    "total_named_constraint_occurrences": 5672,
+    "predicates_with_unknown_corpus_params": [],
+    "predicates_never_invoked_by_any_test_before_this_audit": [
+      "batch_operation",
+      "effect_param_changed",
+      "effect_removed",
+      "entity_count_changed",
+      "has_link",
+      "not_linked",
+      "position_changed",
+      "state_changed"
+    ],
+    "noop_pass_totals": {
+      "attribute_changed": 0,
+      "attribute_equals": 60,
+      "attribute_in_range": 0,
+      "batch_operation": 0,
+      "duration_equals": 19,
+      "effect_param_changed": 0,
+      "effect_removed": 0,
+      "entity_count": 12,
+      "entity_count_changed": 0,
+      "entity_exists": 26,
+      "entity_not_exists": 5,
+      "has_effect": 1,
+      "has_link": 25,
+      "has_transition": 1,
+      "no_gap": 18,
+      "no_overlap": 6,
+      "not_linked": 7,
+      "order": 0,
+      "position_changed": 0,
+      "position_equals": 7,
+      "reference_intact": 6,
+      "state_changed": 0,
+      "unchanged_except": 1144
+    },
+    "error_totals": {
+      "attribute_changed": 0,
+      "attribute_equals": 0,
+      "attribute_in_range": 0,
+      "batch_operation": 0,
+      "duration_equals": 0,
+      "effect_param_changed": 0,
+      "effect_removed": 0,
+      "entity_count": 0,
+      "entity_count_changed": 1,
+      "entity_exists": 0,
+      "entity_not_exists": 1,
+      "has_effect": 0,
+      "has_link": 0,
+      "has_transition": 0,
+      "no_gap": 0,
+      "no_overlap": 0,
+      "not_linked": 0,
+      "order": 0,
+      "position_changed": 0,
+      "position_equals": 0,
+      "reference_intact": 0,
+      "state_changed": 0,
+      "unchanged_except": 0
+    }
+  }
+}

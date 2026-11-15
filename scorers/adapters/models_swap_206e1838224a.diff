@@ -1,0 +1,170 @@
+--- nle-bench-artifact@58afb977515b:code/src/nlebench/models.py
++++ nle-bench-dev@206e1838224a:src/nlebench/models.py
+@@ -52,0 +53,10 @@
++    - CANONICAL_MULTITURN: closed-loop variant of CANONICAL — tool results are
++      fed back to the model between turns. Its numbers are NOT comparable with
++      CANONICAL and must never be pooled with them (see ExecutionResult.track).
++    - CANONICAL_MULTITURN_NOTOOL: the V0 control arm of the V×U intervention
++      experiment (stage-8 design packet). Same closed-loop episode shape,
++      budgets and stop rules as CANONICAL_MULTITURN, but the agent receives no
++      tool schema and nothing it emits is ever executed; the feedback slot
++      carries a deterministic project-state summary instead of tool results.
++      Comparable ONLY with CANONICAL_MULTITURN inside the V×U design — never
++      pooled with any published track.
+@@ -55,0 +66,10 @@
++    CANONICAL_MULTITURN = "canonical_multiturn"
++    CANONICAL_MULTITURN_NOTOOL = "canonical_multiturn_notool"
++
++
++#: Tracks produced by the closed-loop harness. Only rows from these tracks may
++#: carry a ``multiturn_trace``.
++CLOSED_LOOP_TRACK_VALUES = frozenset({
++    BenchmarkTrack.CANONICAL_MULTITURN.value,
++    BenchmarkTrack.CANONICAL_MULTITURN_NOTOOL.value,
++})
+@@ -134,2 +154,2 @@
+-    n: int  # 분자
+-    d: int  # 분모 (>0)
++    n: int  # numerator
++    d: int  # denominator (>0)
+@@ -226 +246 @@
+-    generator_type: Optional[str] = None  # type="generator"일 때
++    generator_type: Optional[str] = None  # when type="generator"
+@@ -378 +398 @@
+-    time: Rational  # 클립 내 시간
++    time: Rational  # time within the clip
+@@ -466 +486 @@
+-    position_x: float = 0.5  # 정규화 좌표 (0.0~1.0)
++    position_x: float = 0.5  # normalized coordinates (0.0-1.0)
+@@ -472 +492 @@
+-    anchor_x: float = 0.5  # 회전/스케일 기준점
++    anchor_x: float = 0.5  # anchor point for rotation/scale
+@@ -475 +495 @@
+-    crop_top: float = 0.0  # 0.0~1.0 비율
++    crop_top: float = 0.0  # ratio 0.0-1.0
+@@ -486 +506 @@
+-        # 기본값이 아닌 필드만 직렬화 (하위 호환)
++        # serialize only non-default fields (backward compat)
+@@ -534 +554 @@
+-    ref_id: Optional[str] = None      # Media.id 또는 Timeline.id
++    ref_id: Optional[str] = None      # Media.id or Timeline.id
+@@ -547 +567 @@
+-    # Legacy flat audio fields (backward compat, 읽기 전용 — audio 서브 오브젝트 우선)
++    # Legacy flat audio fields (backward compat, read-only; the audio sub-object takes precedence)
+@@ -918 +938,11 @@
+-                ids.extend(c.id for c in track.clips)
++                for clip in track.clips:
++                    ids.append(clip.id)
++                    # Effect IDs live in the NativeBlock payload. Leaving them
++                    # out made `_next_id(state, "effect")` hand out `effect_1`
++                    # every time, so a project with two effects had two entities
++                    # sharing one ID and `update_effect`/`remove_effect` could
++                    # only ever reach the first.
++                    for nb in clip.native:
++                        data = getattr(nb, "data", None)
++                        if isinstance(data, dict) and isinstance(data.get("id"), str):
++                            ids.append(data["id"])
+@@ -1071,0 +1102,8 @@
++        # Check effects. These are NativeBlocks whose identity lives in
++        # `data["id"]`, so every lookup above misses them: a constraint naming an
++        # effect could never resolve, and 23 scenarios were unpassable for that
++        # reason alone.
++        for nb in self.effects:
++            data = getattr(nb, "data", None)
++            if isinstance(data, dict) and data.get("id") == entity_id:
++                return nb
+@@ -1207,2 +1245 @@
+-    # Legacy/forward-compatible calibration slots. The released v3.1 corpus
+-    # leaves these null and uses taxonomy + detector-side behavior instead.
++    # Infeasible scenarios
+@@ -1216 +1253 @@
+-    missing_parameters: Optional[list[str]] = None  # for legacy CQS F1 calculation
++    missing_parameters: Optional[list[str]] = None  # for CQS F1 calculation
+@@ -1226,2 +1263 @@
+-    # Gold intent & reference solution slots are retained for schema
+-    # compatibility; v3.1 scenario YAMLs do not populate executable plans.
++    # Gold intent & reference solution (new format)
+@@ -1236,2 +1271,0 @@
+-    legacy_id: Optional[str] = None
+-    dataset_version: Optional[str] = None
+@@ -1287,4 +1320,0 @@
+-        if self.legacy_id:
+-            d["legacy_id"] = self.legacy_id
+-        if self.dataset_version:
+-            d["dataset_version"] = self.dataset_version
+@@ -1411,2 +1440,0 @@
+-            legacy_id=data.get("legacy_id"),
+-            dataset_version=data.get("dataset_version"),
+@@ -1447,0 +1476,5 @@
++
++    # Version of the scorer that produced this verdict (see
++    # nlebench.runner.constraints.SCORER_VERSION). Additive field: defaults to
++    # None so rows scored before versioning deserialize unchanged.
++    scorer_version: Optional[str] = None
+@@ -1476 +1509,6 @@
+-    track: str = "canonical"  # "canonical" or "open"
++    # "canonical" | "open" | "canonical_multiturn"
++    #
++    # `canonical_multiturn` rows come from the closed-loop harness
++    # (TrackRunner._run_canonical_multiturn) and are NOT comparable with the
++    # published single-shot `canonical` numbers. Never pool the two.
++    track: str = "canonical"
+@@ -1491,0 +1530,53 @@
++
++    # Turn/token accounting, populated only by the multi-turn track. Left as
++    # None for `canonical`/`open` so their serialized rows are byte-identical
++    # to before this field existed.
++    multiturn_trace: Optional[dict] = None
++
++    # Why this run failed, when the reason is NOT the model's ability.
++    #
++    #   None                      -> ordinary run; a failure here is a
++    #                                capability failure and is read as such.
++    #   "context_budget_exceeded" -> the harness stopped the episode because the
++    #                                input no longer fit the model's context
++    #                                window (see providers/context_budget.py).
++    #   "timeout"                 -> wall-clock limit hit.
++    #
++    # Such runs still count as failures — a benchmark that quietly drops the
++    # episodes it could not run would report an inflated score. But they must be
++    # separable from capability failures when reporting, which is what this
++    # field is for. Serialized only when set, so `canonical`/`open` rows stay
++    # byte-identical to before the field existed.
++    failure_kind: Optional[str] = None
++
++    def __post_init__(self):
++        """Make a mislabelled multi-turn row impossible to construct.
++
++        The multi-turn track is a different measurement from the published
++        single-shot Canonical track, and the two must never be pooled. A plain
++        string assignment is not enough protection: a wiring mistake anywhere
++        upstream would produce rows that *look* canonical and would be silently
++        aggregated with the published numbers.
++
++        A ``multiturn_trace`` can only be produced by
++        ``TrackRunner._run_canonical_multiturn``. Its presence is therefore
++        proof of which loop ran, and pairing it with any other track value is
++        rejected at construction time rather than at analysis time — by which
++        point the run has already been written to disk.
++        """
++        valid = {t.value for t in BenchmarkTrack}
++        if self.track not in valid:
++            raise ValueError(
++                f"ExecutionResult.track must be one of {sorted(valid)}, "
++                f"got {self.track!r}"
++            )
++        if (
++            self.multiturn_trace is not None
++            and self.track not in CLOSED_LOOP_TRACK_VALUES
++        ):
++            raise ValueError(
++                "ExecutionResult carries a multiturn_trace but is tagged "
++                f"track={self.track!r}. A closed-loop result can only be "
++                f"recorded as one of {sorted(CLOSED_LOOP_TRACK_VALUES)} — "
++                "multi-turn and single-shot numbers are not poolable."
++            )
+@@ -1525,0 +1617,4 @@
++        if self.multiturn_trace is not None:
++            d["multiturn_trace"] = self.multiturn_trace
++        if self.failure_kind is not None:
++            d["failure_kind"] = self.failure_kind

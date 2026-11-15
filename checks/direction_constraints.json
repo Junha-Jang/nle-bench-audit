@@ -1,0 +1,92 @@
+{
+ "corpora": [
+  {
+   "by_arm": {
+    "feasible": 115
+   },
+   "by_value": {
+    "any": 7,
+    "decrease": 71,
+    "increase": 37
+   },
+   "commit": "b1a5c90f2dd81f69d11472f987cb1e3f4bc6191f",
+   "commit_date": "2026-08-14T19:57:55+00:00",
+   "constraints_declaring_a_direction": 115,
+   "corpus": "dev 6b4db68 parent (before the direction repair)",
+   "increase_or_decrease": 108,
+   "repo": "nle-bench-dev",
+   "scenarios": 111
+  },
+  {
+   "by_arm": {
+    "feasible": 115
+   },
+   "by_value": {
+    "any": 7,
+    "decrease": 71,
+    "increase": 37
+   },
+   "commit": "6b4db6838c6ca1b57b24173b98c0d0e1a6a43996",
+   "commit_date": "2026-08-14T20:11:24+00:00",
+   "constraints_declaring_a_direction": 115,
+   "corpus": "dev 6b4db68 (commit whose message states 115)",
+   "increase_or_decrease": 108,
+   "repo": "nle-bench-dev",
+   "scenarios": 111
+  },
+  {
+   "by_arm": {
+    "feasible": 116
+   },
+   "by_value": {
+    "any": 7,
+    "decrease": 71,
+    "increase": 38
+   },
+   "commit": "64668e09fb2fa4c2d1d0c03024191e94046f24b2",
+   "commit_date": "2026-05-06T07:22:14+00:00",
+   "constraints_declaring_a_direction": 116,
+   "corpus": "dev 64668e0 (v3.1-submission)",
+   "increase_or_decrease": 109,
+   "repo": "nle-bench-dev",
+   "scenarios": 112
+  },
+  {
+   "by_arm": {
+    "feasible": 116
+   },
+   "by_value": {
+    "any": 7,
+    "decrease": 71,
+    "increase": 38
+   },
+   "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+   "commit_date": "2026-05-07T11:10:52+00:00",
+   "constraints_declaring_a_direction": 116,
+   "corpus": "review snapshot (snapshot copy of v3.1)",
+   "increase_or_decrease": 109,
+   "repo": "nle-bench-artifact",
+   "scenarios": 112
+  },
+  {
+   "by_arm": {
+    "feasible": 115
+   },
+   "by_value": {
+    "any": 7,
+    "decrease": 71,
+    "increase": 37
+   },
+   "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+   "commit_date": "2026-09-16T09:00:52+00:00",
+   "constraints_declaring_a_direction": 115,
+   "corpus": "dev pin (v3.2)",
+   "increase_or_decrease": 108,
+   "repo": "nle-bench-dev",
+   "scenarios": 111
+  }
+ ],
+ "rule": "entries of constraints.required and constraints.specified whose attribute_changed has a direction key",
+ "submission_text": 115,
+ "what": "constraints of the form attribute_changed{direction: ...}, per pinned corpus"
+}

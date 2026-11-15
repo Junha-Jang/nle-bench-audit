@@ -1,0 +1,365 @@
+{
+ "campaign": {
+  "blocked_keys_by_support": {
+   "payload_verified": 106,
+   "site_key_only": 168
+  },
+  "blocked_support_definitions": {
+   "payload_mismatch": "the supporting record's values differ from the generating record's",
+   "payload_verified": "the supporting record carries the mutated values and they equal the generating probe record's values",
+   "site_key_only": "the supporting record names the site but carries no mutated values, so the same-mutant identity is documentary, not checked"
+  },
+  "cause_by_disposition": [
+   {
+    "cause": "author_adjudicated_defect",
+    "disposition": "blocked_recorded_at_key",
+    "keys": 273
+   },
+   {
+    "cause": "author_adjudicated_defect",
+    "disposition": "blocked_recorded_reference_pass_not_recorded",
+    "keys": 1
+   },
+   {
+    "cause": "author_adjudicated_defect",
+    "disposition": "survives_deferred",
+    "keys": 1
+   },
+   {
+    "cause": "author_adjudicated_defect",
+    "disposition": "survives_intermediate_value",
+    "keys": 8
+   },
+   {
+    "cause": "author_adjudicated_defect",
+    "disposition": "survives_weak_closure",
+    "keys": 22
+   },
+   {
+    "cause": "gold_error",
+    "disposition": "gone_after_reference_repair",
+    "keys": 7
+   },
+   {
+    "cause": "gold_error",
+    "disposition": "gone_without_item_record",
+    "keys": 2
+   },
+   {
+    "cause": "gold_error",
+    "disposition": "survives_final",
+    "keys": 1
+   },
+   {
+    "cause": "gold_error",
+    "disposition": "survives_not_hardened",
+    "keys": 15
+   },
+   {
+    "cause": "instruction_freedom",
+    "disposition": "survives_final",
+    "keys": 20
+   },
+   {
+    "cause": "instruction_freedom",
+    "disposition": "survives_not_hardened",
+    "keys": 173
+   },
+   {
+    "cause": "probe_artifact",
+    "disposition": "gone_without_item_record",
+    "keys": 4
+   }
+  ],
+  "cause_counts": {
+   "author_adjudicated_defect": 305,
+   "gold_error": 25,
+   "instruction_freedom": 193,
+   "probe_artifact": 4
+  },
+  "disposition_counts": {
+   "blocked_recorded_at_key": 273,
+   "blocked_recorded_reference_pass_not_recorded": 1,
+   "gone_after_reference_repair": 7,
+   "gone_without_item_record": 6,
+   "survives_deferred": 1,
+   "survives_final": 21,
+   "survives_intermediate_value": 8,
+   "survives_not_hardened": 188,
+   "survives_weak_closure": 22
+  },
+  "keys_with_label_tension": 34,
+  "label_tension_counts": {
+   "ledger label REAL, manuscript bucket probe artifact": 8,
+   "ledger record does not show the reference passing the recorded constraint": 1,
+   "ledger records the variant as blocked, final snapshot still lists the key": 22,
+   "round-1 and round-2 author labels differ for the same site": 6
+  },
+  "ledger_findings": 550,
+  "payload_check_by_supporting_record": [
+   {
+    "keys": 53,
+    "payload_check": "payload_match",
+    "round": "R1",
+    "source": "closeout item 변이_상세"
+   },
+   {
+    "keys": 55,
+    "payload_check": "payload_match",
+    "round": "R1",
+    "source": "constraint_hardening verification variant"
+   },
+   {
+    "keys": 6,
+    "payload_check": "payload_unavailable",
+    "round": "R1",
+    "source": "constraint_hardening verification variant"
+   },
+   {
+    "keys": 6,
+    "payload_check": "payload_match",
+    "round": "R1",
+    "source": "triage finding"
+   },
+   {
+    "keys": 49,
+    "payload_check": "payload_match",
+    "round": "R2",
+    "source": "closeout immediate-close log variant text"
+   },
+   {
+    "keys": 381,
+    "payload_check": "payload_unavailable",
+    "round": "R2",
+    "source": "cluster_hardening item (no payload fields)"
+   }
+  ],
+  "survivor_buckets": {
+   "deferred_gold_repair": 1,
+   "freedom": 193,
+   "gold_adjudicated": 16,
+   "probe_artifact": 8,
+   "weakly_closed": 22
+  },
+  "unassigned_survivors": 0,
+  "unique_candidate_keys": 527,
+  "unique_survivors": 240,
+  "unresolved_keys": 0
+ },
+ "cross_round": {
+  "cause_conflicts_on_shared_sites": [
+   {
+    "r1": "closeout.분류=FREEDOM",
+    "r1_key": "M4|NLB-v3-EX-CU-007|0|duration",
+    "r2": "cluster.judgment=REAL",
+    "r2_key": "M4full|NLB-v3-EX-CU-007|0|duration"
+   }
+  ],
+  "join_rule": "round-1 M4 key and round-2 M4full key share (scenario, step, param)",
+  "shared_site_payload_check": {
+   "payload_match": 23
+  },
+  "shared_sites": 23
+ },
+ "manuscript_comparison": {
+  "round1_final": {
+   "manuscript": 44,
+   "match": true,
+   "observed": 44
+  },
+  "round1_findings": {
+   "manuscript": 120,
+   "match": true,
+   "observed": 120
+  },
+  "round2_final": {
+   "manuscript": 219,
+   "match": true,
+   "observed": 219
+  },
+  "round2_findings": {
+   "manuscript": 430,
+   "match": true,
+   "observed": 430
+  },
+  "shared_keys": {
+   "manuscript": 23,
+   "match": true,
+   "observed": 23
+  },
+  "survivor_bucket.deferred_gold_repair": {
+   "manuscript": 1,
+   "match": true,
+   "observed": 1
+  },
+  "survivor_bucket.freedom": {
+   "manuscript": 193,
+   "match": true,
+   "observed": 193
+  },
+  "survivor_bucket.gold_adjudicated": {
+   "manuscript": 16,
+   "match": true,
+   "observed": 16
+  },
+  "survivor_bucket.probe_artifact": {
+   "manuscript": 8,
+   "match": true,
+   "observed": 8
+  },
+  "survivor_bucket.weakly_closed": {
+   "manuscript": 22,
+   "match": true,
+   "observed": 22
+  },
+  "unique_candidates": {
+   "manuscript": 527,
+   "match": true,
+   "observed": 527
+  },
+  "unique_survivors": {
+   "manuscript": 240,
+   "match": true,
+   "observed": 240
+  }
+ },
+ "not_derivable": [
+  "The count of 'confirmed defects' is not 527 minus 240. Keys leave the ledger for different reasons (blocked mutant, reference repair, probe artifact withdrawn), and one defect class can produce many keys.",
+  "survives_weak_closure keys are not killed mutants.",
+  "blocked_recorded_at_key is a recorded statement at site-key grain. It is not an independently confirmed repair of the same mutant payload; see blocked_keys_by_support."
+ ],
+ "round1": {
+  "born_after_first_snapshot": [],
+  "closeout_join_vs_S2": {
+   "both": 53,
+   "left_only": 0,
+   "right_only": 0
+  },
+  "final_by_class": {
+   "M1": 18,
+   "M3": 3,
+   "M4": 23
+  },
+  "gone_S0_to_S2": 67,
+  "gone_S0_to_S2_by_triage_label": {
+   "BENIGN": 4,
+   "GOLD": 2,
+   "UNDER": 61
+  },
+  "gone_S2_to_S3": 9,
+  "gone_S2_to_S3_by_closeout_label": {
+   "GOLD": 7,
+   "REAL": 2
+  },
+  "reappeared_keys": [],
+  "triage_join": {
+   "both": 120,
+   "left_only": 0,
+   "right_only": 0
+  },
+  "universe": 120,
+  "wave1_control_cases_not_keyed": [
+   {
+    "TSR": true,
+    "blocked": false,
+    "scenario": "NLB-v3-ST-DE-004",
+    "text": "최소해(오디오 미변경·caption_1 유지) — 통과해야 정상"
+   }
+  ],
+  "wave1_verification_not_in_universe": [],
+  "wave1_verification_records": 61
+ },
+ "round2": {
+  "born_after_first_snapshot": [],
+  "cluster_join_vs_T1": {
+   "both": 381,
+   "left_only": 0,
+   "right_only": 0
+  },
+  "cluster_judgments": {
+   "FREEDOM": 173,
+   "GOLD": 15,
+   "REAL": 193
+  },
+  "cluster_real_by_recorded_outcome": {
+   "variant_blocked=False, gold_passes=True": 1,
+   "variant_blocked=None, gold_passes=None": 8,
+   "variant_blocked=True, gold_passes=False": 1,
+   "variant_blocked=True, gold_passes=True": 183
+  },
+  "cluster_variant_blocked_true": {
+   "absent_from_final_snapshot": 162,
+   "still_in_final_snapshot": 22,
+   "total": 184
+  },
+  "final_by_class": {
+   "M4full": 165,
+   "M5": 54
+  },
+  "first_snapshot_by_class": {
+   "M4full": 312,
+   "M5": 118
+  },
+  "gone_T1_to_T2": 162,
+  "immediate_ambiguous": 0,
+  "immediate_gone_keys": 49,
+  "immediate_log_items": 49,
+  "immediate_matched": 49,
+  "immediate_unmatched_keys": [],
+  "immediate_unmatched_logs": 0,
+  "reappeared_keys": [],
+  "universe": 430
+ },
+ "snapshot_counts_match_expected": true,
+ "snapshots": [
+  {
+   "blob": "c03d5d9164c65ce2d056ddbcd654124781190c3e",
+   "commit": "5d2f3a617",
+   "expected": 120,
+   "name": "S0_first_ledger",
+   "observed": 120
+  },
+  {
+   "blob": "2adc6e99d388d4c3ea2459aea6c0a99227d10fb0",
+   "commit": "0b3a4adb7",
+   "expected": 114,
+   "name": "S1_after_fixture_deepcopy",
+   "observed": 114
+  },
+  {
+   "blob": "6cde3147ad37a63d20fce937c8bbfd6c53e996e5",
+   "commit": "c8be3e83a",
+   "expected": 53,
+   "name": "S2_after_wave1",
+   "observed": 53
+  },
+  {
+   "blob": "9e1401b487996a380d9b1526cb45f98fb0c1c592",
+   "commit": "28a5f11c6",
+   "expected": 44,
+   "name": "S3_final",
+   "observed": 44
+  },
+  {
+   "blob": "b341bd3c6455c2ad1274e12bf82f0bb4bc10cdac",
+   "commit": "28a5f11c6",
+   "expected": 430,
+   "name": "T0_first_ledger",
+   "observed": 430
+  },
+  {
+   "blob": "9ed0d3372587039eaef213dad9b458e1bb119a44",
+   "commit": "942b45a19",
+   "expected": 381,
+   "name": "T1_after_immediate_closes",
+   "observed": 381
+  },
+  {
+   "blob": "e4d45c36cdc520290c8dc077c6670bc16806f5f8",
+   "commit": "8d0ca7e0d",
+   "expected": 219,
+   "name": "T2_final",
+   "observed": 219
+  }
+ ]
+}

@@ -1,0 +1,2255 @@
+{
+ "case": "NLB-v3-EX-DE-008",
+ "case_facts": {
+  "checks_that_examine_transition_endpoints": {
+   "code_axis_alone": [],
+   "constraint_axis_alone": [],
+   "current_pin": [],
+   "post": [],
+   "pre": []
+  },
+  "every_other_edit_identical_in_both_final_states": true,
+  "fields_that_differ_between_reference_and_candidate_final_states": [
+   "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].type"
+  ],
+  "fixture": {
+   "clips_added_by_the_reference": [
+    "clip_1"
+   ],
+   "tracks": [
+    {
+     "track": "video_track_1",
+     "video_clips_in_order": [
+      {
+       "end_s": 5.0,
+       "id": "video_clip_1",
+       "in_initial_state": true,
+       "media": "av_media_1",
+       "media_name": "intro.mp4",
+       "start_s": 0.0
+      },
+      {
+       "end_s": 15.0,
+       "id": "video_clip_2",
+       "in_initial_state": true,
+       "media": "av_media_2",
+       "media_name": "main.mp4",
+       "start_s": 5.0
+      },
+      {
+       "end_s": 20.0,
+       "id": "video_clip_3",
+       "in_initial_state": true,
+       "media": "av_media_3",
+       "media_name": "outro.mp4",
+       "start_s": 15.0
+      },
+      {
+       "end_s": 22.0,
+       "id": "clip_1",
+       "in_initial_state": false,
+       "media": "av_media_3",
+       "media_name": "outro.mp4",
+       "start_s": 20.0
+      }
+     ]
+    }
+   ],
+   "transitions_in_reference_final_state": [
+    {
+     "id": "transition_1",
+     "joins": [
+      "video_clip_2",
+      "video_clip_3"
+     ],
+     "joins_only_clips_of_the_initial_state": true,
+     "track": "video_track_1",
+     "type": "cross_dissolve"
+    }
+   ]
+  },
+  "note": "Facts read from the materialised states and the constraint lists. Which clip an instruction's words refer to is a reading of the instruction and is not decided here."
+ },
+ "finding_key": "M5|NLB-v3-EX-DE-008|1|transition_type",
+ "fixture": "simple_sequence",
+ "incomplete_reasons": [],
+ "instruction": "Add a 2-second clip from av_media_3 after video_clip_2, then place a cross-dissolve transition between them.",
+ "kind": "deterministic probe run",
+ "mutant": {
+  "generation_record": {
+   "intended": "cross_dissolve",
+   "param": "transition_type",
+   "scenario": "NLB-v3-EX-DE-008",
+   "step": 1,
+   "tool": "add_transition",
+   "used": "dip_to_black"
+  },
+  "payload_equals_generation_record": true,
+  "regenerated_record": {
+   "intended": "cross_dissolve",
+   "param": "transition_type",
+   "scenario": "NLB-v3-EX-DE-008",
+   "step": 1,
+   "tool": "add_transition",
+   "used": "dip_to_black"
+  },
+  "steps": [
+   {
+    "params": {
+     "end": 22,
+     "in_point": 0,
+     "media_id": "av_media_3",
+     "out_point": 2,
+     "start": 20,
+     "track_id": "video_track_1"
+    },
+    "tool": "add_clip"
+   },
+   {
+    "params": {
+     "clip_id_1": "video_clip_2",
+     "clip_id_2": "video_clip_3",
+     "duration": 2,
+     "track_id": "video_track_1",
+     "transition_type": "dip_to_black"
+    },
+    "tool": "add_transition"
+   }
+  ]
+ },
+ "recorded_2026_08": {
+  "author_rationale_2026_08": {
+   "locator": "프로브_확장.이번에_닫은_것.M5_transition_type",
+   "note": "judgment recorded in 2026-08 in the audit's coding-agent workflow, copied as recorded; not assessed by this program",
+   "rationale": "지시가 'cross-dissolve'/'wipe'/'dissolve' 로 **종류를 명시**하는데 제약은 entity_exists 뿐이라 dip_to_black 을 넣어도 통과했다. 가장 노골적인 거짓 성공 — 사용자가 요청한 것과 다른 편집이 만점을 받는다.",
+   "scope": "the whole group of sites, not this site alone",
+   "sites_in_group": 33
+  },
+  "finding_key": "M5|NLB-v3-EX-DE-008|1|transition_type",
+  "generation_record_payload": {
+   "intended": "cross_dissolve",
+   "used": "dip_to_black"
+  },
+  "ledger": {
+   "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+   "git_blob": "6d22e4cd15b82b95cfaf3a8f5f9955a23acf076c",
+   "path": "<LEDGER_DIR>/false_success_closeout.json",
+   "repo": "nle-bench-dev",
+   "sha256": "9bf663bf96382eb232e4d43e0b4ddfba6fda1ac70726bb1613b4dbd8983cda97"
+  },
+  "linked": true,
+  "locator": "확장_보강_검증_로그.transition_type[27]",
+  "note": "This is the site's own record. It states verdicts as written in 2026-08; the ledger records no scorer identity.",
+  "record": {
+   "ok": true,
+   "scenario": "NLB-v3-EX-DE-008",
+   "막은_제약": [
+    "attribute_equals"
+   ],
+   "변종": "M5 transition_type cross_dissolve -> dip_to_black",
+   "보강_전_변종_TSR": true,
+   "보강_후_변종_TSR": false,
+   "정답_TSR": true,
+   "정답_전_호출_success": true,
+   "추가한_제약": {
+    "attribute_equals": {
+     "entity": "$new_transition_1",
+     "field": "type",
+     "value": "cross_dissolve"
+    }
+   }
+  },
+  "recorded_payload": {
+   "intended": "cross_dissolve",
+   "used": "dip_to_black"
+  },
+  "recorded_payload_equals_generation_record": true,
+  "recorded_verdicts": {
+   "added_constraint": {
+    "attribute_equals": {
+     "entity": "$new_transition_1",
+     "field": "type",
+     "value": "cross_dissolve"
+    }
+   },
+   "blocking_constraints": [
+    "attribute_equals"
+   ],
+   "candidate_passed_after": false,
+   "candidate_passed_before": true,
+   "reference_calls_succeed": true,
+   "reference_passes_after": true
+  },
+  "source": "false_success_closeout.json, immediate-close log (a 2026-08 record; no execution)"
+ },
+ "reexecuted_2026_10": {
+  "code_axis": {
+   "all_changed_code_files": [
+    "src/nlebench/models.py",
+    "src/nlebench/protocols.py",
+    "src/nlebench/runner/track_runner.py"
+   ],
+   "scoring_path_changed": [
+    "models"
+   ]
+  },
+  "identities": {
+   "code_axis_alone": {
+    "execution": {
+     "analysis_code": {
+      "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+      "note": "content hashes only; no commit hash, so the record cannot refer to itself",
+      "source_manifest": {
+       "va142-camera-ready-p1-20261004/p1_identity.py": "7cb139983222a9e374f9f10fb2ab40087ec92fb976a0a42f9185bded7d9eb776",
+       "va142-camera-ready-p1-20261004/p1lib.py": "50536701c8cb20419b5f3d18de4120dadebd8eea001e8ed19b12956b27629e41",
+       "va142-camera-ready-p3-20261005/e1_probes.py": "cb5f4f73c977e9fae08866e12d25834f6690c76ff2a9fd98b93531e24b9ff1cb",
+       "va142-camera-ready-p3-20261005/e1_recover.py": "6420cd2141ce01e9a9d0c92452d05842610c4c0de183d5a32e0928934eefd1a2",
+       "va142-camera-ready-p3-20261005/e2_cases.py": "e7c64220f850ff220e0823c9c2292f58c65eb511118fb726bd2b3e3b077e1a91",
+       "va142-camera-ready-p3-20261005/e3_inventory.py": "91a202715d3e995e27bdabc816dd4c194d9b89db1887e8f3cac0b924e5c152ab",
+       "va142-camera-ready-p3-20261005/p3_compare.py": "ab21306a1feb0cb318def4b3d64f5534575e166af46ba4d216d85a5bd9a83ef5",
+       "va142-camera-ready-p3-20261005/p3_worker.py": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655",
+       "va142-camera-ready-p3-20261005/p3lib.py": "3f0667dd0ffe523ef857e17e88526c04a967c847844154981b6c81f32cd8abcb",
+       "va142-camera-ready-p3-20261005/run_p3.py": "de6430281eb6fad4bf766052ae3927cec4837b619d6616620f10019d75112f55"
+      },
+      "source_manifest_sha256": "397f44cf2be358d1caea14d77857cd5b73615c4fb900de80530af1a1529bc8f6",
+      "worker_file": "va142-camera-ready-p3-20261005/p3_worker.py",
+      "worker_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+     },
+     "env": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "P3_EXPORT_ROOT": "<EXPORT_ROOT>",
+      "PATH": "<LOCAL_PATH_ENV>",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0"
+     },
+     "export_verification": {
+      "actual_content_sha256": "6388305225b8c1e71804b18a524e5e6239ab0ac79a4a5def27388b299495065b",
+      "expected_content_sha256": "6388305225b8c1e71804b18a524e5e6239ab0ac79a4a5def27388b299495065b",
+      "files_verified": 3157,
+      "kind": "dev",
+      "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+      "when": "immediately before this launch"
+     },
+     "external_tools": {
+      "chmod": {
+       "realpath": "/usr/bin/chmod",
+       "resolved": "/usr/bin/chmod",
+       "sha256": "636dc2e0792244a537121ec10b6e140797cb8d27d231f5c1d025148d1b0c6fc8",
+       "version": "chmod (GNU coreutils) 9.4"
+      },
+      "cp": {
+       "realpath": "/usr/bin/cp",
+       "resolved": "/usr/bin/cp",
+       "sha256": "95cdd604fdf0a292e349d27d1a80170ca0913bd3bbd9d2c0fcfc6c8adaebe2f0",
+       "version": "cp (GNU coreutils) 9.4"
+      },
+      "git": {
+       "realpath": "/usr/bin/git",
+       "resolved": "/usr/bin/git",
+       "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668",
+       "version": "git version 2.43.0"
+      },
+      "tar": {
+       "realpath": "/usr/bin/tar",
+       "resolved": "/usr/bin/tar",
+       "sha256": "3ee2c3c0b4dd9aacebfd2f0fbae44bad36348203acff78a44888dd58c05f811c",
+       "version": "tar (GNU tar) 1.35"
+      }
+     },
+     "pinned_source": {
+      "actual_scorer_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+      "expected_scorer_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+      "identity": {
+       "commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+       "repo": "nle-bench-dev"
+      },
+      "kind": "dev"
+     }
+    },
+    "input_sha256": "63082e6aacce3d9b0347a0e14c854b99102688cd45838b9813d67048d0d43ec1",
+    "output_sha256": "633d030ad7ef4505937cca143ae3423750cf4226dab37052ab78a831eacb9817",
+    "runtime": {
+     "argv": [
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+      "jobs",
+      "<EXPORT_ROOT>/28a5f11c6f26f3858dbc1c533e525b022b90801a/src",
+      "<RUN_WORKDIR>/jobs.json",
+      "<RUN_WORKDIR>/results.json"
+     ],
+     "dependencies": {
+      "PyYAML": "6.0.3",
+      "annotated-types": "0.8.0",
+      "pydantic": "2.13.5",
+      "pydantic-core": "2.46.5",
+      "typing-extensions": "4.16.0"
+     },
+     "executable": "<DEV_CHECKOUT>/.venv/bin/python",
+     "executable_realpath": "/usr/bin/python3.12",
+     "implementation": "CPython",
+     "nlebench_file": "<EXPORT_ROOT>/28a5f11c6f26f3858dbc1c533e525b022b90801a/src/nlebench/__init__.py",
+     "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+     "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+     "registry_note": "SCORER_VERSION carries a digest of the declared predicate contract. It is not a hash of the executable and is not used as one.",
+     "registry_predicates": null,
+     "scorer_file_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+     "scorer_version": null,
+     "sys_path": [
+      "<EXPORT_ROOT>/28a5f11c6f26f3858dbc1c533e525b022b90801a/src",
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "<DEV_CHECKOUT>/.venv/lib/python3.12/site-packages",
+      "<DEV_CHECKOUT>/src"
+     ],
+     "worker_file_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+    },
+    "tree": {
+     "commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+     "corpus": {
+      "F_canon": "514dbe39bd51a8a3ba9daded9c0f3a745b9730403b7061cd54ba995308b8bcd1",
+      "F_canon_definition": "sha256 over the id-sorted sequence of json.dumps([id, canonical {fixture, constraints, turns}])",
+      "F_file": "5fc5e789397823a77ac7af4c69d9f34f2eab0aaef786dfca42c809a82c7a8e5d",
+      "F_file_definition": "sha256 folded over (relative path, per-file sha256) in path order",
+      "path": "src/nlebench/dataset/scenarios_v3_1",
+      "scenario_files": 800
+     },
+     "files": {
+      "models": {
+       "git_blob": "457f5013f7f6afbe98f168083f74776fcff87525",
+       "path": "src/nlebench/models.py",
+       "sha256": "166ffbeb91a7a6bca471c95b6690b40dfd1730b114c5abb8cc9ceead12f8a7bf"
+      },
+      "probe": {
+       "git_blob": "018607d486762c78db73bc3f455ac7ef9b182381",
+       "path": "<LEDGER_DIR>/false_success_probe.py",
+       "sha256": "26bf436898c84a48748fb46fc1adf029e99938ded555d23b494c7b2391d5c8ab"
+      },
+      "probe_full": {
+       "git_blob": "bca7535bdf77d11ab06352ee83f55456b518aaa3",
+       "path": "<LEDGER_DIR>/false_success_probe_full.py",
+       "sha256": "7e5ac4def9092a5defca540a16896ffe61cba612665c45b3fcc72bff576dd40d"
+      },
+      "runner_executor": {
+       "git_blob": "96cb0e711bb2e7b84c18fda0c953417f911908b8",
+       "path": "src/nlebench/runner/executor.py",
+       "sha256": "4afd48e0e4eff8b4959f5928e991ad581892ba43f17f16c6408f79418338e488"
+      },
+      "runner_track": {
+       "git_blob": "178a92fe823f7c03005e7ad9c24199c22d43e025",
+       "path": "src/nlebench/runner/track_runner.py",
+       "sha256": "24b10a4f925f74b719a93b95ef3505468262be9c6f3c62bc901757104582c214"
+      },
+      "scenario_loader": {
+       "git_blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+       "path": "src/nlebench/runner/scenario_loader.py",
+       "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+      },
+      "scorer": {
+       "git_blob": "be921125f91627514f3dc7287c67675a16953408",
+       "path": "src/nlebench/runner/constraints.py",
+       "sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6"
+      },
+      "structural_validator": {
+       "git_blob": "c6e303fc9165ae9e95f0a53eccdc07bf6a88c108",
+       "path": "src/nlebench/runner/validator.py",
+       "sha256": "0ce8380c6056ac9bd95773cbe7a73ebac4eef49b8a81162e44986d2889b353cb"
+      },
+      "tool_executor": {
+       "git_blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+       "path": "src/nlebench/tools/executor.py",
+       "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+      },
+      "tool_schema": {
+       "git_blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+       "path": "src/nlebench/tools/schema.py",
+       "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+      }
+     },
+     "trees": {
+      "corpus_v3_1": {
+       "git_tree": "b7bcf73fc2572c97cbf25e0d6634185c817fa17b",
+       "path": "src/nlebench/dataset/scenarios_v3_1"
+      },
+      "fixtures": {
+       "git_tree": "3b793b3d327e21a5c3ffa495826a53868960a59a",
+       "path": "src/nlebench/dataset/fixtures"
+      },
+      "src_nlebench": {
+       "git_tree": "60ea26924a5a4e2afa8bea56ef3b815be2afb32c",
+       "path": "src/nlebench"
+      },
+      "tools": {
+       "git_tree": "0661c5ac14d066c608393d5f1fcc0bb111aaa93e",
+       "path": "src/nlebench/tools"
+      }
+     }
+    }
+   },
+   "constraint_axis_alone": {
+    "execution": {
+     "analysis_code": {
+      "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+      "note": "content hashes only; no commit hash, so the record cannot refer to itself",
+      "source_manifest": {
+       "va142-camera-ready-p1-20261004/p1_identity.py": "7cb139983222a9e374f9f10fb2ab40087ec92fb976a0a42f9185bded7d9eb776",
+       "va142-camera-ready-p1-20261004/p1lib.py": "50536701c8cb20419b5f3d18de4120dadebd8eea001e8ed19b12956b27629e41",
+       "va142-camera-ready-p3-20261005/e1_probes.py": "cb5f4f73c977e9fae08866e12d25834f6690c76ff2a9fd98b93531e24b9ff1cb",
+       "va142-camera-ready-p3-20261005/e1_recover.py": "6420cd2141ce01e9a9d0c92452d05842610c4c0de183d5a32e0928934eefd1a2",
+       "va142-camera-ready-p3-20261005/e2_cases.py": "e7c64220f850ff220e0823c9c2292f58c65eb511118fb726bd2b3e3b077e1a91",
+       "va142-camera-ready-p3-20261005/e3_inventory.py": "91a202715d3e995e27bdabc816dd4c194d9b89db1887e8f3cac0b924e5c152ab",
+       "va142-camera-ready-p3-20261005/p3_compare.py": "ab21306a1feb0cb318def4b3d64f5534575e166af46ba4d216d85a5bd9a83ef5",
+       "va142-camera-ready-p3-20261005/p3_worker.py": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655",
+       "va142-camera-ready-p3-20261005/p3lib.py": "3f0667dd0ffe523ef857e17e88526c04a967c847844154981b6c81f32cd8abcb",
+       "va142-camera-ready-p3-20261005/run_p3.py": "de6430281eb6fad4bf766052ae3927cec4837b619d6616620f10019d75112f55"
+      },
+      "source_manifest_sha256": "397f44cf2be358d1caea14d77857cd5b73615c4fb900de80530af1a1529bc8f6",
+      "worker_file": "va142-camera-ready-p3-20261005/p3_worker.py",
+      "worker_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+     },
+     "env": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "P3_EXPORT_ROOT": "<EXPORT_ROOT>",
+      "PATH": "<LOCAL_PATH_ENV>",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0"
+     },
+     "export_verification": {
+      "actual_content_sha256": "a3c11404c83e79343d4822dd9f4b40acfcf42329ec6e6e2044ed77dd73bf3936",
+      "expected_content_sha256": "a3c11404c83e79343d4822dd9f4b40acfcf42329ec6e6e2044ed77dd73bf3936",
+      "files_verified": 3156,
+      "kind": "dev",
+      "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+      "when": "immediately before this launch"
+     },
+     "external_tools": {
+      "chmod": {
+       "realpath": "/usr/bin/chmod",
+       "resolved": "/usr/bin/chmod",
+       "sha256": "636dc2e0792244a537121ec10b6e140797cb8d27d231f5c1d025148d1b0c6fc8",
+       "version": "chmod (GNU coreutils) 9.4"
+      },
+      "cp": {
+       "realpath": "/usr/bin/cp",
+       "resolved": "/usr/bin/cp",
+       "sha256": "95cdd604fdf0a292e349d27d1a80170ca0913bd3bbd9d2c0fcfc6c8adaebe2f0",
+       "version": "cp (GNU coreutils) 9.4"
+      },
+      "git": {
+       "realpath": "/usr/bin/git",
+       "resolved": "/usr/bin/git",
+       "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668",
+       "version": "git version 2.43.0"
+      },
+      "tar": {
+       "realpath": "/usr/bin/tar",
+       "resolved": "/usr/bin/tar",
+       "sha256": "3ee2c3c0b4dd9aacebfd2f0fbae44bad36348203acff78a44888dd58c05f811c",
+       "version": "tar (GNU tar) 1.35"
+      }
+     },
+     "pinned_source": {
+      "actual_scorer_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+      "expected_scorer_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+      "identity": {
+       "commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+       "repo": "nle-bench-dev"
+      },
+      "kind": "dev"
+     }
+    },
+    "input_sha256": "8b683443f1d48d0258651d142c470f182c3f272abd133c61d3df83ae846a826c",
+    "output_sha256": "50774a5752cac60993638eddb880f80988876f159089a0b2e21fe833f5d99d44",
+    "runtime": {
+     "argv": [
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+      "jobs",
+      "<EXPORT_ROOT>/69f8d58a1382b4014d12c13db1e73aa0dd18becc/src",
+      "<RUN_WORKDIR>/jobs.json",
+      "<RUN_WORKDIR>/results.json"
+     ],
+     "dependencies": {
+      "PyYAML": "6.0.3",
+      "annotated-types": "0.8.0",
+      "pydantic": "2.13.5",
+      "pydantic-core": "2.46.5",
+      "typing-extensions": "4.16.0"
+     },
+     "executable": "<DEV_CHECKOUT>/.venv/bin/python",
+     "executable_realpath": "/usr/bin/python3.12",
+     "implementation": "CPython",
+     "nlebench_file": "<EXPORT_ROOT>/69f8d58a1382b4014d12c13db1e73aa0dd18becc/src/nlebench/__init__.py",
+     "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+     "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+     "registry_note": "SCORER_VERSION carries a digest of the declared predicate contract. It is not a hash of the executable and is not used as one.",
+     "registry_predicates": null,
+     "scorer_file_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+     "scorer_version": null,
+     "sys_path": [
+      "<EXPORT_ROOT>/69f8d58a1382b4014d12c13db1e73aa0dd18becc/src",
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "<DEV_CHECKOUT>/.venv/lib/python3.12/site-packages",
+      "<DEV_CHECKOUT>/src"
+     ],
+     "worker_file_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+    },
+    "tree": {
+     "commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+     "corpus": {
+      "F_canon": "26f1292a159ac8090e1f8942b85809972ded79bd34eccb5e2a948bb956ef1582",
+      "F_canon_definition": "sha256 over the id-sorted sequence of json.dumps([id, canonical {fixture, constraints, turns}])",
+      "F_file": "62d3f1be33e51b71f074cb1c4bdd7c697c097b7425d78b6785fe3f75e86192bf",
+      "F_file_definition": "sha256 folded over (relative path, per-file sha256) in path order",
+      "path": "src/nlebench/dataset/scenarios_v3_1",
+      "scenario_files": 800
+     },
+     "files": {
+      "models": {
+       "git_blob": "c279283807b61b9b43b023eb208f2b39db384a34",
+       "path": "src/nlebench/models.py",
+       "sha256": "c938bb9c9e0b50cf9b79ec3f2767642b326f0bdfbe0a01700fd025fa82f57914"
+      },
+      "probe": {
+       "git_blob": "018607d486762c78db73bc3f455ac7ef9b182381",
+       "path": "<LEDGER_DIR>/false_success_probe.py",
+       "sha256": "26bf436898c84a48748fb46fc1adf029e99938ded555d23b494c7b2391d5c8ab"
+      },
+      "probe_full": {
+       "path": "<LEDGER_DIR>/false_success_probe_full.py",
+       "present": false
+      },
+      "runner_executor": {
+       "git_blob": "96cb0e711bb2e7b84c18fda0c953417f911908b8",
+       "path": "src/nlebench/runner/executor.py",
+       "sha256": "4afd48e0e4eff8b4959f5928e991ad581892ba43f17f16c6408f79418338e488"
+      },
+      "runner_track": {
+       "git_blob": "4b7a5a70c44ddb9245d18693fa53086600524e0c",
+       "path": "src/nlebench/runner/track_runner.py",
+       "sha256": "ed8927be3b5ef05d208ac620ac5ecca3f0f2ffa20cfb78461f0607704a93daaf"
+      },
+      "scenario_loader": {
+       "git_blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+       "path": "src/nlebench/runner/scenario_loader.py",
+       "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+      },
+      "scorer": {
+       "git_blob": "be921125f91627514f3dc7287c67675a16953408",
+       "path": "src/nlebench/runner/constraints.py",
+       "sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6"
+      },
+      "structural_validator": {
+       "git_blob": "c6e303fc9165ae9e95f0a53eccdc07bf6a88c108",
+       "path": "src/nlebench/runner/validator.py",
+       "sha256": "0ce8380c6056ac9bd95773cbe7a73ebac4eef49b8a81162e44986d2889b353cb"
+      },
+      "tool_executor": {
+       "git_blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+       "path": "src/nlebench/tools/executor.py",
+       "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+      },
+      "tool_schema": {
+       "git_blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+       "path": "src/nlebench/tools/schema.py",
+       "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+      }
+     },
+     "trees": {
+      "corpus_v3_1": {
+       "git_tree": "8f325bcf9457d4b57265788c5ceb59317c081cf8",
+       "path": "src/nlebench/dataset/scenarios_v3_1"
+      },
+      "fixtures": {
+       "git_tree": "3b793b3d327e21a5c3ffa495826a53868960a59a",
+       "path": "src/nlebench/dataset/fixtures"
+      },
+      "src_nlebench": {
+       "git_tree": "4aacb4abeda7c8f0c5f52b114eb087f9a255fe7b",
+       "path": "src/nlebench"
+      },
+      "tools": {
+       "git_tree": "0661c5ac14d066c608393d5f1fcc0bb111aaa93e",
+       "path": "src/nlebench/tools"
+      }
+     }
+    }
+   },
+   "current_pin": {
+    "execution": {
+     "analysis_code": {
+      "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+      "note": "content hashes only; no commit hash, so the record cannot refer to itself",
+      "source_manifest": {
+       "va142-camera-ready-p1-20261004/p1_identity.py": "7cb139983222a9e374f9f10fb2ab40087ec92fb976a0a42f9185bded7d9eb776",
+       "va142-camera-ready-p1-20261004/p1lib.py": "50536701c8cb20419b5f3d18de4120dadebd8eea001e8ed19b12956b27629e41",
+       "va142-camera-ready-p3-20261005/e1_probes.py": "cb5f4f73c977e9fae08866e12d25834f6690c76ff2a9fd98b93531e24b9ff1cb",
+       "va142-camera-ready-p3-20261005/e1_recover.py": "6420cd2141ce01e9a9d0c92452d05842610c4c0de183d5a32e0928934eefd1a2",
+       "va142-camera-ready-p3-20261005/e2_cases.py": "e7c64220f850ff220e0823c9c2292f58c65eb511118fb726bd2b3e3b077e1a91",
+       "va142-camera-ready-p3-20261005/e3_inventory.py": "91a202715d3e995e27bdabc816dd4c194d9b89db1887e8f3cac0b924e5c152ab",
+       "va142-camera-ready-p3-20261005/p3_compare.py": "ab21306a1feb0cb318def4b3d64f5534575e166af46ba4d216d85a5bd9a83ef5",
+       "va142-camera-ready-p3-20261005/p3_worker.py": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655",
+       "va142-camera-ready-p3-20261005/p3lib.py": "3f0667dd0ffe523ef857e17e88526c04a967c847844154981b6c81f32cd8abcb",
+       "va142-camera-ready-p3-20261005/run_p3.py": "de6430281eb6fad4bf766052ae3927cec4837b619d6616620f10019d75112f55"
+      },
+      "source_manifest_sha256": "397f44cf2be358d1caea14d77857cd5b73615c4fb900de80530af1a1529bc8f6",
+      "worker_file": "va142-camera-ready-p3-20261005/p3_worker.py",
+      "worker_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+     },
+     "env": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "P3_EXPORT_ROOT": "<EXPORT_ROOT>",
+      "PATH": "<LOCAL_PATH_ENV>",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0"
+     },
+     "export_verification": {
+      "actual_content_sha256": "fc0d6dac8765234e26e0382ba942780674929efc2268bcde7b845442e1836167",
+      "expected_content_sha256": "fc0d6dac8765234e26e0382ba942780674929efc2268bcde7b845442e1836167",
+      "files_verified": 3171,
+      "kind": "dev",
+      "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+      "when": "immediately before this launch"
+     },
+     "external_tools": {
+      "chmod": {
+       "realpath": "/usr/bin/chmod",
+       "resolved": "/usr/bin/chmod",
+       "sha256": "636dc2e0792244a537121ec10b6e140797cb8d27d231f5c1d025148d1b0c6fc8",
+       "version": "chmod (GNU coreutils) 9.4"
+      },
+      "cp": {
+       "realpath": "/usr/bin/cp",
+       "resolved": "/usr/bin/cp",
+       "sha256": "95cdd604fdf0a292e349d27d1a80170ca0913bd3bbd9d2c0fcfc6c8adaebe2f0",
+       "version": "cp (GNU coreutils) 9.4"
+      },
+      "git": {
+       "realpath": "/usr/bin/git",
+       "resolved": "/usr/bin/git",
+       "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668",
+       "version": "git version 2.43.0"
+      },
+      "tar": {
+       "realpath": "/usr/bin/tar",
+       "resolved": "/usr/bin/tar",
+       "sha256": "3ee2c3c0b4dd9aacebfd2f0fbae44bad36348203acff78a44888dd58c05f811c",
+       "version": "tar (GNU tar) 1.35"
+      }
+     },
+     "pinned_source": {
+      "actual_scorer_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+      "expected_scorer_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+      "identity": {
+       "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+       "repo": "nle-bench-dev"
+      },
+      "kind": "dev"
+     }
+    },
+    "input_sha256": "79ffbdc102d160c4ef1d1f6799bd1c701934380f248d24f241c4b8cd0552c550",
+    "output_sha256": "bef7f5a0e381938233f8cbcc1224ad3017c7564c3d6328ae959a7f3d9aa3927f",
+    "runtime": {
+     "argv": [
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+      "jobs",
+      "<EXPORT_ROOT>/206e1838224add4d7d685349ab1daaf4ab717c6f/src",
+      "<RUN_WORKDIR>/jobs.json",
+      "<RUN_WORKDIR>/results.json"
+     ],
+     "dependencies": {
+      "PyYAML": "6.0.3",
+      "annotated-types": "0.8.0",
+      "pydantic": "2.13.5",
+      "pydantic-core": "2.46.5",
+      "typing-extensions": "4.16.0"
+     },
+     "executable": "<DEV_CHECKOUT>/.venv/bin/python",
+     "executable_realpath": "/usr/bin/python3.12",
+     "implementation": "CPython",
+     "nlebench_file": "<EXPORT_ROOT>/206e1838224add4d7d685349ab1daaf4ab717c6f/src/nlebench/__init__.py",
+     "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+     "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+     "registry_note": "SCORER_VERSION carries a digest of the declared predicate contract. It is not a hash of the executable and is not used as one.",
+     "registry_predicates": 23,
+     "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+     "scorer_version": "1.0.0+registry.71c96a519562",
+     "sys_path": [
+      "<EXPORT_ROOT>/206e1838224add4d7d685349ab1daaf4ab717c6f/src",
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "<DEV_CHECKOUT>/.venv/lib/python3.12/site-packages",
+      "<DEV_CHECKOUT>/src"
+     ],
+     "worker_file_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+    },
+    "tree": {
+     "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+     "corpus": {
+      "F_canon": "af4834d8c0e4992f88a9c8d1a1dda88e6691a849c22f1265aee4350bba1297e0",
+      "F_canon_definition": "sha256 over the id-sorted sequence of json.dumps([id, canonical {fixture, constraints, turns}])",
+      "F_file": "117b855f67309498b640b2e6073487eeccd9597cc3f568bb4032a0740c18e329",
+      "F_file_definition": "sha256 folded over (relative path, per-file sha256) in path order",
+      "path": "src/nlebench/dataset/scenarios_v3_1",
+      "scenario_files": 800
+     },
+     "files": {
+      "models": {
+       "git_blob": "9058e6a77d02b77b9956056ac480a895065060eb",
+       "path": "src/nlebench/models.py",
+       "sha256": "5ee991c9f9d6170d432255d97b15b134f2b5e439a1eb071ab6bef5839ed0f2be"
+      },
+      "probe": {
+       "git_blob": "c33d2165fefb849b30595420c6db64293678a1ee",
+       "path": "<LEDGER_DIR>/false_success_probe.py",
+       "sha256": "c2821d4334f3ca10a59c82a6f2e6f9fa9e1bd41a7515c64c3b58d12bdf8d8382"
+      },
+      "probe_full": {
+       "git_blob": "a6f72f31b9b48ffb1a99157b444a76b8dbfd6b1d",
+       "path": "<LEDGER_DIR>/false_success_probe_full.py",
+       "sha256": "39b7fdd640bc7672cf2e8aac6808979e83863e40409ae143513cdfb66c9bce55"
+      },
+      "runner_executor": {
+       "git_blob": "96cb0e711bb2e7b84c18fda0c953417f911908b8",
+       "path": "src/nlebench/runner/executor.py",
+       "sha256": "4afd48e0e4eff8b4959f5928e991ad581892ba43f17f16c6408f79418338e488"
+      },
+      "runner_track": {
+       "git_blob": "86850208e44acc15d0dd3a1860c6edc9ee06b51b",
+       "path": "src/nlebench/runner/track_runner.py",
+       "sha256": "3a072553493ca59037a0a132d056a5e92fb53d8cebb369084f03bdd66c7b9410"
+      },
+      "scenario_loader": {
+       "git_blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+       "path": "src/nlebench/runner/scenario_loader.py",
+       "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+      },
+      "scorer": {
+       "git_blob": "b5be35b4c3a6deb3d5b75f86fe839006d0266a32",
+       "path": "src/nlebench/runner/constraints.py",
+       "sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777"
+      },
+      "structural_validator": {
+       "git_blob": "e0b4658aa0d8e845375f0aae13faf07c9ac19ea9",
+       "path": "src/nlebench/runner/validator.py",
+       "sha256": "52fbf778a0517222b13fdd10d8f376701eb9bc25f1df2247dee382be18261d4d"
+      },
+      "tool_executor": {
+       "git_blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+       "path": "src/nlebench/tools/executor.py",
+       "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+      },
+      "tool_schema": {
+       "git_blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+       "path": "src/nlebench/tools/schema.py",
+       "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+      }
+     },
+     "trees": {
+      "corpus_v3_1": {
+       "git_tree": "58a61aca69d169ad417b4c75216ccd5e8ef22a13",
+       "path": "src/nlebench/dataset/scenarios_v3_1"
+      },
+      "fixtures": {
+       "git_tree": "3b793b3d327e21a5c3ffa495826a53868960a59a",
+       "path": "src/nlebench/dataset/fixtures"
+      },
+      "src_nlebench": {
+       "git_tree": "7121ba8afb034a4cc3552db85dfef265f1617929",
+       "path": "src/nlebench"
+      },
+      "tools": {
+       "git_tree": "0661c5ac14d066c608393d5f1fcc0bb111aaa93e",
+       "path": "src/nlebench/tools"
+      }
+     }
+    }
+   },
+   "post": {
+    "execution": {
+     "analysis_code": {
+      "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+      "note": "content hashes only; no commit hash, so the record cannot refer to itself",
+      "source_manifest": {
+       "va142-camera-ready-p1-20261004/p1_identity.py": "7cb139983222a9e374f9f10fb2ab40087ec92fb976a0a42f9185bded7d9eb776",
+       "va142-camera-ready-p1-20261004/p1lib.py": "50536701c8cb20419b5f3d18de4120dadebd8eea001e8ed19b12956b27629e41",
+       "va142-camera-ready-p3-20261005/e1_probes.py": "cb5f4f73c977e9fae08866e12d25834f6690c76ff2a9fd98b93531e24b9ff1cb",
+       "va142-camera-ready-p3-20261005/e1_recover.py": "6420cd2141ce01e9a9d0c92452d05842610c4c0de183d5a32e0928934eefd1a2",
+       "va142-camera-ready-p3-20261005/e2_cases.py": "e7c64220f850ff220e0823c9c2292f58c65eb511118fb726bd2b3e3b077e1a91",
+       "va142-camera-ready-p3-20261005/e3_inventory.py": "91a202715d3e995e27bdabc816dd4c194d9b89db1887e8f3cac0b924e5c152ab",
+       "va142-camera-ready-p3-20261005/p3_compare.py": "ab21306a1feb0cb318def4b3d64f5534575e166af46ba4d216d85a5bd9a83ef5",
+       "va142-camera-ready-p3-20261005/p3_worker.py": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655",
+       "va142-camera-ready-p3-20261005/p3lib.py": "3f0667dd0ffe523ef857e17e88526c04a967c847844154981b6c81f32cd8abcb",
+       "va142-camera-ready-p3-20261005/run_p3.py": "de6430281eb6fad4bf766052ae3927cec4837b619d6616620f10019d75112f55"
+      },
+      "source_manifest_sha256": "397f44cf2be358d1caea14d77857cd5b73615c4fb900de80530af1a1529bc8f6",
+      "worker_file": "va142-camera-ready-p3-20261005/p3_worker.py",
+      "worker_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+     },
+     "env": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "P3_EXPORT_ROOT": "<EXPORT_ROOT>",
+      "PATH": "<LOCAL_PATH_ENV>",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0"
+     },
+     "export_verification": {
+      "actual_content_sha256": "6388305225b8c1e71804b18a524e5e6239ab0ac79a4a5def27388b299495065b",
+      "expected_content_sha256": "6388305225b8c1e71804b18a524e5e6239ab0ac79a4a5def27388b299495065b",
+      "files_verified": 3157,
+      "kind": "dev",
+      "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+      "when": "immediately before this launch"
+     },
+     "external_tools": {
+      "chmod": {
+       "realpath": "/usr/bin/chmod",
+       "resolved": "/usr/bin/chmod",
+       "sha256": "636dc2e0792244a537121ec10b6e140797cb8d27d231f5c1d025148d1b0c6fc8",
+       "version": "chmod (GNU coreutils) 9.4"
+      },
+      "cp": {
+       "realpath": "/usr/bin/cp",
+       "resolved": "/usr/bin/cp",
+       "sha256": "95cdd604fdf0a292e349d27d1a80170ca0913bd3bbd9d2c0fcfc6c8adaebe2f0",
+       "version": "cp (GNU coreutils) 9.4"
+      },
+      "git": {
+       "realpath": "/usr/bin/git",
+       "resolved": "/usr/bin/git",
+       "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668",
+       "version": "git version 2.43.0"
+      },
+      "tar": {
+       "realpath": "/usr/bin/tar",
+       "resolved": "/usr/bin/tar",
+       "sha256": "3ee2c3c0b4dd9aacebfd2f0fbae44bad36348203acff78a44888dd58c05f811c",
+       "version": "tar (GNU tar) 1.35"
+      }
+     },
+     "pinned_source": {
+      "actual_scorer_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+      "expected_scorer_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+      "identity": {
+       "commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+       "repo": "nle-bench-dev"
+      },
+      "kind": "dev"
+     }
+    },
+    "input_sha256": "27b832dcbbe91196605edce9890585933272410e7d8509a2b7fc9a6361c0461e",
+    "output_sha256": "50774a5752cac60993638eddb880f80988876f159089a0b2e21fe833f5d99d44",
+    "runtime": {
+     "argv": [
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+      "jobs",
+      "<EXPORT_ROOT>/28a5f11c6f26f3858dbc1c533e525b022b90801a/src",
+      "<RUN_WORKDIR>/jobs.json",
+      "<RUN_WORKDIR>/results.json"
+     ],
+     "dependencies": {
+      "PyYAML": "6.0.3",
+      "annotated-types": "0.8.0",
+      "pydantic": "2.13.5",
+      "pydantic-core": "2.46.5",
+      "typing-extensions": "4.16.0"
+     },
+     "executable": "<DEV_CHECKOUT>/.venv/bin/python",
+     "executable_realpath": "/usr/bin/python3.12",
+     "implementation": "CPython",
+     "nlebench_file": "<EXPORT_ROOT>/28a5f11c6f26f3858dbc1c533e525b022b90801a/src/nlebench/__init__.py",
+     "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+     "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+     "registry_note": "SCORER_VERSION carries a digest of the declared predicate contract. It is not a hash of the executable and is not used as one.",
+     "registry_predicates": null,
+     "scorer_file_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+     "scorer_version": null,
+     "sys_path": [
+      "<EXPORT_ROOT>/28a5f11c6f26f3858dbc1c533e525b022b90801a/src",
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "<DEV_CHECKOUT>/.venv/lib/python3.12/site-packages",
+      "<DEV_CHECKOUT>/src"
+     ],
+     "worker_file_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+    },
+    "tree": {
+     "commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+     "corpus": {
+      "F_canon": "514dbe39bd51a8a3ba9daded9c0f3a745b9730403b7061cd54ba995308b8bcd1",
+      "F_canon_definition": "sha256 over the id-sorted sequence of json.dumps([id, canonical {fixture, constraints, turns}])",
+      "F_file": "5fc5e789397823a77ac7af4c69d9f34f2eab0aaef786dfca42c809a82c7a8e5d",
+      "F_file_definition": "sha256 folded over (relative path, per-file sha256) in path order",
+      "path": "src/nlebench/dataset/scenarios_v3_1",
+      "scenario_files": 800
+     },
+     "files": {
+      "models": {
+       "git_blob": "457f5013f7f6afbe98f168083f74776fcff87525",
+       "path": "src/nlebench/models.py",
+       "sha256": "166ffbeb91a7a6bca471c95b6690b40dfd1730b114c5abb8cc9ceead12f8a7bf"
+      },
+      "probe": {
+       "git_blob": "018607d486762c78db73bc3f455ac7ef9b182381",
+       "path": "<LEDGER_DIR>/false_success_probe.py",
+       "sha256": "26bf436898c84a48748fb46fc1adf029e99938ded555d23b494c7b2391d5c8ab"
+      },
+      "probe_full": {
+       "git_blob": "bca7535bdf77d11ab06352ee83f55456b518aaa3",
+       "path": "<LEDGER_DIR>/false_success_probe_full.py",
+       "sha256": "7e5ac4def9092a5defca540a16896ffe61cba612665c45b3fcc72bff576dd40d"
+      },
+      "runner_executor": {
+       "git_blob": "96cb0e711bb2e7b84c18fda0c953417f911908b8",
+       "path": "src/nlebench/runner/executor.py",
+       "sha256": "4afd48e0e4eff8b4959f5928e991ad581892ba43f17f16c6408f79418338e488"
+      },
+      "runner_track": {
+       "git_blob": "178a92fe823f7c03005e7ad9c24199c22d43e025",
+       "path": "src/nlebench/runner/track_runner.py",
+       "sha256": "24b10a4f925f74b719a93b95ef3505468262be9c6f3c62bc901757104582c214"
+      },
+      "scenario_loader": {
+       "git_blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+       "path": "src/nlebench/runner/scenario_loader.py",
+       "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+      },
+      "scorer": {
+       "git_blob": "be921125f91627514f3dc7287c67675a16953408",
+       "path": "src/nlebench/runner/constraints.py",
+       "sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6"
+      },
+      "structural_validator": {
+       "git_blob": "c6e303fc9165ae9e95f0a53eccdc07bf6a88c108",
+       "path": "src/nlebench/runner/validator.py",
+       "sha256": "0ce8380c6056ac9bd95773cbe7a73ebac4eef49b8a81162e44986d2889b353cb"
+      },
+      "tool_executor": {
+       "git_blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+       "path": "src/nlebench/tools/executor.py",
+       "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+      },
+      "tool_schema": {
+       "git_blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+       "path": "src/nlebench/tools/schema.py",
+       "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+      }
+     },
+     "trees": {
+      "corpus_v3_1": {
+       "git_tree": "b7bcf73fc2572c97cbf25e0d6634185c817fa17b",
+       "path": "src/nlebench/dataset/scenarios_v3_1"
+      },
+      "fixtures": {
+       "git_tree": "3b793b3d327e21a5c3ffa495826a53868960a59a",
+       "path": "src/nlebench/dataset/fixtures"
+      },
+      "src_nlebench": {
+       "git_tree": "60ea26924a5a4e2afa8bea56ef3b815be2afb32c",
+       "path": "src/nlebench"
+      },
+      "tools": {
+       "git_tree": "0661c5ac14d066c608393d5f1fcc0bb111aaa93e",
+       "path": "src/nlebench/tools"
+      }
+     }
+    }
+   },
+   "pre": {
+    "execution": {
+     "analysis_code": {
+      "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+      "note": "content hashes only; no commit hash, so the record cannot refer to itself",
+      "source_manifest": {
+       "va142-camera-ready-p1-20261004/p1_identity.py": "7cb139983222a9e374f9f10fb2ab40087ec92fb976a0a42f9185bded7d9eb776",
+       "va142-camera-ready-p1-20261004/p1lib.py": "50536701c8cb20419b5f3d18de4120dadebd8eea001e8ed19b12956b27629e41",
+       "va142-camera-ready-p3-20261005/e1_probes.py": "cb5f4f73c977e9fae08866e12d25834f6690c76ff2a9fd98b93531e24b9ff1cb",
+       "va142-camera-ready-p3-20261005/e1_recover.py": "6420cd2141ce01e9a9d0c92452d05842610c4c0de183d5a32e0928934eefd1a2",
+       "va142-camera-ready-p3-20261005/e2_cases.py": "e7c64220f850ff220e0823c9c2292f58c65eb511118fb726bd2b3e3b077e1a91",
+       "va142-camera-ready-p3-20261005/e3_inventory.py": "91a202715d3e995e27bdabc816dd4c194d9b89db1887e8f3cac0b924e5c152ab",
+       "va142-camera-ready-p3-20261005/p3_compare.py": "ab21306a1feb0cb318def4b3d64f5534575e166af46ba4d216d85a5bd9a83ef5",
+       "va142-camera-ready-p3-20261005/p3_worker.py": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655",
+       "va142-camera-ready-p3-20261005/p3lib.py": "3f0667dd0ffe523ef857e17e88526c04a967c847844154981b6c81f32cd8abcb",
+       "va142-camera-ready-p3-20261005/run_p3.py": "de6430281eb6fad4bf766052ae3927cec4837b619d6616620f10019d75112f55"
+      },
+      "source_manifest_sha256": "397f44cf2be358d1caea14d77857cd5b73615c4fb900de80530af1a1529bc8f6",
+      "worker_file": "va142-camera-ready-p3-20261005/p3_worker.py",
+      "worker_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+     },
+     "env": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "P3_EXPORT_ROOT": "<EXPORT_ROOT>",
+      "PATH": "<LOCAL_PATH_ENV>",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0"
+     },
+     "export_verification": {
+      "actual_content_sha256": "a3c11404c83e79343d4822dd9f4b40acfcf42329ec6e6e2044ed77dd73bf3936",
+      "expected_content_sha256": "a3c11404c83e79343d4822dd9f4b40acfcf42329ec6e6e2044ed77dd73bf3936",
+      "files_verified": 3156,
+      "kind": "dev",
+      "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+      "when": "immediately before this launch"
+     },
+     "external_tools": {
+      "chmod": {
+       "realpath": "/usr/bin/chmod",
+       "resolved": "/usr/bin/chmod",
+       "sha256": "636dc2e0792244a537121ec10b6e140797cb8d27d231f5c1d025148d1b0c6fc8",
+       "version": "chmod (GNU coreutils) 9.4"
+      },
+      "cp": {
+       "realpath": "/usr/bin/cp",
+       "resolved": "/usr/bin/cp",
+       "sha256": "95cdd604fdf0a292e349d27d1a80170ca0913bd3bbd9d2c0fcfc6c8adaebe2f0",
+       "version": "cp (GNU coreutils) 9.4"
+      },
+      "git": {
+       "realpath": "/usr/bin/git",
+       "resolved": "/usr/bin/git",
+       "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668",
+       "version": "git version 2.43.0"
+      },
+      "tar": {
+       "realpath": "/usr/bin/tar",
+       "resolved": "/usr/bin/tar",
+       "sha256": "3ee2c3c0b4dd9aacebfd2f0fbae44bad36348203acff78a44888dd58c05f811c",
+       "version": "tar (GNU tar) 1.35"
+      }
+     },
+     "pinned_source": {
+      "actual_scorer_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+      "expected_scorer_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+      "identity": {
+       "commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+       "repo": "nle-bench-dev"
+      },
+      "kind": "dev"
+     }
+    },
+    "input_sha256": "63082e6aacce3d9b0347a0e14c854b99102688cd45838b9813d67048d0d43ec1",
+    "output_sha256": "633d030ad7ef4505937cca143ae3423750cf4226dab37052ab78a831eacb9817",
+    "runtime": {
+     "argv": [
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+      "jobs",
+      "<EXPORT_ROOT>/69f8d58a1382b4014d12c13db1e73aa0dd18becc/src",
+      "<RUN_WORKDIR>/jobs.json",
+      "<RUN_WORKDIR>/results.json"
+     ],
+     "dependencies": {
+      "PyYAML": "6.0.3",
+      "annotated-types": "0.8.0",
+      "pydantic": "2.13.5",
+      "pydantic-core": "2.46.5",
+      "typing-extensions": "4.16.0"
+     },
+     "executable": "<DEV_CHECKOUT>/.venv/bin/python",
+     "executable_realpath": "/usr/bin/python3.12",
+     "implementation": "CPython",
+     "nlebench_file": "<EXPORT_ROOT>/69f8d58a1382b4014d12c13db1e73aa0dd18becc/src/nlebench/__init__.py",
+     "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+     "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+     "registry_note": "SCORER_VERSION carries a digest of the declared predicate contract. It is not a hash of the executable and is not used as one.",
+     "registry_predicates": null,
+     "scorer_file_sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6",
+     "scorer_version": null,
+     "sys_path": [
+      "<EXPORT_ROOT>/69f8d58a1382b4014d12c13db1e73aa0dd18becc/src",
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "<DEV_CHECKOUT>/.venv/lib/python3.12/site-packages",
+      "<DEV_CHECKOUT>/src"
+     ],
+     "worker_file_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+    },
+    "tree": {
+     "commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+     "corpus": {
+      "F_canon": "26f1292a159ac8090e1f8942b85809972ded79bd34eccb5e2a948bb956ef1582",
+      "F_canon_definition": "sha256 over the id-sorted sequence of json.dumps([id, canonical {fixture, constraints, turns}])",
+      "F_file": "62d3f1be33e51b71f074cb1c4bdd7c697c097b7425d78b6785fe3f75e86192bf",
+      "F_file_definition": "sha256 folded over (relative path, per-file sha256) in path order",
+      "path": "src/nlebench/dataset/scenarios_v3_1",
+      "scenario_files": 800
+     },
+     "files": {
+      "models": {
+       "git_blob": "c279283807b61b9b43b023eb208f2b39db384a34",
+       "path": "src/nlebench/models.py",
+       "sha256": "c938bb9c9e0b50cf9b79ec3f2767642b326f0bdfbe0a01700fd025fa82f57914"
+      },
+      "probe": {
+       "git_blob": "018607d486762c78db73bc3f455ac7ef9b182381",
+       "path": "<LEDGER_DIR>/false_success_probe.py",
+       "sha256": "26bf436898c84a48748fb46fc1adf029e99938ded555d23b494c7b2391d5c8ab"
+      },
+      "probe_full": {
+       "path": "<LEDGER_DIR>/false_success_probe_full.py",
+       "present": false
+      },
+      "runner_executor": {
+       "git_blob": "96cb0e711bb2e7b84c18fda0c953417f911908b8",
+       "path": "src/nlebench/runner/executor.py",
+       "sha256": "4afd48e0e4eff8b4959f5928e991ad581892ba43f17f16c6408f79418338e488"
+      },
+      "runner_track": {
+       "git_blob": "4b7a5a70c44ddb9245d18693fa53086600524e0c",
+       "path": "src/nlebench/runner/track_runner.py",
+       "sha256": "ed8927be3b5ef05d208ac620ac5ecca3f0f2ffa20cfb78461f0607704a93daaf"
+      },
+      "scenario_loader": {
+       "git_blob": "0fef763b15973f95d9b86630d6d3ea7aece8c756",
+       "path": "src/nlebench/runner/scenario_loader.py",
+       "sha256": "85990ae7c83299a6aa5125a7e5d63c220f4e3bad7e04fabeba8336cb4dd2408e"
+      },
+      "scorer": {
+       "git_blob": "be921125f91627514f3dc7287c67675a16953408",
+       "path": "src/nlebench/runner/constraints.py",
+       "sha256": "e649df9265f517d71efd8921067739a3a1b7d0b16fc82f72e0a82cfd1036ada6"
+      },
+      "structural_validator": {
+       "git_blob": "c6e303fc9165ae9e95f0a53eccdc07bf6a88c108",
+       "path": "src/nlebench/runner/validator.py",
+       "sha256": "0ce8380c6056ac9bd95773cbe7a73ebac4eef49b8a81162e44986d2889b353cb"
+      },
+      "tool_executor": {
+       "git_blob": "0cca5f2b4c573fb9918482a19534c524ed83cefa",
+       "path": "src/nlebench/tools/executor.py",
+       "sha256": "2e52bbc7fda8c9ff117ee6ef5cf423300f8526268532fa71ce2de86d14489df7"
+      },
+      "tool_schema": {
+       "git_blob": "74c99dc6d8679e680158519f9edddbc959a5dd26",
+       "path": "src/nlebench/tools/schema.py",
+       "sha256": "3ececcbe8b945566abcddd278d4d835f993df9d1920c0eeef7dd25b3527e0040"
+      }
+     },
+     "trees": {
+      "corpus_v3_1": {
+       "git_tree": "8f325bcf9457d4b57265788c5ceb59317c081cf8",
+       "path": "src/nlebench/dataset/scenarios_v3_1"
+      },
+      "fixtures": {
+       "git_tree": "3b793b3d327e21a5c3ffa495826a53868960a59a",
+       "path": "src/nlebench/dataset/fixtures"
+      },
+      "src_nlebench": {
+       "git_tree": "4aacb4abeda7c8f0c5f52b114eb087f9a255fe7b",
+       "path": "src/nlebench"
+      },
+      "tools": {
+       "git_tree": "0661c5ac14d066c608393d5f1fcc0bb111aaa93e",
+       "path": "src/nlebench/tools"
+      }
+     }
+    }
+   }
+  },
+  "stages": {
+   "code_axis_alone": {
+    "code_commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+    "initial_state_sha256": "4e04626ea272552ec1b0a022490e3e33caaccc3507404f2b71cdba848ad9969b",
+    "mutant": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "dip_to_black"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      }
+     ],
+     "final_state_sha256": "82eb34d66a16fdfcd79d177edddd7a74e66a3f118693994a2bf3d272c3590eca",
+     "passed": true,
+     "scorer_error": null,
+     "scorer_version_reported": null
+    },
+    "reference": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "cross_dissolve"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      }
+     ],
+     "final_state_sha256": "e2bf554b04a297ee268b67d28e597624c38b7f2eda75f60ab5d7b558086e222b",
+     "passed": true,
+     "scorer_error": null,
+     "scorer_version_reported": null
+    },
+    "reference_steps": [
+     {
+      "params": {
+       "end": 22,
+       "in_point": 0,
+       "media_id": "av_media_3",
+       "out_point": 2,
+       "start": 20,
+       "track_id": "video_track_1"
+      },
+      "tool": "add_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 2,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "scenario_constraints": {
+     "required": [
+      {
+       "entity_exists": {
+        "entity": "$new_clip_1"
+       }
+      },
+      {
+       "entity_exists": {
+        "entity": "$new_transition_1"
+       }
+      }
+     ],
+     "specified": [],
+     "tolerance_override": null
+    },
+    "scenario_sha256": "25c92c33cfab6915b53bc94beb0c9e6607b5ba25465ddc6f4ab69b878053fb43"
+   },
+   "constraint_axis_alone": {
+    "code_commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+    "initial_state_sha256": "4e04626ea272552ec1b0a022490e3e33caaccc3507404f2b71cdba848ad9969b",
+    "mutant": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "dip_to_black"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "attribute_equals": {
+         "entity": "$new_transition_1",
+         "field": "type",
+         "value": "cross_dissolve"
+        }
+       },
+       "error": null,
+       "passed": false,
+       "predicate": "attribute_equals"
+      }
+     ],
+     "final_state_sha256": "82eb34d66a16fdfcd79d177edddd7a74e66a3f118693994a2bf3d272c3590eca",
+     "passed": false,
+     "scorer_error": null,
+     "scorer_version_reported": null
+    },
+    "reference": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "cross_dissolve"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "attribute_equals": {
+         "entity": "$new_transition_1",
+         "field": "type",
+         "value": "cross_dissolve"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "attribute_equals"
+      }
+     ],
+     "final_state_sha256": "e2bf554b04a297ee268b67d28e597624c38b7f2eda75f60ab5d7b558086e222b",
+     "passed": true,
+     "scorer_error": null,
+     "scorer_version_reported": null
+    },
+    "reference_steps": [
+     {
+      "params": {
+       "end": 22,
+       "in_point": 0,
+       "media_id": "av_media_3",
+       "out_point": 2,
+       "start": 20,
+       "track_id": "video_track_1"
+      },
+      "tool": "add_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 2,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "scenario_constraints": {
+     "required": [
+      {
+       "entity_exists": {
+        "entity": "$new_clip_1"
+       }
+      },
+      {
+       "entity_exists": {
+        "entity": "$new_transition_1"
+       }
+      },
+      {
+       "attribute_equals": {
+        "entity": "$new_transition_1",
+        "field": "type",
+        "value": "cross_dissolve"
+       }
+      }
+     ],
+     "specified": [],
+     "tolerance_override": null
+    },
+    "scenario_sha256": "ec70c98004a5db20ac6e4e4f36e74b8355c97c448606c07c38af862aae4ae6e3"
+   },
+   "current_pin": {
+    "code_commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+    "initial_state_sha256": "4e04626ea272552ec1b0a022490e3e33caaccc3507404f2b71cdba848ad9969b",
+    "mutant": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "dip_to_black"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "attribute_equals": {
+         "entity": "$new_transition_1",
+         "field": "type",
+         "value": "cross_dissolve"
+        }
+       },
+       "error": null,
+       "passed": false,
+       "predicate": "attribute_equals"
+      },
+      {
+       "constraint": {
+        "duration_equals": {
+         "entity": "$new_clip_1",
+         "value": 2.0
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "duration_equals"
+      }
+     ],
+     "final_state_sha256": "82eb34d66a16fdfcd79d177edddd7a74e66a3f118693994a2bf3d272c3590eca",
+     "passed": false,
+     "scorer_error": null,
+     "scorer_version_reported": "1.0.0+registry.71c96a519562"
+    },
+    "reference": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "cross_dissolve"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "attribute_equals": {
+         "entity": "$new_transition_1",
+         "field": "type",
+         "value": "cross_dissolve"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "attribute_equals"
+      },
+      {
+       "constraint": {
+        "duration_equals": {
+         "entity": "$new_clip_1",
+         "value": 2.0
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "duration_equals"
+      }
+     ],
+     "final_state_sha256": "e2bf554b04a297ee268b67d28e597624c38b7f2eda75f60ab5d7b558086e222b",
+     "passed": true,
+     "scorer_error": null,
+     "scorer_version_reported": "1.0.0+registry.71c96a519562"
+    },
+    "reference_steps": [
+     {
+      "params": {
+       "end": 22,
+       "in_point": 0,
+       "media_id": "av_media_3",
+       "out_point": 2,
+       "start": 20,
+       "track_id": "video_track_1"
+      },
+      "tool": "add_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 2,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "scenario_constraints": {
+     "required": [
+      {
+       "entity_exists": {
+        "entity": "$new_clip_1"
+       }
+      },
+      {
+       "entity_exists": {
+        "entity": "$new_transition_1"
+       }
+      },
+      {
+       "attribute_equals": {
+        "entity": "$new_transition_1",
+        "field": "type",
+        "value": "cross_dissolve"
+       }
+      },
+      {
+       "duration_equals": {
+        "entity": "$new_clip_1",
+        "value": 2.0
+       }
+      }
+     ],
+     "specified": [],
+     "tolerance_override": null
+    },
+    "scenario_sha256": "61b686d4ec14e36fd8e78bc486eb2d00305f7566c7311071c4bddbea81986c0d"
+   },
+   "post": {
+    "code_commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+    "initial_state_sha256": "4e04626ea272552ec1b0a022490e3e33caaccc3507404f2b71cdba848ad9969b",
+    "mutant": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "dip_to_black"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "attribute_equals": {
+         "entity": "$new_transition_1",
+         "field": "type",
+         "value": "cross_dissolve"
+        }
+       },
+       "error": null,
+       "passed": false,
+       "predicate": "attribute_equals"
+      }
+     ],
+     "final_state_sha256": "82eb34d66a16fdfcd79d177edddd7a74e66a3f118693994a2bf3d272c3590eca",
+     "passed": false,
+     "scorer_error": null,
+     "scorer_version_reported": null
+    },
+    "reference": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "cross_dissolve"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "attribute_equals": {
+         "entity": "$new_transition_1",
+         "field": "type",
+         "value": "cross_dissolve"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "attribute_equals"
+      }
+     ],
+     "final_state_sha256": "e2bf554b04a297ee268b67d28e597624c38b7f2eda75f60ab5d7b558086e222b",
+     "passed": true,
+     "scorer_error": null,
+     "scorer_version_reported": null
+    },
+    "reference_steps": [
+     {
+      "params": {
+       "end": 22,
+       "in_point": 0,
+       "media_id": "av_media_3",
+       "out_point": 2,
+       "start": 20,
+       "track_id": "video_track_1"
+      },
+      "tool": "add_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 2,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "scenario_constraints": {
+     "required": [
+      {
+       "entity_exists": {
+        "entity": "$new_clip_1"
+       }
+      },
+      {
+       "entity_exists": {
+        "entity": "$new_transition_1"
+       }
+      },
+      {
+       "attribute_equals": {
+        "entity": "$new_transition_1",
+        "field": "type",
+        "value": "cross_dissolve"
+       }
+      }
+     ],
+     "specified": [],
+     "tolerance_override": null
+    },
+    "scenario_sha256": "abf8dc2d3c14b686871ffc9ce908d3819579e183e7316516a0306549960552b1"
+   },
+   "pre": {
+    "code_commit": "69f8d58a1382b4014d12c13db1e73aa0dd18becc",
+    "initial_state_sha256": "4e04626ea272552ec1b0a022490e3e33caaccc3507404f2b71cdba848ad9969b",
+    "mutant": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "dip_to_black"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      }
+     ],
+     "final_state_sha256": "82eb34d66a16fdfcd79d177edddd7a74e66a3f118693994a2bf3d272c3590eca",
+     "passed": true,
+     "scorer_error": null,
+     "scorer_version_reported": null
+    },
+    "reference": {
+     "all_calls_succeed": true,
+     "calls": [
+      {
+       "index": 0,
+       "params": {
+        "end": 22,
+        "in_point": 0,
+        "media_id": "av_media_3",
+        "out_point": 2,
+        "start": 20,
+        "track_id": "video_track_1"
+       },
+       "result": {
+        "clip_id": "clip_1",
+        "success": true
+       },
+       "success": true,
+       "tool": "add_clip"
+      },
+      {
+       "index": 1,
+       "params": {
+        "clip_id_1": "video_clip_2",
+        "clip_id_2": "video_clip_3",
+        "duration": 2,
+        "track_id": "video_track_1",
+        "transition_type": "cross_dissolve"
+       },
+       "result": {
+        "success": true,
+        "transition_id": "transition_1"
+       },
+       "success": true,
+       "tool": "add_transition"
+      }
+     ],
+     "checks": [
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_clip_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      },
+      {
+       "constraint": {
+        "entity_exists": {
+         "entity": "$new_transition_1"
+        }
+       },
+       "error": null,
+       "passed": true,
+       "predicate": "entity_exists"
+      }
+     ],
+     "final_state_sha256": "e2bf554b04a297ee268b67d28e597624c38b7f2eda75f60ab5d7b558086e222b",
+     "passed": true,
+     "scorer_error": null,
+     "scorer_version_reported": null
+    },
+    "reference_steps": [
+     {
+      "params": {
+       "end": 22,
+       "in_point": 0,
+       "media_id": "av_media_3",
+       "out_point": 2,
+       "start": 20,
+       "track_id": "video_track_1"
+      },
+      "tool": "add_clip"
+     },
+     {
+      "params": {
+       "clip_id_1": "video_clip_2",
+       "clip_id_2": "video_clip_3",
+       "duration": 2,
+       "track_id": "video_track_1",
+       "transition_type": "cross_dissolve"
+      },
+      "tool": "add_transition"
+     }
+    ],
+    "scenario_constraints": {
+     "required": [
+      {
+       "entity_exists": {
+        "entity": "$new_clip_1"
+       }
+      },
+      {
+       "entity_exists": {
+        "entity": "$new_transition_1"
+       }
+      }
+     ],
+     "specified": [],
+     "tolerance_override": null
+    },
+    "scenario_sha256": "25c92c33cfab6915b53bc94beb0c9e6607b5ba25465ddc6f4ab69b878053fb43"
+   }
+  }
+ },
+ "reference_is": "the stored reference trajectory: a stored tool-call sequence the grader accepts. It is not called a correct or verified solution.",
+ "role": "Appendix A: agreement between a stored reference trajectory and the checker does not establish instruction fidelity (type-axis result kept)",
+ "same_states_judged_in_every_stage": {
+  "code_axis_alone": {
+   "mutant": true,
+   "reference": true
+  },
+  "constraint_axis_alone": {
+   "mutant": true,
+   "reference": true
+  },
+  "current_pin": {
+   "mutant": true,
+   "reference": true
+  },
+  "post": {
+   "mutant": true,
+   "reference": true
+  },
+  "pre": {
+   "mutant": true,
+   "reference": true
+  }
+ },
+ "split": "dev",
+ "states": {
+  "files": {
+   "initial": {
+    "file": "initial_state.json",
+    "sha256": "4e04626ea272552ec1b0a022490e3e33caaccc3507404f2b71cdba848ad9969b"
+   },
+   "mutant_final": {
+    "file": "mutant_final_state.json",
+    "sha256": "82eb34d66a16fdfcd79d177edddd7a74e66a3f118693994a2bf3d272c3590eca"
+   },
+   "reference_final": {
+    "file": "reference_final_state.json",
+    "sha256": "e2bf554b04a297ee268b67d28e597624c38b7f2eda75f60ab5d7b558086e222b"
+   }
+  },
+  "initial_to_mutant_final": {
+   "added": {
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].duration.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].duration.n": 2,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].enabled": true,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].id": "clip_1",
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].name": "outro.mp4",
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].ref_id": "av_media_3",
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].ref_type": "media",
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].source_in.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].source_in.n": 0,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].source_out.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].source_out.n": 2,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].timeline_start.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].timeline_start.n": 20,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].type": "video",
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].clip_after_id": "video_clip_3",
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].clip_before_id": "video_clip_2",
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].duration.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].duration.n": 2,
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].id": "transition_1",
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].type": "dip_to_black"
+   },
+   "changed": {},
+   "removed": {
+    "timelines[sequence_1].tracks[video_track_1].transitions": []
+   }
+  },
+  "initial_to_reference_final": {
+   "added": {
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].duration.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].duration.n": 2,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].enabled": true,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].id": "clip_1",
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].name": "outro.mp4",
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].ref_id": "av_media_3",
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].ref_type": "media",
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].source_in.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].source_in.n": 0,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].source_out.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].source_out.n": 2,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].timeline_start.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].timeline_start.n": 20,
+    "timelines[sequence_1].tracks[video_track_1].clips[clip_1].type": "video",
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].clip_after_id": "video_clip_3",
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].clip_before_id": "video_clip_2",
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].duration.d": 1,
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].duration.n": 2,
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].id": "transition_1",
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].type": "cross_dissolve"
+   },
+   "changed": {},
+   "removed": {
+    "timelines[sequence_1].tracks[video_track_1].transitions": []
+   }
+  },
+  "note": "States of the pre stage. The harness builds the state from the named fixture and the step list; constraints do not affect it. Later stages record the state hash, so an equal hash means the same state was judged.",
+  "reference_final_to_mutant_final": {
+   "added": {},
+   "changed": {
+    "timelines[sequence_1].tracks[video_track_1].transitions[transition_1].type": {
+     "after": "dip_to_black",
+     "before": "cross_dissolve"
+    }
+   },
+   "removed": {}
+  }
+ },
+ "status": "complete",
+ "what_this_supports": "A 2026-10 run of the pinned harness on the pinned scenario versions gives these states and verdicts. It does not show which executable produced the 2026-08 record, and it is not an independent judgment that the instruction requires the value."
+}

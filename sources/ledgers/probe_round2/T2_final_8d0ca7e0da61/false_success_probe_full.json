@@ -1,0 +1,509 @@
+{
+ "_meta": {
+  "what": "false_success_probe.py 의 확장 — 모든 수치 파라미터(M4-full) + 문자열 리터럴(M5)",
+  "why": "원본 M4 는 시나리오당 첫 수치 파라미터 하나만 보고 break 했다. 따라서 79건(→보강 후 26건)은 하한이었다. 뒤 단계의 값과 자막 텍스트·이름 같은 문자열 리터럴은 한 번도 검사되지 않았다.",
+  "mutations": {
+   "M4-full": "정답의 모든 단계 × 모든 수치 파라미터를 각각 +7",
+   "M5": "자막 텍스트/이름/경로는 다른 문자열로, 트랜지션·이펙트 종류는 유효한 다른 종류로"
+  },
+  "scoring_path": "validate_named_constraints (하네스 경로)",
+  "차이점": "픽스처 스펙을 deepcopy 해서 넘긴다(앞 라운드 P6 오탐 방지)",
+  "note": "변종이 통과하면 제약 집합이 지시를 못 붙잡는 것이다."
+ },
+ "stats": {
+  "검사한 시나리오": 633,
+  "M4-full 시행": 1163,
+  "M5 시행": 455,
+  "정답없음": 7
+ },
+ "findings": {
+  "M4full_값이_틀려도_통과": [
+   {
+    "scenario": "NLB-v3-CX-AT-003",
+    "step": 0,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-AT-007",
+    "step": 1,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 8.0,
+    "used": 15.0
+   },
+   {
+    "scenario": "NLB-v3-CX-AT-009",
+    "step": 0,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-002",
+    "step": 1,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-005",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "end",
+    "intended": 30.0,
+    "used": 37.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-006",
+    "step": 1,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 13.0,
+    "used": 20.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-007",
+    "step": 1,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-009",
+    "step": 1,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-009",
+    "step": 2,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 11.0,
+    "used": 18.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-003",
+    "step": 0,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-005",
+    "step": 1,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 5.0,
+    "used": 12.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-007",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "end",
+    "intended": 30.0,
+    "used": 37.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-008",
+    "step": 1,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 6.0,
+    "used": 13.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-009",
+    "step": 2,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-010",
+    "step": 2,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 27.0,
+    "used": 34.0
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-001",
+    "step": 1,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-002",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "end",
+    "intended": 40.0,
+    "used": 47.0
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-007",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "end",
+    "intended": 15.0,
+    "used": 22.0
+   },
+   {
+    "scenario": "NLB-v3-DI-DE-006",
+    "step": 0,
+    "tool": "update_clip",
+    "param": "scale_y",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-DI-DE-007",
+    "step": 2,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-EX-AT-002",
+    "step": 0,
+    "tool": "add_clip",
+    "param": "end",
+    "intended": 45.0,
+    "used": 52.0
+   },
+   {
+    "scenario": "NLB-v3-EX-AT-002",
+    "step": 0,
+    "tool": "add_clip",
+    "param": "in_point",
+    "intended": 0.0,
+    "used": 7.0
+   },
+   {
+    "scenario": "NLB-v3-EX-AT-002",
+    "step": 0,
+    "tool": "add_clip",
+    "param": "out_point",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   {
+    "scenario": "NLB-v3-EX-AT-005",
+    "step": 0,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 8.0,
+    "used": 15.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-004",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "end",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-005",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "in_point",
+    "intended": 0,
+    "used": 7.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-005",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "out_point",
+    "intended": 2,
+    "used": 9.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-007",
+    "step": 0,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-009",
+    "step": 0,
+    "tool": "update_clip",
+    "param": "out_point",
+    "intended": 7.0,
+    "used": 14.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-009",
+    "step": 1,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 29.0,
+    "used": 36.0
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-010",
+    "step": 0,
+    "tool": "update_clip",
+    "param": "end",
+    "intended": 8,
+    "used": 15.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-001",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "start",
+    "intended": 20.0,
+    "used": 27.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-001",
+    "step": 1,
+    "tool": "add_clip",
+    "param": "end",
+    "intended": 50.0,
+    "used": 57.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-008",
+    "step": 0,
+    "tool": "add_clip",
+    "param": "in_point",
+    "intended": 0,
+    "used": 7.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-008",
+    "step": 0,
+    "tool": "add_clip",
+    "param": "out_point",
+    "intended": 2,
+    "used": 9.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-008",
+    "step": 1,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 2,
+    "used": 9.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-009",
+    "step": 0,
+    "tool": "add_clip",
+    "param": "end",
+    "intended": 35.0,
+    "used": 42.0
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-010",
+    "step": 2,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-003",
+    "step": 1,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-004",
+    "step": 3,
+    "tool": "update_clip",
+    "param": "start",
+    "intended": 0,
+    "used": 7.0
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-005",
+    "step": 2,
+    "tool": "add_caption",
+    "param": "end",
+    "intended": 23,
+    "used": 30.0
+   },
+   {
+    "scenario": "NLB-v3-ST-DE-007",
+    "step": 2,
+    "tool": "add_transition",
+    "param": "duration",
+    "intended": 1.0,
+    "used": 8.0
+   }
+  ],
+  "M5_문자열이_틀려도_통과": [
+   {
+    "scenario": "NLB-v3-CX-AT-010",
+    "step": 0,
+    "tool": "add_track",
+    "param": "name",
+    "intended": "V3 (Overlay)",
+    "used": "MUTATED_V3 (Overlay)"
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-005",
+    "step": 0,
+    "tool": "import_media",
+    "param": "file_path",
+    "intended": "/media/narration.wav",
+    "used": "MUTATED_/media/narration.wav"
+   },
+   {
+    "scenario": "NLB-v3-CX-CO-006",
+    "step": 0,
+    "tool": "add_track",
+    "param": "name",
+    "intended": "Lower Thirds",
+    "used": "MUTATED_Lower Thirds"
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-007",
+    "step": 0,
+    "tool": "import_media",
+    "param": "file_path",
+    "intended": "/media/narration.wav",
+    "used": "MUTATED_/media/narration.wav"
+   },
+   {
+    "scenario": "NLB-v3-CX-CU-008",
+    "step": 0,
+    "tool": "add_track",
+    "param": "name",
+    "intended": "Subtitles",
+    "used": "MUTATED_Subtitles"
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-002",
+    "step": 0,
+    "tool": "import_media",
+    "param": "file_path",
+    "intended": "/media/ambient.mp3",
+    "used": "MUTATED_/media/ambient.mp3"
+   },
+   {
+    "scenario": "NLB-v3-CX-DE-007",
+    "step": 0,
+    "tool": "add_track",
+    "param": "name",
+    "intended": "V2",
+    "used": "MUTATED_V2"
+   },
+   {
+    "scenario": "NLB-v3-DI-AT-008",
+    "step": 1,
+    "tool": "update_caption",
+    "param": "text",
+    "intended": "Scene 1: Introduction",
+    "used": "MUTATED_Scene 1: Introduction"
+   },
+   {
+    "scenario": "NLB-v3-DI-CU-010",
+    "step": 0,
+    "tool": "update_caption",
+    "param": "text",
+    "intended": "Scene 1: Introduction",
+    "used": "MUTATED_Scene 1: Introduction"
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-001",
+    "step": 0,
+    "tool": "add_caption",
+    "param": "text",
+    "intended": "Intro",
+    "used": "MUTATED_Intro"
+   },
+   {
+    "scenario": "NLB-v3-EX-CU-005",
+    "step": 0,
+    "tool": "import_media",
+    "param": "file_path",
+    "intended": "/path/to/b-roll.mp4",
+    "used": "MUTATED_/path/to/b-roll.mp4"
+   },
+   {
+    "scenario": "NLB-v3-EX-DE-004",
+    "step": 0,
+    "tool": "add_track",
+    "param": "name",
+    "intended": "V2",
+    "used": "MUTATED_V2"
+   },
+   {
+    "scenario": "NLB-v3-ST-AT-008",
+    "step": 0,
+    "tool": "import_media",
+    "param": "file_path",
+    "intended": "/media/overlay.png",
+    "used": "MUTATED_/media/overlay.png"
+   },
+   {
+    "scenario": "NLB-v3-ST-AT-008",
+    "step": 1,
+    "tool": "add_track",
+    "param": "name",
+    "intended": "V2",
+    "used": "MUTATED_V2"
+   },
+   {
+    "scenario": "NLB-v3-ST-AT-010",
+    "step": 0,
+    "tool": "add_track",
+    "param": "name",
+    "intended": "V2",
+    "used": "MUTATED_V2"
+   },
+   {
+    "scenario": "NLB-v3-ST-CO-009",
+    "step": 4,
+    "tool": "import_media",
+    "param": "file_path",
+    "intended": "/media/accent.mp4",
+    "used": "MUTATED_/media/accent.mp4"
+   },
+   {
+    "scenario": "NLB-v3-ST-CU-008",
+    "step": 1,
+    "tool": "import_media",
+    "param": "file_path",
+    "intended": "/media/overlay.png",
+    "used": "MUTATED_/media/overlay.png"
+   },
+   {
+    "scenario": "NLB-v3-ST-CU-010",
+    "step": 1,
+    "tool": "add_caption",
+    "param": "text",
+    "intended": "Muted Section",
+    "used": "MUTATED_Muted Section"
+   }
+  ]
+ },
+ "counts": {
+  "M4full_값이_틀려도_통과": 165,
+  "M5_문자열이_틀려도_통과": 54
+ }
+}

@@ -1,0 +1,56 @@
+id: NLB-v3-CX-CO-002
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: context
+  action: compound
+split: dev
+canary: NLE-BENCH-V3-DEV-142b94a2
+fixture: simple_sequence
+turns:
+- instruction: The outro needs a slow-mo feel — drop it to 0.8x, lower its opacity to 0.9, and add a cross-dissolve coming in from the middle clip.
+constraints:
+  required:
+  - attribute_equals:
+      entity: video_clip_3
+      field: speed
+      value: 0.8
+  - attribute_equals:
+      entity: video_clip_3
+      field: transform.opacity
+      value: 0.9
+  - entity_exists:
+      entity: $new_transition_1
+  - attribute_equals:
+      entity: $new_transition_1
+      field: type
+      value: cross_dissolve
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- video_clip_3
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution:
+  - tool: update_clip
+    params: {"clip_id": "video_clip_3", "speed": 0.8, "opacity": 0.9}
+    purpose: "Harvested from a passing run and re-verified"
+  - tool: add_transition
+    params: {"track_id": "video_track_1", "clip_id_1": "video_clip_2", "clip_id_2": "video_clip_3", "transition_type": "cross_dissolve", "duration": 1.0}
+    purpose: "Harvested from a passing run and re-verified"
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - <ANNOTATOR_ACCOUNT>
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1. Outro=vc3, middle=vc2. update_clip + add_transition.
+  cell: context × compound

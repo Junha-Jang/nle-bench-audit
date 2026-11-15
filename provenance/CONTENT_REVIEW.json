@@ -1,0 +1,491 @@
+{
+ "annotator_values_in_scenario_files": {
+  "cases/NLB-v3-CX-AT-003/scenario_473d3b54ecd4.yaml": [
+   "<ANNOTATOR_ACCOUNT>"
+  ],
+  "cases/NLB-v3-CX-CO-002/scenario_6a6dd54230aa.yaml": [
+   "<ANNOTATOR_ACCOUNT>"
+  ],
+  "cases/NLB-v3-CX-CO-002/scenario_b0c48f988109.yaml": [
+   "<ANNOTATOR_ACCOUNT>"
+  ],
+  "cases/NLB-v3-EX-CO-004/scenario_published.yaml": [
+   "author_pi"
+  ],
+  "cases/NLB-v3-EX-CO-009/scenario_published.yaml": [
+   "author_pi"
+  ],
+  "cases/NLB-v3-EX-DE-008/scenario_25c92c33cfab.yaml": [
+   "<ANNOTATOR_ACCOUNT>"
+  ],
+  "cases/NLB-v3-EX-DE-008/scenario_61b686d4ec14.yaml": [
+   "<ANNOTATOR_ACCOUNT>"
+  ],
+  "cases/NLB-v3-EX-DE-008/scenario_abf8dc2d3c14.yaml": [
+   "<ANNOTATOR_ACCOUNT>"
+  ]
+ },
+ "files": {
+  "LICENSE.md": {
+   "names_scenarios": {
+    "dev": 2,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-CX-AT-003/case.json": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-CX-AT-003/scenario_473d3b54ecd4.yaml": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-CX-CO-002/case.json": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-CX-CO-002/scenario_6a6dd54230aa.yaml": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-CX-CO-002/scenario_b0c48f988109.yaml": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-EX-CO-004/case.json": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-EX-CO-004/scenario_published.yaml": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-EX-CO-009/case.json": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-EX-CO-009/scenario_published.yaml": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-EX-DE-008/case.json": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_25c92c33cfab.yaml": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_61b686d4ec14.yaml": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_abf8dc2d3c14.yaml": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "cases/SCENARIO_IDENTITIES.json": {
+   "names_scenarios": {
+    "dev": 5,
+    "test": 0
+   }
+  },
+  "cases/index.json": {
+   "names_scenarios": {
+    "dev": 6,
+    "test": 0
+   }
+  },
+  "checks/constraint_history.json": {
+   "names_scenarios": {
+    "dev": 4,
+    "test": 0
+   }
+  },
+  "checks/null_guard.csv": {
+   "names_scenarios": {
+    "dev": 200,
+    "test": 0
+   }
+  },
+  "checks/null_guard.json": {
+   "names_scenarios": {
+    "dev": 1,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 1,
+    "test": 0
+   }
+  },
+  "checks/path_pinning.json": {
+   "names_scenarios": {
+    "dev": 7,
+    "test": 0
+   }
+  },
+  "expected.json": {
+   "names_scenarios": {
+    "dev": 5,
+    "test": 0
+   }
+  },
+  "inventory/promises/promises.json": {
+   "names_scenarios": {
+    "dev": 2,
+    "test": 0
+   }
+  },
+  "nlebench_audit/projection.py": {
+   "names_scenarios": {
+    "dev": 2,
+    "test": 0
+   }
+  },
+  "nlebench_audit/sanitize.py": {
+   "names_scenarios": {
+    "dev": 5,
+    "test": 0
+   }
+  },
+  "provenance/SOURCE_MAP.json": {
+   "names_scenarios": {
+    "dev": 5,
+    "test": 0
+   }
+  },
+  "provenance/TRANSFORMATIONS.json": {
+   "names_scenarios": {
+    "dev": 5,
+    "test": 0
+   }
+  },
+  "rejudging/diff_A.csv": {
+   "names_scenarios": {
+    "dev": 10,
+    "test": 0
+   }
+  },
+  "rejudging/diff_A_prime.csv": {
+   "names_scenarios": {
+    "dev": 7,
+    "test": 0
+   }
+  },
+  "rejudging/diff_BC.csv": {
+   "names_scenarios": {
+    "dev": 17,
+    "test": 0
+   }
+  },
+  "rejudging/diff_harness_new_to_dev_tree.csv": {
+   "names_scenarios": {
+    "dev": 5,
+    "test": 0
+   }
+  },
+  "rejudging/membership.csv": {
+   "names_scenarios": {
+    "dev": 200,
+    "test": 0
+   }
+  },
+  "rejudging/per_record.csv.gz": {
+   "names_scenarios": {
+    "dev": 200,
+    "test": 0
+   }
+  },
+  "runtime/PINS.json": {
+   "names_scenarios": {
+    "dev": 3,
+    "test": 0
+   }
+  },
+  "runtime/README.md": {
+   "names_scenarios": {
+    "dev": 3,
+    "test": 0
+   }
+  },
+  "sites/candidate_keys.csv": {
+   "names_scenarios": {
+    "dev": 82,
+    "test": 0
+   }
+  },
+  "sites/candidate_reconciliation.json": {
+   "names_scenarios": {
+    "dev": 2,
+    "test": 0
+   }
+  },
+  "sites/recovery_168.csv": {
+   "names_scenarios": {
+    "dev": 30,
+    "test": 0
+   }
+  },
+  "sources/ledgers/adjudication/206e1838224a/cluster_hardening.json": {
+   "names_scenarios": {
+    "dev": 67,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 67,
+    "test": 11
+   },
+   "quotes_instruction_text_not_in_the_review_snapshot": {
+    "dev": 5,
+    "test": 1
+   }
+  },
+  "sources/ledgers/adjudication/206e1838224a/constraint_hardening.json": {
+   "names_scenarios": {
+    "dev": 20,
+    "test": 0
+   }
+  },
+  "sources/ledgers/adjudication/206e1838224a/false_success_closeout.json": {
+   "names_scenarios": {
+    "dev": 24,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 15,
+    "test": 3
+   },
+   "quotes_instruction_text_not_in_the_review_snapshot": {
+    "dev": 1,
+    "test": 1
+   }
+  },
+  "sources/ledgers/adjudication/206e1838224a/false_success_triage.json": {
+   "names_scenarios": {
+    "dev": 32,
+    "test": 0
+   },
+   "quotes_instruction_of": {
+    "dev": 34,
+    "test": 3
+   },
+   "quotes_instruction_text_not_in_the_review_snapshot": {
+    "dev": 6,
+    "test": 1
+   }
+  },
+  "sources/ledgers/probe_round1/S0_first_ledger_5d2f3a6175ad/false_success_probe.json": {
+   "names_scenarios": {
+    "dev": 32,
+    "test": 0
+   }
+  },
+  "sources/ledgers/probe_round1/S1_after_fixture_deepcopy_0b3a4adb7086/false_success_probe.json": {
+   "names_scenarios": {
+    "dev": 31,
+    "test": 0
+   }
+  },
+  "sources/ledgers/probe_round1/S2_after_wave1_c8be3e83aa0f/false_success_probe.json": {
+   "names_scenarios": {
+    "dev": 13,
+    "test": 0
+   }
+  },
+  "sources/ledgers/probe_round1/S3_final_28a5f11c6f26/false_success_probe.json": {
+   "names_scenarios": {
+    "dev": 11,
+    "test": 0
+   }
+  },
+  "sources/ledgers/probe_round2/T0_first_ledger_28a5f11c6f26/false_success_probe_full.json": {
+   "names_scenarios": {
+    "dev": 70,
+    "test": 0
+   }
+  },
+  "sources/ledgers/probe_round2/T1_after_immediate_closes_942b45a19a52/false_success_probe_full.json": {
+   "names_scenarios": {
+    "dev": 67,
+    "test": 0
+   }
+  },
+  "sources/ledgers/probe_round2/T2_final_8d0ca7e0da61/false_success_probe_full.json": {
+   "names_scenarios": {
+    "dev": 44,
+    "test": 0
+   }
+  },
+  "sources/ledgers/records_2026_08/206e1838224a/constraint_predicate_audit.json": {
+   "names_scenarios": {
+    "dev": 200,
+    "test": 0
+   }
+  },
+  "sources/ledgers/records_2026_08/206e1838224a/stored_row_rescore.json": {
+   "names_scenarios": {
+    "dev": 77,
+    "test": 0
+   }
+  },
+  "tests/test_integrity.py": {
+   "names_scenarios": {
+    "dev": 2,
+    "test": 0
+   }
+  },
+  "tests/test_packaging.py": {
+   "names_scenarios": {
+    "dev": 2,
+    "test": 0
+   }
+  },
+  "tests/test_repository.py": {
+   "names_scenarios": {
+    "dev": 3,
+    "test": 0
+   }
+  },
+  "tools/export.py": {
+   "names_scenarios": {
+    "dev": 5,
+    "test": 0
+   }
+  }
+ },
+ "method": {
+  "corpora_read": [
+   {
+    "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+    "corpus": "published",
+    "repository": "nle-bench-artifact",
+    "scenario_files": 800
+   },
+   {
+    "commit": "64668e09fb2fa4c2d1d0c03024191e94046f24b2",
+    "corpus": "submitted_v3_1",
+    "repository": "nle-bench-dev",
+    "scenario_files": 800
+   },
+   {
+    "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+    "corpus": "development_v3_2",
+    "repository": "nle-bench-dev",
+    "scenario_files": 800
+   }
+  ],
+  "files_examined": 186,
+  "instruction_quote": "a file quotes a scenario when an instruction of that scenario in any of the three corpora, of at least 30 characters after collapsing white space, occurs verbatim in the file's text (JSON strings unescaped, gzip opened)",
+  "scenario_named": "an identifier of the form NLB-v3-XX-XX-NNN that is a scenario of the corpora",
+  "scenarios_known": 800,
+  "split_counts": {
+   "dev": 200,
+   "test": 600
+  }
+ },
+ "model_responses_kept": {
+  "cases/NLB-v3-EX-CO-004/states/agent_response.txt": "kept: the stored response of the dev-split run this worked case judges; case.json records its hash. Read in full: task reasoning and three tool calls; no personal, contact or credential content.",
+  "cases/NLB-v3-EX-CO-009/states/agent_response.txt": "kept: the stored response of the dev-split run this worked case judges; case.json records its hash. Read in full: task reasoning and two tool calls; no personal, contact or credential content."
+ },
+ "not_examined": [
+  "Quotes shorter than the threshold, paraphrases, and scenario text other than instructions (constraint values, fixture names, clip and effect identifiers) are not detected by the quote measure.",
+  "The Korean notes of the ledgers and tables were not translated or read line by line; they were searched for the patterns of provenance/SCAN.json and for the local account name only.",
+  "No person other than the maintainer read the files."
+ ],
+ "totals": {
+  "files_holding_a_local_account_name": 0,
+  "files_naming_scenarios": 54,
+  "files_quoting_an_instruction": 17,
+  "scenarios_named": {
+   "dev": 200,
+   "test": 0
+  },
+  "scenarios_quoted": {
+   "dev": 83,
+   "test": 13
+  },
+  "scenarios_quoted_with_text_not_in_the_review_snapshot": {
+   "dev": 7,
+   "test": 2
+  }
+ },
+ "what": "a content review of the files of this checkout, measured against the scenario corpora at the three pins. It records what was examined and how; it is not a privacy certificate"
+}

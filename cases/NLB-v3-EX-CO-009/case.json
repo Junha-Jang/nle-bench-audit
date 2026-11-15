@@ -1,0 +1,539 @@
+{
+ "case": "NLB-v3-EX-CO-009",
+ "fixture": "simple_sequence",
+ "incomplete_reasons": [],
+ "instruction": "Create a bin named 'B-roll' and import a media file 'sunset.mp4' into it.",
+ "kind": "stored agent run (2026-04), judged again; no model is run",
+ "recorded_2026_08": {
+  "published_csv_row": [
+   {
+    "action": "compound",
+    "agent_response_sha256": "4d7295c45d2f4d5657e3d08390a6995a34ec599a2692a5cf007c653203ccdb51",
+    "asked_clarification": "True",
+    "behavior": "refuse",
+    "cell": "explicit/compound",
+    "cost_usd": "0.0",
+    "error_message_type": "",
+    "failed_constraint_count": "0",
+    "failed_constraints_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "final_state_sha256": "2741e760273c4827a5a54fb60e33b0b65cf4b15f0c3691bff8f7fb902fee9145",
+    "information": "explicit",
+    "initial_state_sha256": "2741e760273c4827a5a54fb60e33b0b65cf4b15f0c3691bff8f7fb902fee9145",
+    "input_tokens": "6334",
+    "latency_ms": "50717.106",
+    "legacy_scenario_id": "NLB-v3-EX-CO-009",
+    "model": "Qwen/QwQ-32B",
+    "output_tokens": "1039",
+    "provider": "vllm",
+    "raw_record_sha256": "e4b18f258924d792703031b9961f8cfe7ea39bfebc58a8b368143dfbb8210e6f",
+    "refusal_appropriate": "True",
+    "row_id": "1",
+    "run_id": "2026-04-20_01-49-55_Qwen_QwQ-32B",
+    "run_number": "0",
+    "scale": "L2",
+    "scenario_feasibility": "feasible",
+    "scenario_id": "NLEB-EX-CO-009",
+    "source_jsonl_line": "886",
+    "source_results_sha256": "8c5e85e1277291adbebc99813f60d84bdfc275e4755e14adeff0f4545c770ada",
+    "split": "dev",
+    "state_changed": "False",
+    "success": "True",
+    "token_usage": "7373",
+    "tool_call_count": "0",
+    "tool_names": "",
+    "tool_names_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "track": "canonical",
+    "validation_csr": "True",
+    "validation_feasibility": "feasible",
+    "validation_ovr": "0.0",
+    "validation_tsr": "True"
+   }
+  ],
+  "rescore_ledger_entry": [
+   {
+    "after_layer": "dev_head/direction_enforced",
+    "before_layer": "submission/direction_enforced",
+    "cell": "explicit/compound",
+    "changed_named_constraints": [
+     "named:entity_exists:failed"
+    ],
+    "dataset": "scenarios_v3_1 (snapshot copy)",
+    "failed_constraints_after": [
+     "named:entity_exists:failed",
+     "named:entity_exists:failed"
+    ],
+    "failed_constraints_before": [],
+    "had_stored_states": true,
+    "legacy_scenario_id": "NLB-v3-EX-CO-009",
+    "model": "Qwen/QwQ-32B",
+    "protocol_track": "canonical",
+    "provider": "vllm",
+    "row_id": "1",
+    "run_id": "2026-04-20_01-49-55_Qwen_QwQ-32B",
+    "run_number": "0",
+    "run_timestamp": "2026-04-20T11:31:30.545971",
+    "scale": "L2",
+    "scenario_feasibility": "feasible",
+    "scenario_id": "NLEB-EX-CO-009",
+    "source_jsonl_line": 886,
+    "source_results_relpath": "2026-04-20_01-49-55_Qwen_QwQ-32B/results.jsonl",
+    "source_results_sha256": "8c5e85e1277291adbebc99813f60d84bdfc275e4755e14adeff0f4545c770ada",
+    "split": "dev",
+    "verdict_after": false,
+    "verdict_before": true
+   }
+  ],
+  "source": "stored_row_rescore.json ledgers.published_to_current"
+ },
+ "reexecuted_2026_10": {
+  "comparison": "same scenario file, same stored state pair; only the scorer module differs. The stored structural flag (CSR) and the direction layer are not applied.",
+  "identities": {
+   "current_scorer_in_published_harness": {
+    "execution": {
+     "analysis_code": {
+      "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+      "note": "content hashes only; no commit hash, so the record cannot refer to itself",
+      "source_manifest": {
+       "va142-camera-ready-p1-20261004/p1_identity.py": "7cb139983222a9e374f9f10fb2ab40087ec92fb976a0a42f9185bded7d9eb776",
+       "va142-camera-ready-p1-20261004/p1lib.py": "50536701c8cb20419b5f3d18de4120dadebd8eea001e8ed19b12956b27629e41",
+       "va142-camera-ready-p3-20261005/e1_probes.py": "cb5f4f73c977e9fae08866e12d25834f6690c76ff2a9fd98b93531e24b9ff1cb",
+       "va142-camera-ready-p3-20261005/e1_recover.py": "6420cd2141ce01e9a9d0c92452d05842610c4c0de183d5a32e0928934eefd1a2",
+       "va142-camera-ready-p3-20261005/e2_cases.py": "e7c64220f850ff220e0823c9c2292f58c65eb511118fb726bd2b3e3b077e1a91",
+       "va142-camera-ready-p3-20261005/e3_inventory.py": "91a202715d3e995e27bdabc816dd4c194d9b89db1887e8f3cac0b924e5c152ab",
+       "va142-camera-ready-p3-20261005/p3_compare.py": "ab21306a1feb0cb318def4b3d64f5534575e166af46ba4d216d85a5bd9a83ef5",
+       "va142-camera-ready-p3-20261005/p3_worker.py": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655",
+       "va142-camera-ready-p3-20261005/p3lib.py": "3f0667dd0ffe523ef857e17e88526c04a967c847844154981b6c81f32cd8abcb",
+       "va142-camera-ready-p3-20261005/run_p3.py": "de6430281eb6fad4bf766052ae3927cec4837b619d6616620f10019d75112f55"
+      },
+      "source_manifest_sha256": "397f44cf2be358d1caea14d77857cd5b73615c4fb900de80530af1a1529bc8f6",
+      "worker_file": "va142-camera-ready-p3-20261005/p3_worker.py",
+      "worker_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+     },
+     "env": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "P3_EXPORT_ROOT": "<EXPORT_ROOT>",
+      "PATH": "<LOCAL_PATH_ENV>",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0"
+     },
+     "export_verification": {
+      "actual_content_sha256": "9659e831bfdd01a38d0c51511904e1e87c5bf29075f36e3a3d75fc1e122f924d",
+      "expected_content_sha256": "9659e831bfdd01a38d0c51511904e1e87c5bf29075f36e3a3d75fc1e122f924d",
+      "files_verified": 1745,
+      "kind": "artifact_scorer_swap",
+      "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+      "when": "immediately before this launch"
+     },
+     "external_tools": {
+      "chmod": {
+       "realpath": "/usr/bin/chmod",
+       "resolved": "/usr/bin/chmod",
+       "sha256": "636dc2e0792244a537121ec10b6e140797cb8d27d231f5c1d025148d1b0c6fc8",
+       "version": "chmod (GNU coreutils) 9.4"
+      },
+      "cp": {
+       "realpath": "/usr/bin/cp",
+       "resolved": "/usr/bin/cp",
+       "sha256": "95cdd604fdf0a292e349d27d1a80170ca0913bd3bbd9d2c0fcfc6c8adaebe2f0",
+       "version": "cp (GNU coreutils) 9.4"
+      },
+      "git": {
+       "realpath": "/usr/bin/git",
+       "resolved": "/usr/bin/git",
+       "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668",
+       "version": "git version 2.43.0"
+      },
+      "tar": {
+       "realpath": "/usr/bin/tar",
+       "resolved": "/usr/bin/tar",
+       "sha256": "3ee2c3c0b4dd9aacebfd2f0fbae44bad36348203acff78a44888dd58c05f811c",
+       "version": "tar (GNU tar) 1.35"
+      }
+     },
+     "pinned_source": {
+      "actual_scorer_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+      "expected_scorer_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+      "identity": {
+       "base": {
+        "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+        "repo": "nle-bench-artifact",
+        "subtree": "code/src"
+       },
+       "diff": {
+        "file": "adapters/scorer_swap.diff",
+        "lines_added": 1181,
+        "lines_removed": 140,
+        "sha256": "a7dbc5e8c5642e51a8851a998f88408374cafa1285173680b7f87f345b5ac633"
+       },
+       "other_files": "unchanged from the review snapshot",
+       "replaced_file": "nlebench/runner/constraints.py",
+       "replaced_sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10",
+       "replacement": {
+        "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+        "path": "src/nlebench/runner/constraints.py",
+        "repo": "nle-bench-dev",
+        "sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777"
+       }
+      },
+      "kind": "artifact_scorer_swap"
+     }
+    },
+    "input_sha256": "1c1b1009ea654c30f67807fe0e3a81b92e1729dc713c163b0d79199931f9e70e",
+    "output_sha256": "b31b95891a139aa593a89b07fab3b8e232f561cbff448ad7a129196b8cc4cf30",
+    "runtime": {
+     "argv": [
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+      "jobs",
+      "<EXPORT_ROOT>/artifact-58afb977515b6cc827377bd1de6cba56330c2d7b+scorer-206e1838224add4d7d685349ab1daaf4ab717c6f/src",
+      "<RUN_WORKDIR>/jobs.json",
+      "<RUN_WORKDIR>/results.json"
+     ],
+     "dependencies": {
+      "PyYAML": "6.0.3",
+      "annotated-types": "0.8.0",
+      "pydantic": "2.13.5",
+      "pydantic-core": "2.46.5",
+      "typing-extensions": "4.16.0"
+     },
+     "executable": "<DEV_CHECKOUT>/.venv/bin/python",
+     "executable_realpath": "/usr/bin/python3.12",
+     "implementation": "CPython",
+     "nlebench_file": "<EXPORT_ROOT>/artifact-58afb977515b6cc827377bd1de6cba56330c2d7b+scorer-206e1838224add4d7d685349ab1daaf4ab717c6f/src/nlebench/__init__.py",
+     "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+     "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+     "registry_note": "SCORER_VERSION carries a digest of the declared predicate contract. It is not a hash of the executable and is not used as one.",
+     "registry_predicates": 23,
+     "scorer_file_sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777",
+     "scorer_version": "1.0.0+registry.71c96a519562",
+     "sys_path": [
+      "<EXPORT_ROOT>/artifact-58afb977515b6cc827377bd1de6cba56330c2d7b+scorer-206e1838224add4d7d685349ab1daaf4ab717c6f/src",
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "<DEV_CHECKOUT>/.venv/lib/python3.12/site-packages",
+      "<DEV_CHECKOUT>/src"
+     ],
+     "worker_file_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+    },
+    "tree": {
+     "base": {
+      "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+      "repo": "nle-bench-artifact",
+      "subtree": "code/src"
+     },
+     "diff": {
+      "file": "adapters/scorer_swap.diff",
+      "lines_added": 1181,
+      "lines_removed": 140,
+      "sha256": "a7dbc5e8c5642e51a8851a998f88408374cafa1285173680b7f87f345b5ac633"
+     },
+     "other_files": "unchanged from the review snapshot",
+     "replaced_file": "nlebench/runner/constraints.py",
+     "replaced_sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10",
+     "replacement": {
+      "commit": "206e1838224add4d7d685349ab1daaf4ab717c6f",
+      "path": "src/nlebench/runner/constraints.py",
+      "repo": "nle-bench-dev",
+      "sha256": "5889324298c30a47d46c35593b949db795d4f907c5b9e91b0ef5d407e049e777"
+     }
+    }
+   },
+   "published_scorer": {
+    "execution": {
+     "analysis_code": {
+      "definition": "sha256 of each file's bytes; the fold is sha256 of the sorted JSON of that map",
+      "note": "content hashes only; no commit hash, so the record cannot refer to itself",
+      "source_manifest": {
+       "va142-camera-ready-p1-20261004/p1_identity.py": "7cb139983222a9e374f9f10fb2ab40087ec92fb976a0a42f9185bded7d9eb776",
+       "va142-camera-ready-p1-20261004/p1lib.py": "50536701c8cb20419b5f3d18de4120dadebd8eea001e8ed19b12956b27629e41",
+       "va142-camera-ready-p3-20261005/e1_probes.py": "cb5f4f73c977e9fae08866e12d25834f6690c76ff2a9fd98b93531e24b9ff1cb",
+       "va142-camera-ready-p3-20261005/e1_recover.py": "6420cd2141ce01e9a9d0c92452d05842610c4c0de183d5a32e0928934eefd1a2",
+       "va142-camera-ready-p3-20261005/e2_cases.py": "e7c64220f850ff220e0823c9c2292f58c65eb511118fb726bd2b3e3b077e1a91",
+       "va142-camera-ready-p3-20261005/e3_inventory.py": "91a202715d3e995e27bdabc816dd4c194d9b89db1887e8f3cac0b924e5c152ab",
+       "va142-camera-ready-p3-20261005/p3_compare.py": "ab21306a1feb0cb318def4b3d64f5534575e166af46ba4d216d85a5bd9a83ef5",
+       "va142-camera-ready-p3-20261005/p3_worker.py": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655",
+       "va142-camera-ready-p3-20261005/p3lib.py": "3f0667dd0ffe523ef857e17e88526c04a967c847844154981b6c81f32cd8abcb",
+       "va142-camera-ready-p3-20261005/run_p3.py": "de6430281eb6fad4bf766052ae3927cec4837b619d6616620f10019d75112f55"
+      },
+      "source_manifest_sha256": "397f44cf2be358d1caea14d77857cd5b73615c4fb900de80530af1a1529bc8f6",
+      "worker_file": "va142-camera-ready-p3-20261005/p3_worker.py",
+      "worker_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+     },
+     "env": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "P3_EXPORT_ROOT": "<EXPORT_ROOT>",
+      "PATH": "<LOCAL_PATH_ENV>",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONHASHSEED": "0"
+     },
+     "export_verification": {
+      "actual_content_sha256": "3406f0141a9f18342b9964fa5ac95a74b561518de278e600e7b8e48471013963",
+      "expected_content_sha256": "3406f0141a9f18342b9964fa5ac95a74b561518de278e600e7b8e48471013963",
+      "files_verified": 1745,
+      "kind": "artifact",
+      "method": "git blob id of every exported file, read from disk now, compared with `git ls-tree` of the pinned commit; no missing or extra file",
+      "when": "immediately before this launch"
+     },
+     "external_tools": {
+      "chmod": {
+       "realpath": "/usr/bin/chmod",
+       "resolved": "/usr/bin/chmod",
+       "sha256": "636dc2e0792244a537121ec10b6e140797cb8d27d231f5c1d025148d1b0c6fc8",
+       "version": "chmod (GNU coreutils) 9.4"
+      },
+      "cp": {
+       "realpath": "/usr/bin/cp",
+       "resolved": "/usr/bin/cp",
+       "sha256": "95cdd604fdf0a292e349d27d1a80170ca0913bd3bbd9d2c0fcfc6c8adaebe2f0",
+       "version": "cp (GNU coreutils) 9.4"
+      },
+      "git": {
+       "realpath": "/usr/bin/git",
+       "resolved": "/usr/bin/git",
+       "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668",
+       "version": "git version 2.43.0"
+      },
+      "tar": {
+       "realpath": "/usr/bin/tar",
+       "resolved": "/usr/bin/tar",
+       "sha256": "3ee2c3c0b4dd9aacebfd2f0fbae44bad36348203acff78a44888dd58c05f811c",
+       "version": "tar (GNU tar) 1.35"
+      }
+     },
+     "pinned_source": {
+      "actual_scorer_sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10",
+      "expected_scorer_sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10",
+      "identity": {
+       "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+       "repo": "nle-bench-artifact",
+       "subtree": "code/src"
+      },
+      "kind": "artifact"
+     }
+    },
+    "input_sha256": "1c1b1009ea654c30f67807fe0e3a81b92e1729dc713c163b0d79199931f9e70e",
+    "output_sha256": "84b7256dab9060460b7e0ae2e3885fc090c61a7c33be52cd980711cd7aa2512a",
+    "runtime": {
+     "argv": [
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005/p3_worker.py",
+      "jobs",
+      "<EXPORT_ROOT>/artifact-58afb977515b6cc827377bd1de6cba56330c2d7b/code/src",
+      "<RUN_WORKDIR>/jobs.json",
+      "<RUN_WORKDIR>/results.json"
+     ],
+     "dependencies": {
+      "PyYAML": "6.0.3",
+      "annotated-types": "0.8.0",
+      "pydantic": "2.13.5",
+      "pydantic-core": "2.46.5",
+      "typing-extensions": "4.16.0"
+     },
+     "executable": "<DEV_CHECKOUT>/.venv/bin/python",
+     "executable_realpath": "/usr/bin/python3.12",
+     "implementation": "CPython",
+     "nlebench_file": "<EXPORT_ROOT>/artifact-58afb977515b6cc827377bd1de6cba56330c2d7b/code/src/nlebench/__init__.py",
+     "platform": "Linux-6.8.0-142-generic-x86_64-with-glibc2.39",
+     "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+     "registry_note": "SCORER_VERSION carries a digest of the declared predicate contract. It is not a hash of the executable and is not used as one.",
+     "registry_predicates": null,
+     "scorer_file_sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10",
+     "scorer_version": null,
+     "sys_path": [
+      "<EXPORT_ROOT>/artifact-58afb977515b6cc827377bd1de6cba56330c2d7b/code/src",
+      "<ANALYSIS_CHECKOUT>/<NOTES_DIR>/va142-camera-ready-p3-20261005",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "<DEV_CHECKOUT>/.venv/lib/python3.12/site-packages",
+      "<DEV_CHECKOUT>/src"
+     ],
+     "worker_file_sha256": "89893fea5201d9a8c4abc360bfeebad05e84cb4aef313109aaeb44080dff4655"
+    },
+    "tree": {
+     "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+     "corpus": {
+      "F_file": "2c7580806804f11949c14072aad2be7984957bd45bd2ac06f5bea293ddf217b7",
+      "F_file_definition": "sha256 folded over (relative path, per-file sha256) in path order",
+      "path": "code/src/nlebench/dataset/scenarios_v3_1",
+      "scenario_files": 800
+     },
+     "files": {
+      "models": {
+       "git_blob": "f9da128c82d1cafef3ad1f94f40743fcfc7e5f27",
+       "path": "code/src/nlebench/models.py",
+       "sha256": "33fb03e0b977087f0a75e235fd4a50244681bfecebb73ea2da73e229223fb48f"
+      },
+      "scenario_loader": {
+       "git_blob": "01130fe36c922c2daeb5175a247500f792efeb68",
+       "path": "code/src/nlebench/runner/scenario_loader.py",
+       "sha256": "7a8749c1c570016a14a76414ef89a8c44d88be35b2d2bd98e59c32c385c088b5"
+      },
+      "scorer": {
+       "git_blob": "ac32065f5705669ef13e50ace37038dac97c2ab6",
+       "path": "code/src/nlebench/runner/constraints.py",
+       "sha256": "0f676ccb9f345e4c76ef1ed5f8f8b3f79ca435592190b4e9fa160d52b0108f10"
+      },
+      "structural_validator": {
+       "git_blob": "b7477601b4e7cd5c8cd246f6e1e656db82f37cc8",
+       "path": "code/src/nlebench/runner/validator.py",
+       "sha256": "ca11e01fbb003b5054b36cf907614232c2103338acf4a0656b42d400fd24868f"
+      },
+      "tool_executor": {
+       "git_blob": "f9ac0f643fbe9a97ddfdd97f396afb6d602eb33a",
+       "path": "code/src/nlebench/tools/executor.py",
+       "sha256": "7813f7c71d457cc5b29ff4fc2d8da3e4c2a1325b2fdea773ea54d4626bb3fb70"
+      }
+     },
+     "repo": "nle-bench-artifact",
+     "trees": {
+      "src_nlebench": "e369813dac3579a5a6becda617b5cf70c6b0fb2c"
+     }
+    }
+   }
+  },
+  "stages": {
+   "current_scorer_in_published_harness": {
+    "checks": [
+     {
+      "constraint": {
+       "entity_exists": {
+        "type": "bin",
+        "where": {
+         "field": "name",
+         "value": "B-roll"
+        }
+       }
+      },
+      "error": null,
+      "passed": false,
+      "predicate": "entity_exists"
+     },
+     {
+      "constraint": {
+       "entity_exists": {
+        "type": "media",
+        "where": {
+         "field": "name",
+         "value": "sunset.mp4"
+        }
+       }
+      },
+      "error": null,
+      "passed": false,
+      "predicate": "entity_exists"
+     }
+    ],
+    "passed": false,
+    "scorer_version_reported": "1.0.0+registry.71c96a519562"
+   },
+   "published_scorer": {
+    "checks": [
+     {
+      "constraint": {
+       "entity_exists": {
+        "type": "bin",
+        "where": {
+         "field": "name",
+         "value": "B-roll"
+        }
+       }
+      },
+      "error": null,
+      "passed": true,
+      "predicate": "entity_exists"
+     },
+     {
+      "constraint": {
+       "entity_exists": {
+        "type": "media",
+        "where": {
+         "field": "name",
+         "value": "sunset.mp4"
+        }
+       }
+      },
+      "error": null,
+      "passed": true,
+      "predicate": "entity_exists"
+     }
+    ],
+    "passed": true,
+    "scorer_version_reported": null
+   }
+  },
+  "verdict_flip": [
+   true,
+   false
+  ]
+ },
+ "role": "false success repaired on the scorer side (pass -> fail)",
+ "scenario": {
+  "commit": "58afb977515b6cc827377bd1de6cba56330c2d7b",
+  "constraints": {
+   "required": [
+    {
+     "entity_exists": {
+      "type": "bin",
+      "where": {
+       "field": "name",
+       "value": "B-roll"
+      }
+     }
+    },
+    {
+     "entity_exists": {
+      "type": "media",
+      "where": {
+       "field": "name",
+       "value": "sunset.mp4"
+      }
+     }
+    }
+   ],
+   "specified": [],
+   "tolerance_override": null
+  },
+  "legacy_id": "NLB-v3-EX-CO-009",
+  "path": "code/src/nlebench/dataset/scenarios_v3_1/feasible/explicit/compound/dev/NLEB-EX-CO-009.yaml",
+  "published_id": "NLEB-EX-CO-009",
+  "repo": "nle-bench-artifact",
+  "sha256": "acb4a944282b009daea3521ba3ae7c8a7da5efda578c91706358a89d2bd9abd8"
+ },
+ "split": "dev",
+ "status": "complete",
+ "stored_run": {
+  "final_state_sha256": "2741e760273c4827a5a54fb60e33b0b65cf4b15f0c3691bff8f7fb902fee9145",
+  "initial_state_sha256": "2741e760273c4827a5a54fb60e33b0b65cf4b15f0c3691bff8f7fb902fee9145",
+  "initial_to_final": {
+   "added": {},
+   "changed": {},
+   "removed": {}
+  },
+  "jsonl_line": 886,
+  "model": "Qwen/QwQ-32B",
+  "raw_line_sha256": "e4b18f258924d792703031b9961f8cfe7ea39bfebc58a8b368143dfbb8210e6f",
+  "raw_log": "2026-04-20_01-49-55_Qwen_QwQ-32B/results.jsonl",
+  "raw_log_sha256": "8c5e85e1277291adbebc99813f60d84bdfc275e4755e14adeff0f4545c770ada",
+  "row_id": "1",
+  "run_number": 0,
+  "state_changed_by_the_run": false,
+  "success_stored_at_run_time_2026_04": true,
+  "tool_calls": [],
+  "validation_stored_at_run_time_2026_04": {
+   "asked_clarification": true,
+   "behavior": "refuse",
+   "csr": true,
+   "error_message": null,
+   "failed_constraints": [],
+   "feasibility": "feasible",
+   "ovr": 0.0,
+   "refusal_appropriate": true,
+   "state_changed": false,
+   "tsr": true
+  }
+ },
+ "what_this_supports": "A 2026-10 judgment of one stored state pair by two pinned scorer files. It is not a rerun of the agent and not agent performance. It does not show which executable produced the 2026-08 ledger entry."
+}

@@ -1,0 +1,408 @@
+{
+ "checks_against_the_submission_text": {
+  "additions_only_commits": {
+   "28a5f11": {
+    "added": 43,
+    "additions_only": true,
+    "found": true
+   },
+   "8d0ca7e": {
+    "added": 182,
+    "additions_only": true,
+    "found": true
+   },
+   "942b45a": {
+    "added": 9,
+    "additions_only": true,
+    "found": true
+   },
+   "c8be3e8": {
+    "added": 75,
+    "additions_only": true,
+    "found": true
+   }
+  },
+  "in_place_edits_at_8ab30f9": {
+   "equal_to_all_removed_entries": false,
+   "equal_to_edited_in_place": true,
+   "observed": {
+    "deleted": 0,
+    "edited_in_place": 11,
+    "length_delta": 1,
+    "removed": 13,
+    "replaced": 2,
+    "scenarios_with_a_shorter_list": 0
+   },
+   "submission_text": 11
+  },
+  "other_commits_with_a_removed_entry": [
+   {
+    "commit": "185bfa2",
+    "deleted": 0,
+    "edited_in_place": 2,
+    "length_delta": 0,
+    "removed": 2,
+    "replaced": 0,
+    "scenarios_with_a_shorter_list": 0
+   },
+   {
+    "commit": "d29f270",
+    "deleted": 0,
+    "edited_in_place": 8,
+    "length_delta": 0,
+    "removed": 13,
+    "replaced": 5,
+    "scenarios_with_a_shorter_list": 0
+   },
+   {
+    "commit": "bb0162c",
+    "deleted": 1,
+    "edited_in_place": 19,
+    "length_delta": 0,
+    "removed": 23,
+    "replaced": 3,
+    "scenarios_with_a_shorter_list": 1
+   }
+  ],
+  "zero_deletions": {
+   "holds_at_entry_level": false,
+   "observed_entries_deleted_without_replacement": 1,
+   "observed_entries_replaced_by_another_predicate": 10,
+   "observed_scenarios_with_a_shorter_list": 1,
+   "submission_text": "zero deletions, not zero modifications"
+  }
+ },
+ "commits": [
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "637c8cb97472de9a90181e26a22edebf7763e782",
+   "date": "2026-08-07T11:48:34+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "637c8cb"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "959664bc5881d7ea07a09a982cbd27e7b77905eb",
+   "date": "2026-08-14T17:56:00+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "959664b"
+  },
+  {
+   "added": 2,
+   "additions_only": false,
+   "commit": "185bfa276bf9356e7e724c4844986b66831f23c3",
+   "date": "2026-08-14T17:58:05+00:00",
+   "deleted": 0,
+   "edited_in_place": 2,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 2,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 2,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "185bfa2"
+  },
+  {
+   "added": 13,
+   "additions_only": false,
+   "commit": "d29f270947c3f2d03551b9bd4ac543351bf319b9",
+   "date": "2026-08-14T18:21:56+00:00",
+   "deleted": 0,
+   "edited_in_place": 8,
+   "examples": [
+    {
+     "after": "{\"unchanged_except\": {\"changed\": [\"video_clip_3\", \"audio_clip_3\", \"audio_clip_3\"]}}",
+     "before": "{\"unchanged_except\": {\"changed\": [\"video_clip_3\"]}}",
+     "kind": "edited_in_place",
+     "position": 3,
+     "scenario": "NLB-v3-CX-CU-006",
+     "section": "required"
+    }
+   ],
+   "length_delta": 0,
+   "removed": 13,
+   "replaced": 5,
+   "scenarios_with_a_constraint_change": 12,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "d29f270"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "558c4ebbaeb3fe70e87f5fabf99dbc40189d5416",
+   "date": "2026-08-14T18:27:35+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "558c4eb"
+  },
+  {
+   "added": 23,
+   "additions_only": false,
+   "commit": "bb0162c4e09c13bd57ba200538ca9b3217d561c6",
+   "date": "2026-08-14T18:51:03+00:00",
+   "deleted": 1,
+   "edited_in_place": 19,
+   "examples": [
+    {
+     "after": "{\"not_linked\": {\"entity\": \"audio_clip_3\"}}",
+     "before": "{\"not_linked\": {\"entity\": \"video_clip_5\"}}",
+     "kind": "edited_in_place",
+     "position": 0,
+     "scenario": "NLB-v3-CX-CO-004",
+     "section": "required"
+    }
+   ],
+   "length_delta": 0,
+   "removed": 23,
+   "replaced": 3,
+   "scenarios_with_a_constraint_change": 21,
+   "scenarios_with_a_shorter_list": 1,
+   "short": "bb0162c"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "4533ffcb75007aeff3f3e76afe7c431fc9dc4a5d",
+   "date": "2026-08-14T18:52:54+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "4533ffc"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "bfc5690a9d975162574b4008a6df273274abdf33",
+   "date": "2026-08-14T19:26:43+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "bfc5690"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "87bb388568435467aa5ab40bc604a099245d90a8",
+   "date": "2026-08-14T19:31:12+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "87bb388"
+  },
+  {
+   "added": 14,
+   "additions_only": false,
+   "commit": "8ab30f92cc4fff26fc22b5a8ce25c02c0955e784",
+   "date": "2026-08-14T19:53:50+00:00",
+   "deleted": 0,
+   "edited_in_place": 11,
+   "examples": [
+    {
+     "after": "{\"unchanged_except\": {\"changed\": [\"vc_1\", \"vc_2\", \"$new_transition_1\"]}}",
+     "before": "{\"unchanged_except\": {\"changed\": [\"vc_1\", \"vc_2\"]}}",
+     "kind": "edited_in_place",
+     "position": 2,
+     "scenario": "NLB-v3-EX-CO-010",
+     "section": "required"
+    },
+    {
+     "after": "{\"entity_exists\": {\"index\": 0, \"track\": \"$new_track_1\", \"type\": \"video_clip\"}}",
+     "before": "{\"attribute_changed\": {\"direction\": \"increase\", \"entity\": \"video_clip_3\", \"field\": \"name\"}}",
+     "kind": "replaced",
+     "position": 1,
+     "scenario": "NLB-v3-EX-DE-004",
+     "section": "required"
+    }
+   ],
+   "length_delta": 1,
+   "removed": 13,
+   "replaced": 2,
+   "scenarios_with_a_constraint_change": 11,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "8ab30f9"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "6b4db6838c6ca1b57b24173b98c0d0e1a6a43996",
+   "date": "2026-08-14T20:11:24+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "6b4db68"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "0b3a4adb7086a05caf01d5e156ef1c4085c7d408",
+   "date": "2026-08-14T20:32:14+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "0b3a4ad"
+  },
+  {
+   "added": 75,
+   "additions_only": true,
+   "commit": "c8be3e83aa0f24cc4039b9db23a852e918679677",
+   "date": "2026-08-14T20:51:20+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 75,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 60,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "c8be3e8"
+  },
+  {
+   "added": 43,
+   "additions_only": true,
+   "commit": "28a5f11c6f26f3858dbc1c533e525b022b90801a",
+   "date": "2026-08-14T21:15:14+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 43,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 40,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "28a5f11"
+  },
+  {
+   "added": 9,
+   "additions_only": true,
+   "commit": "942b45a19a5219abd98d382cb9321888cc0ef2e4",
+   "date": "2026-08-14T21:25:09+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 9,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 9,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "942b45a"
+  },
+  {
+   "added": 182,
+   "additions_only": true,
+   "commit": "8d0ca7e0da61f9cb45887c60f13e6c6fa4786891",
+   "date": "2026-08-14T21:57:21+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 182,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 154,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "8d0ca7e"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "fac19afb3eab83494abe707d10bccb915f2480e0",
+   "date": "2026-08-15T01:03:10+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "fac19af"
+  },
+  {
+   "added": 0,
+   "additions_only": true,
+   "commit": "ea3326f44947973d17f96d92d45f5642e65abd5c",
+   "date": "2026-08-15T01:06:31+00:00",
+   "deleted": 0,
+   "edited_in_place": 0,
+   "examples": [],
+   "length_delta": 0,
+   "removed": 0,
+   "replaced": 0,
+   "scenarios_with_a_constraint_change": 0,
+   "scenarios_with_a_shorter_list": 0,
+   "short": "ea3326f"
+  }
+ ],
+ "commits_with_a_removed_entry": [
+  "185bfa2",
+  "d29f270",
+  "bb0162c",
+  "8ab30f9"
+ ],
+ "range": "64668e0..206e183, first-parent, commits touching src/nlebench/dataset/scenarios_v3_1",
+ "recorded_ledger": {
+  "length_delta_equals_recorded_added_minus_removed": true,
+  "lineage_total": {
+   "added": 310,
+   "removed": 0
+  },
+  "note": "The recorded ledger counts list lengths per commit. A commit that removes an entry in one scenario and adds entries elsewhere shows no removal there. The counts here are per scenario and per entry.",
+  "source": "<NOTES_DIR>/roadmap_2026-08/constraint_addition_ledger.json (length of the lists per commit)"
+ },
+ "rule": "The submission says four hardening commits only\n   added constraints and that one repair commit (8ab30f9) \"modified 11\n   constraints in place\". Here every corpus-touching commit from the\n   submission pin to the dev pin is compared with its first parent, scenario by\n   scenario, with one explicit rule:\n\n     a constraint is one entry of `constraints.required` or `constraints.specified`,\n     identified by its canonical JSON (sorted keys). Per scenario, with O the\n     multiset before and N the multiset after:\n       removed = O - N,  added = N - O  (multiset differences),  delta = |N| - |O|.\n     Each removed entry is one of three kinds, by what stands at its list and\n     position afterwards:\n       edited in place         an added entry with the same predicate name\n       replaced                an added entry with a different predicate name\n       deleted                 no added entry at that position\n     A scenario whose list became shorter is counted separately.\n\n   All counts are reported for every commit. Nothing is adjusted to return 11.",
+ "totals": {
+  "added": 361,
+  "deleted": 1,
+  "edited_in_place": 40,
+  "length_delta": 310,
+  "removed": 51,
+  "replaced": 10,
+  "scenarios_with_a_shorter_list": 1
+ }
+}

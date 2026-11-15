@@ -1,0 +1,51 @@
+id: NLB-v3-EX-DE-008
+version: 1
+taxonomy:
+  scale: L1
+  feasibility: feasible
+  information: explicit
+  action: dependent
+split: dev
+canary: NLE-BENCH-V3-DEV-560edc55
+fixture: simple_sequence
+turns:
+- instruction: Add a 2-second clip from av_media_3 after video_clip_2, then place
+    a cross-dissolve transition between them.
+constraints:
+  required:
+  - entity_exists:
+      entity: $new_clip_1
+  - entity_exists:
+      entity: $new_transition_1
+  - attribute_equals:
+      entity: $new_transition_1
+      field: type
+      value: cross_dissolve
+  specified: []
+  tolerance_override: null
+expected_behavior: null
+required_capability: null
+missing_parameters: null
+expected_changed_entities: &id001
+- $new_clip_1
+- $new_transition_1
+gold_intent:
+  target_entities: *id001
+  expected_ops: []
+  param_ranges: {}
+reference_solution:
+  - tool: add_clip
+    params: {"track_id": "video_track_1", "media_id": "av_media_3", "start": 20, "end": 22, "in_point": 0, "out_point": 2}
+    purpose: "Harvested from a passing run and re-verified"
+  - tool: add_transition
+    params: {"track_id": "video_track_1", "clip_id_1": "video_clip_2", "clip_id_2": "video_clip_3", "transition_type": "cross_dissolve", "duration": 2}
+    purpose: "Harvested from a passing run and re-verified"
+metadata:
+  author: v3-sprint
+  created: '2026-04-05'
+  annotators:
+  - <ANNOTATOR_ACCOUNT>
+  iaa_primary: null
+  source: hand-crafted seed
+  notes: L1 fragment. add_clip -> add_transition.
+  cell: explicit × dependent

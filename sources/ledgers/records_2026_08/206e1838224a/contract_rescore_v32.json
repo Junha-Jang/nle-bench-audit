@@ -1,0 +1,1988 @@
+{
+  "_meta": {
+    "contract": {
+      "corpus_fingerprint": "af4834d8c0e4992f88a9c8d1a1dda88e6691a849c22f1265aee4350bba1297e0",
+      "corpus_name": "v3.2",
+      "primary_metric": "SR-feasible = success rate on the feasible arm; success = TSR (named constraints) AND CSR",
+      "proxy_labels": {
+        "ambiguous": "clarification-attempt proxy (no correctness claim)",
+        "infeasible": "refusal-detector proxy (no correctness claim)",
+        "preservation": "sensitivity annex only — see preservation_annex.json; corpus identity unchanged"
+      },
+      "scorer_version": "1.0.0+registry.71c96a519562",
+      "submission_corpus_fingerprint": "4781a34f03a3ee0bdefecbc433c92ada405039ed08c59869d8b43fffce898b79",
+      "submission_corpus_name": "v3.1-submission"
+    },
+    "generated_by": {
+      "path": "scripts/contract_rescore_v32.py",
+      "sha256": "955f610a935f347a0fadad965f714758d1774ee493d2574a8dda9b66849b2fba"
+    },
+    "missing_state_handling": "feasible records without stored states are retained as failures — identical to the original harness and the official snapshot rescore; counted, never silently dropped",
+    "no_model_reruns": true,
+    "no_paid_api_calls": true,
+    "population_selection_rule": "track == 'canonical' AND recompute_status == 'reconciled' AND excluded_from_recompute != 'yes'",
+    "reads_only": [
+      "<ARTIFACT_CHECKOUT>/results/run_manifest.csv",
+      "<DEV_CHECKOUT>/results/<source_results_relpath> (stored final states)",
+      "<DEV_CHECKOUT>/<NOTES_DIR>/roadmap_2026-08/corpus_identity.json",
+      "<DEV_CHECKOUT>/<NOTES_DIR>/roadmap_2026-08/corpus_defect_audit.json"
+    ],
+    "what": "full rescore of all stored canonical rows under the frozen measurement contract (stage 5)"
+  },
+  "coverage": {
+    "records_expected_from_manifest": 117600,
+    "records_read": 117600,
+    "records_scored": 117600,
+    "records_unscorable": 0,
+    "unscorable_with_reason": {
+      "feasible_missing_stored_state_kept_failure": 8182,
+      "nonfeasible_missing_detector_fields_kept_failure": 1883
+    },
+    "zero_silent_drops": true
+  },
+  "nonfeasible_proxy_agreement_with_stored_success": {
+    "match": 23520
+  },
+  "per_model": [
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 53.75,
+          "success": 43
+        },
+        "feasible": {
+          "missing_state_kept_failure": 6,
+          "n": 640,
+          "sr_pct": 58.75,
+          "success": 376
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 31.25,
+          "success": 25
+        }
+      },
+      "model": "gemini-3-flash-preview",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 132
+      },
+      "provider": "google",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "4",
+      "sr_feasible_pct": 58.75,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 6,
+        "nonfeasible_missing_detector_fields_kept_failure": 1
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 58.75,
+          "success": 141
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 56.3021,
+          "success": 1081
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 67.0833,
+          "success": 161
+        }
+      },
+      "model": "Qwen/QwQ-32B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 363
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "1",
+      "sr_feasible_pct": 56.3021,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 77.5,
+          "success": 62
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 640,
+          "sr_pct": 55.0,
+          "success": 352
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 48.75,
+          "success": 39
+        }
+      },
+      "model": "claude-sonnet-4-6",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 118
+      },
+      "provider": "anthropic",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "2",
+      "sr_feasible_pct": 55.0,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 67.5,
+          "success": 162
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 51.9271,
+          "success": 997
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 67.5,
+          "success": 162
+        }
+      },
+      "model": "Qwen/Qwen3-32B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 364
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "3",
+      "sr_feasible_pct": 51.9271,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 35.0,
+          "success": 84
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 51.6667,
+          "success": 992
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 62.5,
+          "success": 150
+        }
+      },
+      "model": "Qwen/Qwen3-4B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 314
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "6",
+      "sr_feasible_pct": 51.6667,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 59.5833,
+          "success": 143
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 49.375,
+          "success": 948
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 31.25,
+          "success": 75
+        }
+      },
+      "model": "Qwen/Qwen3.5-9B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 339
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "8",
+      "sr_feasible_pct": 49.375,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 68.3333,
+          "success": 164
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 49.1146,
+          "success": 943
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 27.0833,
+          "success": 65
+        }
+      },
+      "model": "Qwen/Qwen2.5-32B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 314
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "9",
+      "sr_feasible_pct": 49.1146,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 52.0833,
+          "success": 125
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 48.75,
+          "success": 936
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 71.25,
+          "success": 171
+        }
+      },
+      "model": "Qwen/Qwen3-8B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 313
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "5",
+      "sr_feasible_pct": 48.75,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 75.8333,
+          "success": 182
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 46.875,
+          "success": 900
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 49.5833,
+          "success": 119
+        }
+      },
+      "model": "Qwen/Qwen3.5-27B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 327
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "7",
+      "sr_feasible_pct": 46.875,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 73.75,
+          "success": 59
+        },
+        "feasible": {
+          "missing_state_kept_failure": 84,
+          "n": 640,
+          "sr_pct": 45.9375,
+          "success": 294
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 33.75,
+          "success": 27
+        }
+      },
+      "model": "claude-haiku-4-5",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 92
+      },
+      "provider": "anthropic",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "11",
+      "sr_feasible_pct": 45.9375,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 84,
+        "nonfeasible_missing_detector_fields_kept_failure": 14
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 46.25,
+          "success": 111
+        },
+        "feasible": {
+          "missing_state_kept_failure": 2,
+          "n": 1920,
+          "sr_pct": 45.9375,
+          "success": 882
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 65.0,
+          "success": 156
+        }
+      },
+      "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 295
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "10",
+      "sr_feasible_pct": 45.9375,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 2
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 44.5833,
+          "success": 107
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 45.3646,
+          "success": 871
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 54.1667,
+          "success": 130
+        }
+      },
+      "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 277
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "12",
+      "sr_feasible_pct": 45.3646,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 50.4167,
+          "success": 121
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 45.1042,
+          "success": 866
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 27.9167,
+          "success": 67
+        }
+      },
+      "model": "microsoft/Phi-4",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 296
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "14",
+      "sr_feasible_pct": 45.1042,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 31.6667,
+          "success": 76
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 42.5521,
+          "success": 817
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 6.25,
+          "success": 15
+        }
+      },
+      "model": "mistralai/Mistral-Nemo-Instruct-2407",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 287
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "21",
+      "sr_feasible_pct": 42.5521,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 71.6667,
+          "success": 172
+        },
+        "feasible": {
+          "missing_state_kept_failure": 3,
+          "n": 1920,
+          "sr_pct": 42.4479,
+          "success": 815
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 15.0,
+          "success": 36
+        }
+      },
+      "model": "Qwen/Qwen2.5-14B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 297
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "16",
+      "sr_feasible_pct": 42.4479,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 3
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 73.75,
+          "success": 177
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 41.8229,
+          "success": 803
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 36.6667,
+          "success": 88
+        }
+      },
+      "model": "Qwen/Qwen3.5-35B-A3B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 301
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "13",
+      "sr_feasible_pct": 41.8229,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 81.25,
+          "success": 65
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 640,
+          "sr_pct": 41.7188,
+          "success": 267
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 0.0,
+          "success": 0
+        }
+      },
+      "model": "gpt-5.4-mini",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 76
+      },
+      "provider": "openai",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "17",
+      "sr_feasible_pct": 41.7188,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 76.25,
+          "success": 61
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 640,
+          "sr_pct": 41.5625,
+          "success": 266
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 3.75,
+          "success": 3
+        }
+      },
+      "model": "gpt-5.4",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 79
+      },
+      "provider": "openai",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "19",
+      "sr_feasible_pct": 41.5625,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 65.0,
+          "success": 156
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 38.6458,
+          "success": 742
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 42.5,
+          "success": 102
+        }
+      },
+      "model": "Qwen/Qwen3.5-4B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 255
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "15",
+      "sr_feasible_pct": 38.6458,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 53.75,
+          "success": 129
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 38.4375,
+          "success": 738
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 57.9167,
+          "success": 139
+        }
+      },
+      "model": "google/gemma-4-31B-it",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 270
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "18",
+      "sr_feasible_pct": 38.4375,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 4.5833,
+          "success": 11
+        },
+        "feasible": {
+          "missing_state_kept_failure": 24,
+          "n": 1920,
+          "sr_pct": 38.2292,
+          "success": 734
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 7.9167,
+          "success": 19
+        }
+      },
+      "model": "tiiuae/Falcon3-10B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 251
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "25",
+      "sr_feasible_pct": 38.2292,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 24
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 38.75,
+          "success": 93
+        },
+        "feasible": {
+          "missing_state_kept_failure": 3,
+          "n": 1920,
+          "sr_pct": 34.2188,
+          "success": 657
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 35.0,
+          "success": 84
+        }
+      },
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 238
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "23",
+      "sr_feasible_pct": 34.2188,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 3
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 92.5,
+          "success": 74
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 640,
+          "sr_pct": 33.4375,
+          "success": 214
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 46.25,
+          "success": 37
+        }
+      },
+      "model": "gemini-2.5-flash",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 65
+      },
+      "provider": "google",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "20",
+      "sr_feasible_pct": 33.4375,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 5.4167,
+          "success": 13
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 33.3854,
+          "success": 641
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 6.6667,
+          "success": 16
+        }
+      },
+      "model": "tiiuae/Falcon3-7B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 218
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "30",
+      "sr_feasible_pct": 33.3854,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 83.75,
+          "success": 201
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 28.75,
+          "success": 552
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 31.6667,
+          "success": 76
+        }
+      },
+      "model": "zai-org/GLM-4-32B-0414",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 183
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "24",
+      "sr_feasible_pct": 28.75,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 74.5833,
+          "success": 179
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 27.4479,
+          "success": 527
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 32.9167,
+          "success": 79
+        }
+      },
+      "model": "Qwen/Qwen3.5-2B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 182
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "22",
+      "sr_feasible_pct": 27.4479,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 11.25,
+          "success": 27
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 24.6354,
+          "success": 473
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 10.0,
+          "success": 24
+        }
+      },
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 147
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "39",
+      "sr_feasible_pct": 24.6354,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.4167,
+          "success": 1
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 24.0104,
+          "success": 461
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.8333,
+          "success": 2
+        }
+      },
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 164
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "44",
+      "sr_feasible_pct": 24.0104,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 19.5833,
+          "success": 47
+        },
+        "feasible": {
+          "missing_state_kept_failure": 10,
+          "n": 1920,
+          "sr_pct": 23.75,
+          "success": 456
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 12.5,
+          "success": 30
+        }
+      },
+      "model": "openbmb/MiniCPM4-8B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 150
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "37",
+      "sr_feasible_pct": 23.75,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 10
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 30.8333,
+          "success": 74
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 22.8125,
+          "success": 438
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 10.0,
+          "success": 24
+        }
+      },
+      "model": "internlm/internlm3-8b-instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 138
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "36",
+      "sr_feasible_pct": 22.8125,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 71.25,
+          "success": 57
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 640,
+          "sr_pct": 22.8125,
+          "success": 146
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 3.75,
+          "success": 3
+        }
+      },
+      "model": "o3-mini",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 38
+      },
+      "provider": "openai",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "32",
+      "sr_feasible_pct": 22.8125,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 54.5833,
+          "success": 131
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 22.7083,
+          "success": 436
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 60.4167,
+          "success": 145
+        }
+      },
+      "model": "Qwen/Qwen3-1.7B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 148
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "26",
+      "sr_feasible_pct": 22.7083,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 79.5833,
+          "success": 191
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 22.4479,
+          "success": 431
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 10.8333,
+          "success": 26
+        }
+      },
+      "model": "openai/gpt-oss-120b",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 114
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "29",
+      "sr_feasible_pct": 22.4479,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 91.25,
+          "success": 73
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 640,
+          "sr_pct": 22.1875,
+          "success": 142
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 1.25,
+          "success": 1
+        }
+      },
+      "model": "o4-mini",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 36
+      },
+      "provider": "openai",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "27",
+      "sr_feasible_pct": 22.1875,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 41.6667,
+          "success": 100
+        },
+        "feasible": {
+          "missing_state_kept_failure": 1,
+          "n": 1920,
+          "sr_pct": 21.6667,
+          "success": 416
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 50.4167,
+          "success": 121
+        }
+      },
+      "model": "microsoft/Phi-4-mini-instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 136
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "33",
+      "sr_feasible_pct": 21.6667,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 1
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 83.75,
+          "success": 201
+        },
+        "feasible": {
+          "missing_state_kept_failure": 1,
+          "n": 1920,
+          "sr_pct": 21.3021,
+          "success": 409
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        }
+      },
+      "model": "openai/gpt-oss-20b",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 101
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "34",
+      "sr_feasible_pct": 21.3021,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 1
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 1.25,
+          "success": 3
+        },
+        "feasible": {
+          "missing_state_kept_failure": 906,
+          "n": 1920,
+          "sr_pct": 20.8854,
+          "success": 401
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 25.0,
+          "success": 60
+        }
+      },
+      "model": "google/gemma-2-27b-it",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 144
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "43",
+      "sr_feasible_pct": 20.8854,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 906,
+        "nonfeasible_missing_detector_fields_kept_failure": 153
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        },
+        "feasible": {
+          "missing_state_kept_failure": 18,
+          "n": 1920,
+          "sr_pct": 19.4271,
+          "success": 373
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        }
+      },
+      "model": "tiiuae/Falcon3-3B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 123
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "46",
+      "sr_feasible_pct": 19.4271,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 18
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 81.25,
+          "success": 195
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 18.9062,
+          "success": 363
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 17.5,
+          "success": 42
+        }
+      },
+      "model": "google/gemma-4-E2B-it",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 122
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "31",
+      "sr_feasible_pct": 18.9062,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 22.5,
+          "success": 54
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 18.3333,
+          "success": 352
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 28.75,
+          "success": 69
+        }
+      },
+      "model": "google/gemma-4-26B-A4B-it",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 126
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "41",
+      "sr_feasible_pct": 18.3333,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 92.5,
+          "success": 222
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 17.5,
+          "success": 336
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 22.9167,
+          "success": 55
+        }
+      },
+      "model": "google/gemma-4-E4B-it",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 126
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "35",
+      "sr_feasible_pct": 17.5,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 3.75,
+          "success": 9
+        },
+        "feasible": {
+          "missing_state_kept_failure": 958,
+          "n": 1920,
+          "sr_pct": 16.9792,
+          "success": 326
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 13.75,
+          "success": 33
+        }
+      },
+      "model": "google/gemma-2-9b-it",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 108
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "47",
+      "sr_feasible_pct": 16.9792,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 958,
+        "nonfeasible_missing_detector_fields_kept_failure": 159
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 23.75,
+          "success": 19
+        },
+        "feasible": {
+          "missing_state_kept_failure": 453,
+          "n": 640,
+          "sr_pct": 16.25,
+          "success": 104
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 80,
+          "sr_pct": 1.25,
+          "success": 1
+        }
+      },
+      "model": "claude-haiku-4-5-20251001",
+      "preservation_annex_subset": {
+        "n": 273,
+        "success": 44
+      },
+      "provider": "anthropic",
+      "records": 800,
+      "records_scored": 800,
+      "row_id": "48",
+      "sr_feasible_pct": 16.25,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 453,
+        "nonfeasible_missing_detector_fields_kept_failure": 113
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 76.25,
+          "success": 183
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 11.5625,
+          "success": 222
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 92.5,
+          "success": 222
+        }
+      },
+      "model": "allenai/Olmo-3-7B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 64
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "28",
+      "sr_feasible_pct": 11.5625,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 59.5833,
+          "success": 143
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 11.0417,
+          "success": 212
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 25.8333,
+          "success": 62
+        }
+      },
+      "model": "Qwen/Qwen3.5-0.8B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 75
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "45",
+      "sr_feasible_pct": 11.0417,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 80.0,
+          "success": 192
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 6.0938,
+          "success": 117
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 55.4167,
+          "success": 133
+        }
+      },
+      "model": "Qwen/Qwen3-0.6B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 66
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "42",
+      "sr_feasible_pct": 6.0938,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 77.9167,
+          "success": 187
+        },
+        "feasible": {
+          "missing_state_kept_failure": 4,
+          "n": 1920,
+          "sr_pct": 5.2604,
+          "success": 101
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 13.75,
+          "success": 33
+        }
+      },
+      "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 39
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "50",
+      "sr_feasible_pct": 5.2604,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 4
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 73.3333,
+          "success": 176
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 2.7083,
+          "success": 52
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 9.1667,
+          "success": 22
+        }
+      },
+      "model": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 30
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "52",
+      "sr_feasible_pct": 2.7083,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 39.5833,
+          "success": 95
+        },
+        "feasible": {
+          "missing_state_kept_failure": 9,
+          "n": 1920,
+          "sr_pct": 1.6146,
+          "success": 31
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 1.25,
+          "success": 3
+        }
+      },
+      "model": "meta-llama/Llama-3.2-1B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 17
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "54",
+      "sr_feasible_pct": 1.6146,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 9
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 95.4167,
+          "success": 229
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 0.8333,
+          "success": 16
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 3.75,
+          "success": 9
+        }
+      },
+      "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 4
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "51",
+      "sr_feasible_pct": 0.8333,
+      "unscorable_with_reason": {
+        "nonfeasible_missing_detector_fields_kept_failure": 3
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 100.0,
+          "success": 240
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 0.3125,
+          "success": 6
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 31.25,
+          "success": 75
+        }
+      },
+      "model": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 3
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "49",
+      "sr_feasible_pct": 0.3125,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 56.6667,
+          "success": 136
+        },
+        "feasible": {
+          "missing_state_kept_failure": 0,
+          "n": 1920,
+          "sr_pct": 0.3125,
+          "success": 6
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 25.4167,
+          "success": 61
+        }
+      },
+      "model": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 3
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "53",
+      "sr_feasible_pct": 0.3125,
+      "unscorable_with_reason": {}
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        },
+        "feasible": {
+          "missing_state_kept_failure": 1920,
+          "n": 1920,
+          "sr_pct": 0.0,
+          "success": 0
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        }
+      },
+      "model": "01-ai/Yi-1.5-34B-Chat",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 0
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "57",
+      "sr_feasible_pct": 0.0,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 1920,
+        "nonfeasible_missing_detector_fields_kept_failure": 480
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        },
+        "feasible": {
+          "missing_state_kept_failure": 1920,
+          "n": 1920,
+          "sr_pct": 0.0,
+          "success": 0
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        }
+      },
+      "model": "allenai/OLMo-2-1124-13B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 0
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "58",
+      "sr_feasible_pct": 0.0,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 1920,
+        "nonfeasible_missing_detector_fields_kept_failure": 480
+      }
+    },
+    {
+      "arms": {
+        "ambiguous": {
+          "label": "clarification-attempt proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        },
+        "feasible": {
+          "missing_state_kept_failure": 1860,
+          "n": 1920,
+          "sr_pct": 0.0,
+          "success": 0
+        },
+        "infeasible": {
+          "label": "refusal-detector proxy (no correctness claim)",
+          "n": 240,
+          "sr_pct": 0.0,
+          "success": 0
+        }
+      },
+      "model": "tiiuae/Falcon3-1B-Instruct",
+      "preservation_annex_subset": {
+        "n": 819,
+        "success": 0
+      },
+      "provider": "vllm",
+      "records": 2400,
+      "records_scored": 2400,
+      "row_id": "56",
+      "sr_feasible_pct": 0.0,
+      "unscorable_with_reason": {
+        "feasible_missing_stored_state_kept_failure": 1860,
+        "nonfeasible_missing_detector_fields_kept_failure": 480
+      }
+    }
+  ],
+  "population": {
+    "row_ids": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "39",
+      "41",
+      "42",
+      "43",
+      "44",
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52",
+      "53",
+      "54",
+      "56",
+      "57",
+      "58"
+    ],
+    "rows": 55,
+    "selection_rule": "track == 'canonical' AND recompute_status == 'reconciled' AND excluded_from_recompute != 'yes'"
+  },
+  "problems": [],
+  "totals_per_arm": {
+    "ambiguous": {
+      "n": 11760,
+      "sr_pct": 50.1361,
+      "success": 5896
+    },
+    "feasible": {
+      "n": 94080,
+      "sr_pct": 26.6125,
+      "success": 25037
+    },
+    "infeasible": {
+      "n": 11760,
+      "sr_pct": 28.0357,
+      "success": 3297
+    }
+  }
+}

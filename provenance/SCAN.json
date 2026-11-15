@@ -1,0 +1,273 @@
+{
+ "files_with_each_pattern": {
+  "dataset_canary": 8,
+  "email_address": 2,
+  "hangul_text": 38,
+  "scenario_id": 55,
+  "secret_like": 6
+ },
+ "generic_patterns": {
+  "LICENSE.md": {
+   "email_address": 1,
+   "scenario_id": 2
+  },
+  "README.md": {
+   "email_address": 1,
+   "hangul_text": 2
+  },
+  "cases/NLB-v3-CX-AT-003/case.json": {
+   "hangul_text": 120,
+   "scenario_id": 5
+  },
+  "cases/NLB-v3-CX-AT-003/scenario_473d3b54ecd4.yaml": {
+   "dataset_canary": 1,
+   "scenario_id": 1
+  },
+  "cases/NLB-v3-CX-CO-002/case.json": {
+   "hangul_text": 103,
+   "scenario_id": 6
+  },
+  "cases/NLB-v3-CX-CO-002/scenario_6a6dd54230aa.yaml": {
+   "dataset_canary": 1,
+   "scenario_id": 1
+  },
+  "cases/NLB-v3-CX-CO-002/scenario_b0c48f988109.yaml": {
+   "dataset_canary": 1,
+   "scenario_id": 1
+  },
+  "cases/NLB-v3-EX-CO-004/case.json": {
+   "scenario_id": 4
+  },
+  "cases/NLB-v3-EX-CO-004/scenario_published.yaml": {
+   "dataset_canary": 1,
+   "scenario_id": 1
+  },
+  "cases/NLB-v3-EX-CO-009/case.json": {
+   "scenario_id": 4
+  },
+  "cases/NLB-v3-EX-CO-009/scenario_published.yaml": {
+   "dataset_canary": 1,
+   "scenario_id": 1
+  },
+  "cases/NLB-v3-EX-DE-008/case.json": {
+   "hangul_text": 103,
+   "scenario_id": 6
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_25c92c33cfab.yaml": {
+   "dataset_canary": 1,
+   "scenario_id": 1
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_61b686d4ec14.yaml": {
+   "dataset_canary": 1,
+   "scenario_id": 1
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_abf8dc2d3c14.yaml": {
+   "dataset_canary": 1,
+   "scenario_id": 1
+  },
+  "cases/SCENARIO_IDENTITIES.json": {
+   "scenario_id": 8
+  },
+  "cases/index.json": {
+   "scenario_id": 7
+  },
+  "checks/constraint_history.json": {
+   "scenario_id": 4
+  },
+  "checks/null_guard.csv": {
+   "scenario_id": 200
+  },
+  "checks/null_guard.json": {
+   "scenario_id": 1
+  },
+  "checks/path_pinning.json": {
+   "hangul_text": 226,
+   "scenario_id": 14
+  },
+  "expected.json": {
+   "scenario_id": 5
+  },
+  "inventory/promises/promises.json": {
+   "scenario_id": 2
+  },
+  "nlebench_audit/integrity.py": {
+   "hangul_text": 2,
+   "secret_like": 1
+  },
+  "nlebench_audit/projection.py": {
+   "hangul_text": 261,
+   "scenario_id": 3
+  },
+  "nlebench_audit/sanitize.py": {
+   "hangul_text": 30,
+   "scenario_id": 14
+  },
+  "provenance/CONTENT_REVIEW.json": {
+   "scenario_id": 23
+  },
+  "provenance/SOURCE_MAP.json": {
+   "scenario_id": 82
+  },
+  "provenance/TRANSFORMATIONS.json": {
+   "hangul_text": 330,
+   "scenario_id": 11
+  },
+  "rejudging/diff_A.csv": {
+   "scenario_id": 396
+  },
+  "rejudging/diff_A_prime.csv": {
+   "scenario_id": 45
+  },
+  "rejudging/diff_BC.csv": {
+   "scenario_id": 417
+  },
+  "rejudging/diff_harness_new_to_dev_tree.csv": {
+   "scenario_id": 184
+  },
+  "rejudging/membership.csv": {
+   "scenario_id": 200
+  },
+  "rejudging/per_record.csv.gz": {
+   "scenario_id": 29400
+  },
+  "runtime/PINS.json": {
+   "scenario_id": 5
+  },
+  "runtime/README.md": {
+   "scenario_id": 5
+  },
+  "runtime/pins/artifact-58afb977515b/nlebench/config.py": {
+   "secret_like": 5
+  },
+  "runtime/pins/artifact-58afb977515b/nlebench/models.py": {
+   "hangul_text": 262
+  },
+  "runtime/pins/dev-206e1838224a/nlebench/config.py": {
+   "secret_like": 5
+  },
+  "runtime/pins/dev-206e1838224a/nlebench/models.py": {
+   "hangul_text": 206
+  },
+  "runtime/pins/dev-28a5f11c6f26/nlebench/config.py": {
+   "secret_like": 5
+  },
+  "runtime/pins/dev-28a5f11c6f26/nlebench/models.py": {
+   "hangul_text": 262
+  },
+  "runtime/pins/dev-5d2f3a6175ad/nlebench/config.py": {
+   "secret_like": 5
+  },
+  "runtime/pins/dev-5d2f3a6175ad/nlebench/models.py": {
+   "hangul_text": 262
+  },
+  "runtime/pins/dev-69f8d58a1382/nlebench/config.py": {
+   "secret_like": 5
+  },
+  "runtime/pins/dev-69f8d58a1382/nlebench/models.py": {
+   "hangul_text": 262
+  },
+  "scorers/adapters/models_swap_206e1838224a.diff": {
+   "hangul_text": 56
+  },
+  "sites/candidate_keys.csv": {
+   "hangul_text": 84,
+   "scenario_id": 283
+  },
+  "sites/candidate_reconciliation.json": {
+   "hangul_text": 23,
+   "scenario_id": 3
+  },
+  "sites/recovery_168.csv": {
+   "hangul_text": 12,
+   "scenario_id": 36
+  },
+  "sources/ledgers/adjudication/206e1838224a/cluster_hardening.json": {
+   "hangul_text": 3630,
+   "scenario_id": 94
+  },
+  "sources/ledgers/adjudication/206e1838224a/constraint_hardening.json": {
+   "hangul_text": 3156,
+   "scenario_id": 41
+  },
+  "sources/ledgers/adjudication/206e1838224a/false_success_closeout.json": {
+   "hangul_text": 5609,
+   "scenario_id": 77
+  },
+  "sources/ledgers/adjudication/206e1838224a/false_success_triage.json": {
+   "hangul_text": 3943,
+   "scenario_id": 36
+  },
+  "sources/ledgers/probe_round1/S0_first_ledger_5d2f3a6175ad/false_success_probe.json": {
+   "hangul_text": 196,
+   "scenario_id": 36
+  },
+  "sources/ledgers/probe_round1/S1_after_fixture_deepcopy_0b3a4adb7086/false_success_probe.json": {
+   "hangul_text": 196,
+   "scenario_id": 35
+  },
+  "sources/ledgers/probe_round1/S2_after_wave1_c8be3e83aa0f/false_success_probe.json": {
+   "hangul_text": 196,
+   "scenario_id": 14
+  },
+  "sources/ledgers/probe_round1/S3_final_28a5f11c6f26/false_success_probe.json": {
+   "hangul_text": 196,
+   "scenario_id": 12
+  },
+  "sources/ledgers/probe_round2/T0_first_ledger_28a5f11c6f26/false_success_probe_full.json": {
+   "hangul_text": 233,
+   "scenario_id": 108
+  },
+  "sources/ledgers/probe_round2/T1_after_immediate_closes_942b45a19a52/false_success_probe_full.json": {
+   "hangul_text": 233,
+   "scenario_id": 94
+  },
+  "sources/ledgers/probe_round2/T2_final_8d0ca7e0da61/false_success_probe_full.json": {
+   "hangul_text": 233,
+   "scenario_id": 60
+  },
+  "sources/ledgers/records_2026_08/206e1838224a/constraint_addition_ledger.json": {
+   "hangul_text": 8
+  },
+  "sources/ledgers/records_2026_08/206e1838224a/constraint_predicate_audit.json": {
+   "hangul_text": 4067,
+   "scenario_id": 1199
+  },
+  "sources/ledgers/records_2026_08/206e1838224a/stored_row_rescore.json": {
+   "hangul_text": 125,
+   "scenario_id": 905
+  },
+  "sources/probes/206e1838224a/false_success_probe.py": {
+   "hangul_text": 498
+  },
+  "sources/probes/206e1838224a/false_success_probe_full.py": {
+   "hangul_text": 597
+  },
+  "sources/probes/28a5f11c6f26/false_success_probe_full.py": {
+   "hangul_text": 657
+  },
+  "sources/probes/5d2f3a6175ad/false_success_probe.py": {
+   "hangul_text": 582
+  },
+  "tests/test_integrity.py": {
+   "hangul_text": 191,
+   "scenario_id": 2
+  },
+  "tests/test_packaging.py": {
+   "scenario_id": 4
+  },
+  "tests/test_repository.py": {
+   "scenario_id": 11
+  },
+  "tools/export.py": {
+   "scenario_id": 7
+  },
+  "tools/leak_gate.py": {
+   "hangul_text": 13
+  }
+ },
+ "local_account_name": {
+  "files": {},
+  "note": "counts only; the name itself is not recorded here"
+ },
+ "what": "counts of generic patterns in every file, measured on this checkout; and, measured at export time with a list kept outside the repository, the files that still hold a local account name"
+}

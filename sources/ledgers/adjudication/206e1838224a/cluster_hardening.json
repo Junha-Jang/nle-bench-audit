@@ -1,0 +1,1381 @@
+{
+ "_meta": {
+  "what": "확장 변이 프로브 잔여 381건의 클러스터별 검증·보강 (2026-08-14)",
+  "input": "<LEDGER_DIR>/false_success_probe_full.json 의 findings 381건(보강 전 스냅샷)",
+  "method": "건별로 시나리오 YAML 의 turns 를 읽고 그 값이 지시로 결정되는지 판정했다. REAL = 지시가 값을 결정한다 / FREEDOM = 지시가 결정하지 않는다 / GOLD = 지시에 없는 정답 고유 값이다. REAL 만 보강했고, 보강마다 (가) 기존 정답이 여전히 통과 (나) 그 변종이 떨어짐 을 확인했다.",
+  "scoring_path": "validate_named_constraints + load_scenario + build_fixture + execute_tool — 하네스 경로로만 채점",
+  "edits": "YAML 의 constraints.required 에 **덧붙이기만** 했다. 기존 제약 삭제·완화 0건. 소스 코드 무수정.",
+  "yaml_safety": "삽입마다 yaml.safe_load 재파싱 + 기대 구조 대조. 최종적으로 800개 전량 재파싱 성공."
+ },
+ "요약": {
+  "검토 건수": 381,
+  "REAL": 193,
+  "FREEDOM": 173,
+  "GOLD": 15,
+  "보강한 제약 수": 180,
+  "변종을 실제로 막은 수": 184,
+  "미확인": 0
+ },
+ "클러스터별_판정": {
+  "end": {
+   "FREEDOM": 66,
+   "REAL": 49,
+   "GOLD": 2,
+   "합": 117,
+   "REAL/FREEDOM 혼재": true
+  },
+  "scale_y": {
+   "REAL": 85,
+   "FREEDOM": 1,
+   "합": 86,
+   "REAL/FREEDOM 혼재": true
+  },
+  "duration": {
+   "FREEDOM": 42,
+   "REAL": 4,
+   "합": 46,
+   "REAL/FREEDOM 혼재": true
+  },
+  "name": {
+   "FREEDOM": 13,
+   "GOLD": 3,
+   "REAL": 16,
+   "합": 32,
+   "REAL/FREEDOM 혼재": true
+  },
+  "file_path": {
+   "REAL": 30,
+   "GOLD": 2,
+   "합": 32,
+   "REAL/FREEDOM 혼재": false
+  },
+  "out_point": {
+   "FREEDOM": 16,
+   "합": 16,
+   "REAL/FREEDOM 혼재": false
+  },
+  "start": {
+   "REAL": 5,
+   "FREEDOM": 6,
+   "GOLD": 4,
+   "합": 15,
+   "REAL/FREEDOM 혼재": true
+  },
+  "in_point": {
+   "FREEDOM": 12,
+   "합": 12,
+   "REAL/FREEDOM 혼재": false
+  },
+  "text": {
+   "FREEDOM": 8,
+   "REAL": 2,
+   "합": 10,
+   "REAL/FREEDOM 혼재": true
+  },
+  "transition_type": {
+   "FREEDOM": 3,
+   "합": 3,
+   "REAL/FREEDOM 혼재": false
+  },
+  "volume": {
+   "GOLD": 2,
+   "합": 2,
+   "REAL/FREEDOM 혼재": false
+  },
+  "fps": {
+   "FREEDOM": 2,
+   "합": 2,
+   "REAL/FREEDOM 혼재": false
+  },
+  "height": {
+   "FREEDOM": 2,
+   "합": 2,
+   "REAL/FREEDOM 혼재": false
+  },
+  "width": {
+   "FREEDOM": 2,
+   "합": 2,
+   "REAL/FREEDOM 혼재": false
+  },
+  "speed": {
+   "GOLD": 2,
+   "합": 2,
+   "REAL/FREEDOM 혼재": false
+  },
+  "effect_type": {
+   "REAL": 1,
+   "합": 1,
+   "REAL/FREEDOM 혼재": false
+  },
+  "position": {
+   "REAL": 1,
+   "합": 1,
+   "REAL/FREEDOM 혼재": false
+  }
+ },
+ "_세는법": {
+  "보강": "이 건 때문에 제약을 새로 넣은 건수",
+  "변종차단": "그 잘못된 값을 실제로 떨어뜨리는 것을 하네스로 확인한 건수"
+ },
+ "클러스터별_보강": {
+  "end": {
+   "보강": 46,
+   "변종차단": 46
+  },
+  "scale_y": {
+   "보강": 85,
+   "변종차단": 85
+  },
+  "duration": {
+   "보강": 1,
+   "변종차단": 1
+  },
+  "name": {
+   "보강": 16,
+   "변종차단": 16
+  },
+  "file_path": {
+   "보강": 26,
+   "변종차단": 30
+  },
+  "out_point": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "start": {
+   "보강": 5,
+   "변종차단": 5
+  },
+  "in_point": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "text": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "transition_type": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "volume": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "fps": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "height": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "width": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "speed": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "effect_type": {
+   "보강": 0,
+   "변종차단": 0
+  },
+  "position": {
+   "보강": 1,
+   "변종차단": 1
+  }
+ },
+ "재실행_잔여": {
+  "명령": "python <LEDGER_DIR>/false_success_probe_full.py",
+  "이전": {
+   "M4full": 303,
+   "M5": 78,
+   "합": 381
+  },
+  "이후": {
+   "M4full_값이_틀려도_통과": 165,
+   "M5_문자열이_틀려도_통과": 54,
+   "합": 219
+  },
+  "감소": 162,
+  "잔여_파라미터별": {
+   "end": 71,
+   "duration": 45,
+   "file_path": 24,
+   "out_point": 16,
+   "name": 16,
+   "in_point": 12,
+   "start": 10,
+   "text": 10,
+   "transition_type": 3,
+   "volume": 2,
+   "width": 2,
+   "height": 2,
+   "fps": 2,
+   "speed": 2,
+   "scale_y": 1,
+   "effect_type": 1
+  }
+ },
+ "전량_검증": {
+  "v3_1 YAML 재파싱": "800/800 성공",
+  "정답 보유 시나리오 전량 통과": "633/633 (전 호출 success + TSR=True)",
+  "feasible no-op 통과": "0 / 640"
+ },
+ "_limits": {
+  "표본": "없음 — 381건 전수를 건별로 판정했다(각 건의 turns 를 읽고 근거를 기록).",
+  "확인 못 한 것": [
+   "보강한 제약이 실제 모델 런의 점수를 어떻게 바꾸는지는 재채점하지 않았다(모델 실행 0회).",
+   "FREEDOM 으로 둔 건은 '지시가 값을 결정하지 않는다' 는 판정일 뿐, 그 시나리오가 변별력이 있다는 뜻은 아니다. 지시문 자체를 고쳐 값을 못 박는 편이 나은 건들이 섞여 있다(예: 자막 길이를 말하지 않는 add_caption 66건).",
+   "in_point/out_point 28건은 지시가 소스 인/아웃점을 한 번도 언급하지 않아 전부 FREEDOM 으로 뒀다. 이는 코퍼스 전체를 grep 해 확인했다."
+  ]
+ },
+ "건별": [
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-CX-AT-001",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "I'm editing a travel vlog. The intro clip — scale it to 1.1.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_1\", \"field\": \"transform.scale_y\", \"value\": 1.1}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-CX-AT-003",
+   "step": 0,
+   "tool": "add_transition",
+   "instruction": "The cut between the intro and the middle section feels too abrupt. Add a cross-dissolve transition there.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-AT-007",
+   "step": 1,
+   "tool": "add_caption",
+   "instruction": "Lower the background music by 6 dB — the dialogue needs room. | Also add a subtitle caption at 5s saying 'Interview begins'.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-AT-008",
+   "step": 1,
+   "tool": "update_clip",
+   "instruction": "The middle section doesn't work — remove the second clip entirely. | And shift the outro earlier to close the gap.",
+   "judgment": "REAL",
+   "reason": "MOVE: '아웃트로를 앞으로 당겨 빈틈을 메워라' — 이동이지 늘이기가 아니다",
+   "hardening": "{\"duration_equals\": {\"entity\": \"video_clip_3\", \"value\": 5.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-CX-AT-009",
+   "step": 0,
+   "tool": "add_transition",
+   "instruction": "The jump from the intro to the bridge feels harsh — add a wipe transition there. | And put a contrast effect on the bridge clip to set it apart.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-CX-AT-010",
+   "step": 0,
+   "tool": "add_track",
+   "instruction": "Create a new video track for the overlay layer. | The B-roll footage on V2 needs to be split — cut the later overlay at the 2-second mark. | And slow the hero shot to 0.8x for emphasis.",
+   "judgment": "FREEDOM",
+   "reason": "지시는 트랙/시퀀스의 용도만 말하고 이름을 못 박지 않는다 → 이름은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-CX-CO-001",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "The intro needs to pop: scale it to 1.15, add a contrast effect, and place a title card caption 'Welcome' at 0s.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_1\", \"field\": \"transform.scale_y\", \"value\": 1.15}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-CX-CO-002",
+   "step": 1,
+   "tool": "add_transition",
+   "instruction": "The outro needs a slow-mo feel — drop it to 0.8x, lower its opacity to 0.9, and add a cross-dissolve coming in from the middle clip.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-CX-CO-005",
+   "step": 0,
+   "tool": "import_media",
+   "instruction": "Import the new voiceover file 'narration.wav' into the project. | Place a clip from it on audio track 1, starting right where the dialogue on that track runs out, and link it with the intro shot.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"narration.wav\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "note": "프로브의 M5 변이는 경로 앞에 'MUTATED_' 를 붙일 뿐이라 basename 이 그대로다(os.path.basename('MUTATED_/media/x.mp3') == 'x.mp3'). 즉 이 변이는 관측 가능한 상태를 안 바꾸는 프로브 아티팩트다. 그래서 별도로 파일명 자체를 바꾼 변종(WRONG_<basename>)으로 차단을 확인했다. 재실행 잔여에는 계속 잡힌다",
+   "probe_variant_blocked": false
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-CO-005",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "Import the new voiceover file 'narration.wav' into the project. | Place a clip from it on audio track 1, starting right where the dialogue on that track runs out, and link it with the intro shot.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 새 클립 길이를 말하지 않는다 → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-CX-CO-006",
+   "step": 0,
+   "tool": "add_track",
+   "instruction": "Create a new caption track for lower thirds. | Add a caption 'Interview: John Doe' on that track at 10s, then set its font size to 36.",
+   "judgment": "FREEDOM",
+   "reason": "지시는 트랙/시퀀스의 용도만 말하고 이름을 못 박지 않는다 → 이름은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-CO-006",
+   "step": 1,
+   "tool": "add_caption",
+   "instruction": "Create a new caption track for lower thirds. | Add a caption 'Interview: John Doe' on that track at 10s, then set its font size to 36.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-CX-CO-007",
+   "step": 1,
+   "tool": "add_transition",
+   "instruction": "The hero shot needs weight: slow it to 0.85x and add a wipe transition between the bridge and the hero. | Also, the old title card is wrong — remove the first caption.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-CX-CO-009",
+   "step": 1,
+   "tool": "add_transition",
+   "instruction": "The middle clip needs a scene break — split it at 3 seconds. | Add a dissolve transition between the two halves. | And put a chapter marker caption 'Part 2' at the split point.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-CO-009",
+   "step": 2,
+   "tool": "add_caption",
+   "instruction": "The middle clip needs a scene break — split it at 3 seconds. | Add a dissolve transition between the two halves. | And put a chapter marker caption 'Part 2' at the split point.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-CX-CU-001",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Scale the intro clip to 1.1. | Now add a brightness effect to the intro. Keep the scale change.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_1\", \"field\": \"transform.scale_y\", \"value\": 1.1}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-CX-CU-003",
+   "step": 0,
+   "tool": "add_transition",
+   "instruction": "Add a cross-dissolve between the intro and the middle clip. | Now slow the outro to 0.85x. Keep the transition.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-CU-005",
+   "step": 1,
+   "tool": "add_caption",
+   "instruction": "Put a contrast effect on the intro. | Add a lower-third caption 'Day 1' at 2s. | Now lower the BGM by 5 dB. Preserve the effect and caption.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-CX-CU-007",
+   "step": 0,
+   "tool": "import_media",
+   "instruction": "Import the new voiceover 'narration.wav' into the project. | Place a clip from it on audio track 1, starting right where the dialogue on that track runs out. | Link the new audio with the intro video. Keep the import and clip.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"narration.wav\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "note": "프로브의 M5 변이는 경로 앞에 'MUTATED_' 를 붙일 뿐이라 basename 이 그대로다(os.path.basename('MUTATED_/media/x.mp3') == 'x.mp3'). 즉 이 변이는 관측 가능한 상태를 안 바꾸는 프로브 아티팩트다. 그래서 별도로 파일명 자체를 바꾼 변종(WRONG_<basename>)으로 차단을 확인했다. 재실행 잔여에는 계속 잡힌다",
+   "probe_variant_blocked": false
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-CU-007",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "Import the new voiceover 'narration.wav' into the project. | Place a clip from it on audio track 1, starting right where the dialogue on that track runs out. | Link the new audio with the intro video. Keep the import and clip.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 새 클립 길이를 말하지 않는다 → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-CX-CU-008",
+   "step": 0,
+   "tool": "add_track",
+   "instruction": "Create a new caption track for subtitles. | Add a subtitle 'Scene 1' on it at 3s. | Change the subtitle's color to yellow. Preserve the track and text.",
+   "judgment": "FREEDOM",
+   "reason": "지시는 트랙/시퀀스의 용도만 말하고 이름을 못 박지 않는다 → 이름은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-CU-008",
+   "step": 1,
+   "tool": "add_caption",
+   "instruction": "Create a new caption track for subtitles. | Add a subtitle 'Scene 1' on it at 3s. | Change the subtitle's color to yellow. Preserve the track and text.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-CX-CU-009",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Scale the intro to 1.1. | Add a brightness effect to it. Keep the scale. | Add a dissolve transition between the intro and the next clip. Preserve all prior. | Lower the BGM by 4 dB. Keep everything.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_1\", \"field\": \"transform.scale_y\", \"value\": 1.1}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-CX-CU-009",
+   "step": 2,
+   "tool": "add_transition",
+   "instruction": "Scale the intro to 1.1. | Add a brightness effect to it. Keep the scale. | Add a dissolve transition between the intro and the next clip. Preserve all prior. | Lower the BGM by 4 dB. Keep everything.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-CU-010",
+   "step": 2,
+   "tool": "add_caption",
+   "instruction": "Split the hero shot about 6 seconds in. | Add a saturation effect to the second half. Keep the split. | Add a chapter caption 'Part 2' at the split point. Preserve everything.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-CX-DE-001",
+   "step": 1,
+   "tool": "add_transition",
+   "instruction": "The hero moment in the middle clip runs long. Split it at 3 seconds and add a dissolve transition between the two halves.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-CX-DE-002",
+   "step": 0,
+   "tool": "import_media",
+   "instruction": "We have new background music — import 'ambient.mp3' and place a clip from it on audio track 2, starting right where the current music ends.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"ambient.mp3\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "note": "프로브의 M5 변이는 경로 앞에 'MUTATED_' 를 붙일 뿐이라 basename 이 그대로다(os.path.basename('MUTATED_/media/x.mp3') == 'x.mp3'). 즉 이 변이는 관측 가능한 상태를 안 바꾸는 프로브 아티팩트다. 그래서 별도로 파일명 자체를 바꾼 변종(WRONG_<basename>)으로 차단을 확인했다. 재실행 잔여에는 계속 잡힌다",
+   "probe_variant_blocked": false
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-DE-002",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "We have new background music — import 'ambient.mp3' and place a clip from it on audio track 2, starting right where the current music ends.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 새 클립 길이를 말하지 않는다 → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-CX-DE-007",
+   "step": 0,
+   "tool": "add_track",
+   "instruction": "I need a picture-in-picture layer. Create a new video track. | Now add a clip from media_2 on the new track starting at 5s.",
+   "judgment": "FREEDOM",
+   "reason": "지시는 트랙/시퀀스의 용도만 말하고 이름을 못 박지 않는다 → 이름은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-DE-007",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "I need a picture-in-picture layer. Create a new video track. | Now add a clip from media_2 on the new track starting at 5s.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 새 클립 길이를 말하지 않는다 → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-CX-DE-009",
+   "step": 1,
+   "tool": "update_clip",
+   "instruction": "The hero shot — slow it to 0.8x for dramatic weight. | Extend the hero's dialogue audio to match the new duration. | Then link the hero shot with its dialogue so they stay synced.",
+   "judgment": "REAL",
+   "reason": "DURMATCH: 히어로 샷이 0.8x 로 12s→15s 가 된다. '새 길이에 맞춰 대사 오디오를 늘려라' → 15.0s 로 결정",
+   "hardening": "{\"duration_equals\": {\"entity\": \"audio_clip_3\", \"value\": 15.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "text",
+   "scenario": "NLB-v3-DI-AT-008",
+   "step": 1,
+   "tool": "update_caption",
+   "instruction": "One of the V1 clips is rotated sideways — straighten it out. | The caption text got mangled somehow — please fix it.",
+   "judgment": "FREEDOM",
+   "reason": "픽스처의 자막이 '###CORRUPTED###' 로 뭉개져 있고 지시는 '고쳐라' 뿐이다. 원문이 무엇이었는지 지시로 복원되지 않는다 → 대체 텍스트는 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-DI-CO-006",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "The longest V1 clip is stretched way too wide and barely visible — restore both its size and opacity.",
+   "judgment": "REAL",
+   "reason": "진단형: 결함은 scale_x 에만 주입돼 있고 scale_y 는 1.0(정상)이다. '원래대로/정상 크기로 되돌려라' 는 두 축 모두 1.0 을 뜻한다 → scale_y 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_3\", \"field\": \"transform.scale_y\", \"value\": 1.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-DI-CU-002",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "The third clip is completely invisible — can you bring it back? | Now scale the last video clip up to 1.1. | And rotate the shortest video clip by 5 degrees — keep the opacity fix from the first turn.",
+   "judgment": "REAL",
+   "reason": "진단형: 결함은 scale_x 에만 주입돼 있고 scale_y 는 1.0(정상)이다. '원래대로/정상 크기로 되돌려라' 는 두 축 모두 1.0 을 뜻한다 → scale_y 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_3\", \"field\": \"transform.scale_y\", \"value\": 1.1}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-DI-CU-004",
+   "step": 1,
+   "tool": "update_clip",
+   "instruction": "The first clip is weirdly blurry — can you clean it up? | Now scale the longest video clip to 1.15 — don't undo the blur fix.",
+   "judgment": "REAL",
+   "reason": "진단형: 결함은 scale_x 에만 주입돼 있고 scale_y 는 1.0(정상)이다. '원래대로/정상 크기로 되돌려라' 는 두 축 모두 1.0 을 뜻한다 → scale_y 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_2\", \"field\": \"transform.scale_y\", \"value\": 1.15}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "text",
+   "scenario": "NLB-v3-DI-CU-010",
+   "step": 0,
+   "tool": "update_caption",
+   "instruction": "One of the captions has garbled text — can you clean it up? | Now reduce the longest audio's volume by 4 dB. | And keep the caption fix from earlier intact.",
+   "judgment": "FREEDOM",
+   "reason": "위와 동일 — 원문 미지",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-DI-DE-006",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "The first clip is squished way too narrow — restore its normal width, then knock its opacity down to 0.9 to mark the correction.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 x축만 지목한다: '너무 좁게 눌렸다 — 정상 **폭**을 되돌려라'. y축은 지시가 건드리지 않으므로 자유. 정답의 scale_y=1.0 은 무동작 값이다",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-DI-DE-007",
+   "step": 1,
+   "tool": "update_clip",
+   "instruction": "The second clip's duration is way off — set it to 10 seconds, then slide the next clip so it starts right when this one ends, and finally add a cross-dissolve between them.",
+   "judgment": "REAL",
+   "reason": "MOVE: '다음 클립이 이 클립 끝에 붙게 밀어라' — 이동",
+   "hardening": "{\"duration_equals\": {\"entity\": \"video_clip_3\", \"value\": 12.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-DI-DE-007",
+   "step": 2,
+   "tool": "add_transition",
+   "instruction": "The second clip's duration is way off — set it to 10 seconds, then slide the next clip so it starts right when this one ends, and finally add a cross-dissolve between them.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-DI-DE-010",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "The first caption isn't showing up on screen — bring it back, then bump its scale to 1.1 so it reads clearly, and finally bump its font size to 32 so it stays legible.",
+   "judgment": "REAL",
+   "reason": "진단형: 결함은 scale_x 에만 주입돼 있고 scale_y 는 1.0(정상)이다. '원래대로/정상 크기로 되돌려라' 는 두 축 모두 1.0 을 뜻한다 → scale_y 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"caption_1\", \"field\": \"transform.scale_y\", \"value\": 1.1}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-AT-002",
+   "step": 0,
+   "tool": "add_clip",
+   "instruction": "Add a new clip from av_media_1 onto track V1 starting at 00:00:25:00.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 새 클립 길이를 말하지 않는다 → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "in_point",
+   "scenario": "NLB-v3-EX-AT-002",
+   "step": 0,
+   "tool": "add_clip",
+   "instruction": "Add a new clip from av_media_1 onto track V1 starting at 00:00:25:00.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 소스 인점(원본 어느 구간을 쓸지)을 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "out_point",
+   "scenario": "NLB-v3-EX-AT-002",
+   "step": 0,
+   "tool": "add_clip",
+   "instruction": "Add a new clip from av_media_1 onto track V1 starting at 00:00:25:00.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 소스 아웃점을 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-AT-005",
+   "step": 0,
+   "tool": "add_caption",
+   "instruction": "Add a caption with text 'Hello World' at 00:00:05:00.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-EX-AT-007",
+   "step": 1,
+   "tool": "add_track",
+   "instruction": "Split video_clip_2 at 00:00:03:00. | Add a new video track named V3.",
+   "judgment": "REAL",
+   "reason": "지시가 이름을 그대로 부른다: 'Add a new video track named V3'",
+   "hardening": "{\"entity_exists\": {\"type\": \"video_track\", \"where\": {\"field\": \"name\", \"value\": \"V3\"}}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-EX-AT-010",
+   "step": 1,
+   "tool": "import_media",
+   "instruction": "Unlink video_clip_1 from its linked audio. | Import media from /assets/overlay.png into the project. | Set audio_clip_4 volume to -6 dB.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"overlay.png\"}}}, {\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"path\", \"value\": \"/assets/overlay.png\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "probe_variant_blocked": true
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-EX-CO-001",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Set video_clip_1 scale to 1.2 and add a blur effect to it.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_1\", \"field\": \"transform.scale_y\", \"value\": 1.2}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-CO-006",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "Create a new video track called 'overlay_track' and add a clip from av_media_2 at position 0.0s with duration 3.0s on it.",
+   "judgment": "REAL",
+   "reason": "NEWDUR: 'with duration 3.0s'",
+   "hardening": "{\"duration_equals\": {\"entity\": \"$new_video_clip_1\", \"value\": 3.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "text",
+   "scenario": "NLB-v3-EX-CU-001",
+   "step": 0,
+   "tool": "add_caption",
+   "instruction": "Add a caption 'Intro' at timeline 0s with duration 3 seconds. | Change the caption text to 'Introduction' and set font size to 32. Keep it at 0s.",
+   "judgment": "REAL",
+   "reason": "1턴이 'Intro' 로 넣고 2턴이 'Introduction' 으로 바꾼다. 최종 텍스트는 이미 attribute_equals 로 고정 — 중간값은 최종 상태에 안 남는다",
+   "hardening": "불필요(이미 고정)",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-CU-004",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "Create a new video track above the existing ones. | Add a clip from av_media_1 on the new track at 0s. Keep the track.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 새 클립 길이를 말하지 않는다 → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-EX-CU-005",
+   "step": 0,
+   "tool": "import_media",
+   "instruction": "Import 'b-roll.mp4' as new media. | Place a clip from the imported media after video_clip_3. Keep the media in the bin.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"b-roll.mp4\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "note": "프로브의 M5 변이는 경로 앞에 'MUTATED_' 를 붙일 뿐이라 basename 이 그대로다(os.path.basename('MUTATED_/media/x.mp3') == 'x.mp3'). 즉 이 변이는 관측 가능한 상태를 안 바꾸는 프로브 아티팩트다. 그래서 별도로 파일명 자체를 바꾼 변종(WRONG_<basename>)으로 차단을 확인했다. 재실행 잔여에는 계속 잡힌다",
+   "probe_variant_blocked": false
+  },
+  {
+   "cluster": "in_point",
+   "scenario": "NLB-v3-EX-CU-005",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "Import 'b-roll.mp4' as new media. | Place a clip from the imported media after video_clip_3. Keep the media in the bin.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 소스 인점(원본 어느 구간을 쓸지)을 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "out_point",
+   "scenario": "NLB-v3-EX-CU-005",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "Import 'b-roll.mp4' as new media. | Place a clip from the imported media after video_clip_3. Keep the media in the bin.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 소스 아웃점을 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-EX-CU-007",
+   "step": 0,
+   "tool": "add_transition",
+   "instruction": "Add a cross-dissolve transition between video_clip_1 and video_clip_2. | Change the transition duration to 1.5s. Keep the transition type.",
+   "judgment": "REAL",
+   "reason": "정답 1단계가 1.5s 로 덮어쓴다. 최종 길이는 이미 고정",
+   "hardening": "불필요(이미 고정)",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "out_point",
+   "scenario": "NLB-v3-EX-CU-009",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Extend video_clip_5 by 2 seconds. | Add a caption 'The End' at the new end of video_clip_5. Keep the duration change.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 소스 아웃점을 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-CU-009",
+   "step": 1,
+   "tool": "add_caption",
+   "instruction": "Extend video_clip_5 by 2 seconds. | Add a caption 'The End' at the new end of video_clip_5. Keep the duration change.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-CU-010",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Add a caption 'Breaking' at 5s with duration 3 seconds. | Set the caption's font size to 48 for emphasis. Keep the caption. | Slow video_clip_2 to 0.5x to match the dramatic moment. Preserve everything.",
+   "judgment": "GOLD",
+   "reason": "'video_clip_2 를 0.5x 로 늦춰라' 뿐이다. 정답이 함께 넣은 start=5/end=8 은 0.5x 의 기본 동작(10s→20s)과도 어긋나는 정답 고유 값 → 지시가 결정하지 않는다",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-EX-DE-001",
+   "step": 0,
+   "tool": "import_media",
+   "instruction": "Import the file 'interview_b.mp4' as new media, then add a clip from it after video_clip_3.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"interview_b.mp4\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "probe_variant_blocked": true
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-DE-001",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "Import the file 'interview_b.mp4' as new media, then add a clip from it after video_clip_3.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 새 클립 길이를 말하지 않는다 → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "start",
+   "scenario": "NLB-v3-EX-DE-001",
+   "step": 1,
+   "tool": "add_clip",
+   "instruction": "Import the file 'interview_b.mp4' as new media, then add a clip from it after video_clip_3.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 이 클립의 시작 위치를 못 박지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-EX-DE-004",
+   "step": 0,
+   "tool": "add_track",
+   "instruction": "Create a new video track above the existing ones. | Place video_clip_3 onto the new track for a picture-in-picture look.",
+   "judgment": "FREEDOM",
+   "reason": "지시는 트랙/시퀀스의 용도만 말하고 이름을 못 박지 않는다 → 이름은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-DE-008",
+   "step": 0,
+   "tool": "add_clip",
+   "instruction": "Add a 2-second clip from av_media_3 after video_clip_2, then place a cross-dissolve transition between them.",
+   "judgment": "REAL",
+   "reason": "NEWDUR: '2초짜리 클립'",
+   "hardening": "{\"duration_equals\": {\"entity\": \"$new_clip_1\", \"value\": 2.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "in_point",
+   "scenario": "NLB-v3-EX-DE-008",
+   "step": 0,
+   "tool": "add_clip",
+   "instruction": "Add a 2-second clip from av_media_3 after video_clip_2, then place a cross-dissolve transition between them.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 소스 인점(원본 어느 구간을 쓸지)을 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "out_point",
+   "scenario": "NLB-v3-EX-DE-008",
+   "step": 0,
+   "tool": "add_clip",
+   "instruction": "Add a 2-second clip from av_media_3 after video_clip_2, then place a cross-dissolve transition between them.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 소스 아웃점을 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-EX-DE-008",
+   "step": 1,
+   "tool": "add_transition",
+   "instruction": "Add a 2-second clip from av_media_3 after video_clip_2, then place a cross-dissolve transition between them.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-EX-DE-009",
+   "step": 0,
+   "tool": "add_clip",
+   "instruction": "Add a new audio clip from av_media_2 starting at 20s on audio track 2. | Link the new audio clip with video_clip_2. | Extend video_clip_2 by 1 second so it ends at 16s.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 새 클립 길이를 말하지 않는다 → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-EX-DE-010",
+   "step": 2,
+   "tool": "add_transition",
+   "instruction": "Split video_clip_3 at the midpoint. | Add a saturation effect to the second half. | Insert a cross-dissolve transition between the two halves.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-ST-AT-008",
+   "step": 0,
+   "tool": "import_media",
+   "instruction": "Import a new media file called 'overlay.png' into the project bin. | Add a new 3-second video clip using that media right after the longest video clip ends.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"overlay.png\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "note": "프로브의 M5 변이는 경로 앞에 'MUTATED_' 를 붙일 뿐이라 basename 이 그대로다(os.path.basename('MUTATED_/media/x.mp3') == 'x.mp3'). 즉 이 변이는 관측 가능한 상태를 안 바꾸는 프로브 아티팩트다. 그래서 별도로 파일명 자체를 바꾼 변종(WRONG_<basename>)으로 차단을 확인했다. 재실행 잔여에는 계속 잡힌다",
+   "probe_variant_blocked": false
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-ST-AT-008",
+   "step": 1,
+   "tool": "add_track",
+   "instruction": "Import a new media file called 'overlay.png' into the project bin. | Add a new 3-second video clip using that media right after the longest video clip ends.",
+   "judgment": "GOLD",
+   "reason": "지시는 미디어 임포트와 클립 추가만 요구한다. 트랙 생성이 정답 고유 수순",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-AT-008",
+   "step": 2,
+   "tool": "add_clip",
+   "instruction": "Import a new media file called 'overlay.png' into the project bin. | Add a new 3-second video clip using that media right after the longest video clip ends.",
+   "judgment": "REAL",
+   "reason": "NEWDUR: '3초짜리 비디오 클립'",
+   "hardening": "{\"duration_equals\": {\"entity\": \"$new_video_clip_1\", \"value\": 3.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-ST-AT-010",
+   "step": 0,
+   "tool": "add_track",
+   "instruction": "Add a new video track above the track that holds the longest video clip.",
+   "judgment": "FREEDOM",
+   "reason": "지시는 트랙/시퀀스의 용도만 말하고 이름을 못 박지 않는다 → 이름은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-CO-003",
+   "step": 0,
+   "tool": "add_caption",
+   "instruction": "Add a caption 'Hero Shot' over the longest clip on V1 and set that clip's opacity to 0.9.",
+   "judgment": "REAL",
+   "reason": "SPAN: 'V1 최장 클립 위에 걸쳐' — 그 클립 길이 12s 로 결정",
+   "hardening": "{\"duration_equals\": {\"entity\": \"$new_caption_1\", \"value\": 12.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-ST-CO-006",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "On the longest video, set scale to 1.15 and add a contrast effect. | Add a new video track V2, then add a 5-second clip on it starting at the same time as the longest video.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_2\", \"field\": \"transform.scale_y\", \"value\": 1.15}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-ST-CO-006",
+   "step": 2,
+   "tool": "add_track",
+   "instruction": "On the longest video, set scale to 1.15 and add a contrast effect. | Add a new video track V2, then add a 5-second clip on it starting at the same time as the longest video.",
+   "judgment": "REAL",
+   "reason": "지시가 이름을 그대로 부른다: 'Add a new video track V2'",
+   "hardening": "{\"entity_exists\": {\"type\": \"audio_track\", \"where\": {\"field\": \"name\", \"value\": \"V2\"}}}",
+   "gold_passes": false,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-CO-006",
+   "step": 3,
+   "tool": "add_clip",
+   "instruction": "On the longest video, set scale to 1.15 and add a contrast effect. | Add a new video track V2, then add a 5-second clip on it starting at the same time as the longest video.",
+   "judgment": "REAL",
+   "reason": "NEWDUR: '5초짜리 클립'",
+   "hardening": "{\"duration_equals\": {\"entity\": \"$new_video_clip_1\", \"value\": 5.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-ST-CO-009",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "On the longest V1 clip, set scale to 1.1 and add a blur effect. | On the shortest V2 clip, set rotation to 5 degrees and link it with the overlapping audio. | Import a new media file 'accent.mp4' and add a 3-second clip from it after the longest V1 clip.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_3\", \"field\": \"transform.scale_y\", \"value\": 1.1}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-ST-CO-009",
+   "step": 4,
+   "tool": "import_media",
+   "instruction": "On the longest V1 clip, set scale to 1.1 and add a blur effect. | On the shortest V2 clip, set rotation to 5 degrees and link it with the overlapping audio. | Import a new media file 'accent.mp4' and add a 3-second clip from it after the longest V1 clip.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"accent.mp4\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "note": "프로브의 M5 변이는 경로 앞에 'MUTATED_' 를 붙일 뿐이라 basename 이 그대로다(os.path.basename('MUTATED_/media/x.mp3') == 'x.mp3'). 즉 이 변이는 관측 가능한 상태를 안 바꾸는 프로브 아티팩트다. 그래서 별도로 파일명 자체를 바꾼 변종(WRONG_<basename>)으로 차단을 확인했다. 재실행 잔여에는 계속 잡힌다",
+   "probe_variant_blocked": false
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-ST-CU-002",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Find the shortest video clip on track V2 and scale it up to 110%. | Add a caption 'Featured' spanning the timeline of that clip. Don't lose the scale change. | Update the earlier caption's text to 'Intro'. Preserve everything.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_5\", \"field\": \"transform.scale_y\", \"value\": 1.1}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-CU-002",
+   "step": 1,
+   "tool": "add_caption",
+   "instruction": "Find the shortest video clip on track V2 and scale it up to 110%. | Add a caption 'Featured' spanning the timeline of that clip. Don't lose the scale change. | Update the earlier caption's text to 'Intro'. Preserve everything.",
+   "judgment": "REAL",
+   "reason": "SPAN: '그 클립의 구간에 걸쳐' — 5s",
+   "hardening": "{\"duration_equals\": {\"entity\": \"$new_caption_1\", \"value\": 5.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "position",
+   "scenario": "NLB-v3-ST-CU-003",
+   "step": 2,
+   "tool": "split_clip",
+   "instruction": "On timeline 1, mute the audio clip that starts earliest. | Now increase the playback speed of the video clip that ends latest to 1.5x. Preserve the mute. | Split the longest video clip at its midpoint, keeping the earlier two changes intact. | Finally, add a fade-in to the first half of the split. Don't undo anything from before.",
+   "judgment": "REAL",
+   "reason": "'최장 비디오 클립을 중간점에서 분할' — vc_2 는 10..25 이므로 중간점 17.5, 앞쪽 조각 길이 7.5 로 결정",
+   "hardening": "{\"duration_equals\": {\"entity\": \"vc_2\", \"value\": 7.5}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "file_path",
+   "scenario": "NLB-v3-ST-CU-008",
+   "step": 1,
+   "tool": "import_media",
+   "instruction": "Find the video clip with the longest duration and add a saturation effect to it. | Import a new media file 'overlay.png' into the project bin. Preserve the effect. | Add a 2-second clip from that media on V2 at the start of the longest V1 clip. Keep everything.",
+   "judgment": "REAL",
+   "reason": "지시가 파일명을 따옴표로 그대로 부른다 → 임포트되는 미디어 이름이 결정된다",
+   "hardening": "[{\"entity_exists\": {\"type\": \"media\", \"where\": {\"field\": \"name\", \"value\": \"overlay.png\"}}}]",
+   "gold_passes": true,
+   "variant_blocked": true,
+   "note": "프로브의 M5 변이는 경로 앞에 'MUTATED_' 를 붙일 뿐이라 basename 이 그대로다(os.path.basename('MUTATED_/media/x.mp3') == 'x.mp3'). 즉 이 변이는 관측 가능한 상태를 안 바꾸는 프로브 아티팩트다. 그래서 별도로 파일명 자체를 바꾼 변종(WRONG_<basename>)으로 차단을 확인했다. 재실행 잔여에는 계속 잡힌다",
+   "probe_variant_blocked": false
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-ST-CU-009",
+   "step": 0,
+   "tool": "add_track",
+   "instruction": "Add a new video track named V2. | Now set the longest video clip's speed to 1.25x.",
+   "judgment": "REAL",
+   "reason": "지시가 이름을 그대로 부른다: 'Add a new video track named V2'",
+   "hardening": "{\"entity_exists\": {\"type\": \"video_track\", \"where\": {\"field\": \"name\", \"value\": \"V2\"}}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "text",
+   "scenario": "NLB-v3-ST-CU-010",
+   "step": 1,
+   "tool": "add_caption",
+   "instruction": "On timeline 1, mute the audio clip that lines up with the longest video clip. | Add a caption 'Muted Section' at that video clip's start. Keep the mute. | Remove the caption you just added and add one saying 'Silent' instead. Preserve the mute.",
+   "judgment": "REAL",
+   "reason": "정답이 이 캡션을 뒤에서 지우고 'Silent' 로 다시 넣는다 — 중간값이라 최종 상태에서 관측되지 않는다",
+   "hardening": "불필요(이미 고정)",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-DE-001",
+   "step": 1,
+   "tool": "update_clip",
+   "instruction": "Double the playback speed of the longest video clip on the timeline, and shift the clip that follows it so there is no gap.",
+   "judgment": "REAL",
+   "reason": "MOVE: '뒤따르는 클립을 밀어 빈틈을 없애라' — 이동",
+   "hardening": "{\"duration_equals\": {\"entity\": \"video_clip_3\", \"value\": 5.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-ST-DE-002",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Rotate the first V1 clip by 20 degrees and scale it up to 1.2 to fill the frame after rotation.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_1\", \"field\": \"transform.scale_y\", \"value\": 1.2}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-ST-DE-003",
+   "step": 1,
+   "tool": "add_transition",
+   "instruction": "Split the longest clip on V1 at its midpoint. | Add a cross-dissolve transition between the two resulting halves.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "start",
+   "scenario": "NLB-v3-ST-DE-004",
+   "step": 3,
+   "tool": "update_clip",
+   "instruction": "Remove the first V1 clip from the timeline. | Shift all following clips earlier so there is no gap.",
+   "judgment": "GOLD",
+   "reason": "정답은 지시에 없는 audio_clip_1 삭제까지 해서 ac_2 를 0 으로 뒀다. ac_2 시작점은 지시가 결정하지 않는다",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-DE-004",
+   "step": 4,
+   "tool": "update_clip",
+   "instruction": "Remove the first V1 clip from the timeline. | Shift all following clips earlier so there is no gap.",
+   "judgment": "REAL",
+   "reason": "MOVE: '뒤따르는 클립을 모두 앞으로' — 이동",
+   "hardening": "{\"duration_equals\": {\"entity\": \"video_clip_3\", \"value\": 5.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-DE-004",
+   "step": 5,
+   "tool": "update_clip",
+   "instruction": "Remove the first V1 clip from the timeline. | Shift all following clips earlier so there is no gap.",
+   "judgment": "REAL",
+   "reason": "MOVE: '뒤따르는 클립을 모두 앞으로' — 이동",
+   "hardening": "{\"duration_equals\": {\"entity\": \"audio_clip_3\", \"value\": 5.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-DE-005",
+   "step": 2,
+   "tool": "add_caption",
+   "instruction": "Mute the longest audio clip (the BGM). | Raise the volume of the longest V1 clip's audio by 4 dB to compensate, and add a caption 'No BGM' at its start.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 자막 길이를 말하지 않는다(시작 위치만 준다) → 끝점은 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "scale_y",
+   "scenario": "NLB-v3-ST-DE-006",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Scale the longest video clip down to 0.7, and set its x position to 0 and y position to 0 so it stays centered.",
+   "judgment": "REAL",
+   "reason": "지시가 축을 나누지 않고 '스케일 N' 을 요구한다 = 균등 배율 → scale_y 도 N 으로 결정",
+   "hardening": "{\"attribute_equals\": {\"entity\": \"video_clip_2\", \"field\": \"transform.scale_y\", \"value\": 0.7}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "duration",
+   "scenario": "NLB-v3-ST-DE-007",
+   "step": 2,
+   "tool": "add_transition",
+   "instruction": "Speed up the first V1 clip to 2x. | Shift the next V1 clip earlier to close the resulting gap. | Add a cross-dissolve transition at the new boundary between those two clips.",
+   "judgment": "FREEDOM",
+   "reason": "지시가 트랜지션 길이를 말하지 않는다 → 자유",
+   "hardening": "없음",
+   "gold_passes": null,
+   "variant_blocked": null
+  },
+  {
+   "cluster": "name",
+   "scenario": "NLB-v3-ST-DE-009",
+   "step": 0,
+   "tool": "add_track",
+   "instruction": "Add a new video track V3. | Move the shortest V2 clip to the new track. | Add a blur effect to that moved clip since it's now a standalone overlay.",
+   "judgment": "REAL",
+   "reason": "지시가 이름을 그대로 부른다: 'Add a new video track V3'",
+   "hardening": "{\"entity_exists\": {\"type\": \"video_track\", \"where\": {\"field\": \"name\", \"value\": \"V3\"}}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  },
+  {
+   "cluster": "end",
+   "scenario": "NLB-v3-ST-DE-010",
+   "step": 0,
+   "tool": "update_clip",
+   "instruction": "Speed up the shortest V2 clip to 1.5x and shift its start later so it still ends at the same moment.",
+   "judgment": "REAL",
+   "reason": "ENDFIX: '같은 순간에 끝나도록 시작을 뒤로' — 끝점 고정이 지시 본문",
+   "hardening": "{\"position_equals\": {\"entity\": \"video_clip_5\", \"end\": 25.0}}",
+   "gold_passes": true,
+   "variant_blocked": true
+  }
+ ]
+}

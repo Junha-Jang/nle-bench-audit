@@ -1,0 +1,53 @@
+{
+ "files": {
+  "cases/NLB-v3-CX-AT-003/scenario_473d3b54ecd4.yaml": {
+   "differs_only_at": "metadata/annotators/#",
+   "identical_to_source": false,
+   "sha256_in_this_repository": "f36a63c22bd3ba8116420323f04598a20506a2252abed9155033c75c4f669e99",
+   "source_sha256": "473d3b54ecd431573360b6d4cad7627994a72948f9eff3a51671f1ef3fc1b4c3"
+  },
+  "cases/NLB-v3-CX-CO-002/scenario_6a6dd54230aa.yaml": {
+   "differs_only_at": "metadata/annotators/#",
+   "identical_to_source": false,
+   "sha256_in_this_repository": "cc0a8fcfda47b099668d00273baddbc8450652170a3332274de8716e557d8754",
+   "source_sha256": "6a6dd54230aa2068a5fe6e78c6911a23b8a12accd3e9488507fb8ef1269733eb"
+  },
+  "cases/NLB-v3-CX-CO-002/scenario_b0c48f988109.yaml": {
+   "differs_only_at": "metadata/annotators/#",
+   "identical_to_source": false,
+   "sha256_in_this_repository": "487925e909ae8ec5cb2144973cdd0e58e6a21572f78fb6a0d905db96ea22e492",
+   "source_sha256": "b0c48f98810915e4405ec21308b69b77cb661c6756276c799fa1c288ae7025e6"
+  },
+  "cases/NLB-v3-EX-CO-004/scenario_published.yaml": {
+   "differs_only_at": null,
+   "identical_to_source": true,
+   "sha256_in_this_repository": "fd4df81225fb23c05828a4fac38df5046a8e19c95c5c244d1f870cd7064dd4a8",
+   "source_sha256": "fd4df81225fb23c05828a4fac38df5046a8e19c95c5c244d1f870cd7064dd4a8"
+  },
+  "cases/NLB-v3-EX-CO-009/scenario_published.yaml": {
+   "differs_only_at": null,
+   "identical_to_source": true,
+   "sha256_in_this_repository": "acb4a944282b009daea3521ba3ae7c8a7da5efda578c91706358a89d2bd9abd8",
+   "source_sha256": "acb4a944282b009daea3521ba3ae7c8a7da5efda578c91706358a89d2bd9abd8"
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_25c92c33cfab.yaml": {
+   "differs_only_at": "metadata/annotators/#",
+   "identical_to_source": false,
+   "sha256_in_this_repository": "dbf7332b8529bbc733382bab570181eec79cacdba3618e712ec24327a2729f58",
+   "source_sha256": "25c92c33cfab6915b53bc94beb0c9e6607b5ba25465ddc6f4ab69b878053fb43"
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_61b686d4ec14.yaml": {
+   "differs_only_at": "metadata/annotators/#",
+   "identical_to_source": false,
+   "sha256_in_this_repository": "29e0a94ae1839e6f106a9b0c4448780f5b52e2a04b7b30b78cd2dee6e42156c5",
+   "source_sha256": "61b686d4ec14e36fd8e78bc486eb2d00305f7566c7311071c4bddbea81986c0d"
+  },
+  "cases/NLB-v3-EX-DE-008/scenario_abf8dc2d3c14.yaml": {
+   "differs_only_at": "metadata/annotators/#",
+   "identical_to_source": false,
+   "sha256_in_this_repository": "3f5a78da226d174abc5367c394b88eb832ca52eb432cf871aa721faceb5d13f6",
+   "source_sha256": "abf8dc2d3c14b686871ffc9ce908d3819579e183e7316516a0306549960552b1"
+  }
+ },
+ "what": "the scenario files of the worked cases: the hash of each source file, which is the identity the 2026-10 runs and expected.json record, and the hash of the file held here. Where they differ, the file differs from its source in one metadata value, the annotator's account name, replaced by a placeholder; fixture, constraints and turns are the same"
+}

@@ -1,0 +1,48 @@
+{
+ "identities": {
+  "detector-judged records": {
+   "sum_of": [
+    "disposition_D"
+   ],
+   "total": 5484
+  },
+  "feasible denominator = feasible state-rejudged + feasible retained failures": {
+   "equals": "feasible",
+   "sum_of": [
+    "feasible_disposition_S",
+    "feasible_disposition_FS"
+   ],
+   "total": 23520
+  },
+  "records processed = state-rejudged + detector-judged + retained failures": {
+   "equals": "records",
+   "sum_of": [
+    "disposition_S",
+    "disposition_D",
+    "disposition_FS",
+    "disposition_FD"
+   ],
+   "total": 29400
+  },
+  "retained failures = without a stored state + without detector fields": {
+   "sum_of": [
+    "disposition_FS",
+    "disposition_FD"
+   ],
+   "total": 2346
+  },
+  "retained failures inside the feasible denominator": {
+   "sum_of": [
+    "feasible_disposition_FS"
+   ],
+   "total": 1950
+  },
+  "state-rejudged records": {
+   "sum_of": [
+    "disposition_S"
+   ],
+   "total": 21570
+  }
+ },
+ "what": "How the processed records of the dev split divide. `tables` recounts each part from rejudging/per_record.csv.gz, which holds the dev-split records only, and checks the sums. These are identities of the stored verdict table, not new results. The totals were counted by the maintainer from the full per-record file of the source package, restricted to the dev split; the totals over both splits are the ones the accepted 2026-10 analysis records (rejudging/rejudging.json, coverage)."
+}
